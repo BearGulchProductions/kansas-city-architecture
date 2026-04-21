@@ -34,6 +34,10 @@
           <li><a href="buildings/one-kc-place.html">One KC Place</a></li>
           <li><a href="buildings/kauffman-center.html">Kauffman Center</a></li>
           <li><a href="buildings/bartle-hall.html">Bartle Hall</a></li>
+          <li><a href="buildings/t-mobile-center.html">T-Mobile Center</a></li>
+          <li class="nav-era-label"><a href="buildings/stadiums.html">Stadiums</a></li>
+          <li><a href="buildings/arrowhead-stadium.html">Arrowhead Stadium</a></li>
+          <li><a href="buildings/kauffman-stadium.html">Kauffman Stadium</a></li>
           <li><a href="buildings/cpkc-stadium.html">CPKC Stadium</a></li>
         </ul>
       </li>
@@ -42,10 +46,13 @@
           <li><a href="fountains.html">Fountains</a></li>
           <li><a href="plaza.html">The Plaza</a></li>
           <li><a href="spaces/parks-boulevards.html">Parks &amp; Blvds</a></li>
+          <li><a href="overlooks.html">City Overlooks</a></li>
         </ul>
       </li>
       <li class="has-dropdown"><a href="history.html">History</a>
         <ul>
+          <li><a href="history/founding.html">The Founding &mdash; 1820s&ndash;80s</a></li>
+          <li><a href="history/westport.html">Westport &amp; the Civil War</a></li>
           <li><a href="history/boom.html">The Boom &mdash; 1920s&ndash;30s</a></li>
           <li><a href="history/pendergast.html">Pendergast Machine</a></li>
           <li><a href="history/truman.html">Truman</a></li>
@@ -58,27 +65,52 @@
           <li><a href="neighborhoods/midtown.html">Midtown</a></li>
           <li><a href="neighborhoods/crossroads.html">Crossroads</a></li>
           <li><a href="neighborhoods/18th-vine.html">18th &amp; Vine</a></li>
+          <li><a href="neighborhoods/west-bottoms.html">West Bottoms</a></li>
+          <li><a href="neighborhoods/westport.html">Westport</a></li>
         </ul>
       </li>
       <li><a href="visit.html">Visit</a></li>
     </ul>
   </nav>
 
-  <header>
-    <div class="deco-bar top-bar"></div>
-    <div class="header-inner">
-      <div class="sunburst" aria-hidden="true"></div>
-      <p class="header-eyebrow">Look Up, Kansas City</p>
+  <div class="detail-hero">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/JC_Nichols_Memorial_Fountain_in_Kansas_City.JPG"
+         alt="J.C. Nichols Memorial Fountain, Kansas City"
+         style="object-position: center 30%;" />
+    <div class="detail-hero-overlay">
+      <span class="eyebrow">Look Up, Kansas City &bull; Spaces</span>
       <h1>City of<br /><span>Fountains</span></h1>
-      <p class="header-sub">More Fountains Per Capita Than Any City Except Rome</p>
     </div>
-    <div class="deco-bar bottom-bar"></div>
-  </header>
+  </div>
 
   <main>
     <section class="section-fountains" id="fountains">
       <div class="container">
         <div class="deco-diamond" aria-hidden="true">◆</div>
+
+        <div class="fountain-stage" aria-hidden="true">
+          <svg class="fountain-svg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Basin -->
+            <ellipse cx="200" cy="195" rx="130" ry="18" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+            <ellipse cx="200" cy="195" rx="105" ry="13" fill="rgba(201,168,76,0.07)"/>
+            <!-- Central jet -->
+            <line class="jet-center" x1="200" y1="195" x2="200" y2="30" stroke="#E8C96A" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+            <!-- Left arcs -->
+            <path class="arc-l1" d="M 200 190 Q 155 120 120 170" fill="none" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+            <path class="arc-l2" d="M 200 190 Q 140 90 90 155" fill="none" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+            <!-- Right arcs -->
+            <path class="arc-r1" d="M 200 190 Q 245 120 280 170" fill="none" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+            <path class="arc-r2" d="M 200 190 Q 260 90 310 155" fill="none" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+            <!-- Droplets on central jet -->
+            <circle class="drop-c1" cx="200" cy="60" r="2.5" fill="#E8C96A" opacity="0"/>
+            <circle class="drop-c2" cx="200" cy="100" r="2" fill="#E8C96A" opacity="0"/>
+            <circle class="drop-c3" cx="200" cy="140" r="1.8" fill="#C9A84C" opacity="0"/>
+            <!-- Splash droplets -->
+            <circle class="splash-l" cx="122" cy="172" r="2" fill="#C9A84C" opacity="0"/>
+            <circle class="splash-r" cx="278" cy="172" r="2" fill="#C9A84C" opacity="0"/>
+          </svg>
+        </div>
+
         <p>
           Kansas City is home to more than 200 public fountains — more per capita than
           any city in the world except Rome. This reputation was not accidental. Developer

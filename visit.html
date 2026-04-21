@@ -35,6 +35,10 @@
           <li><a href="buildings/one-kc-place.html">One KC Place</a></li>
           <li><a href="buildings/kauffman-center.html">Kauffman Center</a></li>
           <li><a href="buildings/bartle-hall.html">Bartle Hall</a></li>
+          <li><a href="buildings/t-mobile-center.html">T-Mobile Center</a></li>
+          <li class="nav-era-label"><a href="buildings/stadiums.html">Stadiums</a></li>
+          <li><a href="buildings/arrowhead-stadium.html">Arrowhead Stadium</a></li>
+          <li><a href="buildings/kauffman-stadium.html">Kauffman Stadium</a></li>
           <li><a href="buildings/cpkc-stadium.html">CPKC Stadium</a></li>
         </ul>
       </li>
@@ -43,10 +47,13 @@
           <li><a href="fountains.html">Fountains</a></li>
           <li><a href="plaza.html">The Plaza</a></li>
           <li><a href="spaces/parks-boulevards.html">Parks &amp; Blvds</a></li>
+          <li><a href="overlooks.html">City Overlooks</a></li>
         </ul>
       </li>
       <li class="has-dropdown"><a href="history.html">History</a>
         <ul>
+          <li><a href="history/founding.html">The Founding &mdash; 1820s&ndash;80s</a></li>
+          <li><a href="history/westport.html">Westport &amp; the Civil War</a></li>
           <li><a href="history/boom.html">The Boom &mdash; 1920s&ndash;30s</a></li>
           <li><a href="history/pendergast.html">Pendergast Machine</a></li>
           <li><a href="history/truman.html">Truman</a></li>
@@ -59,6 +66,8 @@
           <li><a href="neighborhoods/midtown.html">Midtown</a></li>
           <li><a href="neighborhoods/crossroads.html">Crossroads</a></li>
           <li><a href="neighborhoods/18th-vine.html">18th &amp; Vine</a></li>
+          <li><a href="neighborhoods/west-bottoms.html">West Bottoms</a></li>
+          <li><a href="neighborhoods/westport.html">Westport</a></li>
         </ul>
       </li>
       <li><a href="visit.html">Visit</a></li>
@@ -125,7 +134,13 @@
       <div class="visit-map-section">
         <h2>Landmarks Map</h2>
         <p class="visit-map-intro">Key sites across the city — click any marker for address and context.</p>
-        <div id="kc-map"></div>
+        <div id="kc-map">
+          <div id="kc-map-fallback">
+            <span style="font-size:1.4rem;opacity:0.4;">◆</span>
+            <span>Map requires an internet connection to load</span>
+            <span style="opacity:0.5;">Landmarks listed below by district</span>
+          </div>
+        </div>
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
@@ -320,6 +335,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/OAjU=" crossorigin=""></script>
   <script>
+    try {
     const map = L.map('kc-map', { scrollWheelZoom: false }).setView([39.075, -94.586], 13);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -351,6 +367,10 @@
         .bindPopup('<strong>' + lm.name + '</strong><br><span style="opacity:0.75;font-size:0.85em;">' + lm.note + '</span>')
         .addTo(map);
     });
+    } catch(e) {
+      const fb = document.getElementById('kc-map-fallback');
+      if (fb) fb.style.display = 'flex';
+    }
   </script>
 </body>
 </html>
