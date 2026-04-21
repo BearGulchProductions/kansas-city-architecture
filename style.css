@@ -312,39 +312,142 @@ p {
   border-top: 1px solid rgba(201,168,76,0.15);
 }
 
+/* ── Era Chapter Tiles (buildings hub) ── */
+.era-chapter {
+  display: block;
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--cream);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.era-chapter img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: brightness(0.45);
+}
+.era-chapter:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.55);
+}
+.era-chapter-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.45) 100%);
+}
+.era-chapter-eyebrow {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.era-chapter h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.04em;
+}
+.era-chapter p {
+  max-width: 560px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: rgba(245,239,224,0.78);
+  margin-bottom: 1.2rem;
+}
+.era-chapter-cta {
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(201,168,76,0.45);
+  padding-bottom: 0.2rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+.era-chapter:hover .era-chapter-cta {
+  color: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
+/* ── Fountain Deco Header ── */
+.fountain-deco-header { display: flex; justify-content: center; margin-bottom: 0.5rem; }
+.fountain-deco-svg { width: 420px; max-width: 100%; height: auto; }
+
 /* ── Fountain Animation ── */
 .fountain-stage {
   display: flex;
   justify-content: center;
-  margin: 0.5rem 0 1.5rem;
-  opacity: 0.85;
+  margin: 0.25rem 0 1.75rem;
+  opacity: 0.9;
 }
-.fountain-svg { width: 260px; height: auto; }
-.jet-center { animation: jet-pulse 2.4s ease-in-out infinite; }
-.arc-l1, .arc-r1 { animation: arc-pulse 2.4s ease-in-out 0.15s infinite; }
-.arc-l2, .arc-r2 { animation: arc-pulse 2.4s ease-in-out 0.3s infinite; }
-.drop-c1 { animation: drop-fall 2.4s ease-in 0.3s infinite; }
-.drop-c2 { animation: drop-fall 2.4s ease-in 0.6s infinite; }
-.drop-c3 { animation: drop-fall 2.4s ease-in 0.9s infinite; }
-.splash-l, .splash-r { animation: splash 2.4s ease-out 1.1s infinite; }
+.fountain-svg { width: 420px; max-width: 100%; height: auto; }
+
+/* Central jet */
+.jet-center { animation: jet-pulse 2.8s ease-in-out infinite; }
+/* Top-tier arcs from upper basin */
+.arc-top-l1, .arc-top-r1 { animation: arc-pulse 2.8s ease-in-out 0.1s infinite; }
+.arc-top-l2, .arc-top-r2 { animation: arc-pulse 2.8s ease-in-out 0.3s infinite; }
+/* Mid-tier arcs from middle basin */
+.arc-mid-l, .arc-mid-r { animation: arc-pulse 2.8s ease-in-out 0.5s infinite; }
+/* Outer figure arcs (4 equestrian positions) */
+.arc-fig-l1, .arc-fig-r1 { animation: outer-arc 3.2s ease-in-out 0.2s infinite; }
+.arc-fig-l2, .arc-fig-r2 { animation: outer-arc 3.2s ease-in-out 0.6s infinite; }
+/* Droplets on central jet */
+.drop-c1 { animation: drop-fall 2.8s ease-in 0.2s infinite; }
+.drop-c2 { animation: drop-fall 2.8s ease-in 0.6s infinite; }
+.drop-c3 { animation: drop-fall 2.8s ease-in 1.0s infinite; }
+.drop-c4 { animation: drop-fall 2.8s ease-in 1.4s infinite; }
+/* Splashes at arc landing points */
+.splash-fig-l1, .splash-fig-r1 { animation: splash 3.2s ease-out 1.0s infinite; }
+.splash-top-l,  .splash-top-r   { animation: splash 2.8s ease-out 0.8s infinite; }
+.splash-wide-l, .splash-wide-r  { animation: splash 2.8s ease-out 1.1s infinite; }
+/* Ripple rings in outer basin */
+.ripple-ring { transform-box: fill-box; transform-origin: center; }
+.ripple-1 { animation: ripple-expand 3.6s ease-out 0.0s infinite; }
+.ripple-2 { animation: ripple-expand 3.6s ease-out 1.2s infinite; }
+.ripple-3 { animation: ripple-expand 3.6s ease-out 2.4s infinite; }
+
 @keyframes jet-pulse {
-  0%, 100% { opacity: 0.85; stroke-width: 1.8; }
-  50%       { opacity: 1;    stroke-width: 2.2; }
+  0%, 100% { opacity: 0.85; stroke-width: 2;   }
+  50%       { opacity: 1;    stroke-width: 2.6; }
 }
 @keyframes arc-pulse {
-  0%, 100% { opacity: 0.6; }
-  40%      { opacity: 0.9; }
-  80%      { opacity: 0.5; }
+  0%, 100% { opacity: 0.55; }
+  35%      { opacity: 0.95; }
+  75%      { opacity: 0.45; }
+}
+@keyframes outer-arc {
+  0%, 100% { opacity: 0.45; }
+  30%      { opacity: 0.85; }
+  70%      { opacity: 0.35; }
 }
 @keyframes drop-fall {
-  0%   { opacity: 0;   transform: translateY(0); }
-  20%  { opacity: 0.9; }
-  100% { opacity: 0;   transform: translateY(40px); }
+  0%   { opacity: 0;    transform: translateY(0);    }
+  12%  { opacity: 0.95;                              }
+  100% { opacity: 0;    transform: translateY(60px); }
 }
 @keyframes splash {
-  0%   { opacity: 0; }
-  60%  { opacity: 0.8; }
-  100% { opacity: 0; }
+  0%   { opacity: 0;    }
+  50%  { opacity: 0.75; }
+  100% { opacity: 0;    }
+}
+@keyframes ripple-expand {
+  0%   { opacity: 0;    transform: scale(0.08); }
+  18%  { opacity: 0.5;  transform: scale(0.3);  }
+  65%  { opacity: 0.25; transform: scale(0.72); }
+  100% { opacity: 0;    transform: scale(1);    }
 }
 
 /* ── Style Section ── */
