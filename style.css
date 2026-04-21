@@ -140,7 +140,7 @@ nav > ul > li:hover > a { color: var(--gold); }
   opacity: 0.5;
 }
 
-nav ul ul {
+nav > ul > li > ul {
   display: none;
   position: absolute;
   top: 100%;
@@ -156,7 +156,7 @@ nav ul ul {
   box-shadow: 0 8px 24px rgba(0,0,0,0.7);
 }
 
-nav ul ul li a {
+nav > ul > li > ul > li > a {
   display: block;
   padding: 0.55rem 1.2rem;
   color: var(--warm-grey);
@@ -169,7 +169,7 @@ nav ul ul li a {
   transition: color 0.2s, padding-left 0.12s;
 }
 
-nav ul ul li a:hover {
+nav > ul > li > ul > li > a:hover {
   color: var(--gold);
   padding-left: 1.55rem;
 }
