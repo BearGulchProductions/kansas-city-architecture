@@ -1028,6 +1028,24 @@ a.hub-card:hover .hub-card-img { filter: brightness(0.55) sepia(20%); }
   white-space: nowrap;
 }
 
+/* ── Nav Era Labels ── */
+.nav-era-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 0.45rem 1.2rem 0.1rem;
+  opacity: 0.7;
+  pointer-events: none;
+  cursor: default;
+  border-top: 1px solid rgba(201,168,76,0.15);
+  margin-top: 0.15rem;
+}
+.nav-era-label:first-child {
+  border-top: none;
+  margin-top: 0;
+}
+
 /* ── Credits Page ── */
 .credits-group {
   margin-bottom: 3rem;
