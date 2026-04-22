@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1A1610" />
+  <title>Plaza Lights — The Night After Thanksgiving — Look Up, Kansas City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Poiret+One&family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=11f" />
+  <meta property="og:title" content="Plaza Lights — Look Up, Kansas City" />
+  <meta property="og:description" content="A Kansas City tradition since 1930. The Plaza lights come on every Thanksgiving Night and stay lit through mid-January." />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/1/12/Country_Club_Plaza_1_Kansas_City_MO.jpg" />
+  <meta property="og:type" content="website" />
+</head>
+<body>
+
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation" />
+  <label for="mobile-nav-toggle" class="mobile-nav-button" aria-hidden="true"><span></span><span></span><span></span></label>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="has-dropdown"><a href="styles.html">Styles</a>
+        <ul>
+          <li><a href="art-deco.html">Art Deco</a></li>
+          <li><a href="styles/spanish-colonial.html">Spanish Colonial</a></li>
+          <li><a href="styles/beaux-arts.html">Beaux Arts</a></li>
+          <li><a href="styles/gothic-revival.html">Gothic Revival</a></li>
+          <li><a href="styles/streamline-moderne.html">Streamline Moderne</a></li>
+          <li><a href="styles/contemporary.html">Contemporary</a></li>
+          <li><a href="styles/materials.html">Materials &amp; Details</a></li>
+          <li><a href="glossary.html">Field Guide</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="buildings.html">Buildings</a>
+        <ul>
+          <li><a href="buildings/boom-era.html">Boom Era &mdash; 1900s&ndash;40s</a></li>
+          <li><a href="buildings/modern-era.html">Modern Era</a></li>
+          <li><a href="buildings/stadiums.html">Stadiums</a></li>
+          <li><a href="buildings/compare.html">Compare Heights</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="fountains.html">Fountains</a>
+        <ul>
+          <li><a href="fountains.html">All Fountains</a></li>
+          <li><a href="fountains/jc-nichols.html">J.C. Nichols Memorial</a></li>
+          <li><a href="fountains/meyer-circle.html">Meyer Circle Sea Horse</a></li>
+          <li><a href="fountains/bacchus.html">Bacchus</a></li>
+          <li><a href="fountains/pomona.html">Pomona</a></li>
+          <li><a href="fountains/volker.html">Volker</a></li>
+          <li><a href="fountains/firefighters.html">Firefighters</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="spaces.html">The City</a>
+        <ul>
+          <li><a href="plaza.html">The Plaza</a></li>
+          <li><a href="spaces/parks-boulevards.html">Parks &amp; Blvds</a></li>
+          <li><a href="spaces/ward-parkway.html">Ward Parkway</a></li>
+          <li><a href="overlooks.html">City Overlooks</a></li>
+          <li><a href="plaza-lights.html">Plaza Lights</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="neighborhoods.html">Neighborhoods</a>
+        <ul>
+          <li><a href="neighborhoods/downtown.html">Downtown</a></li>
+          <li><a href="neighborhoods/midtown.html">Midtown</a></li>
+          <li><a href="neighborhoods/crossroads.html">Crossroads</a></li>
+          <li><a href="neighborhoods/18th-vine.html">18th &amp; Vine</a></li>
+          <li><a href="neighborhoods/west-bottoms.html">West Bottoms</a></li>
+          <li><a href="neighborhoods/westport.html">Westport</a></li>
+          <li><a href="neighborhoods/brookside.html">Brookside</a></li>
+          <li><a href="neighborhoods/quality-hill.html">Quality Hill</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="start-here.html">Reading</a>
+        <ul>
+          <li><a href="start-here.html">Start Here</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li class="dropdown-divider" aria-hidden="true"></li>
+          <li><a href="reading.html">Further Reading</a></li>
+          <li><a href="sources.html">Sources</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="visit.html">Visit</a>
+        <ul>
+          <li><a href="visit/walking-tours.html">Walking Tours</a></li>
+          <li><a href="map.html">The Map</a></li>
+          <li><a href="visit/events.html">Events</a></li>
+          <li><a href="visit/world-cup.html">World Cup 2026</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Plaza Lights signature hero: SVG + toggle that flips everything on -->
+  <input type="checkbox" id="plaza-lights-on" class="plaza-lights-input" aria-hidden="true" />
+
+  <section class="plaza-lights-hero">
+    <div class="plaza-lights-overlay">
+      <span class="eyebrow">A Kansas City Tradition &bull; Since 1930</span>
+      <h1>Plaza Lights<br /><span>The Night After Thanksgiving</span></h1>
+      <p class="homepage-tagline">The switch gets flipped. The city shows up to watch.</p>
+    </div>
+
+    <div class="plaza-lights-toggle-wrap">
+      <fieldset class="plaza-lights-toggle">
+        <legend class="visually-hidden">Toggle the Plaza lights</legend>
+        <label for="plaza-lights-on" class="plaza-lights-toggle-label">
+          <span class="plaza-lights-toggle-box" aria-hidden="true"></span>
+          <span class="plaza-lights-toggle-text plaza-lights-toggle-off">Turn on the lights</span>
+          <span class="plaza-lights-toggle-text plaza-lights-toggle-on">The Plaza is lit</span>
+        </label>
+      </fieldset>
+    </div>
+
+    <div class="plaza-lights-svg-container">
+      <svg class="plaza-lights-svg" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax meet" role="img" aria-labelledby="pl-title pl-desc" xmlns="http://www.w3.org/2000/svg">
+        <title id="pl-title">Country Club Plaza at Thanksgiving Night</title>
+        <desc id="pl-desc">Four iconic Plaza structures in Spanish Colonial silhouette — Giralda Tower replica, the Mill Creek Clock Tower, a dome-topped Plaza building, and a wide balconied storefront block. Toggle to illuminate them with the annual Christmas light strings.</desc>
+
+        <defs>
+          <linearGradient id="pl-sky-dusk" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#3A2855"/>
+            <stop offset="55%"  stop-color="#4E2F4A"/>
+            <stop offset="100%" stop-color="#2A1F35"/>
+          </linearGradient>
+          <linearGradient id="pl-sky-night" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#070D22"/>
+            <stop offset="50%"  stop-color="#0E1530"/>
+            <stop offset="100%" stop-color="#05081A"/>
+          </linearGradient>
+          <linearGradient id="pl-ground" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="rgba(12,8,4,0)"/>
+            <stop offset="100%" stop-color="rgba(12,8,4,0.95)"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Sky: dusk by default, shifts to night when lights toggled on -->
+        <rect class="pl-sky pl-sky-dusk" x="0" y="0" width="1600" height="600" fill="url(#pl-sky-dusk)"/>
+        <rect class="pl-sky pl-sky-night" x="0" y="0" width="1600" height="600" fill="url(#pl-sky-night)"/>
+
+        <!-- Star field (hidden until night) -->
+        <g class="pl-stars" aria-hidden="true">
+          <circle cx="120"  cy="60"  r="1.1" fill="#F5EFE0" style="--tw: 0.2s"/>
+          <circle cx="230"  cy="40"  r="0.9" fill="#F5EFE0" style="--tw: 1.1s"/>
+          <circle cx="340"  cy="75"  r="1.3" fill="#F5EFE0" style="--tw: 2.3s"/>
+          <circle cx="470"  cy="48"  r="0.9" fill="#F5EFE0" style="--tw: 0.8s"/>
+          <circle cx="590"  cy="30"  r="1.1" fill="#F5EFE0" style="--tw: 1.6s"/>
+          <circle cx="710"  cy="68"  r="1.0" fill="#F5EFE0" style="--tw: 2.5s"/>
+          <circle cx="820"  cy="42"  r="1.3" fill="#F5EFE0" style="--tw: 0.4s"/>
+          <circle cx="940"  cy="55"  r="0.9" fill="#F5EFE0" style="--tw: 1.9s"/>
+          <circle cx="1060" cy="35"  r="1.1" fill="#F5EFE0" style="--tw: 2.7s"/>
+          <circle cx="1190" cy="65"  r="1.0" fill="#F5EFE0" style="--tw: 0.7s"/>
+          <circle cx="1310" cy="45"  r="1.2" fill="#F5EFE0" style="--tw: 1.3s"/>
+          <circle cx="1420" cy="75"  r="0.9" fill="#F5EFE0" style="--tw: 2.1s"/>
+          <circle cx="1520" cy="50"  r="1.1" fill="#F5EFE0" style="--tw: 0.5s"/>
+        </g>
+
+        <!-- Atmospheric ground warmth -->
+        <ellipse cx="800" cy="580" rx="760" ry="110" fill="rgba(184,106,59,0.1)"/>
+
+        <!-- ─── PLAZA BUILDINGS (Spanish Colonial palette) ─── -->
+
+        <!-- 1. Giralda Tower Replica — tall, square, arched windows, small spire (x=260-380) -->
+        <g class="pl-building pl-giralda" data-plaza="giralda">
+          <a href="plaza.html" aria-label="Giralda Tower replica — click for The Plaza">
+            <!-- Tower base (square shaft) -->
+            <rect class="pl-wall" x="284" y="180" width="72" height="370" fill="#F0E3C0" stroke="#B28A55" stroke-width="1.3"/>
+            <!-- Arched window openings -->
+            <path d="M 298,320 h 16 v -28 a 8 8 0 0 0 -16 0 Z" fill="#2A1A0C" opacity="0.7"/>
+            <path d="M 326,320 h 16 v -28 a 8 8 0 0 0 -16 0 Z" fill="#2A1A0C" opacity="0.7"/>
+            <path d="M 298,380 h 16 v -28 a 8 8 0 0 0 -16 0 Z" fill="#2A1A0C" opacity="0.7"/>
+            <path d="M 326,380 h 16 v -28 a 8 8 0 0 0 -16 0 Z" fill="#2A1A0C" opacity="0.7"/>
+            <path d="M 298,440 h 16 v -28 a 8 8 0 0 0 -16 0 Z" fill="#2A1A0C" opacity="0.7"/>
+            <path d="M 326,440 h 16 v -28 a 8 8 0 0 0 -16 0 Z" fill="#2A1A0C" opacity="0.7"/>
+            <!-- Belfry story — larger arch -->
+            <rect class="pl-wall" x="278" y="140" width="84" height="44" fill="#F0E3C0" stroke="#B28A55" stroke-width="1.3"/>
+            <path d="M 300,180 h 40 v -30 a 20 20 0 0 0 -40 0 Z" fill="#2A1A0C" opacity="0.75"/>
+            <!-- Cornice -->
+            <rect x="272" y="132" width="96" height="10" fill="#B86A3B"/>
+            <!-- Parapet -->
+            <rect x="288" y="120" width="64" height="14" fill="#F0E3C0" stroke="#B28A55" stroke-width="1"/>
+            <!-- Small spire -->
+            <polygon points="320,120 312,108 328,108" fill="#B86A3B" stroke="#3B2C20" stroke-width="0.8"/>
+            <line x1="320" y1="108" x2="320" y2="94" stroke="#3B2C20" stroke-width="1"/>
+            <circle cx="320" cy="92" r="2.5" fill="#C9A84C"/>
+            <!-- Light string along belfry cornice -->
+            <g class="light-string light-string-giralda">
+              <path d="M 272,132 L 368,132" stroke="#5A3A20" stroke-width="0.5" stroke-dasharray="6,8"/>
+              <circle cx="278" cy="132" r="2.2" class="bulb bulb-red"/>
+              <circle cx="292" cy="132" r="2.2" class="bulb bulb-green"/>
+              <circle cx="306" cy="132" r="2.2" class="bulb bulb-gold"/>
+              <circle cx="320" cy="132" r="2.2" class="bulb bulb-red"/>
+              <circle cx="334" cy="132" r="2.2" class="bulb bulb-green"/>
+              <circle cx="348" cy="132" r="2.2" class="bulb bulb-gold"/>
+              <circle cx="362" cy="132" r="2.2" class="bulb bulb-red"/>
+            </g>
+            <!-- Light string along tower-top parapet -->
+            <g class="light-string light-string-giralda-top">
+              <path d="M 288,120 L 352,120" stroke="#5A3A20" stroke-width="0.5" stroke-dasharray="6,8"/>
+              <circle cx="292" cy="120" r="2" class="bulb bulb-gold"/>
+              <circle cx="304" cy="120" r="2" class="bulb bulb-red"/>
+              <circle cx="316" cy="120" r="2" class="bulb bulb-green"/>
+              <circle cx="328" cy="120" r="2" class="bulb bulb-gold"/>
+              <circle cx="340" cy="120" r="2" class="bulb bulb-red"/>
+              <circle cx="350" cy="120" r="2" class="bulb bulb-green"/>
+            </g>
+          </a>
+        </g>
+
+        <!-- 2. Mill Creek Clock Tower — stepped stone tower with clock face (x=520-630) -->
+        <g class="pl-building pl-clock" data-plaza="clock">
+          <a href="plaza.html" aria-label="Mill Creek Clock Tower — click for The Plaza">
+            <!-- Main body -->
+            <rect class="pl-wall" x="532" y="310" width="86" height="240" fill="#E8D8B0" stroke="#B28A55" stroke-width="1.3"/>
+            <!-- Stepped setback -->
+            <rect class="pl-wall" x="540" y="275" width="70" height="35" fill="#F0E3C0" stroke="#B28A55" stroke-width="1.1"/>
+            <!-- Clock face section -->
+            <rect class="pl-wall" x="548" y="240" width="54" height="35" fill="#F0E3C0" stroke="#B28A55" stroke-width="1.1"/>
+            <!-- Clock face -->
+            <circle cx="575" cy="258" r="12" fill="#3B2C20" stroke="#C9A84C" stroke-width="1.2"/>
+            <circle cx="575" cy="258" r="9" fill="#1A130B"/>
+            <line x1="575" y1="258" x2="575" y2="251" stroke="#C9A84C" stroke-width="1"/>
+            <line x1="575" y1="258" x2="579" y2="260" stroke="#C9A84C" stroke-width="0.8"/>
+            <!-- Tile roof cap (peaked red-tile) -->
+            <polygon points="542,240 608,240 596,214 554,214" fill="#B86A3B" stroke="#7C4220" stroke-width="1"/>
+            <!-- Finial -->
+            <line x1="575" y1="214" x2="575" y2="200" stroke="#3B2C20" stroke-width="1.2"/>
+            <circle cx="575" cy="199" r="2.3" fill="#C9A84C"/>
+            <!-- Window slits on main body -->
+            <rect x="548" y="360" width="6" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="566" y="360" width="6" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="584" y="360" width="6" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="602" y="360" width="6" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="548" y="430" width="6" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="566" y="430" width="6" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="584" y="430" width="6" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="602" y="430" width="6" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <!-- Light strings — along each roof edge -->
+            <g class="light-string light-string-clock">
+              <path d="M 542,240 L 554,214 M 596,214 L 608,240" stroke="#5A3A20" stroke-width="0.5" stroke-dasharray="6,6"/>
+              <circle cx="546" cy="232" r="1.8" class="bulb bulb-red"/>
+              <circle cx="550" cy="224" r="1.8" class="bulb bulb-green"/>
+              <circle cx="558" cy="214" r="1.8" class="bulb bulb-gold"/>
+              <circle cx="570" cy="214" r="1.8" class="bulb bulb-red"/>
+              <circle cx="584" cy="214" r="1.8" class="bulb bulb-green"/>
+              <circle cx="598" cy="214" r="1.8" class="bulb bulb-gold"/>
+              <circle cx="602" cy="226" r="1.8" class="bulb bulb-red"/>
+              <circle cx="606" cy="234" r="1.8" class="bulb bulb-green"/>
+              <path d="M 548,275 L 602,275" stroke="#5A3A20" stroke-width="0.5" stroke-dasharray="6,8"/>
+              <circle cx="552" cy="275" r="1.8" class="bulb bulb-gold"/>
+              <circle cx="566" cy="275" r="1.8" class="bulb bulb-red"/>
+              <circle cx="582" cy="275" r="1.8" class="bulb bulb-green"/>
+              <circle cx="598" cy="275" r="1.8" class="bulb bulb-gold"/>
+              <path d="M 540,310 L 610,310" stroke="#5A3A20" stroke-width="0.5" stroke-dasharray="6,8"/>
+              <circle cx="548" cy="310" r="1.8" class="bulb bulb-red"/>
+              <circle cx="564" cy="310" r="1.8" class="bulb bulb-green"/>
+              <circle cx="582" cy="310" r="1.8" class="bulb bulb-gold"/>
+              <circle cx="600" cy="310" r="1.8" class="bulb bulb-red"/>
+            </g>
+          </a>
+        </g>
+
+        <!-- 3. Dome Building (Seville Square) — Plaza block with prominent dome (x=780-970) -->
+        <g class="pl-building pl-dome" data-plaza="dome">
+          <a href="seville.html" aria-label="Seville Square dome — click for the Seville reference page">
+            <!-- Main block body -->
+            <rect class="pl-wall" x="782" y="340" width="188" height="210" fill="#EADDB8" stroke="#B28A55" stroke-width="1.3"/>
+            <!-- Upper story with windows -->
+            <rect class="pl-wall" x="794" y="295" width="164" height="45" fill="#F0E3C0" stroke="#B28A55" stroke-width="1.1"/>
+            <!-- Dome base -->
+            <rect class="pl-wall" x="842" y="248" width="68" height="48" fill="#F0E3C0" stroke="#B28A55" stroke-width="1.1"/>
+            <!-- Dome -->
+            <path d="M 842,248 Q 842,186 876,182 Q 910,186 910,248 Z" fill="#B86A3B" stroke="#7C4220" stroke-width="1.2"/>
+            <!-- Dome lantern -->
+            <rect class="pl-wall" x="870" y="162" width="12" height="20" fill="#F0E3C0" stroke="#B28A55" stroke-width="1"/>
+            <polygon points="868,162 884,162 876,150" fill="#B86A3B" stroke="#7C4220" stroke-width="1"/>
+            <!-- Finial cross -->
+            <line x1="876" y1="150" x2="876" y2="138" stroke="#3B2C20" stroke-width="1.1"/>
+            <line x1="871" y1="143" x2="881" y2="143" stroke="#3B2C20" stroke-width="1"/>
+            <!-- Arched ground-floor arcade -->
+            <path d="M 800,550 L 800,510 Q 800,492 814,492 Q 828,492 828,510 L 828,550" fill="#1A0E06" opacity="0.85"/>
+            <path d="M 844,550 L 844,510 Q 844,492 858,492 Q 872,492 872,510 L 872,550" fill="#1A0E06" opacity="0.85"/>
+            <path d="M 888,550 L 888,510 Q 888,492 902,492 Q 916,492 916,510 L 916,550" fill="#1A0E06" opacity="0.85"/>
+            <path d="M 932,550 L 932,510 Q 932,492 946,492 Q 960,492 960,510 L 960,550" fill="#1A0E06" opacity="0.85"/>
+            <!-- Upper-story window pairs -->
+            <rect x="802" y="308" width="10" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="818" y="308" width="10" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="848" y="308" width="10" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="864" y="308" width="10" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="892" y="308" width="10" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="908" y="308" width="10" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="938" y="308" width="10" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <rect x="954" y="308" width="10" height="22" fill="#2A1A0C" opacity="0.7"/>
+            <!-- Wrought-iron balcony band -->
+            <line x1="794" y1="386" x2="958" y2="386" stroke="#2A1A0C" stroke-width="1.3"/>
+            <!-- Light strings -->
+            <g class="light-string light-string-dome">
+              <!-- Along dome lantern -->
+              <path d="M 870,162 L 882,162" stroke="#5A3A20" stroke-width="0.5" stroke-dasharray="4,5"/>
+              <circle cx="874" cy="162" r="1.6" class="bulb bulb-red"/>
+              <circle cx="878" cy="162" r="1.6" class="bulb bulb-gold"/>
+              <!-- Dome outline -->
+              <path class="dome-light-path" d="M 842,248 Q 842,186 876,182 Q 910,186 910,248" fill="none" stroke="#5A3A20" stroke-width="0.5" stroke-dasharray="5,6"/>
+              <circle cx="844" cy="232" r="2" class="bulb bulb-red"/>
+              <circle cx="846" cy="215" r="2" class="bulb bulb-green"/>
+              <circle cx="854" cy="198" r="2" class="bulb bulb-gold"/>
+              <circle cx="868" cy="186" r="2" class="bulb bulb-red"/>
+              <circle cx="884" cy="186" r="2" class="bulb bulb-green"/>
+              <circle cx="898" cy="198" r="2" class="bulb bulb-gold"/>
+              <circle cx="906" cy="215" r="2" class="bulb bulb-red"/>
+              <circle cx="908" cy="232" r="2" class="bulb bulb-green"/>
+              <!-- Along upper cornice -->
+              <path d="M 794,295 L 958,295" stroke="#5A3A20" stroke-width="0.5" stroke-dasharray="7,9"/>
+              <circle cx="800" cy="295" r="2" class="bulb bulb-gold"/>
+              <circle cx="820" cy="295" r="2" class="bulb bulb-red"/>
+              <circle cx="842" cy="295" r="2" class="bulb bulb-green"/>
+              <circle cx="860" cy="295" r="2" class="bulb bulb-gold"/>
+              <circle cx="880" cy="295" r="2" class="bulb bulb-red"/>
+              <circle cx="900" cy="295" r="2" class="bulb bulb-green"/>
+              <circle cx="920" cy="295" r="2" class="bulb bulb-gold"/>
+              <circle cx="940" cy="295" r="2" class="bulb bulb-red"/>
+              <circle cx="955" cy="295" r="2" class="bulb bulb-green"/>
+              <!-- Along main cornice -->
+              <path d="M 782,340 L 970,340" stroke="#5A3A20" stroke-width="0.5" stroke-dasharray="7,9"/>
+              <circle cx="790" cy="340" r="2" class="bulb bulb-red"/>
+              <circle cx="810" cy="340" r="2" class="bulb bulb-green"/>
+              <circle cx="832" cy="340" r="2" class="bulb bulb-gold"/>
+              <circle cx="856" cy="340" r="2" class="bulb bulb-red"/>
+              <circle cx="878" cy="340" r="2" class="bulb bulb-green"/>
+              <circle cx="900" cy="340" r="2" class="bulb bulb-gold"/>
+              <circle cx="922" cy="340" r="2" class="bulb bulb-red"/>
+              <circle cx="942" cy="340" r="2" class="bulb bulb-green"/>
+              <circle cx="962" cy="340" r="2" class="bulb bulb-gold"/>
+            </g>
+          </a>
+        </g>
+
+        <!-- 4. Balcony Building — wide storefront block with wrought-iron balconies (x=1060-1420) -->
+        <g class="pl-building pl-balcony" data-plaza="balcony">
+          <a href="plaza.html" aria-label="Plaza Balcony Building — click for The Plaza">
+            <!-- Main block -->
+            <rect class="pl-wall" x="1060" y="360" width="358" height="190" fill="#EADDB8" stroke="#B28A55" stroke-width="1.3"/>
+            <!-- Upper-story (secondary) -->
+            <rect class="pl-wall" x="1075" y="328" width="328" height="32" fill="#F0E3C0" stroke="#B28A55" stroke-width="1.1"/>
+            <!-- Pantile roof (terra cotta) — the signature Plaza roof -->
+            <path d="M 1058,328 L 1420,328 L 1410,312 L 1068,312 Z" fill="#B86A3B" stroke="#7C4220" stroke-width="1"/>
+            <!-- Pantile ribbing (visual texture) -->
+            <line x1="1080" y1="328" x2="1080" y2="312" stroke="#7C4220" stroke-width="0.5"/>
+            <line x1="1110" y1="328" x2="1110" y2="312" stroke="#7C4220" stroke-width="0.5"/>
+            <line x1="1140" y1="328" x2="1140" y2="312" stroke="#7C4220" stroke-width="0.5"/>
+            <line x1="1170" y1="328" x2="1170" y2="312" stroke="#7C4220" stroke-width="0.5"/>
+            <line x1="1200" y1="328" x2="1200" y2="312" stroke="#7C4220" stroke-width="0.5"/>
+            <line x1="1230" y1="328" x2="1230" y2="312" stroke="#7C4220" stroke-width="0.5"/>
+            <line x1="1260" y1="328" x2="1260" y2="312" stroke="#7C4220" stroke-width="0.5"/>
+            <line x1="1290" y1="328" x2="1290" y2="312" stroke="#7C4220" stroke-width="0.5"/>
+            <line x1="1320" y1="328" x2="1320" y2="312" stroke="#7C4220" stroke-width="0.5"/>
+            <line x1="1350" y1="328" x2="1350" y2="312" stroke="#7C4220" stroke-width="0.5"/>
+            <line x1="1380" y1="328" x2="1380" y2="312" stroke="#7C4220" stroke-width="0.5"/>
+            <!-- Window bays with balconies (2nd floor) -->
+            <g class="pl-balcony-row">
+              <rect x="1090" y="392" width="28" height="42" fill="#2A1A0C" opacity="0.75"/>
+              <rect x="1150" y="392" width="28" height="42" fill="#2A1A0C" opacity="0.75"/>
+              <rect x="1210" y="392" width="28" height="42" fill="#2A1A0C" opacity="0.75"/>
+              <rect x="1270" y="392" width="28" height="42" fill="#2A1A0C" opacity="0.75"/>
+              <rect x="1330" y="392" width="28" height="42" fill="#2A1A0C" opacity="0.75"/>
+              <rect x="1385" y="392" width="22" height="42" fill="#2A1A0C" opacity="0.75"/>
+            </g>
+            <!-- Wrought-iron balcony rails under each 2nd-floor window -->
+            <g class="pl-ironwork">
+              <line x1="1086" y1="438" x2="1122" y2="438" stroke="#2A1A0C" stroke-width="1.8"/>
+              <line x1="1146" y1="438" x2="1182" y2="438" stroke="#2A1A0C" stroke-width="1.8"/>
+              <line x1="1206" y1="438" x2="1242" y2="438" stroke="#2A1A0C" stroke-width="1.8"/>
+              <line x1="1266" y1="438" x2="1302" y2="438" stroke="#2A1A0C" stroke-width="1.8"/>
+              <line x1="1326" y1="438" x2="1362" y2="438" stroke="#2A1A0C" stroke-width="1.8"/>
+              <line x1="1381" y1="438" x2="1411" y2="438" stroke="#2A1A0C" stroke-width="1.8"/>
+              <!-- Tiny vertical bars hinting wrought-iron infill -->
+              <line x1="1094" y1="438" x2="1094" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1104" y1="438" x2="1104" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1114" y1="438" x2="1114" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1154" y1="438" x2="1154" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1164" y1="438" x2="1164" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1174" y1="438" x2="1174" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1214" y1="438" x2="1214" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1224" y1="438" x2="1224" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1234" y1="438" x2="1234" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1274" y1="438" x2="1274" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1284" y1="438" x2="1284" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1294" y1="438" x2="1294" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1334" y1="438" x2="1334" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1344" y1="438" x2="1344" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+              <line x1="1354" y1="438" x2="1354" y2="434" stroke="#2A1A0C" stroke-width="0.8"/>
+            </g>
+            <!-- Ground-floor storefront arches -->
+            <path d="M 1080,550 L 1080,490 Q 1080,472 1100,472 Q 1120,472 1120,490 L 1120,550" fill="#1A0E06" opacity="0.88"/>
+            <path d="M 1150,550 L 1150,490 Q 1150,472 1170,472 Q 1190,472 1190,490 L 1190,550" fill="#1A0E06" opacity="0.88"/>
+            <path d="M 1220,550 L 1220,490 Q 1220,472 1240,472 Q 1260,472 1260,490 L 1260,550" fill="#1A0E06" opacity="0.88"/>
+            <path d="M 1290,550 L 1290,490 Q 1290,472 1310,472 Q 1330,472 1330,490 L 1330,550" fill="#1A0E06" opacity="0.88"/>
+            <path d="M 1360,550 L 1360,490 Q 1360,472 1380,472 Q 1400,472 1400,490 L 1400,550" fill="#1A0E06" opacity="0.88"/>
+            <!-- Light string along the roof line -->
+            <g class="light-string light-string-balcony">
+              <path d="M 1060,312 L 1420,312" stroke="#5A3A20" stroke-width="0.5" stroke-dasharray="8,10"/>
+              <circle cx="1068" cy="312" r="2.2" class="bulb bulb-gold"/>
+              <circle cx="1088" cy="312" r="2.2" class="bulb bulb-red"/>
+              <circle cx="1108" cy="312" r="2.2" class="bulb bulb-green"/>
+              <circle cx="1128" cy="312" r="2.2" class="bulb bulb-gold"/>
+              <circle cx="1148" cy="312" r="2.2" class="bulb bulb-red"/>
+              <circle cx="1168" cy="312" r="2.2" class="bulb bulb-green"/>
+              <circle cx="1188" cy="312" r="2.2" class="bulb bulb-gold"/>
+              <circle cx="1208" cy="312" r="2.2" class="bulb bulb-red"/>
+              <circle cx="1228" cy="312" r="2.2" class="bulb bulb-green"/>
+              <circle cx="1248" cy="312" r="2.2" class="bulb bulb-gold"/>
+              <circle cx="1268" cy="312" r="2.2" class="bulb bulb-red"/>
+              <circle cx="1288" cy="312" r="2.2" class="bulb bulb-green"/>
+              <circle cx="1308" cy="312" r="2.2" class="bulb bulb-gold"/>
+              <circle cx="1328" cy="312" r="2.2" class="bulb bulb-red"/>
+              <circle cx="1348" cy="312" r="2.2" class="bulb bulb-green"/>
+              <circle cx="1368" cy="312" r="2.2" class="bulb bulb-gold"/>
+              <circle cx="1388" cy="312" r="2.2" class="bulb bulb-red"/>
+              <circle cx="1408" cy="312" r="2.2" class="bulb bulb-green"/>
+              <!-- Along balconies -->
+              <path d="M 1086,438 L 1410,438" stroke="#5A3A20" stroke-width="0.4" stroke-dasharray="7,9" opacity="0.8"/>
+              <circle cx="1095" cy="438" r="1.7" class="bulb bulb-red"/>
+              <circle cx="1130" cy="438" r="1.7" class="bulb bulb-green"/>
+              <circle cx="1165" cy="438" r="1.7" class="bulb bulb-gold"/>
+              <circle cx="1200" cy="438" r="1.7" class="bulb bulb-red"/>
+              <circle cx="1235" cy="438" r="1.7" class="bulb bulb-green"/>
+              <circle cx="1270" cy="438" r="1.7" class="bulb bulb-gold"/>
+              <circle cx="1305" cy="438" r="1.7" class="bulb bulb-red"/>
+              <circle cx="1340" cy="438" r="1.7" class="bulb bulb-green"/>
+              <circle cx="1375" cy="438" r="1.7" class="bulb bulb-gold"/>
+            </g>
+          </a>
+        </g>
+
+        <!-- Ground line + streetlamp silhouettes -->
+        <rect x="0" y="548" width="1600" height="52" fill="url(#pl-ground)"/>
+        <g class="pl-streetlamps" aria-hidden="true">
+          <g class="pl-lamp" transform="translate(220, 550)">
+            <line x1="0" y1="0" x2="0" y2="-30" stroke="#1A0E06" stroke-width="1.2"/>
+            <circle cx="0" cy="-32" r="2" fill="#1A0E06"/>
+            <circle class="pl-lamp-glow" cx="0" cy="-32" r="6" fill="rgba(245,200,120,0.6)"/>
+          </g>
+          <g class="pl-lamp" transform="translate(690, 550)">
+            <line x1="0" y1="0" x2="0" y2="-30" stroke="#1A0E06" stroke-width="1.2"/>
+            <circle cx="0" cy="-32" r="2" fill="#1A0E06"/>
+            <circle class="pl-lamp-glow" cx="0" cy="-32" r="6" fill="rgba(245,200,120,0.6)"/>
+          </g>
+          <g class="pl-lamp" transform="translate(1020, 550)">
+            <line x1="0" y1="0" x2="0" y2="-30" stroke="#1A0E06" stroke-width="1.2"/>
+            <circle cx="0" cy="-32" r="2" fill="#1A0E06"/>
+            <circle class="pl-lamp-glow" cx="0" cy="-32" r="6" fill="rgba(245,200,120,0.6)"/>
+          </g>
+          <g class="pl-lamp" transform="translate(1460, 550)">
+            <line x1="0" y1="0" x2="0" y2="-30" stroke="#1A0E06" stroke-width="1.2"/>
+            <circle cx="0" cy="-32" r="2" fill="#1A0E06"/>
+            <circle class="pl-lamp-glow" cx="0" cy="-32" r="6" fill="rgba(245,200,120,0.6)"/>
+          </g>
+        </g>
+
+      </svg>
+    </div>
+  </section>
+
+  <div class="plaza-tile-header" aria-hidden="true"></div>
+
+  <main>
+
+    <section class="detail-section" id="the-ceremony">
+      <div class="container">
+        <h2>The Ceremony</h2>
+        <p>
+          It happens every Thanksgiving Night. Somebody &mdash; the mayor, a visiting celebrity, a
+          local kid who won the drawing &mdash; counts down and flips a switch. Eighty miles of
+          wire and 280,000 bulbs come on at once. Every arched window and tiled roofline in the
+          Country Club Plaza lights up, and the crowd, which has been building since mid-afternoon,
+          does what crowds do on those rare nights when a city agrees, all at once, to show up for
+          the same thing.
+        </p>
+        <p>
+          This has been the pattern since 1930. The Plaza has been lit every Thanksgiving Night,
+          for nearly a century, with one wartime pause and one or two weather delays. The lights
+          stay on every night from then until mid-January &mdash; six weeks of terra cotta roofs
+          traced in small colored bulbs, their reflection doubled in the black glass of storefront
+          windows and in the pools of the fountains the Plaza keeps running into the cold.
+        </p>
+      </div>
+    </section>
+
+    <section class="detail-section" id="history">
+      <div class="container">
+        <h2>History</h2>
+        <p>
+          The first strand went up in 1930. It was modest &mdash; one building, one doorway, the
+          idea of a staff electrician named Cecil Hilburn who had been asked to do something
+          seasonal and improvised a few strings over a Plaza arch. J.C. Nichols saw it, liked it,
+          and the next year there were more. The expansion kept going.
+        </p>
+        <p>
+          By the 1950s every major building was lit. By the 1970s the event had become a regional
+          ritual &mdash; families driving in from Missouri and Kansas farms, crowds filling Mill
+          Creek Park, local television broadcasting the countdown. Today there are roughly 280,000
+          bulbs across the district, strung along every roofline, arched window, tower, dome, and
+          balcony band. The color mix &mdash; red, green, gold, in roughly equal proportion &mdash;
+          has been essentially unchanged for forty years.
+        </p>
+        <p>
+          The ceremony has been cancelled exactly once. In 1963, after President Kennedy's
+          assassination, the Plaza postponed the lighting out of respect for the national mourning.
+          After 9/11 the ceremony went forward, quieter than usual, as a deliberate statement that
+          public life would continue.
+        </p>
+      </div>
+    </section>
+
+    <section class="detail-section" id="what-you-see">
+      <div class="container">
+        <h2>What You See</h2>
+        <p>
+          The Plaza's architecture was built to be looked at from the ground up, and the lights
+          reveal what daytime obscures. The arched windows become legible as arches. The red
+          Catalan-style tile roofs, which read as ornamental texture in sunlight, become rhythmic
+          edges in the dark, each tile bump picked out by the horizontal strand running along the
+          gutter. The Giralda replica's belfry, the Mill Creek clock tower, the small Seville
+          Square dome, the wrought-iron balcony bands on the Balcony Building &mdash; each becomes
+          an outline drawing of itself.
+        </p>
+        <p>
+          The effect works at two distances. Up close, you can see the individual colored bulbs
+          and the small irregularities &mdash; a bulb missing, a string sagging slightly &mdash;
+          that every year's strand picks up. From Brush Creek Boulevard or from the Mill Creek
+          hill, the same strands become a continuous ribbon of colored light wrapping a whole
+          district. Both readings matter.
+        </p>
+      </div>
+    </section>
+
+    <section class="detail-section" id="when-to-go">
+      <div class="container">
+        <h2>When to Go</h2>
+        <p>
+          Thanksgiving Night for the ceremony itself &mdash; but be ready for crowds. The Plaza
+          fills from around 4 p.m., with peak density from 6:30 through the 7 p.m. lighting.
+          Parking is local-only, so walk from the neighborhoods, or use the shuttle from Crown
+          Center. The ceremony itself takes about fifteen minutes of program and one second of
+          payoff, which is the correct ratio.
+        </p>
+        <p>
+          Any evening from then through mid-January works for the lights themselves. Clear cold
+          nights after a snowfall are ideal &mdash; the snow doubles the light and the quiet
+          doubles the reverence. Brush Creek, walked east toward Main Street after dark, gives
+          the strongest skyline view.
+        </p>
+      </div>
+    </section>
+
+    <section class="detail-section" id="related">
+      <div class="container">
+        <h2>Related</h2>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+
+          <article class="card">
+            <a class="card-photo-link" href="plaza.html">
+              <img class="card-photo" style="object-position: center 40%;"
+                src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kansas_City%2C_Missouri_-_Country_Club_Plaza_-_Giralda_Tower_-_panoramio_%281%29.jpg"
+                alt="The Plaza by day" />
+            </a>
+            <div class="card-body">
+              <h3><a href="plaza.html" style="color:inherit;text-decoration:none;">The Country Club Plaza</a></h3>
+              <p class="card-year">1922 &bull; Spanish Colonial</p>
+              <p>America's first automobile-oriented shopping district &mdash; and the architectural anchor of this ritual.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <a class="card-photo-link" href="seville.html">
+              <img class="card-photo" style="object-position: center 20%;"
+                src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Giralda_y_Alcaz%C3%A1r.jpg"
+                alt="The Giralda in Seville" />
+            </a>
+            <div class="card-body">
+              <h3><a href="seville.html" style="color:inherit;text-decoration:none;">Seville &amp; the Giralda</a></h3>
+              <p class="card-year">Spain &bull; 12th c.</p>
+              <p>Where the Plaza's tower came from &mdash; and the larger story of how KC's architecture cites elsewhere.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <a class="card-photo-link" href="visit/events.html">
+              <img class="card-photo" style="object-position: center 50%;"
+                src="https://upload.wikimedia.org/wikipedia/commons/1/12/Country_Club_Plaza_1_Kansas_City_MO.jpg"
+                alt="Plaza at dusk" />
+            </a>
+            <div class="card-body">
+              <h3><a href="visit/events.html" style="color:inherit;text-decoration:none;">Events &amp; Seasons</a></h3>
+              <p class="card-year">Year-round</p>
+              <p>When the city shows up &mdash; Fountain Day, First Fridays, the parade, Thanksgiving Night.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="deco-bar top-bar"></div>
+    <div class="footer-inner">
+            <svg class="footer-mini-skyline" viewBox="0 0 500 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <!-- Liberty Memorial with flame -->
+        <path d="M 30,80 L 30,64 L 42,64 L 42,28 L 40,24 L 36,23 L 30,24 L 28,28 L 28,64 L 40,64 L 40,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <circle cx="35" cy="18" r="4" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.8"/>
+        <!-- Union Station (wide low) -->
+        <path d="M 70,80 L 70,48 L 80,48 L 80,38 L 100,38 L 100,48 L 110,48 L 110,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <!-- Bartle pylons -->
+        <line x1="140" y1="80" x2="140" y2="26" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="148" y1="80" x2="148" y2="22" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="156" y1="80" x2="156" y2="22" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="164" y1="80" x2="164" y2="26" stroke="#C9A84C" stroke-width="1"/>
+        <circle cx="140" cy="23" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <circle cx="148" cy="19" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <circle cx="156" cy="19" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <circle cx="164" cy="23" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <!-- Power &amp; Light with stepped crown -->
+        <path d="M 200,80 L 200,38 L 205,38 L 205,26 L 210,26 L 210,14 L 225,14 L 225,26 L 230,26 L 230,38 L 235,38 L 235,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <!-- Lantern on top -->
+        <rect x="214" y="8" width="7" height="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="0.6"/>
+        <line x1="217.5" y1="8" x2="217.5" y2="4" stroke="#C9A84C" stroke-width="0.6"/>
+        <!-- 909 Walnut (slender) -->
+        <path d="M 265,80 L 265,40 L 268,40 L 268,20 L 278,20 L 278,40 L 281,40 L 281,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="273" y1="20" x2="273" y2="15" stroke="#C9A84C" stroke-width="0.6"/>
+        <!-- Town Pavilion -->
+        <path d="M 310,80 L 310,26 L 318,20 L 326,20 L 334,26 L 334,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <!-- One KC Place (tallest, pitched roof) -->
+        <path d="M 360,80 L 360,20 L 372,8 L 384,20 L 384,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <!-- City Hall with pyramid -->
+        <path d="M 420,80 L 420,40 L 425,40 L 425,30 L 430,30 L 430,18 L 450,18 L 450,30 L 455,30 L 455,40 L 460,40 L 460,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <polygon points="430,18 440,10 450,18" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.7"/>
+        <!-- Deco hairline -->
+        <line x1="0" y1="79" x2="800" y2="79" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+        <polygon points="490,77 493,79 490,81 487,79" fill="rgba(201,168,76,0.55)"/>
+      </svg>
+      <div class="motif-row" aria-hidden="true"><span>◆</span><span>◆</span><span>◆</span></div>
+      <p>Look Up, Kansas City &mdash; An Architecture &amp; History Guide</p>
+      <p class="footer-small">Built with Claude Code &bull; 2026</p>
+      <p class="footer-small"><a href="credits.html" style="color:var(--warm-grey);">Photo Credits</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

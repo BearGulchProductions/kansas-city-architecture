@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Poiret+One&family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=11" />
+  <link rel="stylesheet" href="style.css?v=11g" />
   <meta property="og:title" content="Look Up, Kansas City — Architecture &amp; History" />
   <meta property="og:description" content="A literary guide to Kansas City's architecture, history, and public spaces — built for curious visitors and lifelong residents alike." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/f/f3/Downtown_Kansas_City_from_Liberty_Memorial_Full.jpg" />
@@ -65,6 +65,7 @@
           <li><a href="spaces/parks-boulevards.html">Parks &amp; Blvds</a></li>
           <li><a href="spaces/ward-parkway.html">Ward Parkway</a></li>
           <li><a href="overlooks.html">City Overlooks</a></li>
+          <li><a href="plaza-lights.html">Plaza Lights</a></li>
         </ul>
       </li>
       <li class="has-dropdown"><a href="neighborhoods.html">Neighborhoods</a>
@@ -152,7 +153,7 @@
           </g>
         </svg>
       </div>
-      <p class="homepage-tagline">How Kansas City got built, and what it built means.</p>
+      <p class="homepage-tagline">See the beauty of the city &mdash; look it all up here.</p>
       <div class="phase-legend" aria-hidden="true">
         <span class="phase-label phase-dawn">Dawn</span>
         <span class="phase-sep">·</span>
@@ -170,18 +171,22 @@
         <desc id="skyline-desc">An interactive illustration of downtown Kansas City arranged roughly west to east: Liberty Memorial with its flame crown, Union Station, the Kauffman Center shells, the Bartle Hall pylons, Municipal Auditorium, Power and Light Building with its illuminated crown, 909 Walnut Fidelity Bank, Town Pavilion, One Kansas City Place the tallest, Jackson County Courthouse, City Hall with its pyramid, and T-Mobile Center. Each major building links to its detail page.</desc>
 
         <!-- ─────────────────────────────────────────────────
-             v10 SVG LAYER ORDER (back to front):
-             1. Defs + atmospheric glow
-             2. Star field (night-only, animated twinkle)
-             3. Celestial arc (sun + moon, offset-path animation)
-             4. Rivers (Kaw left, Missouri right — background)
-             5. Fill buildings (back row)
-             6. Interactive buildings
-             7. Ghost buildings (toggle-activated overlay)
-             8. Building night-lights (already inside each building group)
-             9. Foreground silhouette layer (trees, lamps, streetcar)
-             10. Ground fade gradient
-             11. Deco ground-line ornament
+             v11 SVG LAYER ORDER (back to front):
+             1. Defs (gradients) + atmospheric glow
+             2. Star field (night-only, twinkle)
+             3. Slow-drifting clouds (day-dominant)             ◆ v11 Track 1C
+             4. Occasional bird flock (dawn + day)              ◆ v11 Track 1B
+             5. Celestial arc (sun + moon, offset-path)
+             6. (back-river glimmer removed — foreground rivers carry the geography)
+             7. Fill buildings (back row)
+             8. Interactive buildings (v10 + v11 refinements)
+             9. Ghost buildings (toggle overlay)
+             10. Building night-lights (inside each building)
+             11. Looping streetcar (translated ground line)     ◆ v11 Track 1A
+             12. Foreground silhouette layer (trees, lamps) — painted on top of the streetcar
+             13. Foreground rivers (Kaw + Missouri, bottom corners)
+             14. Ground fade gradient
+             15. Deco ground-line ornament
              ───────────────────────────────────────────────── -->
 
         <defs>
@@ -205,6 +210,15 @@
           <linearGradient id="missouri-river" x1="100%" y1="50%" x2="0%" y2="50%">
             <stop offset="0%" stop-color="rgba(96,126,150,0.6)"/>
             <stop offset="100%" stop-color="rgba(96,126,150,0)"/>
+          </linearGradient>
+          <!-- v11 Track 3A: back-river glimmer — faint gold band visible only through gaps between downtown towers;
+               positioned below the tall-building crowns so it only shows between towers (at silhouette gaps) -->
+          <linearGradient id="back-river" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="0%"   stop-color="rgba(201,168,76,0)"/>
+            <stop offset="15%"  stop-color="rgba(201,168,76,0.05)"/>
+            <stop offset="50%"  stop-color="rgba(201,168,76,0.08)"/>
+            <stop offset="85%"  stop-color="rgba(201,168,76,0.05)"/>
+            <stop offset="100%" stop-color="rgba(201,168,76,0)"/>
           </linearGradient>
         </defs>
 
@@ -231,6 +245,44 @@
           <circle class="star" style="--tw-delay: 2.0s"  cx="1355" cy="45" r="1.3" fill="#F5EFE0"/>
           <circle class="star" style="--tw-delay: 0.8s"  cx="1420" cy="25" r="0.9" fill="#F5EFE0"/>
           <circle class="star" style="--tw-delay: 1.5s"  cx="1480" cy="32" r="1.0" fill="#F5EFE0"/>
+        </g>
+
+        <!-- v11 Track 1C: Slow rolling clouds — ambient, day-dominant, 3 clouds at staggered drift speeds -->
+        <g class="sky-clouds" aria-hidden="true">
+          <g class="sky-cloud sky-cloud-1">
+            <ellipse cx="0"   cy="0"  rx="34" ry="9"  fill="rgba(245,239,224,0.18)"/>
+            <ellipse cx="-20" cy="-3" rx="18" ry="7"  fill="rgba(245,239,224,0.18)"/>
+            <ellipse cx="18"  cy="-4" rx="20" ry="7.5" fill="rgba(245,239,224,0.18)"/>
+            <ellipse cx="4"   cy="-7" rx="14" ry="5"  fill="rgba(245,239,224,0.18)"/>
+          </g>
+          <g class="sky-cloud sky-cloud-2">
+            <ellipse cx="0"   cy="0"  rx="28" ry="8"  fill="rgba(245,239,224,0.18)"/>
+            <ellipse cx="-15" cy="-2" rx="14" ry="6"  fill="rgba(245,239,224,0.18)"/>
+            <ellipse cx="13"  cy="-3" rx="16" ry="6.5" fill="rgba(245,239,224,0.18)"/>
+            <ellipse cx="0"   cy="-6" rx="10" ry="4"  fill="rgba(245,239,224,0.18)"/>
+          </g>
+          <g class="sky-cloud sky-cloud-3">
+            <ellipse cx="0"   cy="0"  rx="40" ry="10" fill="rgba(245,239,224,0.18)"/>
+            <ellipse cx="-24" cy="-4" rx="20" ry="8"  fill="rgba(245,239,224,0.18)"/>
+            <ellipse cx="22"  cy="-5" rx="22" ry="8"  fill="rgba(245,239,224,0.18)"/>
+            <ellipse cx="6"   cy="-8" rx="16" ry="5.5" fill="rgba(245,239,224,0.18)"/>
+          </g>
+        </g>
+
+        <!-- v11 Track 1B: Bird flock — occasional V-formation arcing across Dawn + Day skies -->
+        <g class="sky-birds" aria-hidden="true">
+          <g class="sky-bird sky-bird-lead">
+            <path d="M -4,0 Q -2,-2.5 0,0 Q 2,-2.5 4,0" stroke="#3a3328" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          </g>
+          <g class="sky-bird sky-bird-left">
+            <path d="M -3.5,0 Q -1.75,-2 0,0 Q 1.75,-2 3.5,0" stroke="#3a3328" stroke-width="1" fill="none" stroke-linecap="round"/>
+          </g>
+          <g class="sky-bird sky-bird-right">
+            <path d="M -3.5,0 Q -1.75,-2 0,0 Q 1.75,-2 3.5,0" stroke="#3a3328" stroke-width="1" fill="none" stroke-linecap="round"/>
+          </g>
+          <g class="sky-bird sky-bird-rear">
+            <path d="M -3,0 Q -1.5,-1.6 0,0 Q 1.5,-1.6 3,0" stroke="#3a3328" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+          </g>
         </g>
 
         <!-- v10 Track 3A (revised): Celestial arc — Art Deco sun with radiating rays, and a stylized moon.
@@ -272,7 +324,11 @@
           </g>
         </g>
 
-        <!-- Placeholder — rivers drawn AFTER skyline now, see below. -->
+        <!-- v11 Track 3: Background river glimmer — removed in review; the horizontal band at
+             any altitude read as visual noise through the gaps between towers. The foreground rivers
+             at the bottom corners already communicate the river geography. -->
+
+        <!-- Placeholder — foreground rivers drawn AFTER skyline below. -->
         <g class="skyline-rivers" aria-hidden="true"></g>
 
         <!-- ─────────────────────────────────────────── -->
@@ -312,22 +368,31 @@
         <!-- Scale: 0.65 units per foot, ground at y=560  -->
         <!-- ─────────────────────────────────────────── -->
 
-        <!-- 1. Liberty Memorial Tower — 1926, 217 ft, Egyptian Revival, flame crown -->
+        <!-- 1. Liberty Memorial Tower — 1926, 217 ft, Egyptian Revival, flame crown (v11 Track 2B: stronger taper + widened flame bowl) -->
         <g data-building="liberty-memorial">
           <a href="buildings/liberty-memorial.html" aria-label="Liberty Memorial Tower, 1926, 217 feet">
-            <!-- Tapered tower with pedestal base and cornice cap -->
+            <!-- Pedestal + tapered shaft: base 46 wide at y=520 narrowing to ~24 at shaft top -->
             <path class="building-shape"
-              d="M 45,560 L 130,560 L 130,533 L 121,530 L 118,527 L 118,524 L 113,520 L 113,440 L 109,435 L 109,430 L 106,427 L 106,422 L 101,422 L 101,417 L 97,415 L 93,414 L 88,414 L 83,415 L 79,417 L 79,422 L 74,422 L 74,427 L 71,430 L 71,435 L 67,440 L 67,520 L 62,524 L 62,527 L 59,530 L 50,533 Z"
+              d="M 45,560 L 130,560 L 130,533 L 121,530 L 118,527 L 118,524 L 113,520 L 102,413 L 78,413 L 67,520 L 62,524 L 62,527 L 59,530 L 50,533 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
-            <!-- Urn/flame crown (decorative, always visible at low opacity) -->
-            <circle cx="90" cy="408" r="4" fill="rgba(232,201,106,0.35)" stroke="#C9A84C" stroke-width="0.75"/>
-            <!-- Night: animated flame flicker -->
+            <!-- Flame bowl (torch urn) — ~1.5× shaft-top width for distinct "torch on a stick" read -->
+            <path class="building-shape"
+              d="M 72,413 L 108,413 L 104,402 L 96,398 L 84,398 L 76,402 Z"
+              fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.25"/>
+            <!-- Sphinx hints — four tiny marks at bowl base -->
+            <rect x="72.5" y="411" width="1.5" height="2" fill="rgba(201,168,76,0.45)"/>
+            <rect x="82" y="411" width="1.5" height="2" fill="rgba(201,168,76,0.45)"/>
+            <rect x="96.5" y="411" width="1.5" height="2" fill="rgba(201,168,76,0.45)"/>
+            <rect x="106" y="411" width="1.5" height="2" fill="rgba(201,168,76,0.45)"/>
+            <!-- Resting flame tip (decorative, always visible at low opacity) -->
+            <circle cx="90" cy="390" r="3" fill="rgba(232,201,106,0.35)" stroke="#C9A84C" stroke-width="0.75"/>
+            <!-- Night: animated flame flicker rising from the bowl -->
             <g class="building-night-lights" aria-hidden="true">
-              <circle cx="90" cy="408" r="8" fill="rgba(255,180,90,0.18)"/>
-              <circle cx="90" cy="406" r="4" fill="#FFB060" class="flame-flicker"/>
-              <circle cx="90" cy="405" r="2" fill="#FFE8B0" class="flame-flicker"/>
+              <circle cx="90" cy="390" r="9" fill="rgba(255,180,90,0.2)"/>
+              <circle cx="90" cy="388" r="5" fill="#FFB060" class="flame-flicker"/>
+              <circle cx="90" cy="386" r="2.5" fill="#FFE8B0" class="flame-flicker"/>
             </g>
-            <text class="building-label" x="90" y="376" text-anchor="middle">
+            <text class="building-label" x="90" y="358" text-anchor="middle">
               <tspan x="90" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">LIBERTY MEMORIAL</tspan>
               <tspan x="90" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1926</tspan>
             </text>
@@ -337,11 +402,13 @@
         <!-- 2. Union Station — 1914, wide Beaux Arts — south of downtown, low wide profile -->
         <g data-building="union-station">
           <a href="buildings/union-station.html" aria-label="Union Station, 1914">
-            <!-- Wide horizontal Beaux Arts with three-arch central pediment -->
+            <!-- Wide horizontal Beaux Arts with central raised bay for the Grand Hall (v11 Track 2E) -->
             <path class="building-shape"
-              d="M 155,560 L 315,560 L 315,517 L 308,513 L 305,510 L 300,510 L 295,506 L 290,502 L 285,500 L 277,500 L 273,503 L 270,506 L 263,506 L 260,502 L 255,499 L 250,497 L 235,497 L 230,499 L 225,502 L 222,506 L 215,506 L 212,503 L 208,500 L 200,500 L 195,502 L 190,506 L 185,510 L 180,510 L 177,513 L 170,517 L 170,520 L 160,523 Z"
+              d="M 155,560 L 315,560 L 315,517 L 308,512 L 300,505 L 295,502 L 290,500 L 265,500 L 265,484 L 260,482 L 252,480 L 218,480 L 210,482 L 205,484 L 205,500 L 180,500 L 175,502 L 170,505 L 162,512 L 155,517 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
-            <!-- Colonnade hint — vertical lines along the main facade -->
+            <!-- Grand Hall clock face on the central bay -->
+            <circle cx="235" cy="491" r="3" fill="var(--gold, #C9A84C)" opacity="0.6"/>
+            <!-- Colonnade hint — vertical lines along the wings (not under the central bay) -->
             <line x1="180" y1="525" x2="180" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
             <line x1="195" y1="525" x2="195" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
             <line x1="285" y1="525" x2="285" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
@@ -403,34 +470,50 @@
             <path class="building-shape"
               d="M 498,560 L 620,560 L 620,505 L 612,502 L 506,502 L 498,505 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
-            <!-- Four thin pylons rising from the platform -->
+            <!-- Four pylons — outer pair (1, 4) shorter; inner pair (2, 3) taller by ~15 units (v11 Track 2C) -->
             <path class="building-shape"
-              d="M 510,502 L 522,502 L 522,372 L 510,372 Z"
+              d="M 510,502 L 522,502 L 522,385 L 510,385 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.25"/>
             <path class="building-shape"
-              d="M 538,502 L 550,502 L 550,370 L 538,370 Z"
+              d="M 538,502 L 550,502 L 550,360 L 538,360 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.25"/>
             <path class="building-shape"
-              d="M 568,502 L 580,502 L 580,373 L 568,373 Z"
+              d="M 568,502 L 580,502 L 580,362 L 568,362 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.25"/>
             <path class="building-shape"
-              d="M 596,502 L 608,502 L 608,371 L 596,371 Z"
+              d="M 596,502 L 608,502 L 608,383 L 596,383 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.25"/>
-            <!-- Sky Station sphere caps -->
-            <circle cx="516" cy="365" r="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
-            <circle cx="544" cy="363" r="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
-            <circle cx="574" cy="366" r="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
-            <circle cx="602" cy="364" r="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
-            <!-- Night: the four Sky Station spheres illuminated -->
+            <!-- Sky Station sphere caps — skeletal (open) circles with crossed inner lines hinting at Fischer's perforated spheres -->
+            <g class="bartle-sphere">
+              <circle cx="516" cy="378" r="6" fill="none" stroke="#C9A84C" stroke-width="1"/>
+              <line x1="511" y1="378" x2="521" y2="378" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+              <line x1="516" y1="373" x2="516" y2="383" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+            </g>
+            <g class="bartle-sphere">
+              <circle cx="544" cy="353" r="6" fill="none" stroke="#C9A84C" stroke-width="1"/>
+              <line x1="539" y1="353" x2="549" y2="353" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+              <line x1="544" y1="348" x2="544" y2="358" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+            </g>
+            <g class="bartle-sphere">
+              <circle cx="574" cy="355" r="6" fill="none" stroke="#C9A84C" stroke-width="1"/>
+              <line x1="569" y1="355" x2="579" y2="355" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+              <line x1="574" y1="350" x2="574" y2="360" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+            </g>
+            <g class="bartle-sphere">
+              <circle cx="602" cy="376" r="6" fill="none" stroke="#C9A84C" stroke-width="1"/>
+              <line x1="597" y1="376" x2="607" y2="376" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+              <line x1="602" y1="371" x2="602" y2="381" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+            </g>
+            <!-- Night: the four Sky Station spheres illuminated — repositioned to match new pylon heights -->
             <g class="building-night-lights" aria-hidden="true">
-              <circle cx="516" cy="365" r="9" fill="rgba(245,217,138,0.25)"/>
-              <circle cx="516" cy="365" r="4.5" fill="#F5D98A"/>
-              <circle cx="544" cy="363" r="9" fill="rgba(245,217,138,0.25)"/>
-              <circle cx="544" cy="363" r="4.5" fill="#F5D98A"/>
-              <circle cx="574" cy="366" r="9" fill="rgba(245,217,138,0.25)"/>
-              <circle cx="574" cy="366" r="4.5" fill="#F5D98A"/>
-              <circle cx="602" cy="364" r="9" fill="rgba(245,217,138,0.25)"/>
-              <circle cx="602" cy="364" r="4.5" fill="#F5D98A"/>
+              <circle cx="516" cy="378" r="9" fill="rgba(245,217,138,0.25)"/>
+              <circle cx="516" cy="378" r="4.5" fill="#F5D98A"/>
+              <circle cx="544" cy="353" r="9" fill="rgba(245,217,138,0.25)"/>
+              <circle cx="544" cy="353" r="4.5" fill="#F5D98A"/>
+              <circle cx="574" cy="355" r="9" fill="rgba(245,217,138,0.25)"/>
+              <circle cx="574" cy="355" r="4.5" fill="#F5D98A"/>
+              <circle cx="602" cy="376" r="9" fill="rgba(245,217,138,0.25)"/>
+              <circle cx="602" cy="376" r="4.5" fill="#F5D98A"/>
             </g>
             <text class="building-label" x="559" y="336" text-anchor="middle">
               <tspan x="559" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">BARTLE HALL</tspan>
@@ -487,15 +570,18 @@
           </a>
         </g>
 
-        <!-- 7. Fidelity National Bank / 909 Walnut — 1931, 454 ft, Art Deco setbacks -->
+        <!-- 7. Fidelity National Bank / 909 Walnut — 1931, 454 ft, Art Deco setbacks (v11 Track 2A: slender with clear 3-tier upper stepping + narrow lantern + spire) -->
         <g data-building="fidelity-bank">
-          <a href="buildings/fidelity-bank.html" aria-label="Fidelity National Bank Building, 909 Walnut, 1931, 454 feet">
+          <a href="buildings/fidelity-bank.html" aria-label="Fidelity Bank Building (909 Walnut), 1931, 454 feet">
+            <!-- Main body: narrower base (~15% pulled in), subtle mid-tier shoulders, three clear upper-third tiers, narrow lantern crown -->
             <polygon class="building-shape"
-              points="960,560 1030,560 1030,500 1024,500 1024,445 1020,445 1020,390 1015,390 1015,330 1012,330 1012,292 1009,292 1009,283 1007,283 1007,278 996,273 985,273 974,278 974,283 972,283 972,292 969,292 969,330 966,330 966,390 961,390 961,445 956,445 956,500 960,500"
+              points="965,560 1024,560 1024,500 1022,500 1022,445 1019,445 1019,390 1016,390 1016,373 1012,373 1012,328 1008,328 1008,298 1004,298 1004,273 1001,273 1001,258 988,258 988,273 985,273 985,298 981,298 981,328 977,328 977,373 973,373 973,390 970,390 970,445 967,445 967,500 965,500"
               fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="1.5"/>
-            <text class="building-label" x="993" y="253" text-anchor="middle">
-              <tspan x="993" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">909 WALNUT</tspan>
-              <tspan x="993" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1931 &bull; 454 FT</tspan>
+            <!-- Short spire above lantern -->
+            <line x1="994.5" y1="258" x2="994.5" y2="246" stroke="#C9A84C" stroke-width="1"/>
+            <text class="building-label" x="994" y="233" text-anchor="middle">
+              <tspan x="994" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">909 WALNUT</tspan>
+              <tspan x="994" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1931 &bull; 454 FT</tspan>
             </text>
           </a>
         </g>
@@ -535,11 +621,11 @@
           </a>
         </g>
 
-        <!-- 9. Jackson County Courthouse — 1934, stepped Art Deco civic tower -->
+        <!-- 9. Jackson County Courthouse — 1934, stepped Art Deco civic tower (v11 Track 2D: strong 3-tier ziggurat) -->
         <g data-building="jackson-courthouse">
           <a href="buildings/jackson-county-courthouse.html" aria-label="Jackson County Courthouse, 1934">
             <polygon class="building-shape"
-              points="1260,560 1350,560 1350,495 1343,495 1343,447 1336,447 1336,405 1329,405 1329,382 1322,382 1322,373 1313,373 1313,368 1297,368 1297,373 1288,373 1288,382 1281,382 1281,405 1274,405 1274,447 1267,447 1267,495 1260,495"
+              points="1260,560 1350,560 1350,495 1338,495 1338,425 1326,425 1326,393 1314,393 1314,368 1296,368 1296,393 1284,393 1284,425 1272,425 1272,495 1260,495"
               fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="1.5"/>
             <text class="building-label" x="1305" y="341" text-anchor="middle">
               <tspan x="1305" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">COURTHOUSE</tspan>
@@ -572,15 +658,17 @@
         <!-- 11. T-Mobile Center — 2007, downtown arena with curved roof -->
         <g data-building="t-mobile-center">
           <a href="buildings/t-mobile-center.html" aria-label="T-Mobile Center, 2007">
-            <!-- Arena: lower rectangular base with curved roof canopy -->
+            <!-- Arena: flatter roof curve (v11 Track 2F — amplitude reduced ~40%) -->
             <path class="building-shape"
-              d="M 1475,560 L 1575,560 L 1575,485 C 1575,470 1565,462 1550,460 L 1500,460 C 1485,462 1475,470 1475,485 Z"
+              d="M 1475,560 L 1575,560 L 1575,485 C 1575,478 1565,472 1550,470 L 1500,470 C 1485,472 1475,478 1475,485 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Roof-meets-wall band hint at the base of the curve -->
+            <line x1="1478" y1="485" x2="1572" y2="485" stroke="rgba(201,168,76,0.4)" stroke-width="0.8"/>
             <!-- Glass panel hints on the facade -->
-            <line x1="1495" y1="478" x2="1495" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
-            <line x1="1515" y1="475" x2="1515" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
-            <line x1="1535" y1="475" x2="1535" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
-            <line x1="1555" y1="478" x2="1555" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="1495" y1="488" x2="1495" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="1515" y1="488" x2="1515" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="1535" y1="488" x2="1535" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="1555" y1="488" x2="1555" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
             <text class="building-label" x="1525" y="432" text-anchor="middle">
               <tspan x="1525" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">T-MOBILE CENTER</tspan>
               <tspan x="1525" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">2007</tspan>
@@ -633,7 +721,31 @@
           </g>
         </g>
 
-        <!-- v10 Track 4B: Foreground silhouette layer — trees, lamps, a still streetcar -->
+        <!-- v11 Track 1A: Looping streetcar — translates across the ground line on a long cycle.
+             Placed BEFORE skyline-foreground so trees/lamps paint on top (streetcar passes behind them). -->
+        <g class="fg-streetcar-track">
+          <g class="fg-streetcar" transform="translate(0, 560)">
+            <rect x="0" y="-12" width="54" height="12" fill="#0A0805" opacity="0.9"/>
+            <rect x="3" y="-9" width="6" height="5" class="streetcar-window" fill="rgba(201,168,76,0.15)"/>
+            <rect x="13" y="-9" width="6" height="5" class="streetcar-window" fill="rgba(201,168,76,0.15)"/>
+            <rect x="23" y="-9" width="6" height="5" class="streetcar-window" fill="rgba(201,168,76,0.15)"/>
+            <rect x="33" y="-9" width="6" height="5" class="streetcar-window" fill="rgba(201,168,76,0.15)"/>
+            <rect x="43" y="-9" width="8" height="5" class="streetcar-window" fill="rgba(201,168,76,0.12)"/>
+            <circle cx="9" cy="-0.5" r="2" fill="#050403"/>
+            <circle cx="45" cy="-0.5" r="2" fill="#050403"/>
+            <line x1="0" y1="-14" x2="54" y2="-14" stroke="#050403" stroke-width="0.6"/>
+            <line x1="24" y1="-14" x2="24" y2="-22" stroke="#050403" stroke-width="0.5"/>
+            <g class="building-night-lights" aria-hidden="true">
+              <rect x="3" y="-9" width="6" height="5" fill="#F5D98A"/>
+              <rect x="13" y="-9" width="6" height="5" fill="#F5D98A"/>
+              <rect x="23" y="-9" width="6" height="5" fill="#E8C96A"/>
+              <rect x="33" y="-9" width="6" height="5" fill="#F5D98A"/>
+              <rect x="43" y="-9" width="8" height="5" fill="#E8C96A"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- v10 Track 4B: Foreground silhouette layer — trees, lamps (streetcar now lives above in its own track) -->
         <g class="skyline-foreground" aria-hidden="true">
           <!-- Trees scattered along the ground line -->
           <g class="fg-tree" transform="translate(70, 560)">
@@ -709,19 +821,6 @@
             </g>
           </g>
 
-          <!-- A small, still streetcar silhouette — the nod to the Kessler-era transit system -->
-          <g class="fg-streetcar" transform="translate(690, 560)">
-            <rect x="0" y="-12" width="54" height="12" fill="#0A0805" opacity="0.9"/>
-            <rect x="3" y="-9" width="6" height="5" fill="rgba(201,168,76,0.15)"/>
-            <rect x="13" y="-9" width="6" height="5" fill="rgba(201,168,76,0.15)"/>
-            <rect x="23" y="-9" width="6" height="5" fill="rgba(201,168,76,0.15)"/>
-            <rect x="33" y="-9" width="6" height="5" fill="rgba(201,168,76,0.15)"/>
-            <rect x="43" y="-9" width="8" height="5" fill="rgba(201,168,76,0.12)"/>
-            <circle cx="9" cy="-0.5" r="2" fill="#050403"/>
-            <circle cx="45" cy="-0.5" r="2" fill="#050403"/>
-            <line x1="0" y1="-14" x2="54" y2="-14" stroke="#050403" stroke-width="0.6"/>
-            <line x1="24" y1="-14" x2="24" y2="-22" stroke="#050403" stroke-width="0.5"/>
-          </g>
         </g>
 
         <!-- v10 Track 4A (revised): very subtle atmospheric haze at street level — doesn't obscure the foreground rivers -->
@@ -1045,6 +1144,30 @@
   <footer>
     <div class="deco-bar top-bar"></div>
     <div class="footer-inner">
+            <svg class="footer-mini-skyline" viewBox="0 0 500 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 30,80 L 30,64 L 42,64 L 42,28 L 40,24 L 36,23 L 30,24 L 28,28 L 28,64 L 40,64 L 40,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <circle cx="35" cy="18" r="4" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.8"/>
+        <path d="M 70,80 L 70,48 L 80,48 L 80,38 L 100,38 L 100,48 L 110,48 L 110,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="140" y1="80" x2="140" y2="26" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="148" y1="80" x2="148" y2="22" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="156" y1="80" x2="156" y2="22" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="164" y1="80" x2="164" y2="26" stroke="#C9A84C" stroke-width="1"/>
+        <circle cx="140" cy="23" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <circle cx="148" cy="19" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <circle cx="156" cy="19" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <circle cx="164" cy="23" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <path d="M 200,80 L 200,38 L 205,38 L 205,26 L 210,26 L 210,14 L 225,14 L 225,26 L 230,26 L 230,38 L 235,38 L 235,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <rect x="214" y="8" width="7" height="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="0.6"/>
+        <line x1="217.5" y1="8" x2="217.5" y2="4" stroke="#C9A84C" stroke-width="0.6"/>
+        <path d="M 265,80 L 265,40 L 268,40 L 268,20 L 278,20 L 278,40 L 281,40 L 281,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="273" y1="20" x2="273" y2="15" stroke="#C9A84C" stroke-width="0.6"/>
+        <path d="M 310,80 L 310,26 L 318,20 L 326,20 L 334,26 L 334,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <path d="M 360,80 L 360,20 L 372,8 L 384,20 L 384,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <path d="M 420,80 L 420,40 L 425,40 L 425,30 L 430,30 L 430,18 L 450,18 L 450,30 L 455,30 L 455,40 L 460,40 L 460,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <polygon points="430,18 440,10 450,18" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.7"/>
+        <line x1="0" y1="79" x2="800" y2="79" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+        <polygon points="490,77 493,79 490,81 487,79" fill="rgba(201,168,76,0.55)"/>
+      </svg>
       <div class="motif-row" aria-hidden="true">
         <span>◆</span><span>◆</span><span>◆</span>
       </div>

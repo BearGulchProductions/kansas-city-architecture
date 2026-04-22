@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1A1610" />
+  <title>Fountain Day — Look Up, Kansas City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Poiret+One&family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css?v=11f" />
+  <meta property="og:title" content="Fountain Day — Look Up, Kansas City" />
+  <meta property="og:description" content="When Kansas City's fountains come back on each spring. A City of Fountains tradition." />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/b/b6/JC_Nichols_Memorial_Fountain_in_Kansas_City.JPG" />
+  <meta property="og:type" content="website" />
+</head>
+<body>
+
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation" />
+  <label for="mobile-nav-toggle" class="mobile-nav-button" aria-hidden="true"><span></span><span></span><span></span></label>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li class="has-dropdown"><a href="../styles.html">Styles</a>
+        <ul>
+          <li><a href="../art-deco.html">Art Deco</a></li>
+          <li><a href="../styles/spanish-colonial.html">Spanish Colonial</a></li>
+          <li><a href="../styles/beaux-arts.html">Beaux Arts</a></li>
+          <li><a href="../styles/gothic-revival.html">Gothic Revival</a></li>
+          <li><a href="../styles/streamline-moderne.html">Streamline Moderne</a></li>
+          <li><a href="../styles/contemporary.html">Contemporary</a></li>
+          <li><a href="../styles/materials.html">Materials &amp; Details</a></li>
+          <li><a href="../glossary.html">Field Guide</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="../buildings.html">Buildings</a>
+        <ul>
+          <li><a href="../buildings/boom-era.html">Boom Era &mdash; 1900s&ndash;40s</a></li>
+          <li><a href="../buildings/modern-era.html">Modern Era</a></li>
+          <li><a href="../buildings/stadiums.html">Stadiums</a></li>
+          <li><a href="../buildings/compare.html">Compare Heights</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="../fountains.html">Fountains</a>
+        <ul>
+          <li><a href="../fountains.html">All Fountains</a></li>
+          <li><a href="../fountains/jc-nichols.html">J.C. Nichols Memorial</a></li>
+          <li><a href="../fountains/meyer-circle.html">Meyer Circle Sea Horse</a></li>
+          <li><a href="../fountains/bacchus.html">Bacchus</a></li>
+          <li><a href="../fountains/pomona.html">Pomona</a></li>
+          <li><a href="../fountains/volker.html">Volker</a></li>
+          <li><a href="../fountains/firefighters.html">Firefighters</a></li>
+          <li><a href="../fountains/fountain-day.html">Fountain Day</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="../spaces.html">The City</a>
+        <ul>
+          <li><a href="../plaza.html">The Plaza</a></li>
+          <li><a href="../spaces/parks-boulevards.html">Parks &amp; Blvds</a></li>
+          <li><a href="../spaces/ward-parkway.html">Ward Parkway</a></li>
+          <li><a href="../overlooks.html">City Overlooks</a></li>
+          <li><a href="../plaza-lights.html">Plaza Lights</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="../neighborhoods.html">Neighborhoods</a>
+        <ul>
+          <li><a href="../neighborhoods/downtown.html">Downtown</a></li>
+          <li><a href="../neighborhoods/midtown.html">Midtown</a></li>
+          <li><a href="../neighborhoods/crossroads.html">Crossroads</a></li>
+          <li><a href="../neighborhoods/18th-vine.html">18th &amp; Vine</a></li>
+          <li><a href="../neighborhoods/west-bottoms.html">West Bottoms</a></li>
+          <li><a href="../neighborhoods/westport.html">Westport</a></li>
+          <li><a href="../neighborhoods/brookside.html">Brookside</a></li>
+          <li><a href="../neighborhoods/quality-hill.html">Quality Hill</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="../start-here.html">Reading</a>
+        <ul>
+          <li><a href="../start-here.html">Start Here</a></li>
+          <li><a href="../history.html">History</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+          <li class="dropdown-divider" aria-hidden="true"></li>
+          <li><a href="../reading.html">Further Reading</a></li>
+          <li><a href="../sources.html">Sources</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="../visit.html">Visit</a>
+        <ul>
+          <li><a href="../visit/walking-tours.html">Walking Tours</a></li>
+          <li><a href="../map.html">The Map</a></li>
+          <li><a href="../visit/events.html">Events</a></li>
+          <li><a href="../visit/world-cup.html">World Cup 2026</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <input type="checkbox" id="fountains-on" class="fountain-day-input" aria-hidden="true" />
+
+  <section class="fountain-day-hero">
+    <div class="fountain-day-overlay">
+      <span class="eyebrow">A Kansas City Tradition &bull; Every April</span>
+      <h1>Fountain Day<br /><span>When the Water Comes Back</span></h1>
+      <p class="homepage-tagline">The crews make their rounds. The city exhales into spring.</p>
+    </div>
+
+    <div class="fountain-day-toggle-wrap">
+      <fieldset class="fountain-day-toggle">
+        <legend class="visually-hidden">Toggle the fountains</legend>
+        <label for="fountains-on" class="fountain-day-toggle-label">
+          <span class="fountain-day-toggle-box" aria-hidden="true"></span>
+          <span class="fountain-day-toggle-text fountain-day-toggle-off">Turn on the fountains</span>
+          <span class="fountain-day-toggle-text fountain-day-toggle-on">The fountains are running</span>
+        </label>
+      </fieldset>
+    </div>
+
+    <div class="fountain-day-svg-container">
+      <svg class="fountain-day-svg" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax meet" role="img" aria-labelledby="fd-title fd-desc" xmlns="http://www.w3.org/2000/svg">
+        <title id="fd-title">Six Kansas City fountains on Fountain Day</title>
+        <desc id="fd-desc">Six of Kansas City's iconic fountains — J.C. Nichols Memorial, Meyer Circle Sea Horse, Bacchus, Pomona, Volker, and Firefighters Memorial — arranged along a park landscape. Toggle to turn the water on.</desc>
+
+        <defs>
+          <linearGradient id="fd-sky-cold" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"  stop-color="#9AA6B5"/>
+            <stop offset="60%" stop-color="#B3BDC7"/>
+            <stop offset="100%" stop-color="#A69E8A"/>
+          </linearGradient>
+          <linearGradient id="fd-sky-warm" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"  stop-color="#8CB4D8"/>
+            <stop offset="55%" stop-color="#B7D1E3"/>
+            <stop offset="100%" stop-color="#D5E2CF"/>
+          </linearGradient>
+          <linearGradient id="fd-ground-cold" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"  stop-color="#6E5E42"/>
+            <stop offset="100%" stop-color="#3A2E1F"/>
+          </linearGradient>
+          <linearGradient id="fd-ground-warm" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"  stop-color="#6E8749"/>
+            <stop offset="100%" stop-color="#3A4A22"/>
+          </linearGradient>
+          <radialGradient id="fd-pool" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"  stop-color="rgba(200,220,235,0.55)"/>
+            <stop offset="100%" stop-color="rgba(140,175,200,0.1)"/>
+          </radialGradient>
+          <linearGradient id="fd-spray" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"  stop-color="rgba(230,240,248,0)"/>
+            <stop offset="50%" stop-color="rgba(210,230,248,0.7)"/>
+            <stop offset="100%" stop-color="rgba(170,200,230,0.25)"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Sky — cold (pre-fountain-day) by default, warm (on) with toggle -->
+        <rect class="fd-sky fd-sky-cold" x="0" y="0" width="1600" height="440" fill="url(#fd-sky-cold)"/>
+        <rect class="fd-sky fd-sky-warm" x="0" y="0" width="1600" height="440" fill="url(#fd-sky-warm)"/>
+
+        <!-- Distant tree line -->
+        <g class="fd-tree-line" aria-hidden="true">
+          <path d="M 0,430 Q 80,395 160,415 Q 240,400 320,420 Q 400,390 490,410 Q 580,395 660,418 Q 750,385 830,410 Q 920,395 1000,418 Q 1080,390 1170,412 Q 1260,395 1350,418 Q 1440,395 1530,415 Q 1580,405 1600,420 L 1600,440 L 0,440 Z"
+                fill="#4E5B3E" opacity="0.75"/>
+        </g>
+
+        <!-- Ground — cold brown by default, greener when toggle on -->
+        <rect class="fd-ground fd-ground-cold" x="0" y="440" width="1600" height="160" fill="url(#fd-ground-cold)"/>
+        <rect class="fd-ground fd-ground-warm" x="0" y="440" width="1600" height="160" fill="url(#fd-ground-warm)"/>
+
+        <!-- Path ribbon across the grounds -->
+        <path d="M 0,520 Q 400,510 800,525 Q 1200,535 1600,520 L 1600,534 Q 1200,548 800,538 Q 400,530 0,540 Z"
+              fill="rgba(202,188,160,0.45)"/>
+
+        <!-- ─── FOUNTAIN 1: J.C. Nichols Memorial ───
+             Largest, 4 equestrian figures. Placed at x=80-280. -->
+        <g class="fd-fountain" data-fountain="nichols">
+          <a href="jc-nichols.html" aria-label="J.C. Nichols Memorial Fountain — click for detail">
+            <!-- Circular pool base -->
+            <ellipse cx="180" cy="510" rx="118" ry="22" fill="rgba(80,62,40,0.85)" stroke="#2A1A0C" stroke-width="1.2"/>
+            <ellipse class="fd-pool-water" cx="180" cy="508" rx="108" ry="16" fill="url(#fd-pool)"/>
+            <!-- Central plinth -->
+            <rect x="162" y="472" width="36" height="28" fill="#7C6A4C" stroke="#3A2C1A" stroke-width="1"/>
+            <!-- 4 equestrian bronze figures (highly stylized — horses + riders as bronze silhouettes) -->
+            <g class="fd-nichols-horses">
+              <!-- Front-left horse -->
+              <path d="M 120,495 Q 118,478 122,466 Q 128,460 134,466 Q 138,472 136,486 L 140,498 L 134,508 L 124,508 Z" fill="#3E2A1A"/>
+              <circle cx="128" cy="462" r="3" fill="#3E2A1A"/>
+              <line x1="125" y1="464" x2="120" y2="459" stroke="#3E2A1A" stroke-width="1.2"/>
+              <!-- Front-right horse -->
+              <path d="M 240,495 Q 242,478 238,466 Q 232,460 226,466 Q 222,472 224,486 L 220,498 L 226,508 L 236,508 Z" fill="#3E2A1A"/>
+              <circle cx="232" cy="462" r="3" fill="#3E2A1A"/>
+              <line x1="235" y1="464" x2="240" y2="459" stroke="#3E2A1A" stroke-width="1.2"/>
+              <!-- Back-left rider -->
+              <ellipse cx="158" cy="458" rx="5" ry="10" fill="#3E2A1A"/>
+              <!-- Back-right rider -->
+              <ellipse cx="202" cy="458" rx="5" ry="10" fill="#3E2A1A"/>
+            </g>
+            <!-- Water sprays (hidden until toggle) -->
+            <g class="fountain-water">
+              <!-- Primary central jet -->
+              <path class="fd-spray fd-spray-primary" d="M 180,478 Q 170,440 175,410 Q 180,386 185,410 Q 190,440 180,478 Z" fill="url(#fd-spray)"/>
+              <!-- Four horse jets -->
+              <path class="fd-spray" d="M 120,490 Q 108,470 112,450 Q 116,440 120,450 Q 124,470 120,490 Z" fill="url(#fd-spray)"/>
+              <path class="fd-spray" d="M 240,490 Q 252,470 248,450 Q 244,440 240,450 Q 236,470 240,490 Z" fill="url(#fd-spray)"/>
+              <path class="fd-spray" d="M 158,472 Q 150,455 152,440 Q 156,432 160,440 Q 164,455 158,472 Z" fill="url(#fd-spray)"/>
+              <path class="fd-spray" d="M 202,472 Q 210,455 208,440 Q 204,432 200,440 Q 196,455 202,472 Z" fill="url(#fd-spray)"/>
+              <!-- Droplets -->
+              <ellipse class="fd-droplet" cx="180" cy="400" rx="1.4" ry="2.8" fill="rgba(220,235,250,0.75)"/>
+              <ellipse class="fd-droplet" cx="175" cy="420" rx="1.2" ry="2.4" fill="rgba(220,235,250,0.7)"/>
+              <ellipse class="fd-droplet" cx="188" cy="435" rx="1.3" ry="2.5" fill="rgba(220,235,250,0.7)"/>
+            </g>
+            <!-- Label on hover -->
+            <text class="fd-label" x="180" y="547" text-anchor="middle" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="#F5EFE0">J.C. Nichols Memorial</text>
+          </a>
+        </g>
+
+        <!-- ─── FOUNTAIN 2: Meyer Circle Sea Horse (x=380-520) ─── -->
+        <g class="fd-fountain" data-fountain="meyer-circle">
+          <a href="meyer-circle.html" aria-label="Meyer Circle Sea Horse Fountain — click for detail">
+            <ellipse cx="450" cy="515" rx="72" ry="15" fill="rgba(80,62,40,0.85)" stroke="#2A1A0C" stroke-width="1.1"/>
+            <ellipse class="fd-pool-water" cx="450" cy="513" rx="64" ry="10" fill="url(#fd-pool)"/>
+            <!-- Central column -->
+            <rect x="444" y="478" width="12" height="26" fill="#7C6A4C" stroke="#3A2C1A" stroke-width="0.8"/>
+            <!-- Sea horse figures (two, leaning outward) -->
+            <g class="fd-meyer-horses">
+              <!-- Left sea horse -->
+              <path d="M 420,500 Q 408,488 412,470 Q 418,460 426,468 Q 430,478 426,490 L 428,500 Z" fill="#3E2A1A"/>
+              <circle cx="418" cy="466" r="2.4" fill="#3E2A1A"/>
+              <!-- Right sea horse -->
+              <path d="M 480,500 Q 492,488 488,470 Q 482,460 474,468 Q 470,478 474,490 L 472,500 Z" fill="#3E2A1A"/>
+              <circle cx="482" cy="466" r="2.4" fill="#3E2A1A"/>
+            </g>
+            <g class="fountain-water">
+              <path class="fd-spray fd-spray-primary" d="M 450,472 Q 444,440 448,418 Q 450,404 452,418 Q 456,440 450,472 Z" fill="url(#fd-spray)"/>
+              <path class="fd-spray" d="M 418,470 Q 410,452 412,438 Q 416,430 420,438 Q 424,452 418,470 Z" fill="url(#fd-spray)"/>
+              <path class="fd-spray" d="M 482,470 Q 490,452 488,438 Q 484,430 480,438 Q 476,452 482,470 Z" fill="url(#fd-spray)"/>
+              <ellipse class="fd-droplet" cx="450" cy="410" rx="1.2" ry="2.2" fill="rgba(220,235,250,0.7)"/>
+            </g>
+            <text class="fd-label" x="450" y="548" text-anchor="middle" font-family="'Playfair Display', serif" font-size="12" font-style="italic" fill="#F5EFE0">Meyer Circle Sea Horse</text>
+          </a>
+        </g>
+
+        <!-- ─── FOUNTAIN 3: Bacchus (x=600-720) ─── -->
+        <g class="fd-fountain" data-fountain="bacchus">
+          <a href="bacchus.html" aria-label="Bacchus Fountain — click for detail">
+            <ellipse cx="660" cy="515" rx="56" ry="12" fill="rgba(80,62,40,0.85)" stroke="#2A1A0C" stroke-width="1"/>
+            <ellipse class="fd-pool-water" cx="660" cy="513" rx="48" ry="8" fill="url(#fd-pool)"/>
+            <!-- Bacchus figure silhouette -->
+            <ellipse cx="660" cy="490" rx="7" ry="12" fill="#3E2A1A"/>
+            <circle cx="660" cy="478" r="4" fill="#3E2A1A"/>
+            <!-- Grape cluster in hand -->
+            <circle cx="668" cy="488" r="1.6" fill="#5A3E24"/>
+            <circle cx="671" cy="491" r="1.6" fill="#5A3E24"/>
+            <circle cx="666" cy="492" r="1.6" fill="#5A3E24"/>
+            <g class="fountain-water">
+              <path class="fd-spray fd-spray-primary" d="M 660,470 Q 654,445 658,425 Q 660,412 662,425 Q 666,445 660,470 Z" fill="url(#fd-spray)"/>
+              <ellipse class="fd-droplet" cx="660" cy="420" rx="1.1" ry="2" fill="rgba(220,235,250,0.7)"/>
+            </g>
+            <text class="fd-label" x="660" y="548" text-anchor="middle" font-family="'Playfair Display', serif" font-size="12" font-style="italic" fill="#F5EFE0">Bacchus</text>
+          </a>
+        </g>
+
+        <!-- ─── FOUNTAIN 4: Pomona (x=780-900) ─── -->
+        <g class="fd-fountain" data-fountain="pomona">
+          <a href="pomona.html" aria-label="Pomona Fountain — click for detail">
+            <ellipse cx="840" cy="515" rx="56" ry="12" fill="rgba(80,62,40,0.85)" stroke="#2A1A0C" stroke-width="1"/>
+            <ellipse class="fd-pool-water" cx="840" cy="513" rx="48" ry="8" fill="url(#fd-pool)"/>
+            <!-- Pomona figure with fruit basket -->
+            <ellipse cx="840" cy="490" rx="7" ry="12" fill="#3E2A1A"/>
+            <circle cx="840" cy="478" r="4" fill="#3E2A1A"/>
+            <!-- Fruit basket at arms -->
+            <rect x="832" y="486" width="16" height="6" fill="#5A3E24"/>
+            <circle cx="836" cy="484" r="1.4" fill="#5A3E24"/>
+            <circle cx="840" cy="483" r="1.4" fill="#5A3E24"/>
+            <circle cx="844" cy="484" r="1.4" fill="#5A3E24"/>
+            <g class="fountain-water">
+              <path class="fd-spray fd-spray-primary" d="M 840,470 Q 834,445 838,425 Q 840,412 842,425 Q 846,445 840,470 Z" fill="url(#fd-spray)"/>
+              <ellipse class="fd-droplet" cx="840" cy="420" rx="1.1" ry="2" fill="rgba(220,235,250,0.7)"/>
+            </g>
+            <text class="fd-label" x="840" y="548" text-anchor="middle" font-family="'Playfair Display', serif" font-size="12" font-style="italic" fill="#F5EFE0">Pomona</text>
+          </a>
+        </g>
+
+        <!-- ─── FOUNTAIN 5: Volker (x=960-1120) ─── -->
+        <g class="fd-fountain" data-fountain="volker">
+          <a href="volker.html" aria-label="Volker Fountain — click for detail">
+            <ellipse cx="1040" cy="515" rx="78" ry="14" fill="rgba(80,62,40,0.85)" stroke="#2A1A0C" stroke-width="1.1"/>
+            <ellipse class="fd-pool-water" cx="1040" cy="513" rx="70" ry="10" fill="url(#fd-pool)"/>
+            <!-- Central stepped column -->
+            <rect x="1032" y="476" width="16" height="30" fill="#7C6A4C" stroke="#3A2C1A" stroke-width="0.8"/>
+            <rect x="1028" y="468" width="24" height="10" fill="#7C6A4C" stroke="#3A2C1A" stroke-width="0.8"/>
+            <!-- Three-figure bronze group at top (abstract) -->
+            <circle cx="1035" cy="460" r="4" fill="#3E2A1A"/>
+            <circle cx="1045" cy="460" r="4" fill="#3E2A1A"/>
+            <circle cx="1040" cy="452" r="3" fill="#3E2A1A"/>
+            <g class="fountain-water">
+              <path class="fd-spray fd-spray-primary" d="M 1040,450 Q 1032,415 1036,395 Q 1040,382 1044,395 Q 1048,415 1040,450 Z" fill="url(#fd-spray)"/>
+              <path class="fd-spray" d="M 1008,490 Q 998,470 1002,454 Q 1006,446 1010,454 Q 1014,470 1008,490 Z" fill="url(#fd-spray)"/>
+              <path class="fd-spray" d="M 1072,490 Q 1082,470 1078,454 Q 1074,446 1070,454 Q 1066,470 1072,490 Z" fill="url(#fd-spray)"/>
+              <ellipse class="fd-droplet" cx="1040" cy="390" rx="1.3" ry="2.3" fill="rgba(220,235,250,0.7)"/>
+            </g>
+            <text class="fd-label" x="1040" y="548" text-anchor="middle" font-family="'Playfair Display', serif" font-size="12" font-style="italic" fill="#F5EFE0">Volker</text>
+          </a>
+        </g>
+
+        <!-- ─── FOUNTAIN 6: Firefighters Memorial (x=1220-1400) ─── -->
+        <g class="fd-fountain" data-fountain="firefighters">
+          <a href="firefighters.html" aria-label="Firefighters Memorial Fountain — click for detail">
+            <ellipse cx="1310" cy="515" rx="96" ry="16" fill="rgba(80,62,40,0.85)" stroke="#2A1A0C" stroke-width="1.2"/>
+            <ellipse class="fd-pool-water" cx="1310" cy="513" rx="86" ry="12" fill="url(#fd-pool)"/>
+            <!-- Central monument base -->
+            <rect x="1296" y="462" width="28" height="44" fill="#7C6A4C" stroke="#3A2C1A" stroke-width="1"/>
+            <!-- Bronze firefighter figures — three abstract figures -->
+            <g class="fd-ff-figures">
+              <ellipse cx="1290" cy="472" rx="5" ry="11" fill="#3E2A1A"/>
+              <ellipse cx="1310" cy="452" rx="5" ry="13" fill="#3E2A1A"/>
+              <ellipse cx="1330" cy="470" rx="5" ry="11" fill="#3E2A1A"/>
+              <!-- Heads -->
+              <circle cx="1290" cy="460" r="3" fill="#3E2A1A"/>
+              <circle cx="1310" cy="438" r="3.2" fill="#3E2A1A"/>
+              <circle cx="1330" cy="458" r="3" fill="#3E2A1A"/>
+            </g>
+            <g class="fountain-water">
+              <path class="fd-spray fd-spray-primary" d="M 1310,428 Q 1300,388 1305,365 Q 1310,350 1315,365 Q 1320,388 1310,428 Z" fill="url(#fd-spray)"/>
+              <!-- Arc sprays from sides -->
+              <path class="fd-spray fd-spray-arc-left" d="M 1280,475 Q 1250,455 1248,435 Q 1250,428 1256,435 Q 1260,452 1280,475 Z" fill="url(#fd-spray)" opacity="0.75"/>
+              <path class="fd-spray fd-spray-arc-right" d="M 1340,475 Q 1370,455 1372,435 Q 1370,428 1364,435 Q 1360,452 1340,475 Z" fill="url(#fd-spray)" opacity="0.75"/>
+              <ellipse class="fd-droplet" cx="1310" cy="360" rx="1.4" ry="2.5" fill="rgba(220,235,250,0.75)"/>
+              <ellipse class="fd-droplet" cx="1252" cy="428" rx="1.2" ry="2.2" fill="rgba(220,235,250,0.7)"/>
+              <ellipse class="fd-droplet" cx="1368" cy="428" rx="1.2" ry="2.2" fill="rgba(220,235,250,0.7)"/>
+            </g>
+            <text class="fd-label" x="1310" y="548" text-anchor="middle" font-family="'Playfair Display', serif" font-size="12" font-style="italic" fill="#F5EFE0">Firefighters Memorial</text>
+          </a>
+        </g>
+
+      </svg>
+    </div>
+  </section>
+
+  <main>
+
+    <section class="detail-section" id="fountain-day">
+      <div class="container">
+        <h2>Fountain Day</h2>
+        <p>
+          Every April, city crews make a circuit of Kansas City's fountains, one after another,
+          filling pools and flipping valves. For a few hours the trucks cluster around the great
+          basins of Mill Creek Park and at the Plaza, hoses run, the equipment coughs, and then
+          the water comes on &mdash; a low murmur at first, then the full spray rising. Residents
+          plan picnics around the route. The season has begun.
+        </p>
+        <p>
+          There isn't one ceremonial moment. Fountain Day is less a ceremony than a civic
+          errand performed at scale. But it has the feel of a ritual. The J.C. Nichols Memorial
+          Fountain at 47th and Main is usually the first the city addresses &mdash; tradition
+          and prominence give it the honors &mdash; and by late afternoon the six fountains most
+          people know are running.
+        </p>
+      </div>
+    </section>
+
+    <section class="detail-section" id="city-of-fountains">
+      <div class="container">
+        <h2>The City of Fountains</h2>
+        <p>
+          Kansas City claims, with some justice, to have more fountains than any city except
+          Rome. The number moves around &mdash; one count gives 200, another 250, and the City
+          of Fountains Foundation keeps an official ledger that's always changing as new
+          installations go in and older ones come out for restoration. The exact total matters
+          less than the pattern: Kansas City thinks of itself as a place where water is public
+          and ceremonial, and where a fountain is a routine piece of civic infrastructure.
+        </p>
+        <p>
+          The pattern has deep roots. George Kessler's 1893 Parks and Boulevards plan laid out
+          a system of green ribbons through the city, and fountains were a signature element at
+          key nodes. J.C. Nichols carried the pattern into the private realm, installing
+          dozens of bronze figures and stone basins across the Plaza and the Country Club
+          District. The City of Fountains Foundation, founded in 1973, has been responsible
+          for most of the newer installations and for the restoration of older ones.
+        </p>
+      </div>
+    </section>
+
+    <section class="detail-section" id="what-to-see">
+      <div class="container">
+        <h2>What to See on Fountain Day</h2>
+        <p>
+          Six fountains most reward a visit. The J.C. Nichols Memorial, with its four bronze
+          equestrian figures by Henri Greber, is the biggest and the most photographed &mdash;
+          standing at the entrance to the Plaza, it's the city's postcard fountain. Meyer Circle
+          Sea Horse, a block south, is the oldest piece the city owns. The Firefighters Memorial
+          at 31st and Broadway is the emotional one &mdash; a memorial to the members of the KC
+          Fire Department lost in the line of duty, with three bronze figures and a reflecting
+          pool. Volker, Bacchus, and Pomona round out the tour.
+        </p>
+        <p>
+          If you want the turning-on moment, watch the city's social media for the crew schedule.
+          The work is casual, friendly, and entirely public. The crews don't mind an audience.
+        </p>
+      </div>
+    </section>
+
+    <section class="detail-section" id="winter-mode">
+      <div class="container">
+        <h2>Winter Mode</h2>
+        <p>
+          The other half of the year, the fountains are drained. By late October, city crews
+          reverse the process: water out, plumbing winterized, pools covered or wrapped. Meyer
+          Circle Sea Horse sometimes gets a Christmas wreath. A few fountains stay running
+          through mild stretches and freeze spectacularly when the temperature drops, their
+          bronze figures glazed in an inch of ice.
+        </p>
+        <p>
+          The drained winter fountain tells you something true about the city: that public
+          infrastructure is seasonal here, that the landscape has a rhythm, and that a fountain
+          is a thing that has to be taken care of. Fountain Day is the moment the care becomes
+          visible again.
+        </p>
+      </div>
+    </section>
+
+    <section class="detail-section" id="related">
+      <div class="container">
+        <h2>Related</h2>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+
+          <article class="card">
+            <a class="card-photo-link" href="../fountains.html">
+              <img class="card-photo" style="object-position: center 50%;"
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b6/JC_Nichols_Memorial_Fountain_in_Kansas_City.JPG"
+                alt="J.C. Nichols Memorial Fountain" />
+            </a>
+            <div class="card-body">
+              <h3><a href="../fountains.html" style="color:inherit;text-decoration:none;">All Fountains</a></h3>
+              <p class="card-year">City of Fountains</p>
+              <p>The full catalog &mdash; six marquee fountains and many more scattered across the parks and the Plaza.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <a class="card-photo-link" href="../plaza.html">
+              <img class="card-photo" style="object-position: center 40%;"
+                src="https://upload.wikimedia.org/wikipedia/commons/1/12/Country_Club_Plaza_1_Kansas_City_MO.jpg"
+                alt="The Country Club Plaza" />
+            </a>
+            <div class="card-body">
+              <h3><a href="../plaza.html" style="color:inherit;text-decoration:none;">The Plaza</a></h3>
+              <p class="card-year">1922</p>
+              <p>Where most of the fountains cluster &mdash; and where J.C. Nichols made fountains a signature of his urban idea.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <a class="card-photo-link" href="../history/civic-imagination.html">
+              <img class="card-photo" style="object-position: center 35%;"
+                src="https://upload.wikimedia.org/wikipedia/commons/7/70/Kansas_City_Power_and_Light_Building_1931.jpg"
+                alt="Civic imagination — KC's public ambitions" />
+            </a>
+            <div class="card-body">
+              <h3><a href="../history/civic-imagination.html" style="color:inherit;text-decoration:none;">Civic Imagination</a></h3>
+              <p class="card-year">Essay</p>
+              <p>Why this city thinks of itself as a place of fountains and boulevards and what that tells you.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="deco-bar top-bar"></div>
+    <div class="footer-inner">
+            <svg class="footer-mini-skyline" viewBox="0 0 500 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <!-- Liberty Memorial with flame -->
+        <path d="M 30,80 L 30,64 L 42,64 L 42,28 L 40,24 L 36,23 L 30,24 L 28,28 L 28,64 L 40,64 L 40,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <circle cx="35" cy="18" r="4" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.8"/>
+        <!-- Union Station (wide low) -->
+        <path d="M 70,80 L 70,48 L 80,48 L 80,38 L 100,38 L 100,48 L 110,48 L 110,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <!-- Bartle pylons -->
+        <line x1="140" y1="80" x2="140" y2="26" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="148" y1="80" x2="148" y2="22" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="156" y1="80" x2="156" y2="22" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="164" y1="80" x2="164" y2="26" stroke="#C9A84C" stroke-width="1"/>
+        <circle cx="140" cy="23" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <circle cx="148" cy="19" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <circle cx="156" cy="19" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <circle cx="164" cy="23" r="1.8" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+        <!-- Power &amp; Light with stepped crown -->
+        <path d="M 200,80 L 200,38 L 205,38 L 205,26 L 210,26 L 210,14 L 225,14 L 225,26 L 230,26 L 230,38 L 235,38 L 235,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <!-- Lantern on top -->
+        <rect x="214" y="8" width="7" height="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="0.6"/>
+        <line x1="217.5" y1="8" x2="217.5" y2="4" stroke="#C9A84C" stroke-width="0.6"/>
+        <!-- 909 Walnut (slender) -->
+        <path d="M 265,80 L 265,40 L 268,40 L 268,20 L 278,20 L 278,40 L 281,40 L 281,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="273" y1="20" x2="273" y2="15" stroke="#C9A84C" stroke-width="0.6"/>
+        <!-- Town Pavilion -->
+        <path d="M 310,80 L 310,26 L 318,20 L 326,20 L 334,26 L 334,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <!-- One KC Place (tallest, pitched roof) -->
+        <path d="M 360,80 L 360,20 L 372,8 L 384,20 L 384,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <!-- City Hall with pyramid -->
+        <path d="M 420,80 L 420,40 L 425,40 L 425,30 L 430,30 L 430,18 L 450,18 L 450,30 L 455,30 L 455,40 L 460,40 L 460,80 Z" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.8"/>
+        <polygon points="430,18 440,10 450,18" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.7"/>
+        <!-- Deco hairline -->
+        <line x1="0" y1="79" x2="800" y2="79" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+        <polygon points="490,77 493,79 490,81 487,79" fill="rgba(201,168,76,0.55)"/>
+      </svg>
+      <div class="motif-row" aria-hidden="true"><span>◆</span><span>◆</span><span>◆</span></div>
+      <p>Look Up, Kansas City &mdash; An Architecture &amp; History Guide</p>
+      <p class="footer-small">Built with Claude Code &bull; 2026</p>
+      <p class="footer-small"><a href="../credits.html" style="color:var(--warm-grey);">Photo Credits</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

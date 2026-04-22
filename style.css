@@ -683,13 +683,43 @@ footer p {
 .card-photo-link {
   display: block;
   overflow: hidden;
+  position: relative;
+  z-index: 0;
 }
 .card-photo-link .card-photo {
   transition: transform 0.35s ease, filter 0.35s ease;
 }
-.card-photo-link:hover .card-photo {
+
+/* ── v11 Track 9: Site-wide card clickability ────
+   `.card` already has `position: relative`. The title link's ::after stretches
+   to the card's edges so clicks anywhere on the card fire the title link.
+   The .card-photo-link wrapper stays semantic but its hover-targeting moves
+   to the card-level hover. */
+.card {
+  cursor: pointer;
+}
+.card h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.card h3 a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
+}
+.card:hover .card-photo {
   transform: scale(1.04);
   filter: sepia(15%) contrast(1.08) brightness(0.95);
+}
+/* Year tag + any future interactive chip must stay above the stretched link */
+.card-year,
+.card .card-tag {
+  position: relative;
+  z-index: 2;
 }
 
 /* ── Plaza Page Spanish Decorations ── */
@@ -2264,6 +2294,108 @@ a:hover .nbhd-label { fill: #E8C96A; }
   50%      { filter: brightness(1.25); }
 }
 
+/* ── v11 Track 1A: Streetcar loop ───────────────────────────────
+   Translates the whole track (inner streetcar stays at local 0,560).
+   On-screen window ~14% of the 52s cycle — a real streetcar that passes occasionally. */
+.fg-streetcar-track {
+  animation: streetcar-cross 52s linear infinite;
+  transform: translateX(-120px);
+  will-change: transform;
+}
+@keyframes streetcar-cross {
+  0%   { transform: translateX(-120px); }
+  8%   { transform: translateX(-120px); }
+  22%  { transform: translateX(1680px); }
+  100% { transform: translateX(1680px); }
+}
+/* Streetcar window gleams follow the building-night-lights timing (handled by shared class) */
+
+/* ── v11 Track 1B: Bird flock ───────────────────────────────
+   A small V-formation arcs across the sky ~18% of a 75s cycle, Dawn + Day only.
+   Four birds positioned at flock offsets from the group origin; the whole group translates + dips. */
+.sky-birds {
+  animation:
+    birds-cross 75s linear infinite,
+    bird-phase-visibility 28s linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes birds-cross {
+  0%   { transform: translate(-200px, 180px); }
+  10%  { transform: translate(-200px, 180px); }
+  14%  { transform: translate(200px,  140px); }
+  18%  { transform: translate(700px,  100px); }
+  22%  { transform: translate(1150px, 115px); }
+  28%  { transform: translate(1700px, 160px); }
+  100% { transform: translate(1700px, 160px); }
+}
+@keyframes bird-phase-visibility {
+  /* Dawn (0–25%) + Day (25–50%) visible; Dusk + Night hidden */
+  0%   { opacity: 0; }
+  4%   { opacity: 1; }
+  46%  { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+.sky-bird {
+  animation: bird-flap 0.42s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.sky-bird-lead  { transform: translate(0, 0); }
+.sky-bird-left  { transform: translate(-9px, 4px); animation-delay: 0.07s; }
+.sky-bird-right { transform: translate(9px, 4px);  animation-delay: 0.14s; }
+.sky-bird-rear  { transform: translate(0, 8px);    animation-delay: 0.21s; }
+@keyframes bird-flap {
+  0%, 100% { transform: translate(var(--bx, 0), var(--by, 0)) scaleY(1); }
+  50%      { transform: translate(var(--bx, 0), var(--by, 0)) scaleY(0.5); }
+}
+/* Because the transform is used for both flock offset and flap, set flock via CSS custom props */
+.sky-bird-lead  { --bx: 0;    --by: 0; }
+.sky-bird-left  { --bx: -9px; --by: 4px; }
+.sky-bird-right { --bx: 9px;  --by: 4px; }
+.sky-bird-rear  { --bx: 0;    --by: 8px; }
+
+/* ── v11 Track 1C: Slow rolling clouds ───────────────────────────────
+   Three clouds at different drift speeds for parallax depth.
+   Each is sized to disappear off-right, then snap back to off-left.
+   Group-level opacity tied to phase cycle (day-dominant). */
+.sky-clouds {
+  animation: cloud-phase-opacity 28s linear infinite;
+}
+.sky-cloud {
+  will-change: transform;
+}
+.sky-cloud-1 { animation: cloud-drift-1 180s linear infinite;                   }
+.sky-cloud-2 { animation: cloud-drift-2 220s linear infinite; animation-delay: -70s; }
+.sky-cloud-3 { animation: cloud-drift-3 260s linear infinite; animation-delay: -160s; }
+@keyframes cloud-drift-1 {
+  0%   { transform: translate(-60px, 120px); }
+  100% { transform: translate(1680px, 120px); }
+}
+@keyframes cloud-drift-2 {
+  0%   { transform: translate(-60px, 75px); }
+  100% { transform: translate(1680px, 75px); }
+}
+@keyframes cloud-drift-3 {
+  0%   { transform: translate(-60px, 165px); }
+  100% { transform: translate(1680px, 165px); }
+}
+@keyframes cloud-phase-opacity {
+  /* Dawn (0–25%) */
+  0%  { opacity: 0.35; }
+  18% { opacity: 0.4; }
+  /* Day (25–50%) */
+  25% { opacity: 1.0; }
+  43% { opacity: 1.0; }
+  /* Dusk (50–75%) */
+  50% { opacity: 0.5; }
+  68% { opacity: 0.5; }
+  /* Night (75–100%) */
+  75% { opacity: 0.08; }
+  93% { opacity: 0.08; }
+  100%{ opacity: 0.35; }
+}
+
 /* ── v10 Track 2: Rivers — color cycle + moonlight streaks + hover ──── */
 
 .river-body {
@@ -2372,18 +2504,20 @@ body:has(#ghost-toggle:checked) .skyline-ghosts .ghost-building:hover .ghost-lab
   outline-offset: 3px;
 }
 .skyline-ghost-caption {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 0.85rem;
+  font-family: 'Poiret One', 'Playfair Display', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
   color: var(--warm-grey);
   text-align: center;
-  max-width: 640px;
+  max-width: 680px;
   margin: 0.25rem auto 1.25rem;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .skyline-ghost-caption a {
+  font-family: 'Poiret One', 'Playfair Display', serif;
   color: var(--gold);
   text-decoration: none;
+  letter-spacing: 0.1em;
   border-bottom: 1px solid rgba(201,168,76,0.4);
 }
 .skyline-ghost-caption a:hover { color: var(--gold-light); }
@@ -2461,7 +2595,7 @@ body:has(#ghost-toggle:checked) .skyline-ghosts .ghost-building:hover .ghost-lab
   }
 }
 
-/* ── v10 master reduced-motion rules (supersedes v9) ──── */
+/* ── v10/v11 master reduced-motion rules ──── */
 @media (prefers-reduced-motion: reduce) {
   .tod-layer,
   .skyline-svg g[data-building] .building-shape,
@@ -2474,6 +2608,11 @@ body:has(#ghost-toggle:checked) .skyline-ghosts .ghost-building:hover .ghost-lab
   .sky-stars .star,
   .river-body,
   .river-moonstreak,
+  .fg-streetcar-track,
+  .sky-clouds,
+  .sky-cloud,
+  .sky-birds,
+  .sky-bird,
   .phase-label {
     animation: none !important;
   }
@@ -2490,6 +2629,13 @@ body:has(#ghost-toggle:checked) .skyline-ghosts .ghost-building:hover .ghost-lab
   .building-crown-light,
   .building-night-lights { opacity: 0; }
   .river-body { opacity: 0.5; }
+  /* v11 reduced-motion fallbacks: streetcar parked at v10 location, birds hidden, clouds parked */
+  .fg-streetcar-track { transform: translateX(690px); }
+  .sky-birds { opacity: 0; }
+  .sky-clouds { opacity: 0.8; }
+  .sky-cloud-1 { transform: translate(260px, 120px); }
+  .sky-cloud-2 { transform: translate(820px, 75px); }
+  .sky-cloud-3 { transform: translate(1280px, 165px); }
   .phase-label.phase-day { color: var(--gold-light); opacity: 1; }
   .phase-label:not(.phase-day) { color: var(--warm-grey); opacity: 0.45; }
 }
@@ -4276,4 +4422,472 @@ nav .dropdown-divider {
   font-size: 11px;
   font-style: italic;
   fill: var(--cream);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   v11 Track 5: Plaza Lights page — signature hero with toggle
+   ─────────────────────────────────────────────────────────────── */
+
+/* Hide the toggle-state checkbox (kept in markup for :has targeting) */
+.plaza-lights-input { position: absolute; opacity: 0; pointer-events: none; }
+
+.plaza-lights-hero {
+  position: relative;
+  width: 100%;
+  min-height: clamp(420px, 72vh, 720px);
+  overflow: hidden;
+  background: #2A1F35;
+  padding: clamp(2rem, 6vh, 4rem) 0 0;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+}
+.plaza-lights-overlay {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 1.25rem 0.5rem;
+}
+.plaza-lights-overlay .eyebrow {
+  display: block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.9;
+  margin-bottom: 0.9rem;
+}
+.plaza-lights-overlay h1 {
+  font-family: 'Limelight', 'Playfair Display', serif;
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  color: var(--cream);
+  line-height: 1.05;
+  margin: 0 0 0.75rem;
+}
+.plaza-lights-overlay h1 span {
+  color: var(--gold);
+  font-size: 0.72em;
+  display: block;
+  margin-top: 0.35rem;
+  letter-spacing: 0.05em;
+}
+.plaza-lights-overlay .homepage-tagline {
+  max-width: 560px;
+  color: var(--cream);
+  opacity: 0.9;
+}
+
+/* Toggle label — framed pill, flips text on check */
+.plaza-lights-toggle-wrap {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  margin: 1rem 0 1.25rem;
+}
+.plaza-lights-toggle {
+  display: inline-block;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.plaza-lights-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 1.3rem;
+  border: 1px solid rgba(201,168,76,0.45);
+  background: rgba(15,10,20,0.55);
+  color: var(--cream);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+.plaza-lights-toggle-label:hover { border-color: var(--gold); }
+.plaza-lights-toggle-box {
+  width: 14px; height: 14px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  display: inline-block;
+  transition: background 0.25s ease;
+}
+body:has(#plaza-lights-on:checked) .plaza-lights-toggle-box {
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(201,168,76,0.7);
+}
+.plaza-lights-toggle-on { display: none; }
+body:has(#plaza-lights-on:checked) .plaza-lights-toggle-off { display: none; }
+body:has(#plaza-lights-on:checked) .plaza-lights-toggle-on  { display: inline; color: var(--gold-light, #E8C96A); }
+
+/* SVG container — full-bleed inside the hero */
+.plaza-lights-svg-container {
+  flex: 1;
+  width: 100%;
+  max-height: 62vh;
+  position: relative;
+}
+.plaza-lights-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Sky layers — dusk visible by default, night fades in on toggle */
+.pl-sky {
+  transition: opacity 1.4s ease;
+}
+.pl-sky-night { opacity: 0; }
+body:has(#plaza-lights-on:checked) .pl-sky-dusk  { opacity: 0; }
+body:has(#plaza-lights-on:checked) .pl-sky-night { opacity: 1; }
+
+/* Stars — hidden until night (toggle-on) */
+.pl-stars circle {
+  opacity: 0;
+  transition: opacity 1.8s ease;
+}
+body:has(#plaza-lights-on:checked) .pl-stars circle {
+  opacity: 1;
+  animation: pl-star-twinkle 3.4s ease-in-out infinite;
+  animation-delay: var(--tw, 0s);
+}
+@keyframes pl-star-twinkle {
+  0%, 100% { filter: brightness(0.7); }
+  50%      { filter: brightness(1.3); }
+}
+
+/* Buildings — hover spotlight: when user hovers one, others dim */
+.pl-building a { cursor: pointer; }
+.plaza-lights-svg:has(g[data-plaza]:hover) g[data-plaza]:not(:hover) {
+  opacity: 0.22;
+  transition: opacity 0.3s ease;
+}
+g[data-plaza] { transition: opacity 0.3s ease; }
+
+/* Light strings — hidden by default, fade in when toggle on.
+   Slow (1.4s) transition: the user feels the moment of illumination. */
+.light-string { opacity: 0; transition: opacity 1.4s ease-in; }
+body:has(#plaza-lights-on:checked) .light-string { opacity: 1; }
+
+.bulb-red   { fill: #FF4040; }
+.bulb-green { fill: #3FD07E; }
+.bulb-gold  { fill: #FFD870; }
+
+/* When lit, scale up each bulb ~2x and add a saturated halo */
+.bulb {
+  transform-origin: center;
+  transform-box: fill-box;
+  transform: scale(1);
+  transition: transform 1.2s ease;
+  filter: drop-shadow(0 0 0 currentColor);
+}
+body:has(#plaza-lights-on:checked) .bulb {
+  transform: scale(2.1);
+  animation: pl-bulb-twinkle 2.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 4px currentColor) drop-shadow(0 0 9px currentColor);
+}
+body:has(#plaza-lights-on:checked) .bulb-red   { color: #FF4040; }
+body:has(#plaza-lights-on:checked) .bulb-green { color: #3FD07E; }
+body:has(#plaza-lights-on:checked) .bulb-gold  { color: #FFD870; }
+.light-string .bulb:nth-child(5n)   { animation-delay: 0s; }
+.light-string .bulb:nth-child(5n+1) { animation-delay: 0.4s; }
+.light-string .bulb:nth-child(5n+2) { animation-delay: 0.8s; }
+.light-string .bulb:nth-child(5n+3) { animation-delay: 1.2s; }
+.light-string .bulb:nth-child(5n+4) { animation-delay: 1.6s; }
+@keyframes pl-bulb-twinkle {
+  0%, 100% { opacity: 0.85; }
+  50%      { opacity: 1; }
+}
+
+/* Streetlamp glow — off by default, on with lights */
+.pl-lamp-glow {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+body:has(#plaza-lights-on:checked) .pl-lamp-glow { opacity: 1; }
+
+/* Mobile adjustments */
+@media (max-width: 700px) {
+  .plaza-lights-hero { min-height: 520px; }
+  .plaza-lights-overlay h1 { font-size: 2rem; }
+  .plaza-lights-svg-container { max-height: 44vh; }
+}
+
+/* Reduced motion — toggle still works (it's a checkbox), but no twinkle or fades */
+@media (prefers-reduced-motion: reduce) {
+  .pl-sky, .pl-stars circle, .light-string, .pl-lamp-glow {
+    transition: none !important;
+  }
+  body:has(#plaza-lights-on:checked) .bulb,
+  body:has(#plaza-lights-on:checked) .pl-stars circle {
+    animation: none !important;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   v11 Track 6: Fountain Day page — signature hero with toggle
+   ─────────────────────────────────────────────────────────────── */
+
+.fountain-day-input { position: absolute; opacity: 0; pointer-events: none; }
+
+.fountain-day-hero {
+  position: relative;
+  width: 100%;
+  min-height: clamp(420px, 72vh, 720px);
+  overflow: hidden;
+  background: #B3BDC7;
+  padding: clamp(2rem, 6vh, 4rem) 0 0;
+  display: flex;
+  flex-direction: column;
+}
+.fountain-day-overlay {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 1.25rem 0.5rem;
+}
+.fountain-day-overlay .eyebrow {
+  display: block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.95;
+  margin-bottom: 0.9rem;
+}
+.fountain-day-overlay h1 {
+  font-family: 'Limelight', 'Playfair Display', serif;
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  color: var(--cream);
+  line-height: 1.05;
+  margin: 0 0 0.75rem;
+}
+.fountain-day-overlay h1 span {
+  color: var(--gold);
+  font-size: 0.72em;
+  display: block;
+  margin-top: 0.35rem;
+  letter-spacing: 0.05em;
+}
+.fountain-day-overlay .homepage-tagline {
+  max-width: 560px;
+  color: var(--cream);
+  opacity: 0.9;
+}
+
+.fountain-day-toggle-wrap {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  margin: 1rem 0 1.25rem;
+}
+.fountain-day-toggle {
+  display: inline-block;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.fountain-day-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 1.3rem;
+  border: 1px solid rgba(201,168,76,0.45);
+  background: rgba(15,10,20,0.55);
+  color: var(--cream);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+.fountain-day-toggle-label:hover { border-color: var(--gold); }
+.fountain-day-toggle-box {
+  width: 14px; height: 14px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  display: inline-block;
+  transition: background 0.25s ease;
+}
+body:has(#fountains-on:checked) .fountain-day-toggle-box {
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(201,168,76,0.7);
+}
+.fountain-day-toggle-on { display: none; }
+body:has(#fountains-on:checked) .fountain-day-toggle-off { display: none; }
+body:has(#fountains-on:checked) .fountain-day-toggle-on  { display: inline; color: var(--gold-light, #E8C96A); }
+
+.fountain-day-svg-container {
+  flex: 1;
+  width: 100%;
+  max-height: 62vh;
+  position: relative;
+}
+.fountain-day-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Sky + ground state transitions */
+.fd-sky, .fd-ground {
+  transition: opacity 1.2s ease;
+}
+.fd-sky-warm { opacity: 0; }
+.fd-ground-warm { opacity: 0; }
+body:has(#fountains-on:checked) .fd-sky-cold { opacity: 0; }
+body:has(#fountains-on:checked) .fd-sky-warm { opacity: 1; }
+body:has(#fountains-on:checked) .fd-ground-cold { opacity: 0; }
+body:has(#fountains-on:checked) .fd-ground-warm { opacity: 1; }
+
+/* Water hidden by default */
+.fountain-water { opacity: 0; transition: opacity 1.0s ease-in; }
+body:has(#fountains-on:checked) .fountain-water { opacity: 1; }
+
+/* Spray animation — pulse amplitude (scale Y around base point) */
+body:has(#fountains-on:checked) .fd-spray {
+  transform-origin: center bottom;
+  transform-box: fill-box;
+  animation: fd-spray-pulse 3s ease-in-out infinite;
+}
+body:has(#fountains-on:checked) .fd-spray-primary { animation-duration: 3.2s; }
+body:has(#fountains-on:checked) .fd-spray-arc-left  { animation-delay: 0.5s; }
+body:has(#fountains-on:checked) .fd-spray-arc-right { animation-delay: 0.8s; }
+@keyframes fd-spray-pulse {
+  0%, 100% { transform: scaleY(0.75); opacity: 0.8; }
+  50%      { transform: scaleY(1.0);  opacity: 1; }
+}
+
+/* Droplets drift upward and fade */
+body:has(#fountains-on:checked) .fd-droplet {
+  animation: fd-droplet-rise 2.2s ease-out infinite;
+}
+@keyframes fd-droplet-rise {
+  0%   { opacity: 0; transform: translateY(12px); }
+  20%  { opacity: 0.85; }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Pool ripple — subtle pulse on the water ellipse */
+body:has(#fountains-on:checked) .fd-pool-water {
+  animation: fd-pool-ripple 2.8s ease-in-out infinite;
+}
+@keyframes fd-pool-ripple {
+  0%, 100% { opacity: 0.75; }
+  50%      { opacity: 1.0; }
+}
+
+/* Fountain hover spotlight */
+g[data-fountain] { transition: opacity 0.3s ease; }
+.fountain-day-svg:has(g[data-fountain]:hover) g[data-fountain]:not(:hover) {
+  opacity: 0.22;
+}
+
+/* Label on hover only */
+.fd-label { opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+g[data-fountain]:hover .fd-label { opacity: 1; }
+
+.fd-fountain a { cursor: pointer; }
+
+@media (max-width: 700px) {
+  .fountain-day-hero { min-height: 520px; }
+  .fountain-day-overlay h1 { font-size: 2rem; }
+  .fountain-day-svg-container { max-height: 44vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fd-sky, .fd-ground, .fountain-water { transition: none !important; }
+  body:has(#fountains-on:checked) .fd-spray,
+  body:has(#fountains-on:checked) .fd-droplet,
+  body:has(#fountains-on:checked) .fd-pool-water {
+    animation: none !important;
+  }
+  body:has(#fountains-on:checked) .fd-spray { transform: scaleY(0.9); opacity: 0.9; }
+}
+
+/* ── v11 Track 10I: Footer mini-skyline — site-wide identity cohesion ── */
+.footer-mini-skyline {
+  display: block;
+  width: min(600px, 90%);
+  height: auto;
+  margin: 0.25rem auto 1rem;
+  opacity: 0.7;
+}
+@media print {
+  .footer-mini-skyline { display: none; }
+}
+
+/* ── v11 Track 10C: Reading-time indicator (inline with eyebrow) ── */
+.reading-time {
+  display: inline-block;
+  margin-left: 0.9rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  opacity: 0.85;
+  padding-left: 0.9rem;
+  border-left: 1px solid rgba(201,168,76,0.35);
+}
+
+/* ── v11 Track 10A: Fountain mini-SVG on fountain detail pages ── */
+.fountain-mini-wrap {
+  margin: 2rem auto 1.25rem;
+  max-width: 400px;
+  text-align: center;
+}
+.fountain-mini-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.fountain-mini-caption {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--warm-grey);
+  margin-top: 0.35rem;
+}
+.fm-spray {
+  transform-origin: center bottom;
+  transform-box: fill-box;
+  animation: fm-spray-pulse 3s ease-in-out infinite;
+}
+.fm-spray-primary { animation-duration: 3.4s; }
+.fm-spray-left  { animation-delay: 0.4s; }
+.fm-spray-right { animation-delay: 0.8s; }
+@keyframes fm-spray-pulse {
+  0%, 100% { transform: scaleY(0.82); opacity: 0.8; }
+  50%      { transform: scaleY(1.0);  opacity: 1; }
+}
+.fm-pool {
+  animation: fm-pool-ripple 2.8s ease-in-out infinite;
+}
+@keyframes fm-pool-ripple {
+  0%, 100% { opacity: 0.7; }
+  50%      { opacity: 1; }
+}
+.fm-droplet {
+  animation: fm-droplet-rise 2.2s ease-out infinite;
+}
+.fm-drop-1 { animation-delay: 0s; }
+.fm-drop-2 { animation-delay: 0.7s; }
+.fm-drop-3 { animation-delay: 1.4s; }
+@keyframes fm-droplet-rise {
+  0%   { opacity: 0; transform: translateY(14px); }
+  25%  { opacity: 0.9; }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fm-spray, .fm-pool, .fm-droplet { animation: none !important; }
+  .fm-spray { transform: scaleY(0.9); }
 }
