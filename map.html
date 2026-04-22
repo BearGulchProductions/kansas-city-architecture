@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1A1610" />
+  <title>The Map — Look Up, Kansas City</title>
+  <meta name="description" content="Every building, fountain, neighborhood, and historic site covered on Look Up, Kansas City, plotted on a single schematic of the city." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <meta property="og:title" content="The Map — Look Up, Kansas City" />
+  <meta property="og:description" content="Every building, fountain, neighborhood, and historic site on one schematic map of Kansas City." />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/f/f3/Downtown_Kansas_City_from_Liberty_Memorial_Full.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="style.css?v=5" />
+</head>
+<body>
+
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation" />
+  <label for="mobile-nav-toggle" class="mobile-nav-button" aria-hidden="true"><span></span><span></span><span></span></label>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li class="has-dropdown"><a href="styles.html">Styles</a>
+        <ul>
+          <li><a href="art-deco.html">Art Deco</a></li>
+          <li><a href="styles/spanish-colonial.html">Spanish Colonial</a></li>
+          <li><a href="styles/beaux-arts.html">Beaux Arts</a></li>
+          <li><a href="styles/gothic-revival.html">Gothic Revival</a></li>
+          <li><a href="styles/streamline-moderne.html">Streamline Moderne</a></li>
+          <li><a href="styles/contemporary.html">Contemporary</a></li>
+          <li><a href="styles/materials.html">Materials &amp; Details</a></li>
+          <li><a href="glossary.html">Field Guide</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="buildings.html">Buildings</a>
+        <ul>
+          <li><a href="buildings/boom-era.html">Boom Era &mdash; 1900s&ndash;40s</a></li>
+          <li><a href="buildings/modern-era.html">Modern Era</a></li>
+          <li><a href="buildings/stadiums.html">Stadiums</a></li>
+          <li><a href="buildings/compare.html">Compare Heights</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="fountains.html">Fountains</a>
+        <ul>
+          <li><a href="fountains.html">All Fountains</a></li>
+          <li><a href="fountains/jc-nichols.html">J.C. Nichols Memorial</a></li>
+          <li><a href="fountains/meyer-circle.html">Meyer Circle Sea Horse</a></li>
+          <li><a href="fountains/bacchus.html">Bacchus</a></li>
+          <li><a href="fountains/pomona.html">Pomona</a></li>
+          <li><a href="fountains/volker.html">Volker</a></li>
+          <li><a href="fountains/firefighters.html">Firefighters</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="spaces.html">The City</a>
+        <ul>
+          <li><a href="plaza.html">The Plaza</a></li>
+          <li><a href="spaces/parks-boulevards.html">Parks &amp; Blvds</a></li>
+          <li><a href="spaces/ward-parkway.html">Ward Parkway</a></li>
+          <li><a href="overlooks.html">City Overlooks</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="history.html">History</a>
+        <ul>
+          <li><a href="history/timeline.html">Timeline</a></li>
+          <li><a href="history/eras.html">Eras</a></li>
+          <li><a href="history/figures.html">Figures</a></li>
+          <li><a href="history/themes.html">Themes</a></li>
+          <li><a href="history/episodes.html">Episodes</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="neighborhoods.html">Neighborhoods</a>
+        <ul>
+          <li><a href="neighborhoods/downtown.html">Downtown</a></li>
+          <li><a href="neighborhoods/midtown.html">Midtown</a></li>
+          <li><a href="neighborhoods/crossroads.html">Crossroads</a></li>
+          <li><a href="neighborhoods/18th-vine.html">18th &amp; Vine</a></li>
+          <li><a href="neighborhoods/west-bottoms.html">West Bottoms</a></li>
+          <li><a href="neighborhoods/westport.html">Westport</a></li>
+          <li><a href="neighborhoods/brookside.html">Brookside</a></li>
+        </ul>
+      </li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li class="has-dropdown"><a href="visit.html">Visit</a>
+        <ul>
+          <li><a href="start-here.html">Start Here</a></li>
+          <li><a href="visit/walking-tours.html">Walking Tours</a></li>
+          <li><a href="visit/events.html">Events</a></li>
+          <li><a href="reading.html">Further Reading</a></li>
+          <li><a href="sources.html">Sources</a></li>
+          <li><a href="visit/world-cup.html">World Cup 2026</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span class="sep">◆</span>
+    The Map
+  </div>
+
+  <header style="background: linear-gradient(180deg, #0A0805 0%, #1A1610 100%); padding: 4.5rem 1.5rem 2rem; text-align: center;">
+    <span class="eyebrow" style="font-family:'Josefin Sans',sans-serif; font-size:0.7rem; letter-spacing:0.45em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:1rem;">Kansas City</span>
+    <h1 style="font-family:'Playfair Display',serif; font-size:clamp(2.2rem, 5vw, 4rem); color:var(--cream); line-height:1; margin:0 0 0.75rem; font-weight:400;">The<br /><span style="color:var(--gold);">Map</span></h1>
+    <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(0.95rem, 1.3vw, 1.15rem); color:var(--warm-grey); max-width:680px; margin:1rem auto 0; line-height:1.6;">
+      Everything we've covered, in one place.
+    </p>
+  </header>
+
+  <main>
+    <div class="detail-body">
+
+      <div class="detail-section" style="max-width:740px; margin:0 auto 2rem;">
+        <p>
+          This map is every building, fountain, neighborhood, and historic site covered on
+          <em>Look Up, Kansas City</em>, plotted on a single schematic of the city. It's not
+          geographically precise &mdash; it's a reference, not a navigation aid. Use it to
+          see the shape of what this site is about, or to find your way to a specific place.
+        </p>
+      </div>
+
+      <!-- Filter controls -->
+      <fieldset class="map-filters" role="radiogroup" aria-label="Filter map markers by category">
+        <legend class="visually-hidden">Show on map</legend>
+        <input type="radio" id="filter-all" name="map-filter" checked><label for="filter-all">Everything</label>
+        <input type="radio" id="filter-buildings" name="map-filter"><label for="filter-buildings">Buildings</label>
+        <input type="radio" id="filter-fountains" name="map-filter"><label for="filter-fountains">Fountains</label>
+        <input type="radio" id="filter-history" name="map-filter"><label for="filter-history">Historic Sites</label>
+        <input type="radio" id="filter-walks" name="map-filter"><label for="filter-walks">Walking Tours</label>
+      </fieldset>
+
+      <p class="map-hint">← Scroll to explore the map →</p>
+
+      <div class="map-everything-wrapper">
+        <svg class="map-everything" viewBox="0 0 1600 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">The Map of Everything — Look Up, Kansas City</title>
+          <desc id="map-desc">A schematic map of Kansas City showing the locations of every building, fountain, neighborhood, historic site, and walking tour stop covered on the site. Not geographically precise. Markers are color-coded by category and clickable to their detail pages.</desc>
+
+          <!-- Base -->
+          <rect width="1600" height="1200" fill="#1A1610"/>
+
+          <!-- ─── RIVERS (top) ─── -->
+          <!-- Missouri River: curves across top, west to east -->
+          <path d="M 0,130 C 200,100 320,140 480,110 C 640,85 820,135 1000,110 C 1180,90 1360,135 1600,115"
+                fill="none" stroke="rgba(90,145,180,0.5)" stroke-width="28" stroke-linecap="round"/>
+          <path d="M 0,130 C 200,100 320,140 480,110 C 640,85 820,135 1000,110 C 1180,90 1360,135 1600,115"
+                fill="none" stroke="rgba(130,180,210,0.35)" stroke-width="2" stroke-dasharray="8,5"/>
+          <text x="1050" y="85" font-family="'Josefin Sans',sans-serif" font-size="16" fill="rgba(130,180,210,0.65)" letter-spacing="2" font-style="italic">THE MISSOURI RIVER</text>
+
+          <!-- Kansas / Kaw River: comes in from lower-west, joins Missouri at Kaw Point -->
+          <path d="M 0,400 C 50,360 120,280 180,230 C 220,195 260,165 310,140"
+                fill="none" stroke="rgba(90,145,180,0.45)" stroke-width="18" stroke-linecap="round"/>
+          <text x="60" y="340" font-family="'Josefin Sans',sans-serif" font-size="13" fill="rgba(130,180,210,0.6)" letter-spacing="1.5" font-style="italic" transform="rotate(-50, 60, 340)">KANSAS RIVER</text>
+
+          <!-- Kaw Point confluence marker -->
+          <circle cx="300" cy="145" r="4" fill="none" stroke="rgba(130,180,210,0.75)" stroke-width="1.25"/>
+          <text x="310" y="142" font-family="'Josefin Sans',sans-serif" font-size="9" fill="rgba(130,180,210,0.7)" letter-spacing="0.8">Kaw Point</text>
+
+          <!-- ─── NEIGHBORHOOD REGIONS (low-opacity fills) ─── -->
+          <g class="map-neighborhoods" opacity="0.9">
+            <!-- West Bottoms -->
+            <a href="neighborhoods/west-bottoms.html">
+              <polygon class="nbhd-region-map" points="230,200 510,200 510,400 230,400" fill="rgba(168,128,90,0.13)" stroke="rgba(168,128,90,0.3)" stroke-width="1"/>
+              <text x="370" y="305" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="13" fill="rgba(210,180,140,0.7)" letter-spacing="1.5">WEST BOTTOMS</text>
+            </a>
+
+            <!-- Downtown -->
+            <a href="neighborhoods/downtown.html">
+              <polygon class="nbhd-region-map" points="530,200 920,200 920,400 530,400" fill="rgba(201,168,76,0.13)" stroke="rgba(201,168,76,0.35)" stroke-width="1"/>
+              <text x="725" y="225" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="13" fill="rgba(232,201,106,0.65)" letter-spacing="1.5">DOWNTOWN</text>
+            </a>
+
+            <!-- 18th &amp; Vine -->
+            <a href="neighborhoods/18th-vine.html">
+              <polygon class="nbhd-region-map" points="940,230 1150,230 1150,400 940,400" fill="rgba(180,110,70,0.13)" stroke="rgba(180,110,70,0.3)" stroke-width="1"/>
+              <text x="1045" y="320" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="13" fill="rgba(215,170,125,0.7)" letter-spacing="1.5">18TH &amp; VINE</text>
+            </a>
+
+            <!-- Crossroads -->
+            <a href="neighborhoods/crossroads.html">
+              <polygon class="nbhd-region-map" points="530,420 920,420 920,560 530,560" fill="rgba(155,120,80,0.12)" stroke="rgba(155,120,80,0.3)" stroke-width="1"/>
+              <text x="725" y="495" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="13" fill="rgba(200,170,130,0.7)" letter-spacing="1.5">CROSSROADS</text>
+            </a>
+
+            <!-- Midtown -->
+            <a href="neighborhoods/midtown.html">
+              <polygon class="nbhd-region-map" points="530,580 920,580 920,790 530,790" fill="rgba(190,150,100,0.1)" stroke="rgba(190,150,100,0.28)" stroke-width="1"/>
+              <text x="725" y="685" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="13" fill="rgba(215,180,130,0.7)" letter-spacing="1.5">MIDTOWN</text>
+            </a>
+
+            <!-- Westport -->
+            <a href="neighborhoods/westport.html">
+              <polygon class="nbhd-region-map" points="555,810 900,810 900,920 555,920" fill="rgba(175,140,95,0.12)" stroke="rgba(175,140,95,0.3)" stroke-width="1"/>
+              <text x="725" y="870" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="13" fill="rgba(210,175,130,0.7)" letter-spacing="1.5">WESTPORT</text>
+            </a>
+
+            <!-- Brookside -->
+            <a href="neighborhoods/brookside.html">
+              <polygon class="nbhd-region-map" points="580,940 880,940 880,1080 580,1080" fill="rgba(160,130,90,0.12)" stroke="rgba(160,130,90,0.3)" stroke-width="1"/>
+              <text x="725" y="1015" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="13" fill="rgba(205,170,125,0.7)" letter-spacing="1.5">BROOKSIDE</text>
+            </a>
+          </g>
+
+          <!-- ─── HIGHWAYS (dashed gray) ─── -->
+          <g stroke="rgba(140,126,106,0.22)" stroke-width="1.5" stroke-dasharray="8 4" fill="none">
+            <!-- I-70 (north of downtown) -->
+            <line x1="0" y1="200" x2="1600" y2="200"/>
+            <!-- I-670 (south of downtown) -->
+            <line x1="530" y1="410" x2="1600" y2="410"/>
+            <!-- I-35 (west edge of downtown) -->
+            <line x1="520" y1="200" x2="520" y2="1100"/>
+            <!-- I-435 south (bottom) -->
+            <line x1="400" y1="1130" x2="1600" y2="1130"/>
+            <!-- I-435 east (Sports Complex) -->
+            <line x1="1310" y1="200" x2="1310" y2="1130"/>
+          </g>
+          <g font-family="'Josefin Sans',sans-serif" font-size="10" fill="rgba(140,126,106,0.5)" letter-spacing="1.2">
+            <text x="80" y="196">I-70</text>
+            <text x="540" y="406">I-670</text>
+            <text x="525" y="1090" transform="rotate(-90, 525, 1090)">I-35</text>
+            <text x="90" y="1125">I-435</text>
+            <text x="1315" y="1120" transform="rotate(-90, 1315, 1120)">I-435</text>
+          </g>
+
+          <!-- ─── MAIN STREETS ─── -->
+          <g stroke="rgba(140,126,106,0.3)" stroke-width="1.25" fill="none">
+            <!-- Main Street -->
+            <line x1="725" y1="200" x2="725" y2="1100"/>
+            <!-- Broadway -->
+            <line x1="585" y1="500" x2="585" y2="1100"/>
+            <!-- Ward Parkway (curves from Plaza west and south) -->
+            <path d="M 650,820 C 600,870 520,920 440,960 L 380,1020"/>
+          </g>
+          <g font-family="'Josefin Sans',sans-serif" font-size="9.5" fill="rgba(140,126,106,0.55)" letter-spacing="1">
+            <text x="730" y="1095">MAIN ST</text>
+            <text x="590" y="1095">BROADWAY</text>
+            <text x="450" y="1000" transform="rotate(-25, 450, 1000)">WARD PKWY</text>
+          </g>
+
+          <!-- Troost Avenue — subtly more prominent (racial/historical dividing line) -->
+          <line x1="930" y1="200" x2="930" y2="1100" stroke="rgba(201,168,76,0.32)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="940" y="195" font-family="'Josefin Sans',sans-serif" font-size="10" fill="rgba(201,168,76,0.7)" letter-spacing="1.5">TROOST AVE</text>
+
+          <!-- ─── PARKS &amp; SPACES ─── -->
+          <g fill="rgba(120,150,100,0.18)" stroke="rgba(140,180,120,0.35)" stroke-width="1">
+            <!-- Penn Valley Park -->
+            <ellipse cx="615" cy="495" rx="45" ry="32"/>
+            <!-- Mill Creek Park (at Plaza) -->
+            <ellipse cx="710" cy="820" rx="22" ry="18"/>
+            <!-- Loose Park -->
+            <ellipse cx="730" cy="915" rx="30" ry="22"/>
+            <!-- Swope Park (extends far south, abbreviated) -->
+            <ellipse cx="1000" cy="1075" rx="55" ry="30"/>
+          </g>
+          <g font-family="'Josefin Sans',sans-serif" font-size="9" fill="rgba(140,180,120,0.65)" letter-spacing="0.5" font-style="italic">
+            <text x="615" y="500" text-anchor="middle">Penn Valley</text>
+            <text x="710" y="825" text-anchor="middle">Mill Creek</text>
+            <text x="730" y="919" text-anchor="middle">Loose Park</text>
+            <text x="1000" y="1080" text-anchor="middle">Swope Park →</text>
+          </g>
+
+          <!-- ════════════════════════════════════════════════ -->
+          <!-- MARKERS: BUILDINGS (gold circles, r=10)          -->
+          <!-- ════════════════════════════════════════════════ -->
+
+          <!-- Power &amp; Light -->
+          <g data-category="building">
+            <a href="buildings/kc-power-and-light.html">
+              <title>KC Power &amp; Light Building — 1931, 476 ft</title>
+              <circle class="map-marker" cx="700" cy="340" r="10" fill="var(--gold)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="700" y="363" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">P&amp;L</text>
+            </a>
+          </g>
+
+          <!-- Fidelity Bank / 909 Walnut -->
+          <g data-category="building">
+            <a href="buildings/fidelity-bank.html">
+              <title>909 Walnut / Fidelity Bank — 1931, 454 ft</title>
+              <circle class="map-marker" cx="790" cy="245" r="10" fill="var(--gold)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="790" y="238" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">909 WAL</text>
+            </a>
+          </g>
+
+          <!-- City Hall -->
+          <g data-category="building">
+            <a href="buildings/city-hall.html">
+              <title>Kansas City City Hall — 1937, 443 ft</title>
+              <circle class="map-marker" cx="880" cy="298" r="11" fill="var(--gold-light)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="880" y="285" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">CITY HALL</text>
+            </a>
+          </g>
+
+          <!-- Jackson County Courthouse -->
+          <g data-category="building">
+            <a href="buildings/jackson-county-courthouse.html">
+              <title>Jackson County Courthouse — 1934</title>
+              <circle class="map-marker" cx="905" cy="320" r="10" fill="var(--gold)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="905" y="340" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">COURTHOUSE</text>
+            </a>
+          </g>
+
+          <!-- Municipal Auditorium -->
+          <g data-category="building">
+            <a href="buildings/municipal-auditorium.html">
+              <title>Municipal Auditorium — 1935</title>
+              <circle class="map-marker" cx="620" cy="335" r="10" fill="var(--gold)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="620" y="328" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">MUN AUD</text>
+            </a>
+          </g>
+
+          <!-- Bartle Hall -->
+          <g data-category="building">
+            <a href="buildings/bartle-hall.html">
+              <title>Bartle Hall — 1976, pylons 1994</title>
+              <circle class="map-marker" cx="580" cy="335" r="10" fill="var(--gold)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="580" y="360" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">BARTLE</text>
+            </a>
+          </g>
+
+          <!-- One KC Place -->
+          <g data-category="building">
+            <a href="buildings/one-kc-place.html">
+              <title>One Kansas City Place — 1988, 624 ft (tallest)</title>
+              <circle class="map-marker" cx="745" cy="275" r="11" fill="var(--gold-light)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="745" y="268" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">ONE KC</text>
+            </a>
+          </g>
+
+          <!-- Town Pavilion -->
+          <g data-category="building">
+            <a href="buildings/town-pavilion.html">
+              <title>Town Pavilion — 1986, 590 ft</title>
+              <circle class="map-marker" cx="722" cy="295" r="10" fill="var(--gold)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="706" y="305" text-anchor="end" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">TP</text>
+            </a>
+          </g>
+
+          <!-- Midland Theatre -->
+          <g data-category="building">
+            <a href="buildings/midland-theatre.html">
+              <title>Midland Theatre — 1927</title>
+              <circle class="map-marker" cx="720" cy="360" r="9" fill="var(--gold)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="720" y="380" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">MIDLAND</text>
+            </a>
+          </g>
+
+          <!-- T-Mobile Center -->
+          <g data-category="building">
+            <a href="buildings/t-mobile-center.html">
+              <title>T-Mobile Center — 2007</title>
+              <circle class="map-marker" cx="830" cy="340" r="10" fill="var(--gold)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="830" y="360" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">T-MOBILE</text>
+            </a>
+          </g>
+
+          <!-- Union Station -->
+          <g data-category="building">
+            <a href="buildings/union-station.html">
+              <title>Union Station — 1914, Beaux Arts</title>
+              <circle class="map-marker" cx="680" cy="475" r="11" fill="var(--gold-light)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="680" y="495" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">UNION ST</text>
+            </a>
+          </g>
+
+          <!-- Liberty Memorial -->
+          <g data-category="building">
+            <a href="buildings/liberty-memorial.html">
+              <title>Liberty Memorial — 1926, 217 ft</title>
+              <circle class="map-marker" cx="700" cy="555" r="11" fill="var(--gold-light)" stroke="#1A1610" stroke-width="2"/>
+              <!-- Flame accent -->
+              <circle cx="700" cy="555" r="4" fill="rgba(232,201,106,0.7)"/>
+              <text class="map-label" x="700" y="580" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">LIBERTY MEM</text>
+            </a>
+          </g>
+
+          <!-- Kauffman Center -->
+          <g data-category="building">
+            <a href="buildings/kauffman-center.html">
+              <title>Kauffman Center for the Performing Arts — 2011</title>
+              <circle class="map-marker" cx="585" cy="450" r="10" fill="var(--gold)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="585" y="438" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">KAUFFMAN</text>
+            </a>
+          </g>
+
+          <!-- Nelson-Atkins -->
+          <g data-category="building">
+            <a href="buildings/nelson-atkins.html">
+              <title>Nelson-Atkins Museum — 1933</title>
+              <circle class="map-marker" cx="770" cy="720" r="10" fill="var(--gold)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="770" y="740" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">NELSON-ATKINS</text>
+            </a>
+          </g>
+
+          <!-- CPKC Stadium (Berkley Riverfront) -->
+          <g data-category="building">
+            <a href="buildings/cpkc-stadium.html">
+              <title>CPKC Stadium — 2024 (riverfront)</title>
+              <circle class="map-marker" cx="820" cy="165" r="10" fill="var(--gold)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="820" y="158" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">CPKC STADIUM</text>
+            </a>
+          </g>
+
+          <!-- Truman Sports Complex (Arrowhead &amp; Kauffman Stadium) -->
+          <g data-category="building">
+            <a href="buildings/arrowhead-stadium.html">
+              <title>Arrowhead Stadium — 1972</title>
+              <circle class="map-marker" cx="1420" cy="540" r="11" fill="var(--gold-light)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="1420" y="560" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">ARROWHEAD</text>
+            </a>
+          </g>
+          <g data-category="building">
+            <a href="buildings/kauffman-stadium.html">
+              <title>Kauffman Stadium — 1973</title>
+              <circle class="map-marker" cx="1460" cy="515" r="11" fill="var(--gold-light)" stroke="#1A1610" stroke-width="2"/>
+              <text class="map-label" x="1465" y="505" text-anchor="start" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">KAUFFMAN</text>
+            </a>
+          </g>
+          <text x="1440" y="580" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="8.5" fill="rgba(140,126,106,0.65)" letter-spacing="1.2" font-style="italic">Truman Sports Complex</text>
+
+          <!-- ════════════════════════════════════════════════ -->
+          <!-- MARKERS: FOUNTAINS (gold diamonds, rotated 45°)  -->
+          <!-- ════════════════════════════════════════════════ -->
+
+          <!-- JC Nichols Memorial Fountain -->
+          <g data-category="fountain">
+            <a href="fountains/jc-nichols.html">
+              <title>J.C. Nichols Memorial Fountain — Mill Creek Park</title>
+              <rect class="map-marker" x="710" y="820" width="12" height="12" fill="var(--gold-light)" stroke="#1A1610" stroke-width="1.5" transform="rotate(45, 716, 826)"/>
+              <text class="map-label" x="716" y="848" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">JC NICHOLS FTN</text>
+            </a>
+          </g>
+
+          <!-- Meyer Circle Sea Horse Fountain -->
+          <g data-category="fountain">
+            <a href="fountains/meyer-circle.html">
+              <title>Meyer Circle Sea Horse Fountain — Ward Parkway</title>
+              <rect class="map-marker" x="460" y="950" width="12" height="12" fill="var(--gold-light)" stroke="#1A1610" stroke-width="1.5" transform="rotate(45, 466, 956)"/>
+              <text class="map-label" x="466" y="978" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">MEYER CIRCLE</text>
+            </a>
+          </g>
+
+          <!-- Pomona Fountain -->
+          <g data-category="fountain">
+            <a href="fountains/pomona.html">
+              <title>Pomona Fountain — Ward Parkway</title>
+              <rect class="map-marker" x="420" y="920" width="12" height="12" fill="var(--gold-light)" stroke="#1A1610" stroke-width="1.5" transform="rotate(45, 426, 926)"/>
+              <text class="map-label" x="426" y="912" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">POMONA</text>
+            </a>
+          </g>
+
+          <!-- Bacchus Fountain -->
+          <g data-category="fountain">
+            <a href="fountains/bacchus.html">
+              <title>Bacchus Fountain — Country Club Plaza</title>
+              <rect class="map-marker" x="650" y="830" width="12" height="12" fill="var(--gold-light)" stroke="#1A1610" stroke-width="1.5" transform="rotate(45, 656, 836)"/>
+              <text class="map-label" x="656" y="855" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">BACCHUS</text>
+            </a>
+          </g>
+
+          <!-- Volker Fountain -->
+          <g data-category="fountain">
+            <a href="fountains/volker.html">
+              <title>Volker Fountain — Volker Boulevard (Midtown)</title>
+              <rect class="map-marker" x="700" y="770" width="12" height="12" fill="var(--gold-light)" stroke="#1A1610" stroke-width="1.5" transform="rotate(45, 706, 776)"/>
+              <text class="map-label" x="706" y="795" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">VOLKER FTN</text>
+            </a>
+          </g>
+
+          <!-- Firefighters Fountain -->
+          <g data-category="fountain">
+            <a href="fountains/firefighters.html">
+              <title>Firefighters Fountain — Penn Valley Park</title>
+              <rect class="map-marker" x="625" y="490" width="12" height="12" fill="var(--gold-light)" stroke="#1A1610" stroke-width="1.5" transform="rotate(45, 631, 496)"/>
+              <text class="map-label" x="631" y="518" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#F5EFE0" letter-spacing="0.5">FIREFIGHTERS</text>
+            </a>
+          </g>
+
+          <!-- ════════════════════════════════════════════════ -->
+          <!-- MARKERS: HISTORIC SITES (muted amber squares)    -->
+          <!-- ════════════════════════════════════════════════ -->
+
+          <!-- Original Union Depot (demolished) -->
+          <g data-category="history">
+            <a href="history/railroad-boom.html">
+              <title>Original Union Depot site (West Bottoms) — demolished 1915</title>
+              <rect class="map-marker map-marker-demolished" x="350" y="305" width="14" height="14" fill="none" stroke="#A88040" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <text class="map-label" x="357" y="338" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="rgba(210,170,125,0.75)" letter-spacing="0.5" font-style="italic">Orig. Depot</text>
+            </a>
+          </g>
+
+          <!-- Convention Hall site (demolished, link to episode) -->
+          <g data-category="history">
+            <a href="history/convention-hall-fire.html">
+              <title>1900 Convention Hall site — burned 1900, rebuilt in 90 days, later demolished for Municipal Auditorium</title>
+              <rect class="map-marker map-marker-demolished" x="613" y="328" width="14" height="14" fill="none" stroke="#A88040" stroke-width="1.5" stroke-dasharray="3 2"/>
+            </a>
+          </g>
+
+          <!-- Battle of Westport site (Loose Park area) -->
+          <g data-category="history">
+            <a href="history/battle-of-westport.html">
+              <title>Battle of Westport (October 1864) — now Loose Park</title>
+              <rect class="map-marker" x="720" y="905" width="13" height="13" fill="#A88040" stroke="#1A1610" stroke-width="1.25"/>
+              <text class="map-label" x="727" y="935" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="rgba(215,170,125,0.8)" letter-spacing="0.5">BATTLE 1864</text>
+            </a>
+          </g>
+
+          <!-- 1951 Flood marker (West Bottoms) -->
+          <g data-category="history">
+            <a href="history/great-flood-1951.html">
+              <title>1951 Flood high-water mark — West Bottoms, ~35 ft above street level</title>
+              <rect class="map-marker" x="365" y="260" width="13" height="13" fill="#A88040" stroke="#1A1610" stroke-width="1.25"/>
+              <text class="map-label" x="371" y="252" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="rgba(215,170,125,0.8)" letter-spacing="0.5">1951 FLOOD</text>
+            </a>
+          </g>
+
+          <!-- 18th &amp; Vine marker (district, links to neighborhood + figures) -->
+          <g data-category="history">
+            <a href="neighborhoods/18th-vine.html">
+              <title>18th &amp; Vine — Jazz &amp; Negro Leagues heritage district</title>
+              <rect class="map-marker" x="1040" y="310" width="13" height="13" fill="#A88040" stroke="#1A1610" stroke-width="1.25"/>
+              <text class="map-label" x="1047" y="342" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="rgba(215,170,125,0.8)" letter-spacing="0.5">18th &amp; VINE</text>
+            </a>
+          </g>
+
+          <!-- Union Station Massacre (at Union Station — dual purpose marker) -->
+          <g data-category="history">
+            <a href="history/union-station-massacre.html">
+              <title>Union Station Massacre — June 17, 1933</title>
+              <rect class="map-marker" x="673" y="468" width="14" height="14" fill="none" stroke="#A88040" stroke-width="1.25"/>
+            </a>
+          </g>
+
+          <!-- ════════════════════════════════════════════════ -->
+          <!-- MARKERS: OVERLOOKS (hollow gold circles)         -->
+          <!-- ════════════════════════════════════════════════ -->
+
+          <!-- Kersey Coates / Cliff Drive overlook -->
+          <g data-category="overlook">
+            <a href="overlooks.html">
+              <title>Cliff Drive &amp; Kersey Coates — north bluff overlook</title>
+              <circle class="map-marker" cx="500" cy="175" r="11" fill="none" stroke="var(--gold)" stroke-width="1.75"/>
+              <text class="map-label" x="500" y="166" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="8.5" fill="rgba(201,168,76,0.8)" letter-spacing="0.5">CLIFF DR</text>
+            </a>
+          </g>
+
+          <!-- Case Park (northwest bluff) -->
+          <g data-category="overlook">
+            <a href="overlooks.html">
+              <title>Case Park — northwest bluff overlook of the West Bottoms</title>
+              <circle class="map-marker" cx="430" cy="175" r="11" fill="none" stroke="var(--gold)" stroke-width="1.75"/>
+              <text class="map-label" x="430" y="166" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="8.5" fill="rgba(201,168,76,0.8)" letter-spacing="0.5">CASE PARK</text>
+            </a>
+          </g>
+
+          <!-- Liberty Memorial observation (dual-purpose — also a building marker) -->
+          <g data-category="overlook">
+            <a href="overlooks.html">
+              <title>Liberty Memorial Observation Deck — the best view of the skyline</title>
+              <circle class="map-marker" cx="700" cy="555" r="17" fill="none" stroke="var(--gold)" stroke-width="1" stroke-dasharray="2 2"/>
+            </a>
+          </g>
+
+          <!-- ════════════════════════════════════════════════ -->
+          <!-- MARKERS: WALKING TOUR STARTS (cream dots)        -->
+          <!-- ════════════════════════════════════════════════ -->
+
+          <!-- Art Deco Mile Walk (starts at P&L) -->
+          <g data-category="walk">
+            <a href="visit/art-deco-walk.html">
+              <title>Art Deco Mile Walking Tour — starts at Power &amp; Light</title>
+              <circle class="map-marker" cx="700" cy="340" r="4" fill="var(--cream)" stroke="var(--gold)" stroke-width="1"/>
+            </a>
+          </g>
+
+          <!-- Plaza Walk (starts at JC Nichols Fountain) -->
+          <g data-category="walk">
+            <a href="visit/plaza-walk.html">
+              <title>Plaza &amp; Fountains Walk — starts at JC Nichols Memorial</title>
+              <circle class="map-marker" cx="716" cy="826" r="4" fill="var(--cream)" stroke="var(--gold)" stroke-width="1"/>
+            </a>
+          </g>
+
+          <!-- West Bottoms Walk (Livestock Exchange) -->
+          <g data-category="walk">
+            <a href="visit/west-bottoms-walk.html">
+              <title>West Bottoms Walking Tour — starts at Livestock Exchange</title>
+              <circle class="map-marker" cx="385" cy="325" r="5" fill="var(--cream)" stroke="var(--gold)" stroke-width="1.25"/>
+              <text class="map-label" x="392" y="318" text-anchor="start" font-family="'Josefin Sans',sans-serif" font-size="8.5" fill="var(--cream)" letter-spacing="0.5">WB WALK</text>
+            </a>
+          </g>
+
+          <!-- Union Station Walk (starts at Union Station) -->
+          <g data-category="walk">
+            <a href="visit/union-station-walk.html">
+              <title>Union Station to Liberty Memorial Walk</title>
+              <circle class="map-marker" cx="680" cy="475" r="4" fill="var(--cream)" stroke="var(--gold)" stroke-width="1"/>
+            </a>
+          </g>
+
+          <!-- ════════════════════════════════════════════════ -->
+          <!-- TITLE &amp; LEGEND                                 -->
+          <!-- ════════════════════════════════════════════════ -->
+
+          <!-- Title block (top-left) -->
+          <g font-family="'Josefin Sans',sans-serif">
+            <text x="30" y="40" font-size="13" fill="var(--gold)" letter-spacing="2.5">LOOK UP, KANSAS CITY</text>
+            <text x="30" y="60" font-size="10" fill="#8C7E6A" letter-spacing="1.5" font-style="italic">The Map of Everything &bull; Schematic</text>
+          </g>
+
+          <!-- Compass (top-right) -->
+          <g transform="translate(1540, 50)">
+            <line x1="0" y1="20" x2="0" y2="-20" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+            <polygon points="0,-22 -6,-10 6,-10" fill="#C9A84C" opacity="0.8"/>
+            <text x="0" y="38" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="12" fill="#C9A84C" letter-spacing="1">N</text>
+          </g>
+
+          <!-- Legend (bottom-left) -->
+          <g class="map-legend" transform="translate(30, 980)" font-family="'Josefin Sans',sans-serif">
+            <rect x="0" y="0" width="260" height="195" rx="6" fill="rgba(10,8,5,0.88)" stroke="rgba(201,168,76,0.35)" stroke-width="1"/>
+            <text x="15" y="25" font-size="11" fill="var(--gold)" letter-spacing="2">WHAT&apos;S WHERE</text>
+            <line x1="15" y1="32" x2="245" y2="32" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
+
+            <g transform="translate(20, 52)">
+              <circle r="7" fill="var(--gold)" stroke="#1A1610" stroke-width="1.5"/>
+              <text x="20" y="4" font-size="10" fill="var(--cream)" letter-spacing="0.6">Building</text>
+            </g>
+            <g transform="translate(20, 78)">
+              <rect x="-6" y="-6" width="12" height="12" fill="var(--gold-light)" stroke="#1A1610" stroke-width="1.5" transform="rotate(45)"/>
+              <text x="20" y="4" font-size="10" fill="var(--cream)" letter-spacing="0.6">Fountain</text>
+            </g>
+            <g transform="translate(20, 104)">
+              <rect x="-6" y="-6" width="12" height="12" fill="#A88040" stroke="#1A1610" stroke-width="1"/>
+              <text x="20" y="4" font-size="10" fill="var(--cream)" letter-spacing="0.6">Historic Site</text>
+            </g>
+            <g transform="translate(20, 130)">
+              <rect x="-6" y="-6" width="12" height="12" fill="none" stroke="#A88040" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <text x="20" y="4" font-size="10" fill="var(--cream)" letter-spacing="0.6">Demolished / Lost</text>
+            </g>
+            <g transform="translate(20, 156)">
+              <circle r="7" fill="none" stroke="var(--gold)" stroke-width="1.75"/>
+              <text x="20" y="4" font-size="10" fill="var(--cream)" letter-spacing="0.6">Overlook</text>
+            </g>
+            <g transform="translate(20, 182)">
+              <circle r="4" fill="var(--cream)" stroke="var(--gold)" stroke-width="1"/>
+              <text x="20" y="4" font-size="10" fill="var(--cream)" letter-spacing="0.6">Walking Tour Start</text>
+            </g>
+          </g>
+
+        </svg>
+      </div>
+
+      <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+
+      <div class="detail-section">
+        <h2>What You're Looking At</h2>
+        <p>
+          This is a schematic map, not a geographic one. The buildings are in roughly the
+          right places relative to each other, but the distances aren't to scale and the
+          outlines aren't precise. If you want to actually get from Liberty Memorial to the
+          Plaza, use a real map. If you want to understand how <em>Look Up, Kansas City</em>
+          sees the city &mdash; what we've written about, what we've left out, how the pieces
+          relate to each other &mdash; this is the overview.
+        </p>
+        <p>
+          The map is biased toward the places the site covers. The Northland (everything
+          north of the river) is essentially absent, as are the eastern and southern suburbs.
+          Quality Hill, Hyde Park, Volker, Waldo, and the whole stretch of the East Side
+          beyond 18th &amp; Vine are under-represented. Those are gaps worth closing; they
+          are the work the site still has to do.
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h2>Finding What You Want</h2>
+        <p>
+          If you prefer a text-based index, here's the same content organized by neighborhood:
+        </p>
+
+        <details class="map-neighborhood-index">
+          <summary>Downtown</summary>
+          <ul>
+            <li><a href="buildings/kc-power-and-light.html">KC Power &amp; Light Building (1931)</a></li>
+            <li><a href="buildings/fidelity-bank.html">909 Walnut / Fidelity Bank (1931)</a></li>
+            <li><a href="buildings/city-hall.html">City Hall (1937)</a></li>
+            <li><a href="buildings/jackson-county-courthouse.html">Jackson County Courthouse (1934)</a></li>
+            <li><a href="buildings/municipal-auditorium.html">Municipal Auditorium (1935)</a></li>
+            <li><a href="buildings/midland-theatre.html">Midland Theatre (1927)</a></li>
+            <li><a href="buildings/one-kc-place.html">One Kansas City Place (1988)</a></li>
+            <li><a href="buildings/town-pavilion.html">Town Pavilion (1986)</a></li>
+            <li><a href="buildings/bartle-hall.html">Bartle Hall (1976 / 1994)</a></li>
+            <li><a href="buildings/t-mobile-center.html">T-Mobile Center (2007)</a></li>
+            <li><a href="buildings/union-station.html">Union Station (1914)</a></li>
+            <li><a href="buildings/liberty-memorial.html">Liberty Memorial (1926)</a></li>
+            <li><a href="buildings/kauffman-center.html">Kauffman Center (2011)</a></li>
+            <li><a href="visit/art-deco-walk.html">Art Deco Mile Walking Tour</a></li>
+            <li><a href="visit/union-station-walk.html">Union Station to Liberty Memorial Walk</a></li>
+          </ul>
+        </details>
+
+        <details class="map-neighborhood-index">
+          <summary>West Bottoms</summary>
+          <ul>
+            <li><a href="neighborhoods/west-bottoms.html">West Bottoms neighborhood</a></li>
+            <li><a href="history/great-flood-1951.html">Great Flood of 1951 marker</a></li>
+            <li><a href="history/railroad-boom.html">Original Union Depot site (demolished)</a></li>
+            <li><a href="visit/west-bottoms-walk.html">West Bottoms Walking Tour</a></li>
+          </ul>
+        </details>
+
+        <details class="map-neighborhood-index">
+          <summary>18th &amp; Vine / East Side</summary>
+          <ul>
+            <li><a href="neighborhoods/18th-vine.html">18th &amp; Vine district</a></li>
+            <li><a href="history/jazz-and-architecture.html">Jazz &amp; Architecture essay</a></li>
+            <li><a href="history/buck-oneil-monarchs.html">Buck O'Neil &amp; the Monarchs</a></li>
+            <li><a href="history/1968-riots.html">The 1968 Riots</a></li>
+            <li><a href="history/race-and-the-city.html">Race &amp; the City</a></li>
+          </ul>
+        </details>
+
+        <details class="map-neighborhood-index">
+          <summary>Midtown</summary>
+          <ul>
+            <li><a href="neighborhoods/midtown.html">Midtown neighborhood</a></li>
+            <li><a href="buildings/nelson-atkins.html">Nelson-Atkins Museum</a></li>
+            <li><a href="fountains/volker.html">Volker Fountain</a></li>
+          </ul>
+        </details>
+
+        <details class="map-neighborhood-index">
+          <summary>Plaza, Westport &amp; Brookside</summary>
+          <ul>
+            <li><a href="plaza.html">Country Club Plaza</a></li>
+            <li><a href="neighborhoods/westport.html">Westport neighborhood</a></li>
+            <li><a href="neighborhoods/brookside.html">Brookside neighborhood</a></li>
+            <li><a href="fountains/jc-nichols.html">J.C. Nichols Memorial Fountain</a></li>
+            <li><a href="fountains/bacchus.html">Bacchus Fountain</a></li>
+            <li><a href="fountains/meyer-circle.html">Meyer Circle Sea Horse Fountain</a></li>
+            <li><a href="fountains/pomona.html">Pomona Fountain</a></li>
+            <li><a href="history/battle-of-westport.html">Battle of Westport (1864)</a></li>
+            <li><a href="spaces/loose-park.html">Loose Park</a></li>
+            <li><a href="spaces/ward-parkway.html">Ward Parkway</a></li>
+            <li><a href="visit/plaza-walk.html">Plaza &amp; Fountains Walking Tour</a></li>
+          </ul>
+        </details>
+
+        <details class="map-neighborhood-index">
+          <summary>Riverfront &amp; Stadium Complex</summary>
+          <ul>
+            <li><a href="buildings/cpkc-stadium.html">CPKC Stadium (Berkley Riverfront)</a></li>
+            <li><a href="buildings/arrowhead-stadium.html">Arrowhead Stadium (Truman Sports Complex)</a></li>
+            <li><a href="buildings/kauffman-stadium.html">Kauffman Stadium</a></li>
+            <li><a href="history/the-river.html">The River</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="detail-section">
+        <h2>What's Not Here</h2>
+        <p>
+          The map is missing a lot. The Quality Hill mansions &mdash; the first wealthy
+          residential neighborhood in Kansas City, now partially preserved &mdash; don't have
+          their own page yet. Neither do Hyde Park, Waldo, or Volker. The whole stretch of
+          the East Side beyond 18th &amp; Vine is under-represented. The Northland, everything
+          north of the Missouri River, is essentially not on the site at all. None of that is
+          because those places don't matter. It's because the site is a work in progress, and
+          these are the next pages to write.
+        </p>
+        <p>
+          If you find gaps in the coverage or mistakes in the placement of markers, please
+          let us know. This map will get better as the site does.
+        </p>
+      </div>
+
+      <div class="detail-section" style="border-top: 1px solid rgba(201,168,76,0.15); padding-top: 2rem; margin-top: 3rem;">
+        <h2>Related</h2>
+        <p>
+          <a href="history/timeline.html" style="color:var(--gold);">Timeline &rarr;</a>
+          &nbsp;&nbsp;
+          <a href="buildings/compare.html" style="color:var(--gold);">Compare Heights &rarr;</a>
+          &nbsp;&nbsp;
+          <a href="visit/walking-tours.html" style="color:var(--gold);">Walking Tours &rarr;</a>
+          &nbsp;&nbsp;
+          <a href="neighborhoods.html" style="color:var(--gold);">Neighborhoods &rarr;</a>
+          &nbsp;&nbsp;
+          <a href="start-here.html" style="color:var(--gold);">Start Here &rarr;</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="deco-bar top-bar"></div>
+    <div class="footer-inner">
+      <div class="motif-row" aria-hidden="true"><span>◆</span><span>◆</span><span>◆</span></div>
+      <p>Look Up, Kansas City &mdash; An Architecture &amp; History Guide</p>
+      <p class="footer-small">Built with Claude Code &bull; 2026</p>
+      <p class="footer-small"><a href="credits.html" style="color:var(--warm-grey);">Photo Credits</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

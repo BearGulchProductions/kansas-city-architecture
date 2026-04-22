@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Look Up, Kansas City — Blog</title>
+    <link>https://lookupkc.com/blog/</link>
+    <description>Notes, observations, and essays on Kansas City — the ongoing notebook alongside the reference site.</description>
+    <language>en-us</language>
+    <atom:link href="https://lookupkc.com/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Apr 2026 12:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title>On Honest History</title>
+      <link>https://lookupkc.com/blog/2026-04-22-on-honest-history.html</link>
+      <description>Why this site holds the restrictive covenants alongside the beautiful neighborhoods, and the urban-renewal demolitions alongside the Art Deco skyline. A note on method — and an argument against sequestering the hard material.</description>
+      <pubDate>Wed, 22 Apr 2026 12:00:00 GMT</pubDate>
+      <guid>https://lookupkc.com/blog/2026-04-22-on-honest-history.html</guid>
+      <category>Editorial</category>
+    </item>
+
+    <item>
+      <title>What the World Cup Tells Us About Kansas City</title>
+      <link>https://lookupkc.com/blog/2026-04-22-world-cup-reflection.html</link>
+      <description>The 2026 tournament as the current instance of Kansas City's recurring impulse to imagine itself larger. What gets built in the reach — and what happens after the attention leaves.</description>
+      <pubDate>Wed, 22 Apr 2026 11:00:00 GMT</pubDate>
+      <guid>https://lookupkc.com/blog/2026-04-22-world-cup-reflection.html</guid>
+      <category>Editorial</category>
+    </item>
+
+    <item>
+      <title>A Walk Through the Crossroads at Midnight</title>
+      <link>https://lookupkc.com/blog/2026-04-22-a-walk-through-the-crossroads.html</link>
+      <description>After the First Friday crowds leave, the warehouses fall back into their older quiet. Brick, streetlight, and the illuminated crown of Power &amp; Light visible from eight blocks south.</description>
+      <pubDate>Wed, 22 Apr 2026 10:00:00 GMT</pubDate>
+      <guid>https://lookupkc.com/blog/2026-04-22-a-walk-through-the-crossroads.html</guid>
+      <category>Walks</category>
+    </item>
+
+    <item>
+      <title>Watching the McConahay Building Come Back</title>
+      <link>https://lookupkc.com/blog/2026-04-22-the-mcconahay-building.html</link>
+      <description>The second-floor office at 31st and Forest, where Walt Disney ran a cartoon studio into bankruptcy in 1923, is coming back as a preserved cultural site. What the restoration does and does not do.</description>
+      <pubDate>Wed, 22 Apr 2026 09:00:00 GMT</pubDate>
+      <guid>https://lookupkc.com/blog/2026-04-22-the-mcconahay-building.html</guid>
+      <category>News</category>
+    </item>
+
+    <item>
+      <title>The Power &amp; Light Building at Dusk</title>
+      <link>https://lookupkc.com/blog/2026-04-22-power-and-light-at-dusk.html</link>
+      <description>Standing at 14th and Baltimore at golden hour, watching the crown illumination come on. What KC's architectural ambition feels like when you stand inside its physical reality.</description>
+      <pubDate>Wed, 22 Apr 2026 08:00:00 GMT</pubDate>
+      <guid>https://lookupkc.com/blog/2026-04-22-power-and-light-at-dusk.html</guid>
+      <category>Walks</category>
+    </item>
+
+    <item>
+      <title>Welcome to the Notebook</title>
+      <link>https://lookupkc.com/blog/2026-04-22-welcome.html</link>
+      <description>A short note on what the blog is, what it isn't, and why it exists separate from the reference site. The encyclopedia and the notebook do different work.</description>
+      <pubDate>Wed, 22 Apr 2026 07:00:00 GMT</pubDate>
+      <guid>https://lookupkc.com/blog/2026-04-22-welcome.html</guid>
+      <category>Editorial</category>
+    </item>
+
+  </channel>
+</rss>

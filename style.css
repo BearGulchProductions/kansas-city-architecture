@@ -3195,3 +3195,177 @@ a:hover .nbhd-label { fill: #E8C96A; }
 .mini-timeline a:hover text {
   fill: #F5EFE0;
 }
+
+/* ── Map of Everything (map.html) ─────────────────────── */
+.map-everything-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1.5rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(201,168,76,0.2);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  background: linear-gradient(180deg, #0A0805 0%, #14100A 100%);
+}
+.map-everything {
+  min-width: 1200px;
+  width: 100%;
+  max-width: 1600px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.map-hint {
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.5);
+  margin: 0.5rem 0;
+  display: none;
+}
+@media (max-width: 1200px) {
+  .map-hint { display: block; }
+}
+
+/* Filter controls */
+.map-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem auto;
+  border: none;
+  padding: 0;
+  max-width: 760px;
+}
+.map-filters input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+.map-filters label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  cursor: pointer;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.map-filters label:hover { color: var(--gold); }
+.map-filters input:checked + label {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold);
+}
+.map-filters input:focus-visible + label {
+  outline: 1px dashed var(--gold);
+  outline-offset: 3px;
+}
+
+/* Filter dimming via :has() */
+.map-everything:has(#filter-buildings:checked) g[data-category]:not([data-category="building"]) {
+  opacity: 0.15;
+}
+.map-everything:has(#filter-fountains:checked) g[data-category]:not([data-category="fountain"]) {
+  opacity: 0.15;
+}
+.map-everything:has(#filter-history:checked) g[data-category]:not([data-category="history"]) {
+  opacity: 0.15;
+}
+.map-everything:has(#filter-walks:checked) g[data-category]:not([data-category="walk"]) {
+  opacity: 0.15;
+}
+.map-everything g[data-category] {
+  transition: opacity 0.35s ease;
+}
+
+/* Marker hover */
+.map-everything a {
+  cursor: pointer;
+}
+.map-everything a .map-marker {
+  transition: transform 0.2s ease, fill 0.2s ease, stroke 0.2s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.map-everything a:hover .map-marker,
+.map-everything a:focus-within .map-marker {
+  transform: scale(1.3);
+  fill: var(--gold-light);
+  stroke: var(--cream);
+}
+.map-everything a:hover .map-label,
+.map-everything a:focus-within .map-label {
+  fill: var(--cream);
+  font-weight: 600;
+}
+.map-everything .map-label {
+  transition: fill 0.2s ease;
+  pointer-events: none;
+}
+
+/* Neighborhood regions - dim on general hover, brighten on hover */
+.map-neighborhoods a .nbhd-region-map {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+.map-neighborhoods a:hover .nbhd-region-map,
+.map-neighborhoods a:focus-within .nbhd-region-map {
+  fill: rgba(232,201,106,0.22);
+  stroke: rgba(232,201,106,0.6);
+}
+
+/* Neighborhood index collapsibles */
+.map-neighborhood-index {
+  margin: 0.75rem 0;
+  border-left: 2px solid rgba(201,168,76,0.3);
+  padding-left: 1rem;
+}
+.map-neighborhood-index summary {
+  cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 0.4rem 0;
+  list-style: none;
+}
+.map-neighborhood-index summary::before {
+  content: '▸ ';
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.map-neighborhood-index[open] summary::before {
+  transform: rotate(90deg);
+}
+.map-neighborhood-index ul {
+  list-style: none;
+  padding: 0.5rem 0 0.5rem 0;
+  line-height: 1.9;
+}
+.map-neighborhood-index ul a {
+  color: var(--cream);
+  font-size: 0.9rem;
+}
+.map-neighborhood-index ul a:hover {
+  color: var(--gold-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-everything g[data-category],
+  .map-everything a .map-marker,
+  .map-everything a .map-label,
+  .map-neighborhoods a .nbhd-region-map,
+  .map-neighborhood-index summary::before {
+    transition: none;
+  }
+}

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1A1610" />
+  <title>Field Guide — Look Up, Kansas City</title>
+  <meta name="description" content="A glossary of architectural terminology used across Look Up, Kansas City — from cornices to setbacks to Art Deco zigzags." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <meta property="og:title" content="Field Guide — Look Up, Kansas City" />
+  <meta property="og:description" content="An architectural glossary for the curious reader." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation" />
+  <label for="mobile-nav-toggle" class="mobile-nav-button" aria-hidden="true"><span></span><span></span><span></span></label>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li class="has-dropdown"><a href="styles.html">Styles</a>
+        <ul>
+          <li><a href="art-deco.html">Art Deco</a></li>
+          <li><a href="styles/spanish-colonial.html">Spanish Colonial</a></li>
+          <li><a href="styles/beaux-arts.html">Beaux Arts</a></li>
+          <li><a href="styles/gothic-revival.html">Gothic Revival</a></li>
+          <li><a href="styles/streamline-moderne.html">Streamline Moderne</a></li>
+          <li><a href="styles/contemporary.html">Contemporary</a></li>
+          <li><a href="styles/materials.html">Materials &amp; Details</a></li>
+          <li><a href="glossary.html">Field Guide</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="buildings.html">Buildings</a>
+        <ul>
+          <li><a href="buildings/boom-era.html">Boom Era &mdash; 1900s&ndash;40s</a></li>
+          <li><a href="buildings/modern-era.html">Modern Era</a></li>
+          <li><a href="buildings/stadiums.html">Stadiums</a></li>
+          <li><a href="buildings/compare.html">Compare Heights</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="fountains.html">Fountains</a>
+        <ul>
+          <li><a href="fountains.html">All Fountains</a></li>
+          <li><a href="fountains/jc-nichols.html">J.C. Nichols Memorial</a></li>
+          <li><a href="fountains/meyer-circle.html">Meyer Circle Sea Horse</a></li>
+          <li><a href="fountains/bacchus.html">Bacchus</a></li>
+          <li><a href="fountains/pomona.html">Pomona</a></li>
+          <li><a href="fountains/volker.html">Volker</a></li>
+          <li><a href="fountains/firefighters.html">Firefighters</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="spaces.html">The City</a>
+        <ul>
+          <li><a href="plaza.html">The Plaza</a></li>
+          <li><a href="spaces/parks-boulevards.html">Parks &amp; Blvds</a></li>
+          <li><a href="spaces/ward-parkway.html">Ward Parkway</a></li>
+          <li><a href="overlooks.html">City Overlooks</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="history.html">History</a>
+        <ul>
+          <li><a href="history/timeline.html">Timeline</a></li>
+          <li><a href="history/eras.html">Eras</a></li>
+          <li><a href="history/figures.html">Figures</a></li>
+          <li><a href="history/themes.html">Themes</a></li>
+          <li><a href="history/episodes.html">Episodes</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="neighborhoods.html">Neighborhoods</a>
+        <ul>
+          <li><a href="neighborhoods/downtown.html">Downtown</a></li>
+          <li><a href="neighborhoods/midtown.html">Midtown</a></li>
+          <li><a href="neighborhoods/crossroads.html">Crossroads</a></li>
+          <li><a href="neighborhoods/18th-vine.html">18th &amp; Vine</a></li>
+          <li><a href="neighborhoods/west-bottoms.html">West Bottoms</a></li>
+          <li><a href="neighborhoods/westport.html">Westport</a></li>
+          <li><a href="neighborhoods/brookside.html">Brookside</a></li>
+        </ul>
+      </li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li class="has-dropdown"><a href="visit.html">Visit</a>
+        <ul>
+          <li><a href="start-here.html">Start Here</a></li>
+          <li><a href="visit/walking-tours.html">Walking Tours</a></li>
+          <li><a href="visit/events.html">Events</a></li>
+          <li><a href="reading.html">Further Reading</a></li>
+          <li><a href="sources.html">Sources</a></li>
+          <li><a href="visit/world-cup.html">World Cup 2026</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span class="sep">◆</span>
+    <a href="styles.html">Styles</a><span class="sep">◆</span>
+    Field Guide
+  </div>
+
+  <header style="background: linear-gradient(180deg, #0A0805 0%, #1A1610 100%); padding: 4rem 1.5rem 3rem; text-align: center;">
+    <span class="eyebrow" style="font-family:'Josefin Sans',sans-serif; font-size:0.7rem; letter-spacing:0.45em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:1rem;">An Architectural Glossary</span>
+    <h1 style="font-family:'Playfair Display',serif; font-size:clamp(2.2rem, 5vw, 4rem); color:var(--cream); line-height:1; margin:0 0 1rem; font-weight:400;">Field<br /><span style="color:var(--gold);">Guide</span></h1>
+    <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(0.95rem, 1.3vw, 1.15rem); color:var(--warm-grey); max-width:620px; margin:1rem auto 0; line-height:1.6;">
+      If you've been reading this site and wondered what a spandrel is, or what distinguishes a cornice from a frieze, this page is for you.
+    </p>
+  </header>
+
+  <main>
+    <div class="detail-body">
+
+      <div class="detail-section" style="max-width:720px; margin:0 auto 2rem;">
+        <p>
+          These are the architectural terms used throughout <em>Look Up, Kansas City</em>,
+          with small visual examples where they help. The vocabulary of a building &mdash;
+          cornice, setback, pilaster, spandrel &mdash; is worth learning. Once you have the
+          words, you stop seeing buildings as a single block of visual noise and start seeing
+          the decisions their designers made.
+        </p>
+      </div>
+
+      <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+
+      <!-- ─── BUILDING ZONES ─── -->
+      <div class="detail-section">
+        <h2>Building Zones</h2>
+
+        <div class="glossary-term">
+          <h3>Base / Plinth</h3>
+          <p>The lowest level of a building, often visually distinguished from the floors above by a change in material, texture, or scale. Classical and Art Deco buildings usually treat the base as a substantial architectural event &mdash; rusticated limestone, granite, a taller ground floor, decorative detail.</p>
+          <p class="glossary-example"><strong>See it:</strong> The <a href="buildings/kc-power-and-light.html">Power &amp; Light Building's</a> ground-floor limestone base.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Shaft / Middle</h3>
+          <p>The main, repetitive middle of a building &mdash; the floors where the windows are usually similar and the material stays consistent. In tall Art Deco towers, the shaft can run fifteen or twenty floors without major change.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Crown / Top</h3>
+          <p>The upper termination of a building, often where architects put the most decorative energy. Art Deco crowns are the signature American contribution to the form &mdash; illuminated, setback, ornamented. The crown is the part of the building you see from a mile away.</p>
+          <p class="glossary-example"><strong>See it:</strong> <a href="buildings/kc-power-and-light.html">Power &amp; Light's</a> illuminated crown is one of the most photographed in the American Midwest.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Setback</h3>
+          <p>A step backward from the building line at a particular floor, creating a ziggurat-like massing as the building rises. Setbacks became common after the 1916 New York zoning law and are a defining feature of 1920s-30s American skyscrapers, including most of Kansas City's Art Deco towers.</p>
+          <div class="glossary-svg">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of building setbacks">
+              <rect width="200" height="200" fill="#1a1610"/>
+              <path d="M 50,190 L 150,190 L 150,130 L 140,130 L 140,90 L 125,90 L 125,50 L 110,50 L 110,20 L 90,20 L 90,50 L 75,50 L 75,90 L 60,90 L 60,130 L 50,130 Z" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.5"/>
+              <text x="100" y="195" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="7" fill="#8C7E6A" letter-spacing="1">stepped setbacks</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── ORNAMENTAL ELEMENTS ─── -->
+      <div class="detail-section">
+        <h2>Ornamental Elements</h2>
+
+        <div class="glossary-term">
+          <h3>Cornice</h3>
+          <p>The projecting horizontal ornamental band that runs along the top of a wall, usually at the roofline or at a major setback. Cornices cast shadow lines that give a facade visual weight and terminate vertical compositions.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Frieze</h3>
+          <p>A horizontal band of ornament or sculpture, usually just below the cornice. In Greek temples the frieze held relief sculpture; in American civic buildings it often holds an inscription or a sequence of decorative panels.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Spandrel</h3>
+          <p>The panel between windows on successive floors of a multi-story building &mdash; the vertical strip that separates the window of floor one from the window of floor two directly above it. Spandrels are often decorated with relief panels, terra cotta ornament, or contrasting materials.</p>
+          <div class="glossary-svg">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing spandrel panels between windows">
+              <rect width="200" height="200" fill="#1a1610"/>
+              <rect x="30" y="30" width="140" height="45" fill="rgba(100,150,180,0.2)" stroke="#C9A84C" stroke-width="1"/>
+              <rect x="30" y="85" width="140" height="20" fill="rgba(201,168,76,0.25)" stroke="#C9A84C" stroke-width="1.25"/>
+              <rect x="30" y="115" width="140" height="45" fill="rgba(100,150,180,0.2)" stroke="#C9A84C" stroke-width="1"/>
+              <text x="100" y="100" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#1a1610" font-weight="600">SPANDREL</text>
+              <text x="100" y="52" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="7" fill="#8C7E6A">window</text>
+              <text x="100" y="137" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="7" fill="#8C7E6A">window</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Dentil</h3>
+          <p>A small tooth-like block ornament, repeated in series along a cornice or frieze. The name comes from Latin <em>dens</em> (tooth). Classical revival buildings use dentil molding heavily; you'll see it on Beaux Arts civic buildings.</p>
+          <div class="glossary-svg">
+            <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of dentil molding">
+              <rect width="200" height="80" fill="#1a1610"/>
+              <line x1="10" y1="20" x2="190" y2="20" stroke="#C9A84C" stroke-width="1"/>
+              <g fill="rgba(201,168,76,0.35)" stroke="#C9A84C" stroke-width="0.75">
+                <rect x="15" y="30" width="10" height="15"/>
+                <rect x="30" y="30" width="10" height="15"/>
+                <rect x="45" y="30" width="10" height="15"/>
+                <rect x="60" y="30" width="10" height="15"/>
+                <rect x="75" y="30" width="10" height="15"/>
+                <rect x="90" y="30" width="10" height="15"/>
+                <rect x="105" y="30" width="10" height="15"/>
+                <rect x="120" y="30" width="10" height="15"/>
+                <rect x="135" y="30" width="10" height="15"/>
+                <rect x="150" y="30" width="10" height="15"/>
+                <rect x="165" y="30" width="10" height="15"/>
+              </g>
+              <line x1="10" y1="50" x2="190" y2="50" stroke="#C9A84C" stroke-width="1"/>
+              <text x="100" y="70" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="7" fill="#8C7E6A" letter-spacing="1">dentil molding</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Rosette</h3>
+          <p>A circular ornament resembling a stylized rose, often used as a repeated decorative element on friezes, ceilings, or panels. Neo-classical and Art Deco buildings both use rosettes heavily, though the Deco versions tend to be more geometric.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Cartouche</h3>
+          <p>An ornamental frame or scroll-like shield, often holding an inscription, coat of arms, or decorative relief at its center. Common on Beaux Arts and neoclassical civic buildings.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Pediment</h3>
+          <p>The triangular (or sometimes curved) gable-like ornament at the top of a classical portico or over a doorway. The pediment is a quotation of the temple front; every Greek temple revival from the Parthenon onward has one.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Egg-and-dart</h3>
+          <p>A repeating decorative molding pattern alternating egg-shaped and dart-shaped elements &mdash; one of the oldest classical ornaments, in continuous use since ancient Greece. Look for it along cornices and around door frames on civic buildings.</p>
+        </div>
+      </div>
+
+      <!-- ─── MATERIALS ─── -->
+      <div class="detail-section">
+        <h2>Materials</h2>
+
+        <div class="glossary-term">
+          <h3>Terra Cotta</h3>
+          <p>Fired clay, often glazed, used as a cladding and ornamental material on commercial buildings. Terra cotta is lighter than stone, can be mass-produced with repeated decorative detail, and was the workhorse material of American commercial architecture from the 1880s to the 1930s. Most of Kansas City's Art Deco buildings use terra cotta for their ornamental upper stories.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Limestone (Kansas)</h3>
+          <p>The local limestone &mdash; quarried from Carthage, Missouri and several Kansas sites &mdash; is the defining material of Kansas City's civic architecture. Creamy-to-warm-gold in color, it takes carved ornament well and weathers to a rich patina. City Hall, the Jackson County Courthouse, and most of the Boom Era skyscrapers are clad in it.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Brick</h3>
+          <p>Two distinct uses: <em>load-bearing</em> (older buildings where the brick walls actually hold up the floors) and <em>veneer</em> (newer buildings where brick is a decorative cladding over steel or concrete frame). The West Bottoms warehouses are mostly load-bearing brick; most 20th-century residential architecture is brick veneer.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Azulejo Tile</h3>
+          <p>Painted ceramic tile, usually blue-and-white or polychrome, with a long tradition in Portuguese and Spanish architecture. J.C. Nichols imported Spanish azulejo to the Country Club Plaza to give his development the feel of an Andalusian town.</p>
+          <p class="glossary-example"><strong>See it:</strong> <a href="plaza.html">Country Club Plaza</a>.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Cast Iron</h3>
+          <p>Molded iron used for nineteenth-century commercial facades, allowing prefabricated decorative elements to be mass-produced in factories and shipped to building sites. Cast-iron facades enabled taller buildings before steel-frame construction became standard. Some survive in the West Bottoms.</p>
+        </div>
+      </div>
+
+      <!-- ─── WINDOWS &amp; OPENINGS ─── -->
+      <div class="detail-section">
+        <h2>Windows, Columns &amp; Openings</h2>
+
+        <div class="glossary-term">
+          <h3>Pilaster</h3>
+          <p>A flat, rectangular column attached to a wall &mdash; essentially a column that doesn't actually carry structural load but reads as if it does. Pilasters are a primary way to articulate vertical rhythm on a facade.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Column Orders (Doric, Ionic, Corinthian)</h3>
+          <p><strong>Doric</strong>: plainest, sturdiest, with a simple capital. <strong>Ionic</strong>: scrolled (volute) capitals, more slender proportions. <strong>Corinthian</strong>: leafy (acanthus) capitals, most ornamental. American neoclassical buildings use all three; Kansas City's Beaux Arts civic buildings tend toward Ionic and Corinthian.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Fenestration</h3>
+          <p>The overall pattern of windows across a facade. &ldquo;The fenestration&rdquo; is how an architect describes the rhythm and spacing of a building's openings &mdash; paired windows, triple-hung sashes, punched windows, ribbon windows.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Bay Window</h3>
+          <p>A window projecting outward from the plane of a wall, usually with three or more panes forming a multi-sided bay. Common on Victorian and Queen Anne houses.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Arched Windows (Semicircular / Segmental / Round)</h3>
+          <p>A <em>semicircular arch</em> is a half-circle. A <em>segmental arch</em> is a shallower curve (less than a half-circle). A <em>round arch</em> or <em>Romanesque arch</em> is semicircular. Beaux Arts buildings use semicircular arches at grand entrances; Romanesque Revival buildings use them for everything.</p>
+        </div>
+      </div>
+
+      <!-- ─── STRUCTURAL / ORGANIZATIONAL ─── -->
+      <div class="detail-section">
+        <h2>Structural &amp; Organizational Terms</h2>
+
+        <div class="glossary-term">
+          <h3>Façade / Elevation</h3>
+          <p>The face of a building; <em>elevation</em> is the technical/architectural term for any one side of the building as drawn in two dimensions. A building has four elevations (north, south, east, west); the &ldquo;main elevation&rdquo; is usually the most prominent one.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Bay (Structural)</h3>
+          <p>The repeating structural unit of a facade &mdash; usually defined by the spacing of columns or pilasters. A building might be &ldquo;five bays wide&rdquo; meaning there are five repetitions of the structural module across its front.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Cupola</h3>
+          <p>A small dome-like structure on top of a building, usually decorative. Courthouses and town halls often have cupolas as a civic signal.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Belvedere</h3>
+          <p>An architectural structure designed to command a view &mdash; literally Italian for &ldquo;beautiful view.&rdquo; Penthouses, rooftop pavilions, and terraces oriented to overlook the surrounding landscape.</p>
+        </div>
+      </div>
+
+      <!-- ─── STYLE-SPECIFIC TERMS ─── -->
+      <div class="detail-section">
+        <h2>Style-Specific Terms</h2>
+
+        <div class="glossary-term">
+          <h3>Art Deco: Zigzag, Streamline, Ziggurat</h3>
+          <p><strong>Zigzag Moderne</strong>: the angular, geometric Deco of the 1920s &mdash; chevrons, sunbursts, stepped forms. <strong>Streamline Moderne</strong>: the later, rounder Deco of the 1930s &mdash; horizontal bands, curves, speedlines. <strong>Ziggurat massing</strong>: stepped setbacks resembling Mesopotamian pyramids.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Spanish Colonial: Loggia, Mission Parapet, Red Tile Roof</h3>
+          <p><strong>Loggia</strong>: an open-sided arcade or gallery, often on an upper floor. <strong>Mission parapet</strong>: the curved, shaped gable end characteristic of Spanish mission architecture. <strong>Red clay tile roof</strong>: the signature Spanish Colonial roofing material, which Nichols imported for the Plaza.</p>
+        </div>
+
+        <div class="glossary-term">
+          <h3>Beaux Arts: Grand Staircase, Piano Nobile, Sculpted Pediment</h3>
+          <p><strong>Grand staircase</strong>: a ceremonial ascending stair, often with a double-return landing. <strong>Piano nobile</strong>: the &ldquo;noble floor&rdquo; &mdash; usually the second level of a Beaux Arts building where the grand public rooms are located. <strong>Sculpted pediment</strong>: a pediment containing relief sculpture rather than being purely geometric.</p>
+        </div>
+      </div>
+
+      <div class="detail-section" style="border-top: 1px solid rgba(201,168,76,0.15); padding-top: 2rem; margin-top: 3rem;">
+        <h2>Related</h2>
+        <p>
+          <a href="styles.html" style="color:var(--gold);">All Styles &rarr;</a>
+          &nbsp;&nbsp;
+          <a href="styles/materials.html" style="color:var(--gold);">Materials &amp; Details &rarr;</a>
+          &nbsp;&nbsp;
+          <a href="art-deco.html" style="color:var(--gold);">Art Deco &rarr;</a>
+          &nbsp;&nbsp;
+          <a href="reading.html" style="color:var(--gold);">Further Reading &rarr;</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="deco-bar top-bar"></div>
+    <div class="footer-inner">
+      <div class="motif-row" aria-hidden="true"><span>◆</span><span>◆</span><span>◆</span></div>
+      <p>Look Up, Kansas City &mdash; An Architecture &amp; History Guide</p>
+      <p class="footer-small">Built with Claude Code &bull; 2026</p>
+      <p class="footer-small"><a href="credits.html" style="color:var(--warm-grey);">Photo Credits</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
