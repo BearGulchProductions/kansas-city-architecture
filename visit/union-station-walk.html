@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1A1610" />
   <title>Union Station to Liberty Memorial — Look Up, Kansas City</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,7 +20,10 @@
   <meta name="twitter:description" content="A self-guided walk from Kansas City's Beaux Arts Union Station south through the Crossroads to the Liberty Memorial — the only National WWI Museum and Memorial in the United States." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/e/ea/KCUnionStation.jpg" />
 </head>
-<body>
+<body class="visit-walking-tour">
+
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation" />
+  <label for="mobile-nav-toggle" class="mobile-nav-button" aria-hidden="true"><span></span><span></span><span></span></label>
 
   <nav>
     <ul>
@@ -38,6 +44,7 @@
           <li><a href="../buildings/boom-era.html">Boom Era &mdash; 1900s&ndash;40s</a></li>
           <li><a href="../buildings/modern-era.html">Modern Era</a></li>
           <li><a href="../buildings/stadiums.html">Stadiums</a></li>
+          <li><a href="../buildings/compare.html">Compare Heights</a></li>
         </ul>
       </li>
       <li class="has-dropdown"><a href="../fountains.html">Fountains</a>
@@ -138,6 +145,67 @@
           <span class="detail-fact-label">Stops</span>
           <span class="detail-fact-value">3 landmarks</span>
         </div>
+      </div>
+
+      <div class="troost-map">
+        <svg class="troost-map-svg" viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Union Station to Liberty Memorial walking tour route map">
+          <rect width="560" height="420" fill="#1a1610"/>
+
+          <!-- Downtown core (north) hint -->
+          <rect x="100" y="40" width="360" height="25" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.2)" stroke-width="0.5"/>
+          <text x="280" y="57" text-anchor="middle" fill="#8C7E6A" font-family="'Josefin Sans',sans-serif" font-size="8" letter-spacing="0.12em">DOWNTOWN CORE →</text>
+
+          <!-- Pershing Road (main east-west corridor) -->
+          <line x1="30" y1="120" x2="530" y2="120" stroke="rgba(201,168,76,0.4)" stroke-width="2"/>
+          <text x="30" y="112" fill="#C9A84C" font-family="'Josefin Sans',sans-serif" font-size="8.5" letter-spacing="0.12em">PERSHING ROAD</text>
+
+          <!-- Main Street -->
+          <line x1="220" y1="40" x2="220" y2="400" stroke="rgba(140,126,106,0.4)" stroke-width="1"/>
+          <text x="225" y="55" fill="#8C7E6A" font-family="'Josefin Sans',sans-serif" font-size="8" letter-spacing="0.1em">MAIN ST</text>
+
+          <!-- Grand Boulevard -->
+          <line x1="320" y1="40" x2="320" y2="400" stroke="rgba(140,126,106,0.35)" stroke-width="1"/>
+          <text x="325" y="55" fill="#8C7E6A" font-family="'Josefin Sans',sans-serif" font-size="8" letter-spacing="0.1em">GRAND BLVD</text>
+
+          <!-- Penn Valley Park (south hill) — stylized hill curve from left to right -->
+          <path d="M 30,220 C 120,250 200,310 280,320 C 360,310 440,250 530,220"
+                fill="rgba(87,132,86,0.08)" stroke="rgba(87,132,86,0.4)" stroke-width="0.75"/>
+          <text x="280" y="290" text-anchor="middle" fill="#8C7E6A" font-family="'Josefin Sans',serif" font-style="italic" font-size="9" letter-spacing="0.05em">Penn Valley Park</text>
+
+          <!-- Elevation hill (southern rise to Liberty Memorial) -->
+          <path d="M 220,320 Q 280,370 280,370 L 280,370 Q 280,360 280,340"
+                fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="0.75" stroke-dasharray="3,3"/>
+
+          <!-- Route from Union Station east along Pershing then south to Liberty Memorial -->
+          <path d="M 220,135 Q 260,125 320,130 Q 370,135 400,170 Q 410,210 380,260 Q 340,310 280,345"
+                fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8,4" opacity="0.85"/>
+
+          <!-- Stop 1: Union Station -->
+          <circle cx="220" cy="135" r="13" fill="#1a1610" stroke="#E8C96A" stroke-width="2"/>
+          <text x="220" y="139" text-anchor="middle" fill="#E8C96A" font-family="'Josefin Sans',sans-serif" font-size="11" font-weight="600">1</text>
+          <text x="220" y="158" text-anchor="middle" fill="#F5EFE0" font-family="'Josefin Sans',sans-serif" font-size="8.5" letter-spacing="0.08em">UNION STATION</text>
+
+          <!-- Stop 2: Pershing Promenade -->
+          <circle cx="400" cy="170" r="10" fill="#1a1610" stroke="#C9A84C" stroke-width="1.75"/>
+          <text x="400" y="174" text-anchor="middle" fill="#C9A84C" font-family="'Josefin Sans',sans-serif" font-size="10" font-weight="600">2</text>
+          <text x="440" y="175" fill="#F5EFE0" font-family="'Josefin Sans',sans-serif" font-size="8" letter-spacing="0.06em">PROMENADE</text>
+
+          <!-- Stop 3: Liberty Memorial Tower (on the hill) -->
+          <circle cx="280" cy="345" r="13" fill="#1a1610" stroke="#E8C96A" stroke-width="2"/>
+          <text x="280" y="349" text-anchor="middle" fill="#E8C96A" font-family="'Josefin Sans',sans-serif" font-size="11" font-weight="600">3</text>
+          <text x="280" y="375" text-anchor="middle" fill="#F5EFE0" font-family="'Josefin Sans',sans-serif" font-size="8.5" letter-spacing="0.08em">LIBERTY MEMORIAL</text>
+          <text x="280" y="388" text-anchor="middle" fill="#8C7E6A" font-family="'Josefin Sans',sans-serif" font-size="7" font-style="italic" letter-spacing="0.05em">the hill top</text>
+
+          <text x="30" y="35" fill="#C9A84C" font-family="'Josefin Sans',sans-serif" font-size="9" letter-spacing="0.15em">UNION STATION TO MEMORIAL</text>
+          <text x="30" y="47" fill="#8C7E6A" font-family="'Josefin Sans',sans-serif" font-size="7" letter-spacing="0.1em">PERSHING ROAD &amp; THE HILL &bull; 1.1 MI</text>
+
+          <g transform="translate(515, 55)">
+            <line x1="0" y1="-15" x2="0" y2="15" stroke="#8C7E6A" stroke-width="0.75"/>
+            <polygon points="0,-15 -4,-8 4,-8" fill="#C9A84C"/>
+            <text x="0" y="-20" text-anchor="middle" fill="#8C7E6A" font-family="'Josefin Sans',sans-serif" font-size="8" letter-spacing="0.1em">N</text>
+          </g>
+        </svg>
+        <p class="troost-map-caption">The route: Union Station → east along the Pershing promenade → climb the hill south to the Liberty Memorial Tower</p>
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>

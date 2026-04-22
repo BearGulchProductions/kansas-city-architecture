@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1A1610" />
   <title>Buildings — Look Up, Kansas City</title>
   <meta name="description" content="Kansas City's most significant buildings — Art Deco skyscrapers, Beaux Arts landmarks, and contemporary architecture across a century of construction." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,6 +22,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation" />
+  <label for="mobile-nav-toggle" class="mobile-nav-button" aria-hidden="true"><span></span><span></span><span></span></label>
 
   <nav>
     <ul>
@@ -39,6 +45,7 @@
           <li><a href="buildings/boom-era.html">Boom Era &mdash; 1900s&ndash;40s</a></li>
           <li><a href="buildings/modern-era.html">Modern Era</a></li>
           <li><a href="buildings/stadiums.html">Stadiums</a></li>
+          <li><a href="buildings/compare.html">Compare Heights</a></li>
         </ul>
       </li>
       <li class="has-dropdown"><a href="fountains.html">Fountains</a>
@@ -162,6 +169,15 @@
     </a>
 
     <div class="deco-zigzag-bar" aria-hidden="true"></div>
+
+    <section style="background: linear-gradient(180deg, #0A0805 0%, #14100A 100%); padding: 3rem 1.5rem; text-align:center; border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2);">
+      <div class="container">
+        <span class="eyebrow" style="font-family:'Josefin Sans',sans-serif; font-size:0.65rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:0.75rem;">Reference</span>
+        <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.6rem, 3.5vw, 2.4rem); color:var(--cream); margin:0 0 0.75rem; font-weight:400;">Every building, drawn at the same scale</h2>
+        <p style="max-width:600px; margin:0 auto 1.5rem; color:var(--warm-grey); font-style:italic; font-family:'Playfair Display',serif;">A side-by-side comparison of every major Kansas City building — from Union Depot in 1878 to CPKC Stadium in 2024. See how tall is tall.</p>
+        <a href="buildings/compare.html" style="display:inline-block; padding:0.7rem 1.6rem; border:1px solid var(--gold); color:var(--gold); font-family:'Josefin Sans',sans-serif; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; text-decoration:none;">Compare Heights ◆</a>
+      </div>
+    </section>
 
     <section class="section-intro">
       <div class="container">
