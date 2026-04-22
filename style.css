@@ -3369,3 +3369,462 @@ a:hover .nbhd-label { fill: #E8C96A; }
     transition: none;
   }
 }
+
+/* ── Plaza schematic map (plaza.html) ────────────────────
+   Terra-cotta-accented variant of the map-everything treatment.
+   ──────────────────────────────────────────────────────── */
+.plaza-map-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1.5rem 0 0;
+  padding: 1.5rem 0;
+  background: linear-gradient(180deg, #120E08 0%, #1A140D 100%);
+  border-top: 1px solid rgba(201,168,76,0.2);
+  border-bottom: 1px solid rgba(166,96,48,0.25);
+}
+.plaza-map {
+  min-width: 1000px;
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.plaza-map-legend-box {
+  fill: rgba(18,14,8,0.88);
+  stroke: rgba(201,168,76,0.35);
+  stroke-width: 1;
+}
+.plaza-map .plaza-block {
+  fill: rgba(166,96,48,0.08);
+  stroke: rgba(166,96,48,0.22);
+  stroke-width: 0.8;
+}
+.plaza-map .plaza-street {
+  stroke: rgba(201,168,76,0.25);
+  stroke-width: 1.4;
+  fill: none;
+}
+.plaza-map .plaza-street-major {
+  stroke: rgba(201,168,76,0.5);
+  stroke-width: 2;
+  fill: none;
+}
+.plaza-map .plaza-creek {
+  fill: none;
+  stroke: rgba(80,120,150,0.55);
+  stroke-width: 3;
+}
+.plaza-map .plaza-park {
+  fill: rgba(201,168,76,0.07);
+  stroke: rgba(201,168,76,0.3);
+  stroke-width: 1;
+}
+.plaza-map .plaza-street-label,
+.plaza-map .plaza-park-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  fill: var(--warm-grey);
+  pointer-events: none;
+}
+.plaza-map .plaza-creek-label {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 12px;
+  fill: rgba(140,170,190,0.7);
+  pointer-events: none;
+}
+.plaza-map .plaza-marker {
+  transition: transform 0.2s ease, fill 0.2s ease, stroke 0.2s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.plaza-map a { cursor: pointer; }
+.plaza-map a:hover .plaza-marker,
+.plaza-map a:focus-within .plaza-marker {
+  transform: scale(1.35);
+  fill: var(--gold-light);
+  stroke: var(--cream);
+}
+.plaza-map a:hover .plaza-marker-label,
+.plaza-map a:focus-within .plaza-marker-label {
+  fill: var(--cream);
+  font-weight: 600;
+}
+.plaza-map .plaza-marker-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  fill: rgba(232,201,106,0.85);
+  pointer-events: none;
+  transition: fill 0.2s ease;
+}
+/* Marker category dimming via :has() + radio toggle */
+.plaza-map g[data-plaza-cat] {
+  transition: opacity 0.35s ease;
+}
+.plaza-map:has(#plaza-filter-towers:checked) g[data-plaza-cat]:not([data-plaza-cat="tower"]) { opacity: 0.15; }
+.plaza-map:has(#plaza-filter-fountains:checked) g[data-plaza-cat]:not([data-plaza-cat="fountain"]) { opacity: 0.15; }
+.plaza-map:has(#plaza-filter-buildings:checked) g[data-plaza-cat]:not([data-plaza-cat="building"]) { opacity: 0.15; }
+.plaza-map:has(#plaza-filter-lost:checked) g[data-plaza-cat]:not([data-plaza-cat="lost"]) { opacity: 0.15; }
+
+/* Spotlight hover — dim other markers when one is hovered */
+.plaza-map:has(a:hover) g[data-plaza-cat]:not(:has(a:hover)),
+.plaza-map:has(a:focus-within) g[data-plaza-cat]:not(:has(a:focus-within)) {
+  opacity: 0.35;
+}
+
+/* Plaza filter controls reuse map-filters pattern */
+.plaza-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem auto 0.5rem;
+  border: none;
+  padding: 0;
+  max-width: 720px;
+}
+.plaza-filters legend {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.plaza-filters input[type="radio"] {
+  position: absolute;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.plaza-filters label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  cursor: pointer;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.plaza-filters label:hover { color: var(--gold); }
+.plaza-filters input:checked + label {
+  color: var(--gold-light);
+  border-bottom-color: #A66030;
+}
+.plaza-filters input:focus-visible + label {
+  outline: 1px dashed var(--gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plaza-map g[data-plaza-cat],
+  .plaza-map a .plaza-marker,
+  .plaza-map a .plaza-marker-label {
+    transition: none;
+  }
+}
+
+/* ── 18th & Vine Then/Now district map ─────────────────── */
+.district-map-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1.5rem 0 0;
+  padding: 1.5rem 0;
+  background: linear-gradient(180deg, #0A0805 0%, #14100A 100%);
+  border-top: 1px solid rgba(201,168,76,0.2);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.district-map {
+  min-width: 1000px;
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.district-map .district-block {
+  fill: rgba(201,168,76,0.05);
+  stroke: rgba(201,168,76,0.18);
+  stroke-width: 0.7;
+}
+.district-map .district-street {
+  stroke: rgba(201,168,76,0.25);
+  stroke-width: 1.4;
+  fill: none;
+}
+.district-map .district-street-major {
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 2.2;
+  fill: none;
+}
+.district-map .district-street-label,
+.district-map .district-boundary-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  fill: var(--warm-grey);
+  pointer-events: none;
+}
+.district-map .district-boundary {
+  fill: none;
+  stroke: rgba(201,168,76,0.35);
+  stroke-width: 1;
+  stroke-dasharray: 4,4;
+}
+
+.district-map .district-marker {
+  transition: transform 0.4s ease, fill 0.4s ease, stroke 0.4s ease, opacity 0.4s ease, stroke-dasharray 0.4s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.district-map a { cursor: pointer; }
+.district-map a:hover .district-marker,
+.district-map a:focus-within .district-marker {
+  transform: scale(1.4);
+}
+.district-map .district-marker-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  fill: rgba(232,201,106,0.9);
+  pointer-events: none;
+  transition: fill 0.4s ease, opacity 0.4s ease;
+}
+.district-map a:hover .district-marker-label,
+.district-map a:focus-within .district-marker-label {
+  fill: var(--cream);
+  font-weight: 600;
+}
+
+/* Then/Now toggle behavior: markers by data-status */
+/* DEFAULT (view-then checked): everything visible in full color */
+/* view-now checked: demolished become dashed gray ghosts; surviving stay; new appear */
+
+.district-map g[data-status="new"] {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+body:has(#view-now:checked) .district-map g[data-status="demolished"] .district-marker {
+  fill: none;
+  stroke: rgba(150,150,150,0.55);
+  stroke-width: 1.4;
+  stroke-dasharray: 3,3;
+}
+body:has(#view-now:checked) .district-map g[data-status="demolished"] .district-marker-label {
+  fill: rgba(170,170,170,0.55);
+  font-style: italic;
+}
+body:has(#view-now:checked) .district-map g[data-status="new"] {
+  opacity: 1;
+}
+body:has(#view-now:checked) .district-map g[data-status="altered"] .district-marker {
+  fill: rgba(201,168,76,0.45);
+  stroke: rgba(201,168,76,0.7);
+  stroke-dasharray: 4,2;
+}
+
+/* Toggle control styling */
+.district-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem auto 0.5rem;
+  border: none;
+  padding: 0;
+  max-width: 600px;
+}
+.district-toggle legend {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.district-toggle input[type="radio"] {
+  position: absolute;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.district-toggle label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  cursor: pointer;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid rgba(201,168,76,0.3);
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.district-toggle label:hover { color: var(--gold); border-color: var(--gold); }
+.district-toggle input:checked + label {
+  color: #0A0805;
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+}
+.district-toggle input:focus-visible + label {
+  outline: 2px dashed var(--gold);
+  outline-offset: 3px;
+}
+
+/* Caption text under the map */
+.district-map-caption {
+  text-align: center;
+  color: var(--warm-grey);
+  font-size: 0.85rem;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  margin: 1rem auto 0;
+  max-width: 680px;
+  transition: opacity 0.4s ease;
+}
+.district-map-caption .caption-now,
+.district-map-caption .caption-then { display: none; }
+body:has(#view-then:checked) .district-map-caption .caption-then { display: inline; }
+body:has(#view-now:checked) .district-map-caption .caption-now { display: inline; }
+
+@media (prefers-reduced-motion: reduce) {
+  .district-map .district-marker,
+  .district-map .district-marker-label,
+  .district-map g[data-status="new"],
+  .district-map-caption {
+    transition: none;
+  }
+}
+
+/* ── Reading progress bar (long essay pages) ────────────── */
+@supports (animation-timeline: scroll()) {
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform-origin: left center;
+    transform: scaleX(0);
+    z-index: 400;
+    pointer-events: none;
+    animation: reading-progress linear;
+    animation-timeline: scroll(root);
+  }
+  @keyframes reading-progress {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress { display: none; }
+}
+
+/* ── Kessler Boulevard Network SVG ───────────────────────── */
+.kessler-network-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1.5rem 0;
+  padding: 1rem 0;
+  background: linear-gradient(180deg, #0F0C08 0%, #1A140D 100%);
+  border-top: 1px solid rgba(201,168,76,0.2);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.kessler-network {
+  min-width: 600px;
+  width: 100%;
+  max-width: 820px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.kessler-boulevard {
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 2.2;
+  fill: none;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+.kessler-network a:hover .kessler-boulevard,
+.kessler-network a:focus-within .kessler-boulevard {
+  stroke: var(--gold-light);
+  stroke-width: 3.2;
+}
+.kessler-park {
+  fill: rgba(201,168,76,0.22);
+  stroke: rgba(201,168,76,0.7);
+  stroke-width: 1.4;
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+.kessler-network a:hover .kessler-park,
+.kessler-network a:focus-within .kessler-park {
+  fill: rgba(232,201,106,0.5);
+  stroke: var(--gold-light);
+}
+.kessler-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  fill: rgba(232,201,106,0.85);
+  pointer-events: none;
+  transition: fill 0.3s ease;
+}
+.kessler-boundary-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  fill: var(--warm-grey);
+  pointer-events: none;
+}
+.kessler-river {
+  fill: none;
+  stroke: rgba(80,120,150,0.55);
+  stroke-width: 3;
+}
+.kessler-network:has(a:hover) a:not(:hover) .kessler-boulevard,
+.kessler-network:has(a:hover) a:not(:hover) .kessler-park {
+  opacity: 0.3;
+}
+
+/* ── Fountain Anatomy SVG (fountains hub) ──────────────── */
+.fountain-anatomy {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 1rem auto 0;
+}
+.fountain-anatomy .anatomy-line {
+  stroke: rgba(201,168,76,0.75);
+  stroke-width: 1.2;
+  fill: none;
+}
+.fountain-anatomy .anatomy-leader {
+  stroke: rgba(232,201,106,0.4);
+  stroke-width: 0.6;
+  stroke-dasharray: 3,2;
+  fill: none;
+}
+.fountain-anatomy .anatomy-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  fill: var(--warm-grey);
+}
+.fountain-anatomy .anatomy-part-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  font-style: italic;
+  fill: var(--cream);
+}

@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
+  <div class="reading-progress" aria-hidden="true"></div>
 
   <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation" />
   <label for="mobile-nav-toggle" class="mobile-nav-button" aria-hidden="true"><span></span><span></span><span></span></label>
@@ -83,6 +84,7 @@
           <li><a href="../neighborhoods/west-bottoms.html">West Bottoms</a></li>
           <li><a href="../neighborhoods/westport.html">Westport</a></li>
           <li><a href="../neighborhoods/brookside.html">Brookside</a></li>
+          <li><a href="../neighborhoods/quality-hill.html">Quality Hill</a></li>
         </ul>
       </li>
       <li><a href="../blog/index.html">Blog</a></li>
@@ -142,6 +144,200 @@
           opportunity to incorporate green space into its urban structure rather than
           treating it as a residual afterthought. The plan was expensive, ambitious,
           and visionary. It passed.
+        </p>
+      </div>
+
+      <div class="history-rule"><span class="history-rule-icon">◆</span></div>
+
+      <div class="detail-section">
+        <h2>The Network, as Built</h2>
+        <p>
+          The 1893 plan wasn&apos;t abstract. It named specific parks and specific
+          parkways and proposed connecting them into a legible system. The schematic
+          below shows the network as it eventually came to exist &mdash; the boulevards
+          as gold lines, the parks as gold nodes, the rough circumferential shape that
+          made Kessler&apos;s argument legible in the landscape.
+        </p>
+
+        <div class="kessler-network-wrapper">
+          <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" class="kessler-network" role="img" aria-label="Schematic map of Kessler's boulevard and park network, Kansas City">
+
+            <rect width="800" height="800" fill="#120E08"/>
+
+            <!-- Missouri River at the top (north edge) -->
+            <path class="kessler-river" d="M 0 100 Q 160 80 320 105 Q 480 130 640 95 Q 720 80 800 100"/>
+            <text class="kessler-boundary-label" x="400" y="70" text-anchor="middle" style="fill:rgba(140,170,190,0.7); font-style:italic; font-family:'Playfair Display', serif; font-size:11px;">Missouri River</text>
+
+            <!-- Rough city outline -->
+            <path d="M 80 140 L 720 140 L 720 720 L 80 720 Z" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+            <!-- Downtown indicator -->
+            <g transform="translate(420, 195)">
+              <rect width="60" height="36" fill="rgba(201,168,76,0.1)" stroke="rgba(201,168,76,0.35)" stroke-width="1"/>
+              <text x="30" y="22" text-anchor="middle" class="kessler-boundary-label">DOWNTOWN</text>
+            </g>
+
+            <!-- ══ Boulevards ══ -->
+
+            <!-- The Paseo (N-S through east side, one of Kessler's signature corridors) -->
+            <g>
+              <a href="../spaces/parks-boulevards.html">
+                <title>The Paseo — Kessler's signature north-south boulevard through the east side, designed as a grand residential parkway with median gardens and fountains.</title>
+                <line class="kessler-boulevard" x1="560" y1="180" x2="560" y2="700"/>
+                <text class="kessler-label" x="572" y="460" transform="rotate(-90 572 460)">The Paseo</text>
+              </a>
+            </g>
+
+            <!-- Gillham Road (downtown to midtown, connects P&amp;L area to Plaza) -->
+            <g>
+              <a href="../spaces/parks-boulevards.html">
+                <title>Gillham Road — a north-south connector linking downtown to midtown and the Plaza area, lined with early-20th-century apartment buildings.</title>
+                <path class="kessler-boulevard" d="M 430 235 Q 430 380 415 510"/>
+                <text class="kessler-label" x="440" y="380" transform="rotate(82 440 380)">Gillham Road</text>
+              </a>
+            </g>
+
+            <!-- Armour Boulevard (E-W across midtown) -->
+            <g>
+              <a href="../spaces/parks-boulevards.html">
+                <title>Armour Boulevard — the east-west midtown boulevard, originally a grand residential address, now a transit corridor and apartment district.</title>
+                <line class="kessler-boulevard" x1="220" y1="380" x2="600" y2="380"/>
+                <text class="kessler-label" x="395" y="370" text-anchor="middle">Armour Blvd</text>
+              </a>
+            </g>
+
+            <!-- Ward Parkway (the crown jewel — curves south of Plaza) -->
+            <g>
+              <a href="../spaces/ward-parkway.html">
+                <title>Ward Parkway — Kessler's crown jewel, a grand south-side parkway lined with mansions, fountains, and statuary. The most photographed boulevard in the city.</title>
+                <path class="kessler-boulevard" d="M 160 620 Q 280 560 415 555 Q 530 555 640 610"/>
+                <text class="kessler-label" x="395" y="590" text-anchor="middle">Ward Parkway</text>
+              </a>
+            </g>
+
+            <!-- Cliff Drive (the northeast bluff) -->
+            <g>
+              <a href="../overlooks.html">
+                <title>Cliff Drive — the northeast bluff road, winding through Kessler Park (formerly North Terrace) with overlooks of the Missouri River.</title>
+                <path class="kessler-boulevard" d="M 590 180 Q 640 200 680 230 Q 710 265 720 310"/>
+                <text class="kessler-label" x="690" y="225" transform="rotate(40 690 225)">Cliff Drive</text>
+              </a>
+            </g>
+
+            <!-- Swope Parkway (from Paseo south to Swope Park) -->
+            <g>
+              <a href="../spaces/parks-boulevards.html">
+                <title>Swope Parkway — connects the Paseo system south to Swope Park, the 1,800-acre park donated by Colonel Thomas Swope in 1896.</title>
+                <path class="kessler-boulevard" d="M 560 690 Q 540 720 490 745"/>
+                <text class="kessler-label" x="540" y="740">Swope Pkwy</text>
+              </a>
+            </g>
+
+            <!-- Meyer Boulevard (E-W connecting to Ward Parkway) -->
+            <g>
+              <a href="../spaces/parks-boulevards.html">
+                <title>Meyer Boulevard — a Kessler east-west route connecting the Paseo system to Ward Parkway and the Plaza.</title>
+                <line class="kessler-boulevard" x1="220" y1="555" x2="545" y2="555"/>
+              </a>
+            </g>
+
+            <!-- Brush Creek Boulevard (along Brush Creek to the Plaza) -->
+            <g>
+              <a href="../plaza.html">
+                <title>Brush Creek Boulevard — along the creek that gives it its name, leading to the Plaza.</title>
+                <path class="kessler-boulevard" d="M 280 520 Q 340 510 390 505"/>
+              </a>
+            </g>
+
+            <!-- Mill Creek Parkway (short spur between Plaza and Penn Valley) -->
+            <g>
+              <a href="../plaza.html">
+                <title>Mill Creek Parkway — a short landscaped connector between Penn Valley Park and the Plaza's northwest gateway.</title>
+                <line class="kessler-boulevard" x1="340" y1="350" x2="370" y2="480"/>
+              </a>
+            </g>
+
+            <!-- ══ Parks (nodes) ══ -->
+
+            <!-- Penn Valley Park -->
+            <g>
+              <a href="../spaces/parks-boulevards.html">
+                <title>Penn Valley Park — a central-city park south of downtown, site of the Firefighters Fountain and near Liberty Memorial.</title>
+                <circle class="kessler-park" cx="340" cy="310" r="28"/>
+                <text class="kessler-label" x="340" y="355" text-anchor="middle">Penn Valley</text>
+              </a>
+            </g>
+
+            <!-- Mill Creek Park (Plaza gateway) -->
+            <g>
+              <a href="../plaza.html">
+                <title>Mill Creek Park — small but iconic park at the Plaza's northern gateway, home of the J.C. Nichols Memorial Fountain.</title>
+                <circle class="kessler-park" cx="370" cy="490" r="18"/>
+                <text class="kessler-label" x="370" y="518" text-anchor="middle">Mill Creek</text>
+              </a>
+            </g>
+
+            <!-- Loose Park (battlefield + rose garden) -->
+            <g>
+              <a href="../spaces/loose-park.html">
+                <title>Loose Park — 75-acre park preserving the Battle of Westport ground, now a rose garden and community park.</title>
+                <circle class="kessler-park" cx="415" cy="555" r="24"/>
+                <text class="kessler-label" x="415" y="590" text-anchor="middle">Loose Park</text>
+              </a>
+            </g>
+
+            <!-- Swope Park (far south, largest) -->
+            <g>
+              <a href="../spaces/parks-boulevards.html">
+                <title>Swope Park — 1,800 acres donated in 1896 by Colonel Thomas Swope. One of the largest urban parks in the United States.</title>
+                <circle class="kessler-park" cx="490" cy="755" r="32"/>
+                <text class="kessler-label" x="490" y="755" text-anchor="middle">Swope Park</text>
+                <text class="kessler-boundary-label" x="490" y="795" text-anchor="middle" style="font-size:8px; fill:rgba(140,126,106,0.7);">(continues south)</text>
+              </a>
+            </g>
+
+            <!-- Paseo parks (strung along The Paseo as small nodes) -->
+            <g>
+              <a href="../spaces/parks-boulevards.html">
+                <title>The Paseo median parks — a sequence of small landscaped spaces along the Paseo's central mall, designed in the Beaux Arts tradition.</title>
+                <circle class="kessler-park" cx="560" cy="280" r="10"/>
+                <circle class="kessler-park" cx="560" cy="450" r="10"/>
+                <circle class="kessler-park" cx="560" cy="620" r="10"/>
+              </a>
+            </g>
+
+            <!-- Kessler Park (northeast bluff) -->
+            <g>
+              <a href="../overlooks.html">
+                <title>Kessler Park (formerly North Terrace Park) — named for the designer himself after his death. Overlooks the Missouri River from the northeast bluff.</title>
+                <ellipse class="kessler-park" cx="670" cy="230" rx="26" ry="16"/>
+                <text class="kessler-label" x="670" y="260" text-anchor="middle">Kessler Park</text>
+              </a>
+            </g>
+
+            <!-- Gladstone Park (north side) -->
+            <g>
+              <a href="../spaces/parks-boulevards.html">
+                <title>Gladstone Park — one of the north-side Kessler parks, part of the original 1893 plan's neighborhood park network.</title>
+                <circle class="kessler-park" cx="200" cy="215" r="14"/>
+                <text class="kessler-label" x="200" y="248" text-anchor="middle">Gladstone</text>
+              </a>
+            </g>
+
+            <!-- Compass -->
+            <g transform="translate(750, 740)">
+              <circle r="20" fill="none" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
+              <path d="M 0 -16 L 4 4 L 0 0 L -4 4 Z" fill="rgba(232,201,106,0.8)"/>
+              <text x="0" y="-24" text-anchor="middle" class="kessler-boundary-label" style="font-size:9px;">N</text>
+            </g>
+
+            <text class="kessler-boundary-label" x="80" y="780" style="font-size:8px; fill:rgba(140,126,106,0.5);">SCHEMATIC &mdash; NOT TO SCALE</text>
+
+          </svg>
+        </div>
+
+        <p style="text-align:center; color:var(--warm-grey); font-size:0.82rem; font-style:italic; margin-top: 0.5rem;">
+          Hover any boulevard or park for its story. Gold lines are boulevards; gold circles are parks; the Missouri River traces the top of the plan.
         </p>
       </div>
 

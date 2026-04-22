@@ -86,6 +86,7 @@
           <li><a href="neighborhoods/west-bottoms.html">West Bottoms</a></li>
           <li><a href="neighborhoods/westport.html">Westport</a></li>
           <li><a href="neighborhoods/brookside.html">Brookside</a></li>
+          <li><a href="neighborhoods/quality-hill.html">Quality Hill</a></li>
         </ul>
       </li>
       <li><a href="blog/index.html">Blog</a></li>
@@ -106,7 +107,13 @@
     <div class="page-toc-inner">
       <a href="#a-vision-from-seville">A Vision from Seville</a>
       <span class="page-toc-sep">◆</span>
+      <a href="#the-plaza-map">The Map</a>
+      <span class="page-toc-sep">◆</span>
       <a href="#architecture">Architecture</a>
+      <span class="page-toc-sep">◆</span>
+      <a href="#reading-the-plaza">Reading the Plaza</a>
+      <span class="page-toc-sep">◆</span>
+      <a href="#what-to-see">What to See</a>
       <span class="page-toc-sep">◆</span>
       <a href="#the-giralda-connection">The Giralda</a>
     </div>
@@ -143,6 +150,296 @@
           The result is one of the most distinctive and beloved commercial districts
           in America, and one of the most ambitious acts of civic placemaking in
           twentieth-century urban history.
+        </p>
+      </div>
+    </section>
+
+    <div class="plaza-tile-strip" aria-hidden="true"></div>
+    <div class="plaza-ornament">✦ &nbsp; &nbsp; ✦ &nbsp; &nbsp; ✦</div>
+    <div class="plaza-tile-strip" aria-hidden="true"></div>
+
+    <section id="the-plaza-map" style="background:#0F0C08; padding: 2rem 1rem 3rem;">
+      <div class="container">
+        <div class="deco-diamond" aria-hidden="true">◆</div>
+        <h2 style="text-align:center; margin-bottom: 0.4rem;">The Plaza in One View</h2>
+        <p style="text-align:center; color:var(--warm-grey); font-size:0.9rem; max-width: 680px; margin: 0 auto 1.5rem; font-style: italic; font-family:'Playfair Display', serif;">
+          A schematic of the Country Club Plaza &mdash; its street grid, its blocks, its fountains, and its Giralda-inspired towers. Hover any marker to read its name; click to go deeper.
+        </p>
+
+        <fieldset class="plaza-filters" role="radiogroup" aria-label="Filter Plaza markers by category">
+          <legend>Show on the map</legend>
+          <input type="radio" id="plaza-filter-all" name="plaza-filter" checked><label for="plaza-filter-all">Everything</label>
+          <input type="radio" id="plaza-filter-towers" name="plaza-filter"><label for="plaza-filter-towers">Towers</label>
+          <input type="radio" id="plaza-filter-fountains" name="plaza-filter"><label for="plaza-filter-fountains">Fountains</label>
+          <input type="radio" id="plaza-filter-buildings" name="plaza-filter"><label for="plaza-filter-buildings">Nichols-Era Buildings</label>
+          <input type="radio" id="plaza-filter-lost" name="plaza-filter"><label for="plaza-filter-lost">Lost &amp; Altered</label>
+        </fieldset>
+
+        <p class="map-hint">&larr; Scroll or pinch to explore &rarr;</p>
+
+        <div class="plaza-map-wrapper">
+          <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" class="plaza-map" role="img" aria-label="Schematic map of the Country Club Plaza, Kansas City">
+
+            <!-- ══ Background fills and atmospheric layers ══ -->
+            <rect width="1200" height="800" fill="#120E08"/>
+
+            <!-- Mill Creek Park (NW corner) -->
+            <path d="M 60 110 L 220 110 L 230 180 L 240 220 L 200 260 L 120 260 L 60 220 Z" class="plaza-park"/>
+            <text class="plaza-park-label" x="140" y="195" text-anchor="middle">Mill Creek Park</text>
+
+            <!-- Plaza block fills -->
+            <rect class="plaza-block" x="260" y="220" width="180" height="180"/>
+            <rect class="plaza-block" x="440" y="220" width="180" height="180"/>
+            <rect class="plaza-block" x="620" y="220" width="180" height="180"/>
+            <rect class="plaza-block" x="800" y="220" width="150" height="180"/>
+            <rect class="plaza-block" x="260" y="400" width="180" height="180"/>
+            <rect class="plaza-block" x="440" y="400" width="180" height="180"/>
+            <rect class="plaza-block" x="620" y="400" width="180" height="180"/>
+            <rect class="plaza-block" x="800" y="400" width="150" height="180"/>
+
+            <!-- Brush Creek along the south edge -->
+            <path class="plaza-creek" d="M 40 680 Q 260 660 440 680 T 840 680 Q 980 670 1060 690"/>
+            <text class="plaza-creek-label" x="560" y="710" text-anchor="middle">Brush Creek</text>
+
+            <!-- ══ Streets (background grid) ══ -->
+            <!-- 47th Street (major, north edge) -->
+            <line class="plaza-street-major" x1="40" y1="220" x2="960" y2="220"/>
+            <text class="plaza-street-label" x="80" y="210">47th Street</text>
+            <!-- 48th Street -->
+            <line class="plaza-street" x1="260" y1="400" x2="950" y2="400"/>
+            <text class="plaza-street-label" x="280" y="393">48th Street</text>
+            <!-- 49th Street -->
+            <line class="plaza-street" x1="260" y1="580" x2="950" y2="580"/>
+            <text class="plaza-street-label" x="280" y="573">49th Street</text>
+            <!-- JC Nichols Parkway (major, south edge along creek) -->
+            <line class="plaza-street-major" x1="60" y1="630" x2="1020" y2="630"/>
+            <text class="plaza-street-label" x="440" y="620">J.C. Nichols Parkway</text>
+
+            <!-- Broadway (vertical west) -->
+            <line class="plaza-street-major" x1="260" y1="100" x2="260" y2="660"/>
+            <text class="plaza-street-label" x="232" y="100" transform="rotate(-90 232 100)">Broadway</text>
+            <!-- Main Street -->
+            <line class="plaza-street" x1="440" y1="140" x2="440" y2="660"/>
+            <text class="plaza-street-label" x="414" y="150" transform="rotate(-90 414 150)">Main Street</text>
+            <!-- Central Avenue -->
+            <line class="plaza-street" x1="620" y1="220" x2="620" y2="630"/>
+            <text class="plaza-street-label" x="594" y="230" transform="rotate(-90 594 230)">Central</text>
+            <!-- Wornall Road (vertical east) -->
+            <line class="plaza-street-major" x1="800" y1="140" x2="800" y2="660"/>
+            <text class="plaza-street-label" x="820" y="150" transform="rotate(-90 820 150)">Wornall Road</text>
+
+            <!-- Deco diamond markers at boulevard-street intersections -->
+            <circle cx="260" cy="220" r="3" fill="rgba(201,168,76,0.5)"/>
+            <circle cx="440" cy="220" r="3" fill="rgba(201,168,76,0.5)"/>
+            <circle cx="620" cy="220" r="3" fill="rgba(201,168,76,0.5)"/>
+            <circle cx="800" cy="220" r="3" fill="rgba(201,168,76,0.5)"/>
+
+            <!-- ══ Compass ══ -->
+            <g transform="translate(1080, 120)">
+              <circle r="22" fill="none" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
+              <path d="M 0 -18 L 5 4 L 0 0 L -5 4 Z" fill="rgba(232,201,106,0.8)"/>
+              <text x="0" y="-26" text-anchor="middle" class="plaza-street-label" style="font-size:9px;">N</text>
+            </g>
+
+            <!-- ══ Markers ══ -->
+
+            <!-- FOUNTAIN: J.C. Nichols Memorial Fountain (Mill Creek Park) -->
+            <g data-plaza-cat="fountain">
+              <a href="fountains/jc-nichols.html">
+                <title>J.C. Nichols Memorial Fountain (1960) — the Plaza's northern gateway. Four equestrian figures representing the world's great rivers.</title>
+                <g transform="translate(140, 150) rotate(45)">
+                  <rect class="plaza-marker" x="-9" y="-9" width="18" height="18" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.2"/>
+                </g>
+                <text class="plaza-marker-label" x="140" y="175" text-anchor="middle">Nichols Fountain</text>
+              </a>
+            </g>
+
+            <!-- TOWER: Giralda Tower replica (SE side of Plaza, on Nichols Parkway) -->
+            <g data-plaza-cat="tower">
+              <a href="#the-giralda-connection">
+                <title>Giralda Tower replica (1967) — full-scale replica of Seville's 12th-century Giralda bell tower. The Plaza's most iconic landmark.</title>
+                <g transform="translate(870, 470)">
+                  <rect class="plaza-marker" x="-6" y="-30" width="12" height="30" fill="#C9A84C" stroke="#A66030" stroke-width="1.2"/>
+                  <polygon points="-6,-30 0,-40 6,-30" fill="#E8C96A" stroke="#A66030" stroke-width="1"/>
+                  <rect x="-7" y="-24" width="14" height="1" fill="#A66030" opacity="0.6"/>
+                  <rect x="-7" y="-18" width="14" height="1" fill="#A66030" opacity="0.6"/>
+                  <rect x="-7" y="-12" width="14" height="1" fill="#A66030" opacity="0.6"/>
+                </g>
+                <text class="plaza-marker-label" x="870" y="20" text-anchor="middle" dy="485">Giralda Tower</text>
+              </a>
+            </g>
+
+            <!-- TOWER: Clock Tower (NE corner near 47th) -->
+            <g data-plaza-cat="tower">
+              <a href="#the-giralda-connection">
+                <title>Plaza Clock Tower — one of several Spanish-inspired towers that give the district its Andalusian skyline.</title>
+                <g transform="translate(870, 290)">
+                  <rect class="plaza-marker" x="-5" y="-22" width="10" height="22" fill="#C9A84C" stroke="#A66030" stroke-width="1.2"/>
+                  <polygon points="-5,-22 0,-30 5,-22" fill="#E8C96A" stroke="#A66030" stroke-width="1"/>
+                  <circle cx="0" cy="-15" r="2.2" fill="#1A1610" stroke="#E8C96A" stroke-width="0.8"/>
+                </g>
+                <text class="plaza-marker-label" x="870" y="312" text-anchor="middle">Clock Tower</text>
+              </a>
+            </g>
+
+            <!-- TOWER: Seville Square Tower -->
+            <g data-plaza-cat="tower">
+              <a href="#the-giralda-connection">
+                <title>Seville Square Tower — Spanish-inspired campanile on the Plaza's eastern edge. Part of the Seville Square complex added in the 1970s.</title>
+                <g transform="translate(700, 470)">
+                  <rect class="plaza-marker" x="-4" y="-18" width="8" height="18" fill="#C9A84C" stroke="#A66030" stroke-width="1"/>
+                  <polygon points="-4,-18 0,-24 4,-18" fill="#E8C96A" stroke="#A66030" stroke-width="1"/>
+                </g>
+                <text class="plaza-marker-label" x="700" y="490" text-anchor="middle">Seville Square Tower</text>
+              </a>
+            </g>
+
+            <!-- BUILDING: Balcony Building (NW corner at 47th &amp; Broadway) -->
+            <g data-plaza-cat="building">
+              <a>
+                <title>The Balcony Building (1923) — one of the first buildings Nichols built on the Plaza. Named for its prominent wrought-iron balconies.</title>
+                <circle class="plaza-marker" cx="295" cy="280" r="9" fill="#C9A84C" stroke="#A66030" stroke-width="1.2"/>
+                <text class="plaza-marker-label" x="295" y="303" text-anchor="middle">Balcony Bldg</text>
+              </a>
+            </g>
+
+            <!-- BUILDING: Mill Creek Building (near Main/47th) -->
+            <g data-plaza-cat="building">
+              <a>
+                <title>Mill Creek Building (1923) — original Nichols commercial building anchoring the Plaza's northern edge near Mill Creek Park.</title>
+                <circle class="plaza-marker" cx="470" cy="280" r="9" fill="#C9A84C" stroke="#A66030" stroke-width="1.2"/>
+                <text class="plaza-marker-label" x="470" y="303" text-anchor="middle">Mill Creek Bldg</text>
+              </a>
+            </g>
+
+            <!-- BUILDING: Plaza Medical Building (tower anchor, NE corner area) -->
+            <g data-plaza-cat="building">
+              <a>
+                <title>Plaza Medical Building (1929) — one of the earliest multi-story Nichols structures, with signature tile ornamentation on the upper cornice.</title>
+                <circle class="plaza-marker" cx="650" cy="280" r="9" fill="#C9A84C" stroke="#A66030" stroke-width="1.2"/>
+                <text class="plaza-marker-label" x="650" y="303" text-anchor="middle">Plaza Medical</text>
+              </a>
+            </g>
+
+            <!-- BUILDING: Pharmacy Building -->
+            <g data-plaza-cat="building">
+              <a>
+                <title>The Pharmacy Building (1923) — another original Nichols structure, preserving the Plaza's pre-1930 commercial character.</title>
+                <circle class="plaza-marker" cx="530" cy="470" r="9" fill="#C9A84C" stroke="#A66030" stroke-width="1.2"/>
+                <text class="plaza-marker-label" x="530" y="493" text-anchor="middle">Pharmacy Bldg</text>
+              </a>
+            </g>
+
+            <!-- BUILDING: Seville Square (cultural anchor) -->
+            <g data-plaza-cat="building">
+              <a>
+                <title>Seville Square (1978) — mixed-use complex integrating tile murals, fountains, and courtyards in direct homage to Seville's Casa de Pilatos.</title>
+                <circle class="plaza-marker" cx="700" cy="520" r="9" fill="#C9A84C" stroke="#A66030" stroke-width="1.2"/>
+                <text class="plaza-marker-label" x="700" y="543" text-anchor="middle">Seville Square</text>
+              </a>
+            </g>
+
+            <!-- FOUNTAIN: Bacchus (central Plaza courtyard) -->
+            <g data-plaza-cat="fountain">
+              <a href="fountains/bacchus.html">
+                <title>Fountain of Bacchus (1951) — the god of wine in bronze, centerpiece of one of the Plaza's hidden courtyards.</title>
+                <g transform="translate(530, 340) rotate(45)">
+                  <rect class="plaza-marker" x="-8" y="-8" width="16" height="16" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.2"/>
+                </g>
+                <text class="plaza-marker-label" x="530" y="365" text-anchor="middle">Bacchus</text>
+              </a>
+            </g>
+
+            <!-- FOUNTAIN: Pomona (near Ward Parkway; shown at south edge) -->
+            <g data-plaza-cat="fountain">
+              <a href="fountains/pomona.html">
+                <title>Pomona Fountain — just south of the Plaza, along Ward Parkway. The Roman goddess of fruit trees. Technically a Ward Parkway fountain but within a short walk.</title>
+                <g transform="translate(960, 660) rotate(45)">
+                  <rect class="plaza-marker" x="-7" y="-7" width="14" height="14" fill="#E8C96A" stroke="#C9A84C" stroke-width="1" stroke-dasharray="2,2"/>
+                </g>
+                <text class="plaza-marker-label" x="960" y="685" text-anchor="middle">Pomona (on Ward)</text>
+              </a>
+            </g>
+
+            <!-- LANDMARK: Tile Mural panel (one of the most prominent) -->
+            <g data-plaza-cat="building">
+              <a>
+                <title>Signature Tile Mural — one of 30+ hand-painted azulejo panels embedded in Plaza facades, depicting Seville scenes.</title>
+                <rect class="plaza-marker" x="348" y="460" width="14" height="10" fill="rgba(245,239,224,0.9)" stroke="#A66030" stroke-width="1"/>
+                <rect x="350" y="462" width="4" height="4" fill="#A66030" opacity="0.5"/>
+                <rect x="356" y="462" width="4" height="4" fill="rgba(80,120,150,0.5)"/>
+                <rect x="350" y="466" width="4" height="2" fill="rgba(80,120,150,0.5)"/>
+                <rect x="356" y="466" width="4" height="2" fill="#A66030" opacity="0.5"/>
+                <text class="plaza-marker-label" x="355" y="490" text-anchor="middle">Tile Mural</text>
+              </a>
+            </g>
+
+            <!-- LANDMARK: Halls Plaza (current retail anchor, secondary marker) -->
+            <g data-plaza-cat="building">
+              <a>
+                <title>Halls Plaza (1965) — flagship of the KC-based department store. Major anchor on the Plaza's south side along Nichols Parkway.</title>
+                <circle class="plaza-marker" cx="470" cy="600" r="6" fill="rgba(245,239,224,0.9)" stroke="#C9A84C" stroke-width="1.2"/>
+                <text class="plaza-marker-label" x="470" y="620" text-anchor="middle">Halls Plaza</text>
+              </a>
+            </g>
+
+            <!-- LOST: Plaza Theatre (demolished) -->
+            <g data-plaza-cat="lost">
+              <a>
+                <title>The Plaza Theatre (1929–1976) — the district's original movie palace, demolished in the 1970s to make way for newer retail. One of the Plaza's few meaningful losses.</title>
+                <circle class="plaza-marker" cx="350" cy="340" r="8" fill="none" stroke="#808080" stroke-width="1.5" stroke-dasharray="3,2"/>
+                <text class="plaza-marker-label" x="350" y="363" text-anchor="middle" style="fill:rgba(180,180,180,0.7);">Plaza Theatre †</text>
+              </a>
+            </g>
+
+            <!-- LOST: Original Pharmacy corner (altered) -->
+            <g data-plaza-cat="lost">
+              <a>
+                <title>Altered corner at 47th &amp; Wyandotte — several early-period Plaza buildings on this block have been significantly modified or replaced.</title>
+                <circle class="plaza-marker" cx="800" cy="600" r="7" fill="none" stroke="#808080" stroke-width="1.5" stroke-dasharray="3,2"/>
+                <text class="plaza-marker-label" x="800" y="620" text-anchor="middle" style="fill:rgba(180,180,180,0.7);">Altered Corner †</text>
+              </a>
+            </g>
+
+            <!-- ══ Legend ══ -->
+            <g transform="translate(40, 430)">
+              <rect class="plaza-map-legend-box" width="180" height="210" rx="6"/>
+              <text x="90" y="24" text-anchor="middle" class="plaza-street-label" style="fill:var(--gold); font-size:10px; letter-spacing: 0.25em;">What's Where</text>
+
+              <g transform="translate(20, 52)">
+                <rect x="-4" y="-18" width="8" height="18" fill="#C9A84C" stroke="#A66030" stroke-width="1"/>
+                <polygon points="-4,-18 0,-24 4,-18" fill="#E8C96A" stroke="#A66030" stroke-width="1"/>
+                <text x="20" y="-6" class="plaza-street-label" style="text-transform:none; letter-spacing: 0.05em; fill:var(--cream); font-size:11px;">Tower / Campanile</text>
+              </g>
+
+              <g transform="translate(20, 96)">
+                <g transform="rotate(45)">
+                  <rect x="-7" y="-7" width="14" height="14" fill="#E8C96A" stroke="#C9A84C" stroke-width="1"/>
+                </g>
+                <text x="20" y="4" class="plaza-street-label" style="text-transform:none; letter-spacing: 0.05em; fill:var(--cream); font-size:11px;">Fountain</text>
+              </g>
+
+              <g transform="translate(20, 130)">
+                <circle r="7" fill="#C9A84C" stroke="#A66030" stroke-width="1"/>
+                <text x="20" y="4" class="plaza-street-label" style="text-transform:none; letter-spacing: 0.05em; fill:var(--cream); font-size:11px;">Nichols-Era Building</text>
+              </g>
+
+              <g transform="translate(20, 162)">
+                <circle r="5" fill="rgba(245,239,224,0.9)" stroke="#C9A84C" stroke-width="1"/>
+                <text x="20" y="4" class="plaza-street-label" style="text-transform:none; letter-spacing: 0.05em; fill:var(--cream); font-size:11px;">Current Anchor</text>
+              </g>
+
+              <g transform="translate(20, 192)">
+                <circle r="6" fill="none" stroke="#808080" stroke-width="1.5" stroke-dasharray="3,2"/>
+                <text x="20" y="4" class="plaza-street-label" style="text-transform:none; letter-spacing: 0.05em; fill:rgba(200,200,200,0.8); font-size:11px;">Lost or Altered</text>
+              </g>
+            </g>
+
+          </svg>
+        </div>
+
+        <p style="text-align:center; color:var(--warm-grey); font-size:0.78rem; font-style:italic; margin-top: 1rem; max-width: 680px; margin-left: auto; margin-right: auto;">
+          Schematic only. The real Plaza has more markers, more corners, and more surprises than any diagram can hold. Use the map as a rough guide, then walk.
         </p>
       </div>
     </section>
@@ -239,6 +536,132 @@
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <div class="plaza-tile-strip" aria-hidden="true"></div>
+    <div class="plaza-ornament">✦ &nbsp; &nbsp; ✦ &nbsp; &nbsp; ✦</div>
+    <div class="plaza-tile-strip" aria-hidden="true"></div>
+
+    <section id="reading-the-plaza" style="background: var(--dark); padding: 3rem 1rem;">
+      <div class="container" style="max-width: 780px;">
+        <div class="deco-diamond" aria-hidden="true">◆</div>
+        <h2 style="text-align:center;">Reading the Plaza</h2>
+        <p>
+          The Plaza rewards patient looking. At street level the district reads as a
+          Spanish-themed shopping center; at the scale of the facade, it reveals itself
+          as a carefully orchestrated piece of architectural scholarship. Every window
+          surround, every roof pitch, every tile panel was specified against a reference
+          catalog of Andalusian precedents. Nichols and his architects &mdash; Edward
+          Delk, Edward Tanner, and others working under the Nichols Company's design
+          controls &mdash; treated the Plaza as a thesis on transplantation. The question
+          was not whether you could build Seville in Kansas City. It was <em>how well</em>
+          you could build Seville in Kansas City, and whether anyone outside the district
+          would be able to tell.
+        </p>
+        <p>
+          Three things to notice as you walk:
+        </p>
+        <p>
+          <strong>The tile panels.</strong> More than thirty large ceramic tile murals are
+          set into the Plaza's facades, most imported from Seville or produced by artisans
+          working in the Sevillian azulejo tradition. They depict Andalusian scenes: bullfights,
+          convent courtyards, village life, saints and kings. Look up at the second and third
+          floors of buildings you'd otherwise walk past &mdash; the Mill Creek Building, the
+          block along 47th between Pennsylvania and Jefferson, the Seville Square complex
+          on the east side. The panels are easy to miss when you're shopping. They are the
+          point of the district when you're looking.
+        </p>
+        <p>
+          <strong>The towers.</strong> The Plaza's skyline is defined by its campaniles &mdash;
+          the Giralda replica on the southeast corner is the most photographed, but there are
+          six or seven other towers punctuating the district, each proportioned against its
+          neighbor rather than against the real towers of Seville. Look at how they step
+          down in height from the Giralda outward, and how they cluster near corners where
+          the district wanted vertical emphasis. This is composed architecture, not accidental
+          architecture. The towers are arguments about rhythm.
+        </p>
+        <p>
+          <strong>The Nichols signatures vs. the later additions.</strong> The original 1920s
+          and 30s Plaza buildings &mdash; Balcony Building, Mill Creek Building, the Pharmacy
+          Building, the Plaza Medical Building &mdash; share specific characteristics: low
+          pedestrian-scale ground floors, asymmetrical upper massing, deep window reveals,
+          wrought-iron balconies that actually work. The 1970s and 80s additions (Seville
+          Square, several blocks along Pennsylvania) are reverent homages but visibly
+          different &mdash; cleaner lines, more regular massing, modern structural systems
+          showing through. Once you can see the difference, the district's chronological
+          development becomes legible in the walls.
+        </p>
+      </div>
+    </section>
+
+    <section id="what-to-see" style="background: #0F0C08; padding: 3rem 1rem;">
+      <div class="container" style="max-width: 780px;">
+        <div class="deco-diamond" aria-hidden="true">◆</div>
+        <h2 style="text-align:center;">What to See</h2>
+        <p style="text-align:center; color:var(--warm-grey); font-style:italic; font-family: 'Playfair Display', serif; max-width: 620px; margin: 0 auto 2rem;">
+          If you have an hour on the Plaza &mdash; the short list of things actually worth
+          stopping for.
+        </p>
+
+        <ol style="line-height: 1.9; padding-left: 1.2rem;">
+          <li style="margin-bottom: 1rem;">
+            <strong>The Giralda Tower</strong> on the southeast corner at Nichols Parkway &amp;
+            Wornall. Stand across the street and look up. Compare the proportions to a
+            photograph of the original in Seville &mdash; the Plaza version is smaller but
+            faithful to the original's stepped brickwork, arched openings, and Renaissance
+            belfry crown.
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>The J.C. Nichols Memorial Fountain</strong> at the northwest gateway
+            (Mill Creek Park, 47th &amp; Main). Four equestrian figures by Henri Greber,
+            carved in 1911, originally intended for a Long Island estate that was never
+            built. Nichols acquired them in 1951 and installed the fountain in 1960 as the
+            Plaza's front door. The most photographed spot in Kansas City.
+            <a href="fountains/jc-nichols.html" style="color:var(--gold);">Read more →</a>
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>The Bacchus Fountain</strong> &mdash; tucked into a courtyard off 47th,
+            easy to miss if you're not looking for it. The bronze Bacchus is small but
+            alive; the surrounding tile work is some of the finest azulejo on the Plaza.
+            <a href="fountains/bacchus.html" style="color:var(--gold);">Read more →</a>
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>The Seville Square courtyard.</strong> The 1978 complex is a later addition,
+            but its inner courtyard is the best surviving example on the Plaza of a genuine
+            Andalusian patio &mdash; four-sided, centered on a small fountain, shaded by
+            orange trees in summer. Walk through rather than past.
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>The Mill Creek Building facade</strong> along 47th between Main and
+            Broadway. One of the original 1923 structures. Note the second-floor tile panels,
+            the iron balcony running the full length, and the Spanish clay tile roofline
+            above. This is what Nichols meant when he said "Seville."
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>The tile mural on the east side of Pennsylvania Avenue</strong> between
+            47th and 48th. One of the largest and best-preserved azulejo panels on the Plaza
+            &mdash; a full Sevillian streetscape rendered in several hundred hand-painted
+            tiles. Look at it long enough to see the individual brushstrokes.
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>The view from the Brush Creek side</strong> looking north across the
+            Plaza. The creek walk (south of J.C. Nichols Parkway) is an underused vantage
+            point. From here, the Plaza's massing reads as a Spanish hill town &mdash;
+            stepped roofs, emerging towers, the suggestion of an Andalusian village across
+            the water. Go at dusk. The lights come on around 5:30 in winter.
+          </li>
+          <li>
+            <strong>If you come in late November:</strong> the Plaza Lighting Ceremony on
+            Thanksgiving evening. Two hundred thousand lights outlining every building,
+            every tower, every cornice. A tradition that started in 1925 and hasn't missed
+            a year. One of the oldest continuous civic rituals in the American Midwest.
+          </li>
+        </ol>
+
+        <p style="text-align:center; margin-top: 2rem;">
+          <a href="visit/plaza-walk.html" style="color:var(--gold); font-family:'Josefin Sans',sans-serif; font-size:0.8rem; letter-spacing:0.18em; text-transform:uppercase;">Take the Plaza &amp; Fountains Walking Tour →</a>
+        </p>
       </div>
     </section>
 

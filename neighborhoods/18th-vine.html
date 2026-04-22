@@ -87,6 +87,7 @@
           <li><a href="../neighborhoods/west-bottoms.html">West Bottoms</a></li>
           <li><a href="../neighborhoods/westport.html">Westport</a></li>
           <li><a href="../neighborhoods/brookside.html">Brookside</a></li>
+          <li><a href="../neighborhoods/quality-hill.html">Quality Hill</a></li>
         </ul>
       </li>
       <li><a href="../blog/index.html">Blog</a></li>
@@ -145,6 +146,276 @@
           <span class="detail-fact-label">Address</span>
           <span class="detail-fact-value">1616 E. 18th St</span>
         </div>
+      </div>
+
+      <div class="detail-section" style="margin-top: 1rem;">
+        <p style="font-size: 0.95rem; color: var(--cream); line-height: 1.75;">
+          At its peak in the 1940s, 18th &amp; Vine was one of the densest Black commercial
+          and cultural districts in America &mdash; dozens of clubs, theaters, hotels, and
+          rooming houses packed into a handful of blocks. The map below shows the district
+          at that peak. Toggle to <em>Today</em> to see what remains.
+        </p>
+
+        <fieldset class="district-toggle" role="radiogroup" aria-label="View the district in 1940 or today">
+          <legend>Viewing the district in:</legend>
+          <input type="radio" id="view-then" name="district-view" checked><label for="view-then">1940</label>
+          <input type="radio" id="view-now" name="district-view"><label for="view-now">Today</label>
+        </fieldset>
+
+        <p class="map-hint">&larr; Scroll or pinch to explore &rarr;</p>
+
+        <div class="district-map-wrapper">
+          <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" class="district-map" role="img" aria-label="Map of 18th and Vine district showing buildings in 1940 and today">
+
+            <rect width="1200" height="800" fill="#0A0805"/>
+
+            <!-- District boundary (dashed rectangle) -->
+            <rect class="district-boundary" x="120" y="140" width="960" height="520" rx="4"/>
+            <text class="district-boundary-label" x="600" y="130" text-anchor="middle" style="fill: rgba(201,168,76,0.55); font-size: 10px;">18th &amp; Vine Historic District</text>
+
+            <!-- Block fills -->
+            <rect class="district-block" x="240" y="220" width="190" height="150"/>
+            <rect class="district-block" x="440" y="220" width="190" height="150"/>
+            <rect class="district-block" x="640" y="220" width="190" height="150"/>
+            <rect class="district-block" x="840" y="220" width="190" height="150"/>
+            <rect class="district-block" x="240" y="380" width="190" height="150"/>
+            <rect class="district-block" x="440" y="380" width="190" height="150"/>
+            <rect class="district-block" x="640" y="380" width="190" height="150"/>
+            <rect class="district-block" x="840" y="380" width="190" height="150"/>
+
+            <!-- ══ Streets ══ -->
+
+            <!-- 18th Street (major, east-west spine of district) -->
+            <line class="district-street-major" x1="100" y1="370" x2="1100" y2="370"/>
+            <text class="district-street-label" x="140" y="362">18th Street</text>
+
+            <!-- 19th Street -->
+            <line class="district-street" x1="240" y1="530" x2="1030" y2="530"/>
+            <text class="district-street-label" x="280" y="522">19th Street</text>
+
+            <!-- 17th Street -->
+            <line class="district-street" x1="240" y1="220" x2="1030" y2="220"/>
+            <text class="district-street-label" x="280" y="212">17th Street</text>
+
+            <!-- Paseo Boulevard (major N-S west side) -->
+            <line class="district-street-major" x1="240" y1="160" x2="240" y2="620"/>
+            <text class="district-street-label" x="212" y="170" transform="rotate(-90 212 170)">The Paseo</text>
+
+            <!-- Highland Avenue -->
+            <line class="district-street" x1="440" y1="180" x2="440" y2="620"/>
+            <text class="district-street-label" x="414" y="200" transform="rotate(-90 414 200)">Highland Ave</text>
+
+            <!-- Vine Street (central) -->
+            <line class="district-street-major" x1="640" y1="160" x2="640" y2="620"/>
+            <text class="district-street-label" x="614" y="170" transform="rotate(-90 614 170)">Vine Street</text>
+
+            <!-- Woodland Avenue -->
+            <line class="district-street" x1="840" y1="180" x2="840" y2="620"/>
+            <text class="district-street-label" x="814" y="200" transform="rotate(-90 814 200)">Woodland Ave</text>
+
+            <!-- East boundary (Brooklyn Ave) -->
+            <line class="district-street" x1="1030" y1="180" x2="1030" y2="620"/>
+            <text class="district-street-label" x="1004" y="200" transform="rotate(-90 1004 200)">Brooklyn</text>
+
+            <!-- Compass -->
+            <g transform="translate(1130, 720)">
+              <circle r="20" fill="none" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
+              <path d="M 0 -16 L 4 4 L 0 0 L -4 4 Z" fill="rgba(232,201,106,0.8)"/>
+              <text x="0" y="-24" text-anchor="middle" class="district-street-label" style="font-size:9px;">N</text>
+            </g>
+
+            <!-- ══ Surviving markers ══ -->
+
+            <g data-status="surviving">
+              <a>
+                <title>Mutual Musicians Foundation (1904) — Black musicians' Local 627 union hall. The after-hours jam sessions here reshaped American music. Still standing, still operating, national historic landmark.</title>
+                <circle class="district-marker" cx="480" cy="320" r="10" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.5"/>
+                <text class="district-marker-label" x="480" y="345" text-anchor="middle">Mutual Musicians Foundation</text>
+              </a>
+            </g>
+
+            <g data-status="surviving">
+              <a>
+                <title>Gem Theater (1912) — 1615 E. 18th St. Built as a vaudeville house for Black audiences; restored 1990s; now a concert venue inside the Jazz District complex.</title>
+                <circle class="district-marker" cx="680" cy="405" r="10" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.5"/>
+                <text class="district-marker-label" x="680" y="430" text-anchor="middle">Gem Theater</text>
+              </a>
+            </g>
+
+            <g data-status="surviving">
+              <a>
+                <title>Lincoln Building (1921) — anchor of the 18th &amp; Vine intersection. Housed Black-owned businesses, the Kansas City Call newspaper, and the Lincoln Hall auditorium above. Restored.</title>
+                <circle class="district-marker" cx="650" cy="335" r="10" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.5"/>
+                <text class="district-marker-label" x="700" y="340" text-anchor="start">Lincoln Building</text>
+              </a>
+            </g>
+
+            <g data-status="surviving">
+              <a>
+                <title>Bryant Building — office building that survived the demolition era. Housed Black doctors, lawyers, and insurance agents through the 1960s.</title>
+                <circle class="district-marker" cx="560" cy="405" r="9" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.4"/>
+                <text class="district-marker-label" x="560" y="428" text-anchor="middle">Bryant Building</text>
+              </a>
+            </g>
+
+            <g data-status="altered">
+              <a>
+                <title>Street Hotel (1922) — one of the most prominent Black-owned hotels in America during the segregation era. Shell still standing; awaiting restoration.</title>
+                <circle class="district-marker" cx="780" cy="350" r="10" fill="#C9A84C" stroke="#A66030" stroke-width="1.4"/>
+                <text class="district-marker-label" x="780" y="373" text-anchor="middle">Street Hotel</text>
+              </a>
+            </g>
+
+            <g data-status="altered">
+              <a>
+                <title>Paseo Ballroom — major dance hall on The Paseo where Count Basie's band and others played. Building survives but heavily altered from 1940 form.</title>
+                <circle class="district-marker" cx="290" cy="290" r="9" fill="#C9A84C" stroke="#A66030" stroke-width="1.4"/>
+                <text class="district-marker-label" x="290" y="313" text-anchor="middle">Paseo Ballroom</text>
+              </a>
+            </g>
+
+            <!-- ══ Demolished markers (visible in 1940, become ghosts in Today) ══ -->
+
+            <g data-status="demolished">
+              <a>
+                <title>Boone Theater — major Black movie theater on 18th Street. Demolished during 1960s urban renewal.</title>
+                <circle class="district-marker" cx="555" cy="335" r="9" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.2"/>
+                <text class="district-marker-label" x="545" y="318" text-anchor="end">Boone Theater</text>
+              </a>
+            </g>
+
+            <g data-status="demolished">
+              <a>
+                <title>Rialto Theater — movie palace for Black audiences. Demolished.</title>
+                <circle class="district-marker" cx="330" cy="335" r="8" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.2"/>
+                <text class="district-marker-label" x="330" y="318" text-anchor="middle">Rialto Theater</text>
+              </a>
+            </g>
+
+            <g data-status="demolished">
+              <a>
+                <title>Eblon Theater — small cinema on Vine. Demolished.</title>
+                <circle class="district-marker" cx="625" cy="470" r="7" fill="#E8C96A" stroke="#C9A84C" stroke-width="1"/>
+                <text class="district-marker-label" x="625" y="488" text-anchor="middle">Eblon</text>
+              </a>
+            </g>
+
+            <g data-status="demolished">
+              <a>
+                <title>Sunset Club — Piney Brown's after-hours club, legendary for its jam sessions. Demolished.</title>
+                <circle class="district-marker" cx="385" cy="415" r="8" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.2"/>
+                <text class="district-marker-label" x="385" y="433" text-anchor="middle">Sunset Club</text>
+              </a>
+            </g>
+
+            <g data-status="demolished">
+              <a>
+                <title>Subway Club — basement jazz venue on 18th Street. Demolished.</title>
+                <circle class="district-marker" cx="900" cy="405" r="7" fill="#E8C96A" stroke="#C9A84C" stroke-width="1"/>
+                <text class="district-marker-label" x="900" y="423" text-anchor="middle">Subway</text>
+              </a>
+            </g>
+
+            <g data-status="demolished">
+              <a>
+                <title>Elks Rest Lodge — IBPOE Black lodge and social hall. Demolished.</title>
+                <circle class="district-marker" cx="720" cy="470" r="8" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.2"/>
+                <text class="district-marker-label" x="720" y="488" text-anchor="middle">Elks Lodge</text>
+              </a>
+            </g>
+
+            <g data-status="demolished">
+              <a>
+                <title>Cherry Blossom Club — major jazz venue in the 1930s. Site of legendary Count Basie vs. Fletcher Henderson cutting contests. Demolished.</title>
+                <circle class="district-marker" cx="475" cy="470" r="8" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.2"/>
+                <text class="district-marker-label" x="475" y="488" text-anchor="middle">Cherry Blossom</text>
+              </a>
+            </g>
+
+            <g data-status="demolished">
+              <a>
+                <title>Blue Room (original location) — Mrs. Scruggs' historic Black-owned club. The current Blue Room in the Jazz Museum inherits the name.</title>
+                <circle class="district-marker" cx="870" cy="335" r="8" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.2"/>
+                <text class="district-marker-label" x="880" y="320" text-anchor="start">Scruggs' Blue Room</text>
+              </a>
+            </g>
+
+            <!-- Rooming house cluster — 3 smaller markers on 19th Street -->
+            <g data-status="demolished">
+              <a>
+                <title>Rooming houses along 19th Street — dozens of Black-owned rooming houses provided lodging for touring musicians. Nearly all demolished.</title>
+                <circle class="district-marker" cx="310" cy="485" r="5" fill="#E8C96A" stroke="#C9A84C" stroke-width="0.8"/>
+              </a>
+            </g>
+            <g data-status="demolished">
+              <a>
+                <title>Rooming houses along 19th Street — dozens of Black-owned rooming houses provided lodging for touring musicians. Nearly all demolished.</title>
+                <circle class="district-marker" cx="345" cy="495" r="5" fill="#E8C96A" stroke="#C9A84C" stroke-width="0.8"/>
+              </a>
+            </g>
+            <g data-status="demolished">
+              <a>
+                <title>Rooming houses along 19th Street — dozens of Black-owned rooming houses provided lodging for touring musicians. Nearly all demolished.</title>
+                <circle class="district-marker" cx="380" cy="510" r="5" fill="#E8C96A" stroke="#C9A84C" stroke-width="0.8"/>
+                <text class="district-marker-label" x="345" y="560" text-anchor="middle">Rooming houses</text>
+              </a>
+            </g>
+
+            <g data-status="demolished">
+              <a>
+                <title>Centennial United Methodist Church (original) — anchor Black church. Demolished; congregation relocated.</title>
+                <circle class="district-marker" cx="930" cy="470" r="8" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.2"/>
+                <text class="district-marker-label" x="930" y="488" text-anchor="middle">Centennial UMC</text>
+              </a>
+            </g>
+
+            <!-- ══ New additions (post-1990s, appear only in Today view) ══ -->
+
+            <g data-status="new">
+              <a>
+                <title>American Jazz Museum (1997) — new construction on cleared land. Home of the Blue Room jazz club, preserves the musical legacy of the district.</title>
+                <rect class="district-marker" x="720" y="390" width="22" height="22" fill="rgba(232,201,106,0.2)" stroke="#E8C96A" stroke-width="1.5" rx="2"/>
+                <text class="district-marker-label" x="731" y="430" text-anchor="middle" style="fill:#E8C96A;">Jazz Museum</text>
+              </a>
+            </g>
+
+            <g data-status="new">
+              <a>
+                <title>Negro Leagues Baseball Museum (1997) — shares the 18th &amp; Vine complex with the Jazz Museum. New construction on cleared land.</title>
+                <rect class="district-marker" x="745" y="390" width="22" height="22" fill="rgba(232,201,106,0.2)" stroke="#E8C96A" stroke-width="1.5" rx="2"/>
+                <text class="district-marker-label" x="756" y="448" text-anchor="middle" style="fill:#E8C96A;">Negro Leagues Museum</text>
+              </a>
+            </g>
+
+            <!-- Legend / status key -->
+            <g transform="translate(940, 690)">
+              <rect width="240" height="95" fill="rgba(18,14,8,0.88)" stroke="rgba(201,168,76,0.35)" stroke-width="1" rx="6"/>
+              <text x="120" y="20" text-anchor="middle" class="district-street-label" style="fill: var(--gold); font-size: 10px; letter-spacing: 0.25em;">Status Key</text>
+              <g transform="translate(18, 40)">
+                <circle r="6" fill="#E8C96A" stroke="#C9A84C" stroke-width="1.2"/>
+                <text x="16" y="4" class="district-street-label" style="text-transform:none; letter-spacing:0.05em; fill:var(--cream); font-size:10.5px;">Still standing / restored</text>
+              </g>
+              <g transform="translate(18, 62)">
+                <circle r="6" fill="#C9A84C" stroke="#A66030" stroke-width="1.2" stroke-dasharray="4,2"/>
+                <text x="16" y="4" class="district-street-label" style="text-transform:none; letter-spacing:0.05em; fill:var(--cream); font-size:10.5px;">Surviving but altered</text>
+              </g>
+              <g transform="translate(18, 84)">
+                <circle r="6" fill="none" stroke="rgba(150,150,150,0.55)" stroke-width="1.4" stroke-dasharray="3,3"/>
+                <text x="16" y="4" class="district-street-label" style="text-transform:none; letter-spacing:0.05em; fill:rgba(200,200,200,0.85); font-size:10.5px;">Demolished (shows in 1940 view)</text>
+              </g>
+            </g>
+
+          </svg>
+        </div>
+
+        <p class="district-map-caption">
+          <span class="caption-then">
+            The district as it lived in 1940 &mdash; a working ecosystem of Black-owned clubs, theaters, hotels, and rooming houses. Hover any marker for its story.
+          </span>
+          <span class="caption-now">
+            What remains today. Most of the 1940 buildings are gone &mdash; cleared by urban renewal, I-70 construction, and the aftermath of 1968. The Jazz Museum and Negro Leagues Baseball Museum opened in 1997 on land cleared decades earlier.
+          </span>
+        </p>
       </div>
 
       <div class="history-pullquote">
