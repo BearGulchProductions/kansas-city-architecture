@@ -9,7 +9,7 @@
   <title>Look Up, Kansas City — Architecture &amp; History</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=5" />
   <meta property="og:title" content="Look Up, Kansas City — Architecture &amp; History" />
   <meta property="og:description" content="A literary guide to Kansas City's architecture, history, and public spaces — built for curious visitors and lifelong residents alike." />
@@ -28,7 +28,6 @@
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="map.html">Map</a></li>
       <li class="has-dropdown"><a href="styles.html">Styles</a>
         <ul>
           <li><a href="art-deco.html">Art Deco</a></li>
@@ -68,15 +67,6 @@
           <li><a href="overlooks.html">City Overlooks</a></li>
         </ul>
       </li>
-      <li class="has-dropdown"><a href="history.html">History</a>
-        <ul>
-          <li><a href="history/timeline.html">Timeline</a></li>
-          <li><a href="history/eras.html">Eras</a></li>
-          <li><a href="history/figures.html">Figures</a></li>
-          <li><a href="history/themes.html">Themes</a></li>
-          <li><a href="history/episodes.html">Episodes</a></li>
-        </ul>
-      </li>
       <li class="has-dropdown"><a href="neighborhoods.html">Neighborhoods</a>
         <ul>
           <li><a href="neighborhoods/downtown.html">Downtown</a></li>
@@ -89,14 +79,21 @@
           <li><a href="neighborhoods/quality-hill.html">Quality Hill</a></li>
         </ul>
       </li>
-      <li><a href="blog/index.html">Blog</a></li>
-      <li class="has-dropdown"><a href="visit.html">Visit</a>
+      <li class="has-dropdown"><a href="start-here.html">Reading</a>
         <ul>
           <li><a href="start-here.html">Start Here</a></li>
-          <li><a href="visit/walking-tours.html">Walking Tours</a></li>
-          <li><a href="visit/events.html">Events</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li class="dropdown-divider" aria-hidden="true"></li>
           <li><a href="reading.html">Further Reading</a></li>
           <li><a href="sources.html">Sources</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><a href="visit.html">Visit</a>
+        <ul>
+          <li><a href="visit/walking-tours.html">Walking Tours</a></li>
+          <li><a href="map.html">The Map</a></li>
+          <li><a href="visit/events.html">Events</a></li>
           <li><a href="visit/world-cup.html">World Cup 2026</a></li>
         </ul>
       </li>
@@ -106,8 +103,46 @@
   <section class="skyline-hero">
     <div class="skyline-hero-overlay">
       <span class="eyebrow">Kansas City, Missouri</span>
-      <h1>Look Up,<br /><span>Kansas City</span></h1>
-      <p class="skyline-hero-sub">Kansas City built one of America&rsquo;s great Art Deco skylines in a single decade, then mostly forgot to brag about it. This is the guide to what it built.</p>
+      <div class="homepage-title">
+        <svg class="title-ornament title-ornament-left" viewBox="0 0 120 80" aria-hidden="true">
+          <!-- Stepped pyramidal base with radiating sunburst -->
+          <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <!-- Stepped pyramid, 4 levels, right-aligned -->
+            <path d="M 120 78 L 44 78 L 44 66 L 62 66 L 62 54 L 78 54 L 78 42 L 94 42 L 94 30 L 120 30"/>
+            <!-- Radiating sunburst lines at the apex -->
+            <line x1="94" y1="30" x2="74" y2="4"/>
+            <line x1="94" y1="30" x2="84" y2="0"/>
+            <line x1="94" y1="30" x2="96" y2="-2"/>
+            <line x1="94" y1="30" x2="108" y2="2"/>
+            <line x1="94" y1="30" x2="118" y2="14"/>
+            <!-- Small diamond accents at step corners -->
+            <polygon points="44,66 47,63 50,66 47,69" fill="currentColor" stroke="none"/>
+            <polygon points="62,54 65,51 68,54 65,57" fill="currentColor" stroke="none"/>
+            <polygon points="78,42 81,39 84,42 81,45" fill="currentColor" stroke="none"/>
+            <!-- Baseline rule -->
+            <line x1="0" y1="78" x2="120" y2="78" stroke-width="1"/>
+          </g>
+        </svg>
+
+        <h1 class="homepage-title-text">Look Up,<br /><span>Kansas City</span></h1>
+
+        <svg class="title-ornament title-ornament-right" viewBox="0 0 120 80" aria-hidden="true">
+          <!-- Mirror of the left ornament -->
+          <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" transform="translate(120,0) scale(-1,1)">
+            <path d="M 120 78 L 44 78 L 44 66 L 62 66 L 62 54 L 78 54 L 78 42 L 94 42 L 94 30 L 120 30"/>
+            <line x1="94" y1="30" x2="74" y2="4"/>
+            <line x1="94" y1="30" x2="84" y2="0"/>
+            <line x1="94" y1="30" x2="96" y2="-2"/>
+            <line x1="94" y1="30" x2="108" y2="2"/>
+            <line x1="94" y1="30" x2="118" y2="14"/>
+            <polygon points="44,66 47,63 50,66 47,69" fill="currentColor" stroke="none"/>
+            <polygon points="62,54 65,51 68,54 65,57" fill="currentColor" stroke="none"/>
+            <polygon points="78,42 81,39 84,42 81,45" fill="currentColor" stroke="none"/>
+            <line x1="0" y1="78" x2="120" y2="78" stroke-width="1"/>
+          </g>
+        </svg>
+      </div>
+      <p class="homepage-tagline">How Kansas City got built, and what it built means.</p>
       <p class="skyline-hero-hint">Hover the skyline to explore</p>
       <p style="margin-top:1.5rem;"><a href="start-here.html" style="display:inline-block; padding:0.6rem 1.4rem; border:1px solid var(--gold); color:var(--gold); font-family:'Josefin Sans',sans-serif; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none;">New Here? Start Here ◆</a></p>
     </div>
@@ -566,13 +601,24 @@
             </div>
           </a>
 
+          <a class="hub-card" href="start-here.html">
+            <img class="hub-card-img" style="object-position: center 40%;"
+              src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Downtown_Kansas_City_from_Liberty_Memorial_Full.jpg"
+              alt="Kansas City skyline from Liberty Memorial — reading and essays" />
+            <div class="hub-card-overlay">
+              <h3>Reading</h3>
+              <p>Start Here, History, Blog, and further sources — the writing side of the site</p>
+              <span class="hub-card-cta">Read ◆</span>
+            </div>
+          </a>
+
           <a class="hub-card" href="visit.html">
             <img class="hub-card-img" style="object-position: center 25%;"
               src="https://upload.wikimedia.org/wikipedia/commons/0/08/National_World_War_I_Museum_and_Memorial_aerial.jpg"
               alt="WWI Memorial and Museum, Kansas City" />
             <div class="hub-card-overlay">
               <h3>Visit</h3>
-              <p>Plan your trip — what to see, when to go, where to start</p>
+              <p>Plan your trip — the Map, walking tours, events, and World Cup 2026</p>
               <span class="hub-card-cta">Plan Your Visit ◆</span>
             </div>
           </a>
