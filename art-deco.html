@@ -8,6 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <meta property="og:title" content="Art Deco — Look Up, Kansas City" />
+  <meta property="og:description" content="Kansas City produced some of the finest Art Deco architecture in America. Here's why — and where to find it." />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/1/1f/KCPL_Building_at_Night.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Art Deco — Look Up, Kansas City" />
+  <meta name="twitter:description" content="Kansas City produced some of the finest Art Deco architecture in America. Here's why — and where to find it." />
+  <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/1/1f/KCPL_Building_at_Night.jpg" />
 </head>
 <body>
 
@@ -22,6 +30,7 @@
           <li><a href="styles/gothic-revival.html">Gothic Revival</a></li>
           <li><a href="styles/streamline-moderne.html">Streamline Moderne</a></li>
           <li><a href="styles/contemporary.html">Contemporary</a></li>
+          <li><a href="styles/materials.html">Materials &amp; Details</a></li>
         </ul>
       </li>
       <li class="has-dropdown"><a href="buildings.html">Buildings</a>
@@ -63,22 +72,83 @@
           <li><a href="neighborhoods/westport.html">Westport</a></li>
         </ul>
       </li>
-      <li><a href="visit.html">Visit</a></li>
+      <li class="has-dropdown"><a href="visit.html">Visit</a>
+        <ul>
+          <li><a href="visit/walking-tours.html">Walking Tours</a></li>
+          <li><a href="visit/world-cup.html">World Cup 2026</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 
-  <header>
-    <div class="deco-bar top-bar"></div>
-    <div class="header-inner">
-      <div class="sunburst" aria-hidden="true"></div>
-      <p class="header-eyebrow">Look Up, Kansas City</p>
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span class="sep">◆</span>
+    <a href="styles.html">Styles</a><span class="sep">◆</span>
+    Art Deco
+  </div>
+
+  <div class="detail-hero">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/KCPL_Building_at_Night.jpg"
+         alt="Kansas City Power and Light Building illuminated at night — Art Deco crown"
+         style="object-position: center 25%;" />
+    <div class="detail-hero-overlay">
+      <span class="eyebrow">Architectural Styles &bull; Kansas City</span>
       <h1>Art<br /><span>Deco</span></h1>
-      <p class="header-sub">The Style of a Golden Age</p>
     </div>
-    <div class="deco-bar bottom-bar"></div>
-  </header>
+  </div>
 
   <main>
+
+    <div class="detail-body">
+
+      <div class="detail-facts">
+        <div class="detail-fact">
+          <span class="detail-fact-label">Period</span>
+          <span class="detail-fact-value">1920s &ndash; 1940s</span>
+        </div>
+        <div class="detail-fact">
+          <span class="detail-fact-label">Origins</span>
+          <span class="detail-fact-value">New York, Chicago, Paris</span>
+        </div>
+        <div class="detail-fact">
+          <span class="detail-fact-label">Materials</span>
+          <span class="detail-fact-value">Limestone, terra cotta, chrome, glass</span>
+        </div>
+        <div class="detail-fact">
+          <span class="detail-fact-label">Character</span>
+          <span class="detail-fact-value">Geometric ornament, vertical emphasis</span>
+        </div>
+        <div class="detail-fact">
+          <span class="detail-fact-label">In Kansas City</span>
+          <span class="detail-fact-value">1925 &ndash; 1940 (peak)</span>
+        </div>
+      </div>
+
+      <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+
+      <div class="detail-gallery">
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/1exterior_KCPL_Bldg_Kansas_City_MO.jpg"
+               alt="Kansas City Power and Light Building daytime exterior"
+               style="object-position: top;" />
+          <figcaption>The KC P&amp;L Building (1931) — its limestone crown and setback profile embody the vertical drama and geometric ornament that define Art Deco at its most confident; at 476 feet it held the title of tallest building in Kansas City for decades</figcaption>
+        </figure>
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Kansas_City_Missouri_City_Hall.jpg"
+               alt="Kansas City City Hall Art Deco tower"
+               style="object-position: center 20%;" />
+          <figcaption>City Hall (1937) — thirty floors of setback Indiana limestone; Wight &amp; Wight's masterwork and one of the finest Art Deco civic buildings in the United States; the observation deck is open to the public on weekdays</figcaption>
+        </figure>
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Municipal_Auditorium_-_Kansas_City%2C_Missouri.jpg"
+               alt="Municipal Auditorium Kansas City night exterior" />
+          <figcaption>Municipal Auditorium (1935) — PWA Moderne at civic scale; the bold horizontal massing and restrained figurative ornament show how Art Deco adapted to Depression-era public architecture funded by federal New Deal programs</figcaption>
+        </figure>
+      </div>
+
+      <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+
+    </div>
 
     <section class="section-intro">
       <div class="container">
@@ -178,23 +248,6 @@
 
     <section class="section-style">
       <div class="container">
-        <div class="detail-gallery" style="margin-bottom:3rem;">
-          <figure>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/1exterior_KCPL_Bldg_Kansas_City_MO.jpg"
-                 alt="Kansas City Power and Light Building exterior" />
-            <figcaption>The KC P&amp;L Building (1931) — its limestone crown and setback profile embody the vertical drama and geometric ornament that define Art Deco at its most confident</figcaption>
-          </figure>
-          <figure>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Municipal_Auditorium_-_Kansas_City%2C_Missouri.jpg"
-                 alt="Municipal Auditorium Kansas City" />
-            <figcaption>Municipal Auditorium (1935) — PWA Moderne at civic scale; the bold horizontal massing and restrained ornament show how Art Deco adapted to Depression-era public architecture</figcaption>
-          </figure>
-          <figure>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Kansas_City_Missouri_City_Hall.jpg"
-                 alt="Kansas City City Hall Art Deco" style="object-position: center 20%;" />
-            <figcaption>City Hall (1937) — thirty floors of setback Indiana limestone; Wight &amp; Wight's masterwork and one of the finest Art Deco civic buildings in the United States</figcaption>
-          </figure>
-        </div>
         <div class="deco-diamond" aria-hidden="true">◆</div>
         <h2>Art Deco in Kansas City</h2>
         <p>
@@ -226,6 +279,23 @@
           commercial blocks — is matched by few American cities. For anyone interested in
           the architecture of the interwar period, Kansas City is an essential destination.
         </p>
+
+        <div style="border-top: 1px solid rgba(201,168,76,0.15); padding-top: 2rem; margin-top: 2rem;">
+          <h2>Related</h2>
+          <p>
+            <a href="buildings/city-hall.html" style="color:var(--gold);">City Hall →</a>
+            &nbsp;&nbsp;
+            <a href="buildings/kc-power-and-light.html" style="color:var(--gold);">KC Power &amp; Light Building →</a>
+            &nbsp;&nbsp;
+            <a href="history/boom.html" style="color:var(--gold);">The Boom — 1920s&ndash;30s →</a>
+            &nbsp;&nbsp;
+            <a href="buildings/boom-era.html" style="color:var(--gold);">Boom Era Buildings →</a>
+            &nbsp;&nbsp;
+            <a href="styles/materials.html" style="color:var(--gold);">Materials &amp; Details →</a>
+            &nbsp;&nbsp;
+            <a href="visit/art-deco-walk.html" style="color:var(--gold);">The Art Deco Mile Walking Tour →</a>
+          </p>
+        </div>
       </div>
     </section>
 

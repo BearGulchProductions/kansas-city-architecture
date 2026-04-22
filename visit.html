@@ -9,6 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <meta property="og:title" content="Visit Kansas City — Look Up, Kansas City" />
+  <meta property="og:description" content="A guide for architecture-minded visitors — walking tours, landmarks, and the essential Kansas City itinerary. World Cup 2026 host city." />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/6/6c/Kansas_City_skyline_as_night_descends.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Visit Kansas City — Look Up, Kansas City" />
+  <meta name="twitter:description" content="A guide for architecture-minded visitors — walking tours, landmarks, and the essential Kansas City itinerary. World Cup 2026 host city." />
+  <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/6/6c/Kansas_City_skyline_as_night_descends.jpg" />
 </head>
 <body>
 
@@ -23,6 +31,7 @@
           <li><a href="styles/gothic-revival.html">Gothic Revival</a></li>
           <li><a href="styles/streamline-moderne.html">Streamline Moderne</a></li>
           <li><a href="styles/contemporary.html">Contemporary</a></li>
+          <li><a href="styles/materials.html">Materials &amp; Details</a></li>
         </ul>
       </li>
       <li class="has-dropdown"><a href="buildings.html">Buildings</a>
@@ -64,9 +73,19 @@
           <li><a href="neighborhoods/westport.html">Westport</a></li>
         </ul>
       </li>
-      <li><a href="visit.html">Visit</a></li>
+      <li class="has-dropdown"><a href="visit.html">Visit</a>
+        <ul>
+          <li><a href="visit/walking-tours.html">Walking Tours</a></li>
+          <li><a href="visit/world-cup.html">World Cup 2026</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
+
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span class="sep">◆</span>
+    Visit
+  </div>
 
   <div class="detail-hero">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Kansas_City_skyline_as_night_descends.jpg"
@@ -135,6 +154,73 @@
             <span style="opacity:0.5;">Landmarks listed below by district</span>
           </div>
         </div>
+      </div>
+
+      <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+
+      <div class="detail-section">
+        <h2>Walking Tours</h2>
+        <p>
+          Four self-guided tours covering the city's greatest architecture — print one out
+          before you go, or read it on your phone. Each is under 1.5 miles and designed
+          around a coherent theme.
+        </p>
+      </div>
+
+      <div class="hub-grid">
+
+        <div class="hub-card">
+          <div class="hub-card-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/KCPL_Building_at_Night.jpg"
+                 alt="KC Power &amp; Light Building — Art Deco" />
+          </div>
+          <div class="hub-card-body">
+            <span class="hub-card-eyebrow">Downtown &bull; 1.2 miles</span>
+            <h3>The Art Deco Mile</h3>
+            <p>Six landmark buildings — City Hall, Power &amp; Light, Municipal Auditorium, and more.</p>
+            <a href="visit/art-deco-walk.html" class="hub-card-cta">Start Walking →</a>
+          </div>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-card-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/JC_Nichols_Memorial_Fountain_in_Kansas_City.JPG"
+                 alt="J.C. Nichols Memorial Fountain" />
+          </div>
+          <div class="hub-card-body">
+            <span class="hub-card-eyebrow">Country Club Plaza &bull; 1.0 mile</span>
+            <h3>The Plaza &amp; Fountains Walk</h3>
+            <p>The J.C. Nichols fountain program and the Spanish Colonial streetscape he built to frame it.</p>
+            <a href="visit/plaza-walk.html" class="hub-card-cta">Start Walking →</a>
+          </div>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-card-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/West_Bottoms%2C_Kansas_City%2C_Missouri_%282014%29.jpg"
+                 alt="West Bottoms warehouse district" />
+          </div>
+          <div class="hub-card-body">
+            <span class="hub-card-eyebrow">West Bottoms &bull; 0.8 miles</span>
+            <h3>The West Bottoms &amp; River</h3>
+            <p>The industrial origin — massive brick warehouses and the river landing where the city began.</p>
+            <a href="visit/west-bottoms-walk.html" class="hub-card-cta">Start Walking →</a>
+          </div>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-card-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/KCUnionStation.jpg"
+                 alt="Kansas City Union Station" />
+          </div>
+          <div class="hub-card-body">
+            <span class="hub-card-eyebrow">Crossroads &bull; 1.1 miles</span>
+            <h3>Union Station to Liberty Memorial</h3>
+            <p>From the grand Beaux Arts hall through the Crossroads to the National WWI Museum.</p>
+            <a href="visit/union-station-walk.html" class="hub-card-cta">Start Walking →</a>
+          </div>
+        </div>
+
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
@@ -311,6 +397,62 @@
           extension). The boulevards, the fountains, the Art Deco towers, and the
           Spanish Colonial district are all within a few miles of each other — and all
           within a city that is genuinely proud of what it built.
+        </p>
+      </div>
+
+      <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+
+      <div class="detail-section">
+        <h2>Getting Here &amp; Getting Around</h2>
+        <p>
+          Kansas City International Airport (MCI) is about 20 miles northwest of downtown,
+          served by most major carriers with direct flights from both coasts. Ground
+          transportation to downtown takes 25–40 minutes by rideshare.
+        </p>
+        <p>
+          The <strong>KC Streetcar</strong> runs along Main Street from the River Market
+          through downtown to Union Station — free to ride, no ticket required, runs every
+          10–15 minutes. It is the easiest way to connect downtown landmarks and the
+          Crossroads, and an experience in itself on a city that takes transit seriously.
+        </p>
+        <p>
+          Beyond the streetcar corridor, Kansas City is a car city. The Plaza, Midtown,
+          and the West Bottoms are all within a short rideshare from downtown, but are
+          not walkable to each other. Parking is generally easy and inexpensive outside
+          of downtown. A car or rideshare is necessary for anything south of Union Station.
+        </p>
+
+        <div class="detail-facts" style="margin-top:1.5rem;">
+          <div class="detail-fact">
+            <span class="detail-fact-label">Airport</span>
+            <span class="detail-fact-value">MCI — 20 mi northwest</span>
+          </div>
+          <div class="detail-fact">
+            <span class="detail-fact-label">Streetcar</span>
+            <span class="detail-fact-value">Main St — Free</span>
+          </div>
+          <div class="detail-fact">
+            <span class="detail-fact-label">Downtown → Plaza</span>
+            <span class="detail-fact-value">~3 miles south on Main</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section" style="border-top: 1px solid rgba(201,168,76,0.15); padding-top: 2rem; margin-top: 2rem;">
+        <h2>Best Times to Visit</h2>
+        <p>
+          <strong>Spring (April–May)</strong> and <strong>fall (September–October)</strong>
+          are ideal — mild temperatures, low humidity, and the boulevard trees at their
+          best. Summer is hot and humid; the architecture doesn't care, but you will.
+          Early mornings in summer are excellent for the Art Deco Mile before the heat
+          builds. Winter is cold but the Plaza's holiday lights (Thanksgiving through
+          January) make December a surprisingly good time to visit the southern districts.
+        </p>
+        <p>
+          <strong>First Friday</strong> — the monthly Crossroads gallery walk, first Friday
+          of every month — is worth timing a visit around. The Crossroads comes fully alive
+          in a way it doesn't on other evenings, and the density of people in the streets
+          at night makes the warehouse district's scale easier to read.
         </p>
       </div>
 
