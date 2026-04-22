@@ -7,7 +7,105 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <style>
+    /* Inline critical styles — homepage hero is bulletproof against CSS cache misses */
+    .homepage-hero {
+      position: relative;
+      height: 75vh;
+      min-height: 480px;
+      max-height: 860px;
+      overflow: hidden;
+    }
+    .homepage-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+      filter: sepia(18%) contrast(1.12) brightness(0.58);
+      display: block;
+    }
+    .homepage-hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.08) 45%,
+        rgba(0,0,0,0.65) 80%,
+        rgba(26,22,16,1) 100%
+      );
+      text-align: center;
+      padding: 0 2rem 4rem;
+    }
+    .homepage-hero-eyebrow {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      display: block;
+      margin-bottom: 1.1rem;
+    }
+    .homepage-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-weight: 400;
+      line-height: 1.0;
+      color: #F5EFE0;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.1rem;
+      text-shadow: 0 4px 40px rgba(0,0,0,0.55);
+    }
+    .homepage-hero h1 span { color: #C9A84C; display: block; }
+    .homepage-hero-sub {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.76rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #8C7E6A;
+      max-width: 480px;
+      line-height: 1.9;
+    }
+    .homepage-deco {
+      margin-top: 1.75rem;
+      color: #C9A84C;
+      font-size: 0.75rem;
+      letter-spacing: 0.5em;
+      opacity: 0.5;
+    }
+    .homepage-marquee {
+      background: #0A0805;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      border-bottom: 1px solid rgba(201,168,76,0.18);
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+    .homepage-marquee blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+      color: #F5EFE0;
+      font-weight: 400;
+      font-style: italic;
+      max-width: 820px;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+    .homepage-marquee cite {
+      display: block;
+      margin-top: 1.25rem;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.63rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      font-style: normal;
+    }
+  </style>
 </head>
 <body>
 
@@ -103,7 +201,9 @@
 
   <div class="homepage-marquee">
     <blockquote>
-      "Kansas City is a city that rewards looking up — its downtown skyline is dense with Art Deco towers built in a single extraordinary decade of civic ambition, limestone landmarks whose gilded crowns catch the sunset over the Missouri plain."
+      "Its downtown skyline is dense with Art Deco towers built in a single extraordinary
+      decade of civic ambition — thirty-story limestone landmarks whose gilded crowns
+      catch the sunset over the Missouri plain."
     </blockquote>
     <cite>Look Up, Kansas City</cite>
   </div>
