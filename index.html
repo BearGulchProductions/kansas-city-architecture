@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Poiret+One&family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=13e" />
+  <link rel="stylesheet" href="style.css?v=14j" />
   <meta property="og:title" content="Look Up, Kansas City — Architecture &amp; History" />
   <meta property="og:description" content="A literary guide to Kansas City's architecture, history, and public spaces — built for curious visitors and lifelong residents alike." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/f/f3/Downtown_Kansas_City_from_Liberty_Memorial_Full.jpg" />
@@ -158,7 +158,7 @@
           </g>
         </svg>
       </div>
-      <p class="homepage-tagline">See the beauty of the city &mdash; look it all up here.</p>
+      <p class="homepage-tagline">Discover the beauty of the Paris of the Plains.</p>
       <div class="phase-legend" aria-hidden="true">
         <span class="phase-label phase-dawn">Dawn</span>
         <span class="phase-sep">·</span>
@@ -242,26 +242,28 @@
           <clipPath id="bridge-train-clip" clipPathUnits="userSpaceOnUse">
             <rect x="0" y="485" width="230" height="44"/>
           </clipPath>
-          <!-- v11 Marriott mask — hides Marriott LEDs where foreground buildings cover it -->
+          <!-- v13 Marriott mask — mask shapes are in the Marriott's LOCAL coord space
+               (its polygon uses x=500-780; the -230 translate is applied later, not to the mask).
+               Each rect covers the overlap between a foreground building's rendered silhouette and
+               the Marriott, so only the parts of the Marriott ABOVE the foreground buildings show. -->
           <mask id="marriott-bg-mask" maskUnits="userSpaceOnUse">
             <rect x="0" y="0" width="1600" height="600" fill="white"/>
-            <!-- Subtract Kauffman shells -->
-            <g transform="translate(-35, 123) scale(0.78)">
-              <path d="M 340,560 L 340,480 C 340,442 354,420 374,415 C 396,420 404,442 404,480 L 404,560 Z" fill="black"/>
-              <path d="M 410,560 L 410,458 C 410,412 430,390 450,385 C 470,390 482,412 482,458 L 482,560 Z" fill="black"/>
-            </g>
-            <!-- Subtract Bartle (base + pylons) -->
-            <g transform="translate(-178, 0)">
-              <polygon points="498,560 620,560 620,505 612,502 506,502 498,505" fill="black"/>
-              <path d="M 510,502 L 522,502 L 522,385 L 510,385 Z" fill="black"/>
-              <path d="M 538,502 L 550,502 L 550,360 L 538,360 Z" fill="black"/>
-              <path d="M 568,502 L 580,502 L 580,362 L 568,362 Z" fill="black"/>
-              <path d="M 596,502 L 608,502 L 608,383 L 596,383 Z" fill="black"/>
-            </g>
-            <!-- Subtract Municipal Auditorium -->
-            <g transform="translate(-190, 0)">
-              <path d="M 640,560 L 750,560 L 750,478 L 745,475 L 745,468 L 735,468 L 735,460 L 665,460 Q 640,460 640,485 L 640,560 Z" fill="black"/>
-            </g>
+            <!-- Kauffman overlap — Kauffman renders at viewport x≈230-341, overlap with Marriott
+                 (viewport 270-550) is viewport 270-341 → Marriott-local 500-571. Top of tallest shell
+                 at viewport y=423 → Marriott-local y=423 (y-transform is identity). -->
+            <rect x="500" y="420" width="72" height="140" fill="black"/>
+            <!-- Bartle overlap — use the base + 4 individual pylon shapes (not a bounding box) so
+                 the Marriott LEDs peek through the gaps between pylons. Coords = viewport + 230. -->
+            <!-- Convention center base: viewport 320-442, y=502-560 → local 550-672 -->
+            <rect x="550" y="502" width="122" height="60" fill="black"/>
+            <!-- 4 pylons (inner pair pulled down to near outer-pair height in v13) — narrow slots -->
+            <rect x="562" y="385" width="12" height="117" fill="black"/>
+            <rect x="590" y="373" width="12" height="129" fill="black"/>
+            <rect x="620" y="371" width="12" height="131" fill="black"/>
+            <rect x="648" y="383" width="12" height="119" fill="black"/>
+            <!-- Municipal Auditorium overlap — renders viewport 450-560, top viewport y=460 →
+                 Marriott-local x=680-780, y=460-560 (clamped at Marriott's right edge). -->
+            <rect x="680" y="458" width="102" height="104" fill="black"/>
           </mask>
         </defs>
 
@@ -368,6 +370,13 @@
                   fill="#1a1510" stroke="#1a1510" stroke-width="0.5"/>
             <!-- Wing -->
             <path d="M 2,0 L -4,-6 L -8,-6 L -4,0 L -8,6 L -4,6 Z" fill="#1a1510"/>
+            <!-- Navigation lights (red port wingtip, green starboard wingtip, white forward strobe).
+                 Gated to dusk+night via .plane-nav-lights wrapper; children blink independently. -->
+            <g class="plane-nav-lights">
+              <circle cx="-8" cy="-6" r="0.75" class="plane-nav-red"/>
+              <circle cx="-8" cy="6"  r="0.75" class="plane-nav-green"/>
+              <circle cx="16" cy="0"  r="0.7"  class="plane-nav-strobe"/>
+            </g>
           </g>
         </g>
 
@@ -438,6 +447,35 @@
           </g>
         </g>
 
+        <!-- v13 Banner plane — placed AFTER celestial-arc so it fully blocks the sun/moon
+             when it passes in front. Wrapped in its own group (NOT .sky-planes so it doesn't
+             inherit the daylight-only visibility — the banner plane flies at all times of day). -->
+        <g class="sky-plane-banner-wrap" aria-hidden="true">
+          <g class="sky-plane sky-plane-banner">
+            <!-- Plane silhouette -->
+            <path d="M -17,0 L 15,0 L 19,-2.5 L 15,0 L 19,2.5 L 15,0 L -10,0 L -17,-4 L -13,0 L -17,4 Z"
+                  fill="#1a1510" stroke="#1a1510" stroke-width="0.55"/>
+            <path d="M 2.5,0 L -4,-7 L -8,-7 L -4,0 L -8,7 L -4,7 Z" fill="#1a1510"/>
+            <!-- Navigation lights (dusk+night) — blink independently so they read as
+                 separate beacons, not a cluster. -->
+            <g class="plane-nav-lights">
+              <circle cx="-8" cy="-7" r="0.8" class="plane-nav-red"/>
+              <circle cx="-8" cy="7"  r="0.8" class="plane-nav-green"/>
+              <circle cx="17" cy="0"  r="0.75" class="plane-nav-strobe"/>
+            </g>
+            <!-- Tow rope from tail to banner leading edge -->
+            <line x1="-17" y1="0" x2="-28" y2="0" stroke="#1a1510" stroke-width="0.55"/>
+            <!-- Trailing banner — hearts evenly spaced from edges and text -->
+            <g class="plane-banner">
+              <rect x="-140" y="-11" width="112" height="22" fill="#F5EFE0" stroke="#C9A84C" stroke-width="0.75"/>
+              <rect x="-137.5" y="-8.5" width="107" height="17" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.4"/>
+              <path d="M -130,-3 Q -131,-6 -128,-6 Q -126,-6 -126,-3.5 Q -126,-6 -124,-6 Q -121,-6 -122,-3 Q -123,0 -126,3 Q -129,0 -130,-3 Z" fill="#B83838"/>
+              <text x="-84" y="3.2" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="10" font-weight="700" letter-spacing="0.14" fill="#1a1510">KANSAS CITY</text>
+              <path d="M -46,-3 Q -47,-6 -44,-6 Q -42,-6 -42,-3.5 Q -42,-6 -40,-6 Q -37,-6 -38,-3 Q -39,0 -42,3 Q -45,0 -46,-3 Z" fill="#B83838"/>
+            </g>
+          </g>
+        </g>
+
         <!-- v11 Track 3: Background river glimmer — removed in review; the horizontal band at
              any altitude read as visual noise through the gaps between towers. The foreground rivers
              at the bottom corners already communicate the river geography. -->
@@ -452,54 +490,128 @@
         <polygon points="0,560 30,560 30,540 0,540"
           fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.2"/>
 
-        <!-- v11 Hannibal/ASB-style truss bridge — spans from left skyline edge to Kauffman's left side -->
+        <!-- v11 Hannibal/ASB-style truss bridge — spans from left skyline edge to Kauffman's left side.
+             v13 revision: line weights bumped to visually match the Bond Bridge on the opposite side. -->
         <g class="hannibal-bridge" aria-hidden="true">
-          <line x1="0" y1="492" x2="230" y2="492" stroke="rgba(201,168,76,0.4)" stroke-width="0.6"/>
-          <line x1="0" y1="525" x2="230" y2="525" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <path d="M 0,492 Q 115,468 230,492" fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="0.55"/>
-          <line x1="0"   y1="525" x2="23"  y2="492" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <line x1="23"  y1="492" x2="46"  y2="525" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <line x1="46"  y1="525" x2="69"  y2="492" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <line x1="69"  y1="492" x2="92"  y2="525" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <line x1="92"  y1="525" x2="115" y2="492" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <line x1="115" y1="492" x2="138" y2="525" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <line x1="138" y1="525" x2="161" y2="492" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <line x1="161" y1="492" x2="184" y2="525" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <line x1="184" y1="525" x2="207" y2="492" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <line x1="207" y1="492" x2="230" y2="525" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <line x1="46"  y1="492" x2="46"  y2="525" stroke="rgba(201,168,76,0.3)" stroke-width="0.45"/>
-          <line x1="92"  y1="492" x2="92"  y2="525" stroke="rgba(201,168,76,0.3)" stroke-width="0.45"/>
-          <line x1="138" y1="492" x2="138" y2="525" stroke="rgba(201,168,76,0.3)" stroke-width="0.45"/>
-          <line x1="184" y1="492" x2="184" y2="525" stroke="rgba(201,168,76,0.3)" stroke-width="0.45"/>
-          <line x1="0" y1="514" x2="230" y2="514" stroke="rgba(201,168,76,0.2)" stroke-width="0.35"/>
+          <line x1="0" y1="492" x2="230" y2="492" stroke="rgba(201,168,76,0.5)" stroke-width="0.9"/>
+          <line x1="0" y1="525" x2="230" y2="525" stroke="rgba(201,168,76,0.4)" stroke-width="0.6"/>
+          <path d="M 0,492 Q 115,463 230,492" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.8"/>
+          <line x1="0"   y1="525" x2="23"  y2="492" stroke="rgba(201,168,76,0.42)" stroke-width="0.6"/>
+          <line x1="23"  y1="492" x2="46"  y2="525" stroke="rgba(201,168,76,0.42)" stroke-width="0.6"/>
+          <line x1="46"  y1="525" x2="69"  y2="492" stroke="rgba(201,168,76,0.42)" stroke-width="0.6"/>
+          <line x1="69"  y1="492" x2="92"  y2="525" stroke="rgba(201,168,76,0.42)" stroke-width="0.6"/>
+          <line x1="92"  y1="525" x2="115" y2="492" stroke="rgba(201,168,76,0.42)" stroke-width="0.6"/>
+          <line x1="115" y1="492" x2="138" y2="525" stroke="rgba(201,168,76,0.42)" stroke-width="0.6"/>
+          <line x1="138" y1="525" x2="161" y2="492" stroke="rgba(201,168,76,0.42)" stroke-width="0.6"/>
+          <line x1="161" y1="492" x2="184" y2="525" stroke="rgba(201,168,76,0.42)" stroke-width="0.6"/>
+          <line x1="184" y1="525" x2="207" y2="492" stroke="rgba(201,168,76,0.42)" stroke-width="0.6"/>
+          <line x1="207" y1="492" x2="230" y2="525" stroke="rgba(201,168,76,0.42)" stroke-width="0.6"/>
+          <line x1="46"  y1="492" x2="46"  y2="525" stroke="rgba(201,168,76,0.4)" stroke-width="0.55"/>
+          <line x1="92"  y1="492" x2="92"  y2="525" stroke="rgba(201,168,76,0.4)" stroke-width="0.55"/>
+          <line x1="138" y1="492" x2="138" y2="525" stroke="rgba(201,168,76,0.4)" stroke-width="0.55"/>
+          <line x1="184" y1="492" x2="184" y2="525" stroke="rgba(201,168,76,0.4)" stroke-width="0.55"/>
+          <line x1="0" y1="514" x2="230" y2="514" stroke="rgba(201,168,76,0.28)" stroke-width="0.45"/>
 
-          <g clip-path="url(#bridge-train-clip)"><g class="bridge-train bridge-train-a">
-            <g transform="translate(0, 514)">
-              <rect x="0"  y="-7" width="16" height="7" fill="#0A0805"/>
-              <rect x="12" y="-10" width="4" height="3" fill="#0A0805"/>
-              <rect x="2"  y="-5" width="3" height="2" fill="rgba(255,210,120,0.65)"/>
-              <rect x="18" y="-7" width="14" height="7" fill="#0A0805"/>
-              <rect x="34" y="-7" width="14" height="7" fill="#0A0805"/>
-              <rect x="50" y="-7" width="14" height="7" fill="#0A0805"/>
-              <rect x="66" y="-7" width="14" height="7" fill="#0A0805"/>
-              <rect x="82" y="-7" width="14" height="7" fill="#0A0805"/>
-              <rect x="98" y="-7" width="14" height="7" fill="#0A0805"/>
-              <rect x="114" y="-7" width="14" height="7" fill="#0A0805"/>
-              <rect x="130" y="-7" width="14" height="7" fill="#0A0805"/>
-              <line x1="16"  y1="-3.5" x2="18"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
-              <line x1="32"  y1="-3.5" x2="34"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
-              <line x1="48"  y1="-3.5" x2="50"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
-              <line x1="64"  y1="-3.5" x2="66"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
-              <line x1="80"  y1="-3.5" x2="82"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
-              <line x1="96"  y1="-3.5" x2="98"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
-              <line x1="112" y1="-3.5" x2="114" y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
-              <line x1="128" y1="-3.5" x2="130" y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+          <!-- v14e Hannibal bridge trains — only ONE train visible at a time, alternating
+               directions in runs of 1, 2, or 3 consecutive same-direction crossings. Single
+               320s master cycle drives both train-a and train-b with staggered visible/hidden
+               slots. Train-a (L→R) has the locomotive at the RIGHT end so it leads. Train-b
+               (R→L) uses the same silhouette mirrored horizontally so the locomotive is at
+               the LEFT end — always in front. R→L trains wait at translateX(260) (fully east
+               of the bridge clip, i.e. behind Kauffman) and only become visible once they
+               cross the x=230 bridge edge. -->
+          <g clip-path="url(#bridge-train-clip)">
+            <g class="bridge-train bridge-train-a">
+              <g transform="translate(0, 514)">
+                <!-- Freight cars (8 of them, trailing behind the locomotive) -->
+                <rect x="0"   y="-7" width="14" height="7" fill="#0A0805"/>
+                <rect x="16"  y="-7" width="14" height="7" fill="#0A0805"/>
+                <rect x="32"  y="-7" width="14" height="7" fill="#0A0805"/>
+                <rect x="48"  y="-7" width="14" height="7" fill="#0A0805"/>
+                <rect x="64"  y="-7" width="14" height="7" fill="#0A0805"/>
+                <rect x="80"  y="-7" width="14" height="7" fill="#0A0805"/>
+                <rect x="96"  y="-7" width="14" height="7" fill="#0A0805"/>
+                <rect x="112" y="-7" width="14" height="7" fill="#0A0805"/>
+                <!-- Coupler gaps between freight cars -->
+                <line x1="14"  y1="-3.5" x2="16"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                <line x1="30"  y1="-3.5" x2="32"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                <line x1="46"  y1="-3.5" x2="48"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                <line x1="62"  y1="-3.5" x2="64"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                <line x1="78"  y1="-3.5" x2="80"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                <line x1="94"  y1="-3.5" x2="96"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                <line x1="110" y1="-3.5" x2="112" y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                <line x1="126" y1="-3.5" x2="130" y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                <!-- Lit interior windows on each freight car — visible at night -->
+                <rect class="train-window" x="2"   y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="8"   y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="18"  y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="24"  y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="34"  y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="40"  y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="50"  y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="56"  y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="66"  y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="72"  y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="82"  y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="88"  y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="98"  y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="104" y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="114" y="-5" width="2.2" height="1.2"/>
+                <rect class="train-window" x="120" y="-5" width="2.2" height="1.2"/>
+                <!-- Locomotive at the FRONT (right end, direction of travel) -->
+                <rect x="130" y="-7" width="16" height="7" fill="#0A0805"/>
+                <rect x="130" y="-10" width="4" height="3" fill="#0A0805"/>
+                <rect x="141" y="-5" width="3" height="2" fill="rgba(255,210,120,0.85)"/>
+              </g>
             </g>
-          </g></g>
-        </g>
-          </g></g>
-        </g>
-          </g></g>
+          </g>
+
+          <!-- R→L train — same silhouette, mirrored so locomotive sits at the LEFT (lead). -->
+          <g clip-path="url(#bridge-train-clip)">
+            <g class="bridge-train bridge-train-b">
+              <g transform="translate(0, 514)">
+                <g transform="scale(-1,1) translate(-146,0)">
+                  <!-- Freight cars -->
+                  <rect x="0"   y="-7" width="14" height="7" fill="#0A0805"/>
+                  <rect x="16"  y="-7" width="14" height="7" fill="#0A0805"/>
+                  <rect x="32"  y="-7" width="14" height="7" fill="#0A0805"/>
+                  <rect x="48"  y="-7" width="14" height="7" fill="#0A0805"/>
+                  <rect x="64"  y="-7" width="14" height="7" fill="#0A0805"/>
+                  <rect x="80"  y="-7" width="14" height="7" fill="#0A0805"/>
+                  <rect x="96"  y="-7" width="14" height="7" fill="#0A0805"/>
+                  <rect x="112" y="-7" width="14" height="7" fill="#0A0805"/>
+                  <line x1="14"  y1="-3.5" x2="16"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                  <line x1="30"  y1="-3.5" x2="32"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                  <line x1="46"  y1="-3.5" x2="48"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                  <line x1="62"  y1="-3.5" x2="64"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                  <line x1="78"  y1="-3.5" x2="80"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                  <line x1="94"  y1="-3.5" x2="96"  y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                  <line x1="110" y1="-3.5" x2="112" y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                  <line x1="126" y1="-3.5" x2="130" y2="-3.5" stroke="#0A0805" stroke-width="0.5"/>
+                  <rect class="train-window" x="2"   y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="8"   y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="18"  y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="24"  y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="34"  y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="40"  y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="50"  y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="56"  y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="66"  y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="72"  y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="82"  y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="88"  y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="98"  y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="104" y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="114" y="-5" width="2.2" height="1.2"/>
+                  <rect class="train-window" x="120" y="-5" width="2.2" height="1.2"/>
+                  <!-- Locomotive (right end in pre-flip coords → left end after flip = lead) -->
+                  <rect x="130" y="-7" width="16" height="7" fill="#0A0805"/>
+                  <rect x="130" y="-10" width="4" height="3" fill="#0A0805"/>
+                  <rect x="141" y="-5" width="3" height="2" fill="rgba(255,210,120,0.85)"/>
+                </g>
+              </g>
+            </g>
+          </g>
 
         </g>
 
@@ -647,20 +759,20 @@
               points="1028,560 1052,560 1052,418 1050,416 1050,412 1030,412 1030,416 1028,418"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.2"/>
 
-            <!-- Outer halo ring — front-on view, raised to sit above the taller building -->
-            <ellipse class="wa-halo" cx="1040" cy="385" rx="14" ry="24"
+            <!-- Outer halo ring — v13: wider + slightly less tall, closer to round so the sign reads clearly -->
+            <ellipse class="wa-halo" cx="1040" cy="385" rx="22" ry="23"
               fill="none" stroke="#C9A84C" stroke-width="1"/>
 
-            <!-- Rectangular neon sign face — slightly bigger, extends past the halo sides -->
-            <rect class="wa-sign-frame" x="1024" y="370" width="32" height="30"
+            <!-- Rectangular neon sign face — wider to match the rounder halo -->
+            <rect class="wa-sign-frame" x="1018" y="371" width="44" height="28"
               fill="rgba(12,10,24,0.92)" stroke="#C9A84C" stroke-width="0.8"/>
 
-            <!-- "WESTERN" red neon -->
-            <text class="wa-label" x="1040" y="382" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="6" font-weight="900" fill="#E03030" letter-spacing="0.15">WESTERN</text>
+            <!-- "WESTERN" red neon — bigger and better-spaced in the wider frame -->
+            <text class="wa-label" x="1040" y="382" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="7" font-weight="900" fill="#E03030" letter-spacing="0.4">WESTERN</text>
             <!-- Divider line -->
-            <line x1="1024" y1="386" x2="1056" y2="386" stroke="rgba(201,168,76,0.55)" stroke-width="0.35"/>
+            <line x1="1018" y1="386" x2="1062" y2="386" stroke="rgba(201,168,76,0.55)" stroke-width="0.35"/>
             <!-- "AUTO" red neon, larger -->
-            <text class="wa-label" x="1040" y="397" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="8.5" font-weight="900" fill="#E03030" letter-spacing="0.5">AUTO</text>
+            <text class="wa-label" x="1040" y="396" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="9.5" font-weight="900" fill="#E03030" letter-spacing="0.9">AUTO</text>
 
             <!-- Downward arrow from bottom of halo to top of building -->
             <line class="wa-arrow-line" x1="1040" y1="409" x2="1040" y2="416"
@@ -670,14 +782,14 @@
 
             <!-- Dusk / Night / Dawn: everything glows neon red -->
             <g class="wa-illumination" aria-hidden="true">
-              <!-- Halo glows -->
-              <ellipse cx="1040" cy="385" rx="14" ry="24" fill="none" stroke="#FF4040" stroke-width="1.5"/>
+              <!-- Halo glows (matching the wider round ring) -->
+              <ellipse cx="1040" cy="385" rx="22" ry="23" fill="none" stroke="#FF4040" stroke-width="1.5"/>
               <!-- Sign face dark backdrop holds while neon letters glow -->
-              <rect x="1024" y="370" width="32" height="30" fill="rgba(16,12,24,0.95)"/>
+              <rect x="1018" y="371" width="44" height="28" fill="rgba(16,12,24,0.95)"/>
               <!-- Bright red neon letters -->
-              <text x="1040" y="382" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="6" font-weight="900" fill="#FF4040" letter-spacing="0.15">WESTERN</text>
-              <line x1="1024" y1="386" x2="1056" y2="386" stroke="#FFAA60" stroke-width="0.4"/>
-              <text x="1040" y="397" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="8.5" font-weight="900" fill="#FF4040" letter-spacing="0.5">AUTO</text>
+              <text x="1040" y="382" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="7" font-weight="900" fill="#FF4040" letter-spacing="0.4">WESTERN</text>
+              <line x1="1018" y1="386" x2="1062" y2="386" stroke="#FFAA60" stroke-width="0.4"/>
+              <text x="1040" y="396" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="9.5" font-weight="900" fill="#FF4040" letter-spacing="0.9">AUTO</text>
               <!-- Arrow glows -->
               <line x1="1040" y1="409" x2="1040" y2="416" stroke="#FF4040" stroke-width="1.5"/>
               <polygon points="1040,418 1035,411 1045,411" fill="#FF4040"/>
@@ -761,6 +873,31 @@
           <line x1="1555" y1="328" x2="1568" y2="518" stroke="rgba(201,168,76,0.42)" stroke-width="0.45"/>
           <line x1="1555" y1="328" x2="1585" y2="518" stroke="rgba(201,168,76,0.42)" stroke-width="0.45"/>
           <line x1="1555" y1="328" x2="1600" y2="518" stroke="rgba(201,168,76,0.42)" stroke-width="0.45"/>
+          <!-- v13 Bridge traffic — cars entering (background, R→L) and leaving (foreground, L→R)
+               the city. Density ties to the TOD cycle: busier Dawn→Dusk, sparse at Night,
+               picking back up just before Dawn. -->
+          <g class="bond-traffic" aria-hidden="true">
+            <!-- Always-on tier: a few cars visible through night (still dim at night) -->
+            <g class="bond-traffic-tier bond-traffic-always">
+              <!-- Background cars (entering the city, R→L) drawn first. Small warm-white headlight
+                   on front (left side, direction of motion). Headlight gated to dusk+night only. -->
+              <g class="bond-car bond-car-bg bond-car-bg-1"><rect x="0" y="512.5" width="4.4" height="2.4" fill="rgba(180,185,200,0.72)"/><rect class="bond-headlight" x="0" y="512.9" width="1" height="1.1" fill="#FFF2C8"/></g>
+              <g class="bond-car bond-car-bg bond-car-bg-2"><rect x="0" y="512.5" width="4.4" height="2.4" fill="rgba(200,205,220,0.72)"/><rect class="bond-headlight" x="0" y="512.9" width="1" height="1.1" fill="#FFF2C8"/></g>
+              <!-- Foreground cars (leaving the city, L→R) drawn on top. Small red tail light on
+                   back (left side, opposite motion). Tail light gated to dusk+night only. -->
+              <g class="bond-car bond-car-fg bond-car-fg-1"><rect x="0" y="515" width="5.4" height="3.2" fill="rgba(215,215,225,0.82)"/><rect class="bond-taillight" x="0" y="515.6" width="1" height="1.2" fill="#E62D2D"/></g>
+              <g class="bond-car bond-car-fg bond-car-fg-2"><rect x="0" y="515" width="5.4" height="3.2" fill="rgba(200,200,215,0.82)"/><rect class="bond-taillight" x="0" y="515.6" width="1" height="1.2" fill="#E62D2D"/></g>
+            </g>
+            <!-- Day-tier: fills out rush hour, fades completely at night -->
+            <g class="bond-traffic-tier bond-traffic-day">
+              <g class="bond-car bond-car-bg bond-car-bg-3"><rect x="0" y="512.5" width="4.4" height="2.4" fill="rgba(170,175,195,0.72)"/><rect class="bond-headlight" x="0" y="512.9" width="1" height="1.1" fill="#FFF2C8"/></g>
+              <g class="bond-car bond-car-bg bond-car-bg-4"><rect x="0" y="512.5" width="4.4" height="2.4" fill="rgba(195,200,215,0.72)"/><rect class="bond-headlight" x="0" y="512.9" width="1" height="1.1" fill="#FFF2C8"/></g>
+              <g class="bond-car bond-car-bg bond-car-bg-5"><rect x="0" y="512.5" width="4.4" height="2.4" fill="rgba(185,190,210,0.72)"/><rect class="bond-headlight" x="0" y="512.9" width="1" height="1.1" fill="#FFF2C8"/></g>
+              <g class="bond-car bond-car-fg bond-car-fg-3"><rect x="0" y="515" width="5.4" height="3.2" fill="rgba(210,210,225,0.82)"/><rect class="bond-taillight" x="0" y="515.6" width="1" height="1.2" fill="#E62D2D"/></g>
+              <g class="bond-car bond-car-fg bond-car-fg-4"><rect x="0" y="515" width="5.4" height="3.2" fill="rgba(195,200,215,0.82)"/><rect class="bond-taillight" x="0" y="515.6" width="1" height="1.2" fill="#E62D2D"/></g>
+              <g class="bond-car bond-car-fg bond-car-fg-5"><rect x="0" y="515" width="5.4" height="3.2" fill="rgba(220,220,230,0.82)"/><rect class="bond-taillight" x="0" y="515.6" width="1" height="1.2" fill="#E62D2D"/></g>
+            </g>
+          </g>
           <!-- Aviation warning light at pylon top -->
           <circle class="bond-warning-light" cx="1555" cy="326" r="2.2" fill="#E03030"/>
         </g>
@@ -787,49 +924,25 @@
         <!-- Scale: 0.65 units per foot, ground at y=560  -->
         <!-- ─────────────────────────────────────────── -->
 
-        <!-- 1. Liberty Memorial Tower — 1926, 217 ft, Egyptian Revival, flame crown (v11 Track 2B: stronger taper + widened flame bowl) -->
-        <g data-building="liberty-memorial" transform="translate(675, 0)">
-          <a href="buildings/liberty-memorial.html" aria-label="Liberty Memorial Tower, 1926, 217 feet">
-            <!-- Pedestal + tapered shaft: base 46 wide at y=520 narrowing to ~24 at shaft top -->
-            <path class="building-shape"
-              d="M 45,560 L 130,560 L 130,533 L 121,530 L 118,527 L 118,524 L 113,520 L 102,413 L 78,413 L 67,520 L 62,524 L 62,527 L 59,530 L 50,533 Z"
-              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
-            <!-- Flame bowl (torch urn) — ~1.5× shaft-top width for distinct "torch on a stick" read -->
-            <path class="building-shape"
-              d="M 72,413 L 108,413 L 104,402 L 96,398 L 84,398 L 76,402 Z"
-              fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.25"/>
-            <!-- Sphinx hints — four tiny marks at bowl base -->
-            <rect x="72.5" y="411" width="1.5" height="2" fill="rgba(201,168,76,0.45)"/>
-            <rect x="82" y="411" width="1.5" height="2" fill="rgba(201,168,76,0.45)"/>
-            <rect x="96.5" y="411" width="1.5" height="2" fill="rgba(201,168,76,0.45)"/>
-            <rect x="106" y="411" width="1.5" height="2" fill="rgba(201,168,76,0.45)"/>
-            <!-- Resting flame tip (decorative, always visible at low opacity) -->
-            <circle cx="90" cy="390" r="3" fill="rgba(232,201,106,0.35)" stroke="#C9A84C" stroke-width="0.75"/>
-            <!-- Night: animated flame flicker rising from the bowl -->
-            <g class="building-night-lights" aria-hidden="true">
-              <circle cx="90" cy="390" r="9" fill="rgba(255,180,90,0.2)"/>
-              <circle cx="90" cy="388" r="5" fill="#FFB060" class="flame-flicker"/>
-              <circle cx="90" cy="386" r="2.5" fill="#FFE8B0" class="flame-flicker"/>
-            </g>
-            <text class="building-label" x="90" y="358" text-anchor="middle">
-              <tspan x="90" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">LIBERTY MEMORIAL</tspan>
-              <tspan x="90" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1926</tspan>
-            </text>
-          </a>
-        </g>
 
         <!-- 3. Kauffman Center — 2011, Safdie's twin curved shells — west downtown edge (v10 Track 1F: asymmetric pair) -->
-        <g data-building="kauffman-center" transform="translate(-35, 123) scale(0.78)">
+        <g data-building="kauffman-center" transform="translate(-35, 128) scale(0.78)">
           <a href="buildings/kauffman-center.html" aria-label="Kauffman Center for the Performing Arts, 2011">
-            <!-- v11 revision: shorter shells, jagged ribs hinting at Safdie's steel-and-glass seams. -->
-            <!-- Helzberg Hall (north, smaller shell) -->
+            <!-- v14e revision: faceted polyline silhouettes replace smooth curves, hinting at
+                 Safdie's segmented steel-and-glass panels. Faceting is gentle (~12 vertices per
+                 shell) — segmented enough to read, not so jagged as to look janky. -->
+            <!-- Helzberg Hall (north, smaller shell) — 12-facet polyline -->
             <path class="building-shape"
-              d="M 340,560 L 340,480 C 340,442 354,420 374,415 C 396,420 404,442 404,480 L 404,560 Z"
-              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
-            <!-- Muriel Kauffman Theatre (south, taller wider shell) -->
+              d="M 340,560 L 340,483 L 343,462 L 348,446 L 356,432 L 367,423 L 374,418 L 381,418 L 388,423 L 395,432 L 400,444 L 403,461 L 404,482 L 404,560 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Muriel Kauffman Theatre (south, taller wider shell) — 14-facet polyline -->
             <path class="building-shape"
-              d="M 410,560 L 410,458 C 410,412 430,390 450,385 C 470,390 482,412 482,458 L 482,560 Z"
-              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+              d="M 410,560 L 410,461 L 414,438 L 420,420 L 428,404 L 438,393 L 447,387 L 453,387 L 463,393 L 472,404 L 478,418 L 481,438 L 482,463 L 482,560 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Curved glass lobby sweep in front of the shells (signature Kauffman feature) -->
+            <path d="M 330,560 Q 340,548 355,545 L 472,540 Q 484,542 490,554 L 490,560 Z"
+                  fill="rgba(201,168,76,0.05)" stroke="rgba(201,168,76,0.5)" stroke-width="0.8"/>
+            <line x1="336" y1="551" x2="486" y2="547" stroke="rgba(201,168,76,0.35)" stroke-width="0.35"/>
             <!-- Vertical shell-rib seams (hint the segmented steel panels) -->
             <g class="kauffman-ribs" aria-hidden="true">
               <path d="M 353,520 C 352,490 354,460 366,435"       fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="0.55"/>
@@ -869,15 +982,17 @@
             <path class="building-shape"
               d="M 498,560 L 620,560 L 620,505 L 612,502 L 506,502 L 498,505 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
-            <!-- Four pylons — outer pair (1, 4) shorter; inner pair (2, 3) taller by ~15 units (v11 Track 2C) -->
+            <!-- Four pylons — v13 revision: inner pair pulled down so heights are closer
+                 to the outer pair (only ~10-13 unit difference instead of 23).
+                 This exposes more of the Marriott LEDs between the pylons. -->
             <path class="building-shape"
               d="M 510,502 L 522,502 L 522,385 L 510,385 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.25"/>
             <path class="building-shape"
-              d="M 538,502 L 550,502 L 550,360 L 538,360 Z"
+              d="M 538,502 L 550,502 L 550,373 L 538,373 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.25"/>
             <path class="building-shape"
-              d="M 568,502 L 580,502 L 580,362 L 568,362 Z"
+              d="M 568,502 L 580,502 L 580,371 L 568,371 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.25"/>
             <path class="building-shape"
               d="M 596,502 L 608,502 L 608,383 L 596,383 Z"
@@ -889,14 +1004,14 @@
               <line x1="516" y1="373" x2="516" y2="383" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
             </g>
             <g class="bartle-sphere">
-              <circle cx="544" cy="353" r="6" fill="none" stroke="#C9A84C" stroke-width="1"/>
-              <line x1="539" y1="353" x2="549" y2="353" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
-              <line x1="544" y1="348" x2="544" y2="358" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+              <circle cx="544" cy="366" r="6" fill="none" stroke="#C9A84C" stroke-width="1"/>
+              <line x1="539" y1="366" x2="549" y2="366" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+              <line x1="544" y1="361" x2="544" y2="371" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
             </g>
             <g class="bartle-sphere">
-              <circle cx="574" cy="355" r="6" fill="none" stroke="#C9A84C" stroke-width="1"/>
-              <line x1="569" y1="355" x2="579" y2="355" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
-              <line x1="574" y1="350" x2="574" y2="360" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+              <circle cx="574" cy="364" r="6" fill="none" stroke="#C9A84C" stroke-width="1"/>
+              <line x1="569" y1="364" x2="579" y2="364" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
+              <line x1="574" y1="359" x2="574" y2="369" stroke="rgba(201,168,76,0.55)" stroke-width="0.6"/>
             </g>
             <g class="bartle-sphere">
               <circle cx="602" cy="376" r="6" fill="none" stroke="#C9A84C" stroke-width="1"/>
@@ -907,10 +1022,10 @@
             <g class="building-night-lights" aria-hidden="true">
               <circle cx="516" cy="378" r="9" fill="rgba(245,217,138,0.25)"/>
               <circle cx="516" cy="378" r="4.5" fill="#F5D98A"/>
-              <circle cx="544" cy="353" r="9" fill="rgba(245,217,138,0.25)"/>
-              <circle cx="544" cy="353" r="4.5" fill="#F5D98A"/>
-              <circle cx="574" cy="355" r="9" fill="rgba(245,217,138,0.25)"/>
-              <circle cx="574" cy="355" r="4.5" fill="#F5D98A"/>
+              <circle cx="544" cy="366" r="9" fill="rgba(245,217,138,0.25)"/>
+              <circle cx="544" cy="366" r="4.5" fill="#F5D98A"/>
+              <circle cx="574" cy="364" r="9" fill="rgba(245,217,138,0.25)"/>
+              <circle cx="574" cy="364" r="4.5" fill="#F5D98A"/>
               <circle cx="602" cy="376" r="9" fill="rgba(245,217,138,0.25)"/>
               <circle cx="602" cy="376" r="4.5" fill="#F5D98A"/>
             </g>
@@ -967,6 +1082,17 @@
               <circle cx="896.5" cy="250" r="14" fill="rgba(232,201,106,0.18)"/>
               <circle cx="896.5" cy="250" r="7" fill="rgba(232,201,106,0.5)"/>
               <circle cx="896.5" cy="250" r="3.5" fill="#F5EFE0"/>
+            </g>
+            <!-- v13 Night window lights — sprinkled asymmetrically within the stepped silhouette -->
+            <g class="building-night-lights" aria-hidden="true">
+              <rect x="877" y="330" width="2.5" height="3" fill="#F5D98A"/>
+              <rect x="898" y="345" width="2.5" height="3" fill="#E8C96A"/>
+              <rect x="912" y="385" width="2.5" height="3" fill="#F5D98A"/>
+              <rect x="875" y="410" width="2.5" height="3" fill="#E8C96A"/>
+              <rect x="902" y="430" width="2.5" height="3" fill="#F5D98A"/>
+              <rect x="888" y="460" width="2.5" height="3" fill="#E8C96A"/>
+              <rect x="918" y="485" width="2.5" height="3" fill="#F5D98A"/>
+              <rect x="880" y="520" width="2.5" height="3" fill="#E8C96A"/>
             </g>
             <text class="building-label" x="894" y="238" text-anchor="middle">
               <tspan x="894" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">POWER &amp; LIGHT</tspan>
@@ -1038,6 +1164,17 @@
               <ellipse class="steam-puff sp-1" cx="994" cy="242" rx="3.5" ry="2.2" fill="rgba(245,239,224,0.32)"/>
               <ellipse class="steam-puff sp-2" cx="997" cy="238" rx="3" ry="1.8" fill="rgba(245,239,224,0.28)"/>
               <ellipse class="steam-puff sp-3" cx="992" cy="234" rx="2.5" ry="1.6" fill="rgba(245,239,224,0.22)"/>
+            </g>
+            <!-- v13 Night window lights — sprinkled asymmetrically inside the narrowing shaft -->
+            <g class="building-night-lights" aria-hidden="true">
+              <rect x="987" y="320" width="2" height="3" fill="#F5D98A"/>
+              <rect x="1005" y="340" width="2" height="3" fill="#E8C96A"/>
+              <rect x="980" y="370" width="2" height="3" fill="#F5D98A"/>
+              <rect x="1012" y="400" width="2" height="3" fill="#E8C96A"/>
+              <rect x="990" y="425" width="2" height="3" fill="#F5D98A"/>
+              <rect x="1008" y="460" width="2" height="3" fill="#E8C96A"/>
+              <rect x="978" y="490" width="2" height="3" fill="#F5D98A"/>
+              <rect x="1000" y="525" width="2" height="3" fill="#E8C96A"/>
             </g>
             <text class="building-label" x="994" y="233" text-anchor="middle">
               <tspan x="994" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">909 WALNUT</tspan>
@@ -1178,12 +1315,21 @@
               <line x1="1415" y1="237" x2="1415" y2="224" stroke="rgba(201,168,76,0.75)" stroke-width="0.6"/>
               <path class="flag-wave" d="M 1415,225 L 1424,226 L 1424,231 L 1415,230 Z" fill="rgba(232,201,106,0.65)" stroke="rgba(201,168,76,0.8)" stroke-width="0.35"/>
             </g>
-            <!-- Night: illuminated pyramid crown glow -->
+            <!-- Night: illuminated pyramid crown glow + v13 sprinkled window lights on the tower body -->
             <g class="building-night-lights" aria-hidden="true">
               <circle cx="1415" cy="250" r="9" fill="rgba(245,217,138,0.35)"/>
               <circle cx="1415" cy="250" r="4" fill="#F5EFE0"/>
               <polygon points="1400,285 1415,250 1430,285" fill="rgba(245,217,138,0.42)"/>
               <circle cx="1415" cy="237" r="2.2" fill="#F5EFE0"/>
+              <!-- Sprinkled windows inside the stepped silhouette -->
+              <rect x="1410" y="320" width="2.5" height="3" fill="#F5D98A"/>
+              <rect x="1422" y="355" width="2.5" height="3" fill="#E8C96A"/>
+              <rect x="1398" y="375" width="2.5" height="3" fill="#F5D98A"/>
+              <rect x="1432" y="405" width="2.5" height="3" fill="#E8C96A"/>
+              <rect x="1395" y="430" width="2.5" height="3" fill="#F5D98A"/>
+              <rect x="1418" y="462" width="2.5" height="3" fill="#E8C96A"/>
+              <rect x="1388" y="490" width="2.5" height="3" fill="#F5D98A"/>
+              <rect x="1425" y="515" width="2.5" height="3" fill="#E8C96A"/>
             </g>
             <text class="building-label" x="1415" y="235" text-anchor="middle">
               <tspan x="1415" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">CITY HALL</tspan>
@@ -1257,15 +1403,8 @@
               <rect x="305" y="537" width="4" height="6" fill="#E8C96A"/>
             </g>
 
-            <!-- Circular fountain in front of Union Station -->
-            <g class="us-fountain" aria-hidden="true">
-              <ellipse cx="235" cy="564" rx="18" ry="3.5" fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="0.8"/>
-              <ellipse cx="235" cy="563" rx="15" ry="2.4" fill="rgba(96,126,150,0.5)"/>
-              <rect x="232.5" y="557" width="5" height="5" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="0.5"/>
-              <path class="us-fountain-spray" d="M 235,557 Q 232.5,550 235,541 Q 237.5,550 235,557 Z" fill="rgba(210,225,240,0.55)"/>
-              <path class="us-fountain-arc us-fountain-arc-l" d="M 229,559 Q 224,554 227,548" fill="none" stroke="rgba(210,225,240,0.5)" stroke-width="0.9"/>
-              <path class="us-fountain-arc us-fountain-arc-r" d="M 241,559 Q 246,554 243,548" fill="none" stroke="rgba(210,225,240,0.5)" stroke-width="0.9"/>
-            </g>
+            <!-- Circular fountain in front of Union Station — v13 rework: classic jet, readable pool water, side cascades close to the basin -->
+            <!-- v13 Union Station fountain moved to the on-hill-layer (after the bluff) -->
 
             <text class="building-label" x="235" y="462" text-anchor="middle">
               <tspan x="235" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">UNION STATION</tspan>
@@ -1300,13 +1439,13 @@
           </g>
         </defs>
         <g class="fg-streetcar-track fg-streetcar-a">
-          <g class="fg-streetcar" transform="translate(0, 560)"><use href="#streetcar-shape"/></g>
+          <g class="fg-streetcar" transform="translate(0, 560) scale(1.2)"><use href="#streetcar-shape"/></g>
         </g>
         <g class="fg-streetcar-track fg-streetcar-b">
-          <g class="fg-streetcar fg-streetcar-flipped" transform="translate(0, 560)"><use href="#streetcar-shape"/></g>
+          <g class="fg-streetcar fg-streetcar-flipped" transform="translate(0, 560) scale(1.2)"><use href="#streetcar-shape"/></g>
         </g>
         <g class="fg-streetcar-track fg-streetcar-c">
-          <g class="fg-streetcar" transform="translate(0, 560)"><use href="#streetcar-shape"/></g>
+          <g class="fg-streetcar" transform="translate(0, 560) scale(1.2)"><use href="#streetcar-shape"/></g>
         </g>
 
         <!-- v10 Track 4B: Foreground silhouette layer — trees, lamps (streetcar now lives above in its own track) -->
@@ -1384,7 +1523,6 @@
               <circle cx="0" cy="-32" r="2" fill="#F5D98A"/>
             </g>
           </g>
-
 
         </g>
 
@@ -1468,6 +1606,271 @@
               </g>
               <text class="river-label river-label-missouri" x="1540" y="557" text-anchor="end" font-family="'Playfair Display', serif" font-style="italic" font-size="13" fill="rgba(200,220,240,0.95)">&lsaquo; The Missouri</text>
             </a>
+          </g>
+        </g>
+
+        <!-- v13 On-hill layer — painted AFTER the bluff so fountains, walkers, and any other
+             ground-level features that live ON the hill are visible (not occluded by the bluff). -->
+        <g class="on-hill-layer" aria-hidden="true">
+
+          <!-- v14e Penn Valley Park walking trails — dashed cream lines across the hill top.
+               All trail y-coords kept a few units BELOW the hill silhouette (hill top: x=220
+               y=560, x=400 y=556, x=700 y=552, x=900 y=550, x=1200 y=552, x=1440 y=560) so
+               the dashes never float over the sky.
+               Trail A: Scout → Liberty → Fountain (landmark-to-landmark on the bluff ridge).
+               Trail B: Fountain plaza curving east back up toward the downtown skyline.
+               Trail C: Scout area curving west back toward the Bartle/Municipal blocks.
+               Trail D: Standalone right-side path (not attached to any landmark) suggesting
+               the park continues past the east-side buildings.
+               Painted BEFORE landmarks and walkers so figures walk on top of the trails. -->
+          <g class="hill-trails" aria-hidden="true">
+            <path class="hill-trail hill-trail-a"
+                  d="M 498,568 Q 600,580 725,584 Q 775,580 815,566"
+                  fill="none" stroke="rgba(245,239,224,0.45)" stroke-width="1.25"
+                  stroke-dasharray="2.2 1.8" stroke-linecap="round"/>
+            <!-- Trail B — right end climbs to the hill crest at (1030, 551), reading as
+                 "going over the hill" toward the city on the other side. -->
+            <path class="hill-trail hill-trail-b"
+                  d="M 815,566 Q 880,563 940,558 Q 990,554 1030,551"
+                  fill="none" stroke="rgba(245,239,224,0.38)" stroke-width="1.1"
+                  stroke-dasharray="2 1.8" stroke-linecap="round"/>
+            <path class="hill-trail hill-trail-c"
+                  d="M 498,568 Q 440,564 380,562 Q 340,561 305,561"
+                  fill="none" stroke="rgba(245,239,224,0.38)" stroke-width="1.1"
+                  stroke-dasharray="2 1.8" stroke-linecap="round"/>
+            <!-- Trail D — left end reaches the hill crest at (1100, 552) to read as going
+                 over the hill. Right end stops at (1280, 567) — safely above the Missouri
+                 river upper edge (~y=570 at x=1280) so the trail stays on land. -->
+            <path class="hill-trail hill-trail-d"
+                  d="M 1100,552 Q 1170,560 1220,564 Q 1250,567 1280,567"
+                  fill="none" stroke="rgba(245,239,224,0.4)" stroke-width="1.1"
+                  stroke-dasharray="2 1.8" stroke-linecap="round"/>
+          </g>
+
+          <!-- v13 Liberty Memorial — on-hill foreground. Shifted slightly right and scaled up
+               an extra 10% (around base center 70,573) so the tower reads more prominent. -->
+          <g data-building="liberty-memorial" transform="translate(662, 10)">
+           <g transform="translate(70,573) scale(1.15) translate(-70,-573)">
+            <a href="buildings/liberty-memorial.html" aria-label="Liberty Memorial Tower, 1926, 217 feet">
+              <!-- Stepped stone plaza/podium at base -->
+              <path class="building-shape"
+                d="M 45,573 L 95,573 L 95,567 L 92,565 L 48,565 L 45,567 Z"
+                fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1"/>
+              <!-- Plinth under the shaft -->
+              <path class="building-shape"
+                d="M 58,565 L 82,565 L 82,552 L 80,551 L 60,551 L 58,552 Z"
+                fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1"/>
+              <!-- Tapered column shaft — narrows from ~14u at base to ~6u at top -->
+              <path class="building-shape"
+                d="M 63,551 L 77,551 L 73,464 L 67,464 Z"
+                fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="1.1"/>
+              <!-- Torch bowl / urn at the top -->
+              <path class="building-shape"
+                d="M 60,464 L 80,464 L 77,456 L 63,456 Z"
+                fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="1"/>
+              <!-- Small bowl lip -->
+              <line x1="60" y1="463" x2="80" y2="463" stroke="rgba(201,168,76,0.55)" stroke-width="0.45"/>
+              <!-- Resting flame tip -->
+              <circle cx="70" cy="451" r="3" fill="rgba(232,201,106,0.35)" stroke="#C9A84C" stroke-width="0.6"/>
+              <!-- Night: animated flame flicker rising from the bowl -->
+              <g class="building-night-lights" aria-hidden="true">
+                <circle cx="70" cy="451" r="9"   fill="rgba(255,180,90,0.2)"/>
+                <circle cx="70" cy="450" r="4.5" fill="#FFB060" class="flame-flicker"/>
+                <circle cx="70" cy="449" r="2.4" fill="#FFE8B0" class="flame-flicker"/>
+              </g>
+              <text class="building-label" x="70" y="432" text-anchor="middle">
+                <tspan x="70" dy="0" font-family="'Josefin Sans', sans-serif" font-size="9" letter-spacing="1.4" fill="#F5EFE0">LIBERTY MEMORIAL</tspan>
+                <tspan x="70" dy="13" font-family="'Josefin Sans', sans-serif" font-size="8" letter-spacing="0.8" fill="#C9A84C">1926</tspan>
+              </text>
+            </a>
+           </g>
+          </g>
+
+          <!-- The Scout (Penn Valley Park, 1914/bronze 1922) — small equestrian statue on the
+               bluff, well west of Liberty, in front of Municipal Auditorium (the building
+               between Bartle Hall and Power & Light). Horse + rider face west; rider shades
+               his eyes, gazing out toward the plains. Sits higher on the hill, not down at
+               the bluff edge — reads as "on the upper slope near the civic buildings." -->
+          <g class="scout-statue" aria-hidden="true" transform="translate(480, -18)">
+           <g transform="translate(20,572) scale(1.2) translate(-20,-572)">
+            <!-- Tall plinth base -->
+            <path class="building-shape" d="M 6,583 L 34,583 L 34,572 L 31,570 L 9,570 L 6,572 Z"
+                  fill="rgba(201,168,76,0.14)" stroke="#C9A84C" stroke-width="0.9"/>
+            <line x1="9" y1="572" x2="31" y2="572" stroke="rgba(201,168,76,0.48)" stroke-width="0.3"/>
+            <rect x="15" y="574" width="10" height="6" fill="none" stroke="rgba(201,168,76,0.32)" stroke-width="0.25"/>
+            <!-- Horse body — angular with withers at back, chest forward, rump squared -->
+            <path d="M 11,561 L 13,558.5 L 17,557.8 L 22,557.8 L 27,558.5 L 29,561 L 29,563 L 27,564.5 L 13,564.5 L 11,563 Z"
+                  fill="rgba(201,168,76,0.34)" stroke="#C9A84C" stroke-width="0.8" stroke-linejoin="round"/>
+            <!-- Mane hint between head and withers -->
+            <path d="M 12,558 L 10.5,555.5 L 11.8,553.5" fill="none" stroke="#C9A84C" stroke-width="0.45"/>
+            <!-- Horse legs down to plinth -->
+            <line x1="13" y1="564.5" x2="13" y2="570" stroke="#C9A84C" stroke-width="0.9"/>
+            <line x1="16" y1="564.5" x2="16" y2="570" stroke="#C9A84C" stroke-width="0.9"/>
+            <line x1="24" y1="564.5" x2="24" y2="570" stroke="#C9A84C" stroke-width="0.9"/>
+            <line x1="27" y1="564.5" x2="27" y2="570" stroke="#C9A84C" stroke-width="0.9"/>
+            <!-- Hoof ticks -->
+            <line x1="12.3" y1="570" x2="13.7" y2="570" stroke="#C9A84C" stroke-width="1.3"/>
+            <line x1="15.3" y1="570" x2="16.7" y2="570" stroke="#C9A84C" stroke-width="1.3"/>
+            <line x1="23.3" y1="570" x2="24.7" y2="570" stroke="#C9A84C" stroke-width="1.3"/>
+            <line x1="26.3" y1="570" x2="27.7" y2="570" stroke="#C9A84C" stroke-width="1.3"/>
+            <!-- Horse head/neck — angular, reaching left (west) -->
+            <path d="M 11,560.5 L 8.4,555.8 L 7.6,553.5 L 8.4,552 L 10,551.8 L 11.2,554 L 12.8,558 Z"
+                  fill="rgba(201,168,76,0.38)" stroke="#C9A84C" stroke-width="0.75" stroke-linejoin="round"/>
+            <!-- Muzzle + ear -->
+            <line x1="7.4" y1="553.5" x2="8.4" y2="553.2" stroke="#C9A84C" stroke-width="0.55"/>
+            <line x1="9.3" y1="552.6" x2="9.7" y2="550.5" stroke="#C9A84C" stroke-width="0.55"/>
+            <!-- Tail (two strands flowing back) -->
+            <path d="M 29,560.5 Q 32,559.2 33.8,562" fill="none" stroke="#C9A84C" stroke-width="0.85"/>
+            <path d="M 29,562 Q 32.8,562.8 34,566" fill="none" stroke="#C9A84C" stroke-width="0.55"/>
+            <!-- Rider torso — upright, slight forward lean -->
+            <path d="M 17.8,557.5 L 19.3,552.8 L 20.2,550.5 L 19.8,548 L 18.2,547.8 L 17.2,550.5 L 16.8,554 L 17.5,557.5 Z"
+                  fill="rgba(201,168,76,0.44)" stroke="#C9A84C" stroke-width="0.7" stroke-linejoin="round"/>
+            <!-- Rider head -->
+            <circle cx="19" cy="547" r="1.6" fill="rgba(201,168,76,0.55)" stroke="#C9A84C" stroke-width="0.6"/>
+            <!-- Headband -->
+            <line x1="17.5" y1="547.5" x2="20.3" y2="546.9" stroke="#C9A84C" stroke-width="0.4"/>
+            <!-- Eagle feather rising up-and-back behind head -->
+            <path d="M 19.4,545.8 L 21.1,540.5 L 21.4,541.8 L 20,545.8 Z" fill="rgba(201,168,76,0.4)" stroke="#C9A84C" stroke-width="0.45"/>
+            <!-- Raised arm shielding eyes (hand to brow, pointing west) -->
+            <line x1="18" y1="549" x2="14.6" y2="547.5" stroke="#C9A84C" stroke-width="0.85"/>
+            <circle cx="14.4" cy="547.3" r="0.55" fill="rgba(201,168,76,0.5)" stroke="#C9A84C" stroke-width="0.4"/>
+            <!-- Rein-hand down toward horse neck -->
+            <line x1="19.5" y1="551.5" x2="16.5" y2="555.5" stroke="#C9A84C" stroke-width="0.65"/>
+           </g>
+          </g>
+
+          <!-- Union Station fountain (re-anchored here with the same translate so its 235-based
+               coords still work). Jets are light blue to read as water and differentiate from
+               the cream walker silhouettes. -->
+          <g transform="translate(575, 0)">
+            <g class="us-fountain">
+              <ellipse cx="235" cy="565" rx="38" ry="5" fill="rgba(201,168,76,0.14)" stroke="#C9A84C" stroke-width="1.1"/>
+              <ellipse cx="235" cy="564" rx="35" ry="3.8" fill="rgba(92,130,160,0.72)"/>
+              <ellipse cx="235" cy="562.8" rx="28" ry="1.6" fill="rgba(200,222,240,0.55)"/>
+              <rect class="us-jet us-jet-1" x="202" y="554" width="1.4" height="8"  fill="rgba(140,180,220,0.95)"/>
+              <rect class="us-jet us-jet-2" x="210" y="549" width="1.4" height="13" fill="rgba(140,180,220,0.95)"/>
+              <rect class="us-jet us-jet-3" x="218" y="545" width="1.4" height="17" fill="rgba(140,180,220,0.95)"/>
+              <rect class="us-jet us-jet-4" x="226" y="542" width="1.4" height="20" fill="rgba(140,180,220,0.95)"/>
+              <rect class="us-jet us-jet-5" x="234" y="540" width="1.4" height="22" fill="rgba(140,180,220,0.97)"/>
+              <rect class="us-jet us-jet-6" x="242" y="542" width="1.4" height="20" fill="rgba(140,180,220,0.95)"/>
+              <rect class="us-jet us-jet-7" x="250" y="545" width="1.4" height="17" fill="rgba(140,180,220,0.95)"/>
+              <rect class="us-jet us-jet-8" x="258" y="549" width="1.4" height="13" fill="rgba(140,180,220,0.95)"/>
+              <rect class="us-jet us-jet-9" x="266" y="554" width="1.4" height="8"  fill="rgba(140,180,220,0.95)"/>
+              <circle class="us-fountain-drop" cx="206" cy="562.5" r="0.45" fill="rgba(170,200,235,0.8)"/>
+              <circle class="us-fountain-drop" cx="222" cy="562"   r="0.45" fill="rgba(170,200,235,0.8)"/>
+              <circle class="us-fountain-drop" cx="248" cy="562"   r="0.45" fill="rgba(170,200,235,0.8)"/>
+              <circle class="us-fountain-drop" cx="264" cy="562.5" r="0.45" fill="rgba(170,200,235,0.8)"/>
+              <ellipse cx="214" cy="565" rx="2.5" ry="0.45" fill="none" stroke="rgba(200,222,240,0.4)" stroke-width="0.3"/>
+              <ellipse cx="256" cy="565" rx="2.5" ry="0.45" fill="none" stroke="rgba(200,222,240,0.4)" stroke-width="0.3"/>
+            </g>
+          </g>
+
+          <!-- Hill walkers (on-hill layer) — v14e redraw: small figures with hats, coats, arms,
+               legs. Each walker picks one of six palette pairings (gold/burgundy, gold-light/
+               gold, rust/cream, slate/gold-light, burgundy/gold, cream/rust). Walkers 1-9 walk
+               laterally along the bluff; walkers 10-12 climb or descend the hill toward/away
+               from the viewer, animating the 3D relationship with Scout, Liberty, and the
+               fountain. Palette stays within the Art Deco warm family with two cool accents
+               (slate, burgundy) for variety. -->
+          <g class="hill-walkers" aria-hidden="true">
+            <g class="hill-walker hill-walker-1 walker-coat-A">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
+            <g class="hill-walker hill-walker-2 walker-coat-B">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="-1.2" y1="-4.1" x2="-1.6" y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
+            <g class="hill-walker hill-walker-3 walker-coat-C">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
+            <g class="hill-walker hill-walker-4 walker-coat-D">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="-1.2" y1="-4.1" x2="-1.6" y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
+            <g class="hill-walker hill-walker-5 walker-coat-E">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
+            <g class="hill-walker hill-walker-6 walker-coat-F">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
+            <g class="hill-walker hill-walker-7 walker-coat-A">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="-1.2" y1="-4.1" x2="-1.6" y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
+            <g class="hill-walker hill-walker-8 walker-coat-B">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
+            <g class="hill-walker hill-walker-9 walker-coat-C">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="-1.2" y1="-4.1" x2="-1.6" y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
+            <!-- Vertical walkers 10-12: climb or descend the hill (toward/away from viewer).
+                 Animation scales up when moving toward viewer (closer) and down when moving away. -->
+            <g class="hill-walker hill-walker-10 walker-coat-D">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="-1.2" y1="-4.1" x2="-1.6" y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
+            <g class="hill-walker hill-walker-11 walker-coat-F">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
+            <g class="hill-walker hill-walker-12 walker-coat-E">
+              <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+              <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+              <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+              <line    x1="-1.2" y1="-4.1" x2="-1.6" y2="-2.2" class="walker-arm"/>
+              <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+              <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+            </g>
           </g>
         </g>
 
@@ -1580,14 +1983,6 @@
       </svg>
     </div>
 
-    <fieldset class="skyline-ghost-toggle">
-      <legend class="visually-hidden">Show demolished buildings</legend>
-      <input type="checkbox" id="ghost-toggle" />
-      <label for="ghost-toggle">Show what was lost</label>
-    </fieldset>
-    <p class="skyline-ghost-caption">
-      Not every building on the skyline is still there. A few aren&rsquo;t there at all. &nbsp;<a href="history/lost-kansas-city.html">Lost Kansas City &rarr;</a>
-    </p>
   </section>
 
 

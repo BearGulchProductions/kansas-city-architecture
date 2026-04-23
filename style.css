@@ -579,8 +579,12 @@ footer p {
 .homepage-marquee {
   background: var(--black);
   border-bottom: 1px solid rgba(201,168,76,0.18);
-  padding: 3rem 2rem;
+  padding: 1.25rem 2rem;
   text-align: center;
+}
+@media (max-width: 700px) {
+  .homepage-marquee { padding: 0.75rem 1.2rem; }
+  .homepage-marquee blockquote { font-size: clamp(0.95rem, 3.8vw, 1.3rem); line-height: 1.4; }
 }
 .homepage-marquee blockquote {
   font-family: 'Playfair Display', serif;
@@ -1962,19 +1966,19 @@ a:hover .nbhd-label { fill: #E8C96A; }
 /* ── Skyline Hero ────────────────────────────────────── */
 .skyline-hero {
   background: linear-gradient(180deg, #0A0805 0%, #1A1610 100%);
-  padding: 1.1rem 0 0;
+  padding: 0.4rem 0 0;
 }
 
 .skyline-hero-overlay {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
-  padding: 0.35rem 1.5rem 0.1rem;
+  padding: 0.15rem 1.5rem 0.05rem;
 }
 @media (max-width: 700px) {
-  .skyline-hero { padding: 0.5rem 0 0; }
-  .skyline-hero-overlay { padding: 0.1rem 1rem 0.1rem; }
-  .skyline-hero-hint { margin-top: 0.35rem; }
+  .skyline-hero { padding: 0.1rem 0 0; }
+  .skyline-hero-overlay { padding: 0.05rem 1rem 0.05rem; }
+  .skyline-hero-hint { margin-top: 0.15rem; }
 }
 
 .skyline-hero-overlay .eyebrow {
@@ -1983,16 +1987,26 @@ a:hover .nbhd-label { fill: #E8C96A; }
   letter-spacing: 0.45em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+@media (max-width: 700px) {
+  .skyline-hero-overlay .eyebrow {
+    font-size: 0.58rem;
+    letter-spacing: 0.32em;
+    margin-bottom: 0.15rem;
+  }
 }
 
 .skyline-hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(2.4rem, 7vw, 6rem);
   color: var(--cream);
   line-height: 0.95;
-  margin: 1rem 0;
+  margin: 0.45rem 0 0.45rem;
   font-weight: 400;
+}
+@media (max-width: 700px) {
+  .skyline-hero h1 { margin: 0.2rem 0 0.25rem; }
 }
 
 .skyline-hero h1 span {
@@ -2002,12 +2016,20 @@ a:hover .nbhd-label { fill: #E8C96A; }
 .skyline-hero-sub {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1rem, 1.6vw, 1.3rem);
-  line-height: 1.55;
+  line-height: 1.45;
   color: var(--cream);
   max-width: 640px;
-  margin: 1.25rem auto 0;
+  margin: 0.5rem auto 0;
   font-style: italic;
   opacity: 0.9;
+}
+@media (max-width: 700px) {
+  .skyline-hero-sub {
+    font-size: clamp(0.85rem, 3.6vw, 1.05rem);
+    line-height: 1.35;
+    margin: 0.25rem auto 0;
+    max-width: 88%;
+  }
 }
 
 .skyline-hero-hint {
@@ -2021,12 +2043,15 @@ a:hover .nbhd-label { fill: #E8C96A; }
 
 .skyline-svg-container {
   width: 100%;
-  height: 46vh;
-  min-height: 300px;
-  max-height: 560px;
+  height: 40vh;
+  min-height: 260px;
+  max-height: 520px;
   overflow: hidden;
-  margin-top: 2rem;
+  margin-top: 0.2rem;
   transition: filter 0.6s ease;
+}
+@media (max-width: 700px) {
+  .skyline-svg-container { margin-top: 0.1rem; height: 32vh; min-height: 220px; }
 }
 
 /* ── Skyline Time-of-Day Controls ──────────────────── */
@@ -2046,11 +2071,14 @@ a:hover .nbhd-label { fill: #E8C96A; }
   display: flex;
   justify-content: center;
   gap: 0.75rem;
-  margin: 1.5rem auto 0;
+  margin: 0.5rem auto 0;
   border: none;
   padding: 0;
   max-width: 620px;
   flex-wrap: wrap;
+}
+@media (max-width: 700px) {
+  .skyline-controls { margin-top: 0.35rem; gap: 0.45rem; }
 }
 
 .skyline-controls input[type="radio"] {
@@ -2223,15 +2251,15 @@ body:has(#weather-snowy:checked)  .tod-layer.tod-snowy  { opacity: 1; }
   100% { fill: rgba(232,186,120,0.14); stroke: rgba(232,186,120,0.8); }
 }
 
-/* Night lights — hidden except during Night phase (~68-95% of cycle) */
+/* Night lights — on from dusk through night (v13: extended so dusk also reads as lit) */
 .building-crown-light,
 .building-night-lights {
   opacity: 0;
   animation: night-lights-visibility 40s linear infinite;
 }
 @keyframes night-lights-visibility {
-  0%, 62% { opacity: 0; }
-  72%     { opacity: 1; }
+  0%, 45% { opacity: 0; }
+  55%     { opacity: 1; }   /* dusk lit */
   92%     { opacity: 1; }
   100%    { opacity: 0; }
 }
@@ -2371,24 +2399,27 @@ body:has(#weather-stormy:checked) .wa-illumination {
 /* Streetcars: fade in at hill left toe, make one stop on the hill, fade out before reaching right toe.
    Hill toes at x≈220 (left) and x≈1440 (right). Each track stops at a different spot. */
 
+/* v13 hill-contour corrected Y offsets:
+   x=220 → y=0, x=400 → y=-4, x=700 → y=-8, x=900 → y=-10 (peak),
+   x=1200 → y=-8, x=1440 → y=0. */
 /* Track A — stops at x=820 (mid-hill, near peak) */
 @keyframes streetcar-l2r-a {
   0%    { transform: translate(-120px, 0); opacity: 0; }
   9%    { transform: translate(-120px, 0); opacity: 0; }
   11%   { transform: translate(180px, 0);  opacity: 0; }
   12%   { transform: translate(230px, 0);  opacity: 0.55; }
-  13%   { transform: translate(300px, -2px); opacity: 1; }
-  15%   { transform: translate(500px, 0);  opacity: 1; }
-  17%   { transform: translate(680px, -2px); opacity: 1; }
-  18.5% { transform: translate(790px, -8px); opacity: 1; }
+  13%   { transform: translate(300px, -3px); opacity: 1; }
+  15%   { transform: translate(500px, -5px);  opacity: 1; }
+  17%   { transform: translate(680px, -8px); opacity: 1; }
+  18.5% { transform: translate(790px, -9px); opacity: 1; }
   19%   { transform: translate(820px, -10px); opacity: 1; }
   24%   { transform: translate(820px, -10px); opacity: 1; }  /* held ~3.6s */
-  25%   { transform: translate(900px, -12px); opacity: 1; }
-  26%   { transform: translate(1020px, -8px); opacity: 1; }
-  27%   { transform: translate(1200px, -2px); opacity: 1; }
-  28.5% { transform: translate(1320px, 0);  opacity: 1; }
-  29.5% { transform: translate(1380px, 0);  opacity: 0.55; }
-  30.5% { transform: translate(1430px, 0);  opacity: 0; }
+  25%   { transform: translate(900px, -10px); opacity: 1; }
+  26%   { transform: translate(1020px, -9px); opacity: 1; }
+  27%   { transform: translate(1200px, -8px); opacity: 1; }
+  28.5% { transform: translate(1320px, -5px);  opacity: 1; }
+  29.5% { transform: translate(1380px, -3px);  opacity: 0.55; }
+  30.5% { transform: translate(1430px, -1px);  opacity: 0; }
   100%  { transform: translate(1680px, 0); opacity: 0; }
 }
 
@@ -2396,20 +2427,20 @@ body:has(#weather-stormy:checked) .wa-illumination {
 @keyframes streetcar-r2l {
   0%    { transform: translate(1680px, 0); opacity: 0; }
   9%    { transform: translate(1680px, 0); opacity: 0; }
-  11%   { transform: translate(1430px, 0); opacity: 0; }
-  12%   { transform: translate(1380px, 0); opacity: 0.55; }
-  13%   { transform: translate(1320px, 0); opacity: 1; }
-  15%   { transform: translate(1200px, -2px); opacity: 1; }
-  17%   { transform: translate(1020px, -8px); opacity: 1; }
-  18%   { transform: translate(900px, -12px); opacity: 1; }
-  19.5% { transform: translate(790px, -8px); opacity: 1; }
-  21%   { transform: translate(680px, -2px); opacity: 1; }
-  22%   { transform: translate(600px, 0); opacity: 1; }
-  22.5% { transform: translate(560px, 0); opacity: 1; }
-  26%   { transform: translate(560px, 0); opacity: 1; }    /* held ~2.5s */
-  27%   { transform: translate(500px, 0);  opacity: 1; }
-  28.5% { transform: translate(300px, -2px); opacity: 1; }
-  29%   { transform: translate(230px, 0);  opacity: 0.55; }
+  11%   { transform: translate(1430px, -1px); opacity: 0; }
+  12%   { transform: translate(1380px, -3px); opacity: 0.55; }
+  13%   { transform: translate(1320px, -5px); opacity: 1; }
+  15%   { transform: translate(1200px, -8px); opacity: 1; }
+  17%   { transform: translate(1020px, -9px); opacity: 1; }
+  18%   { transform: translate(900px, -10px); opacity: 1; }
+  19.5% { transform: translate(790px, -9px); opacity: 1; }
+  21%   { transform: translate(680px, -8px); opacity: 1; }
+  22%   { transform: translate(600px, -6px); opacity: 1; }
+  22.5% { transform: translate(560px, -5px); opacity: 1; }
+  26%   { transform: translate(560px, -5px); opacity: 1; }    /* held ~2.5s */
+  27%   { transform: translate(500px, -5px);  opacity: 1; }
+  28.5% { transform: translate(300px, -3px); opacity: 1; }
+  29%   { transform: translate(230px, -1px);  opacity: 0.55; }
   30%   { transform: translate(160px, 0);  opacity: 0; }
   100%  { transform: translate(-120px, 0); opacity: 0; }
 }
@@ -2420,18 +2451,18 @@ body:has(#weather-stormy:checked) .wa-illumination {
   9%    { transform: translate(-120px, 0); opacity: 0; }
   11%   { transform: translate(180px, 0);  opacity: 0; }
   12%   { transform: translate(230px, 0);  opacity: 0.55; }
-  13%   { transform: translate(300px, -2px); opacity: 1; }
-  15%   { transform: translate(500px, 0);  opacity: 1; }
-  17%   { transform: translate(680px, -2px); opacity: 1; }
+  13%   { transform: translate(300px, -3px); opacity: 1; }
+  15%   { transform: translate(500px, -5px);  opacity: 1; }
+  17%   { transform: translate(680px, -8px); opacity: 1; }
   18.5% { transform: translate(820px, -10px); opacity: 1; }
-  20%   { transform: translate(900px, -12px); opacity: 1; }
-  22%   { transform: translate(1020px, -8px); opacity: 1; }
-  23%   { transform: translate(1120px, -4px); opacity: 1; }
-  27%   { transform: translate(1120px, -4px); opacity: 1; }  /* held ~3s */
-  28%   { transform: translate(1200px, -2px); opacity: 1; }
-  29%   { transform: translate(1320px, 0);  opacity: 1; }
-  30%   { transform: translate(1380px, 0);  opacity: 0.55; }
-  31%   { transform: translate(1430px, 0);  opacity: 0; }
+  20%   { transform: translate(900px, -10px); opacity: 1; }
+  22%   { transform: translate(1020px, -9px); opacity: 1; }
+  23%   { transform: translate(1120px, -8px); opacity: 1; }
+  27%   { transform: translate(1120px, -8px); opacity: 1; }  /* held ~3s */
+  28%   { transform: translate(1200px, -8px); opacity: 1; }
+  29%   { transform: translate(1320px, -5px);  opacity: 1; }
+  30%   { transform: translate(1380px, -3px);  opacity: 0.55; }
+  31%   { transform: translate(1430px, -1px);  opacity: 0; }
   100%  { transform: translate(1680px, 0); opacity: 0; }
 }
 /* Flip the body of the R→L streetcar so it looks forward-facing */
@@ -2441,23 +2472,29 @@ body:has(#weather-stormy:checked) .wa-illumination {
 }
 .fg-streetcar-flipped use { transform: scaleX(-1); transform-origin: 27px 0; }
 
-/* ── v11 Union Station fountain — gentle water spray pulse ───── */
-.us-fountain-spray {
+/* ── v13 Union Station fountain — row of vertical jets across the building front,
+   each pulsing at its own height and speed. Reads as a circular ring-fountain
+   viewed head-on. ──────────────────────────────────────────────── */
+.us-jet {
   transform-origin: center bottom;
   transform-box: fill-box;
-  animation: us-fountain-pulse 3.2s ease-in-out infinite;
+  animation: us-jet-pulse 3s ease-in-out infinite;
 }
-.us-fountain-arc {
-  animation: us-fountain-pulse 3.2s ease-in-out infinite;
-}
-.us-fountain-arc-l { animation-delay: 0.4s; }
-.us-fountain-arc-r { animation-delay: 0.7s; }
-@keyframes us-fountain-pulse {
-  0%, 100% { transform: scaleY(0.85); opacity: 0.7; }
-  50%      { transform: scaleY(1.0);  opacity: 1; }
+.us-jet-1 { animation-duration: 2.3s; animation-delay: -0.2s; }
+.us-jet-2 { animation-duration: 3.1s; animation-delay: -0.9s; }
+.us-jet-3 { animation-duration: 2.7s; animation-delay: -1.4s; }
+.us-jet-4 { animation-duration: 3.4s; animation-delay: -0.5s; }
+.us-jet-5 { animation-duration: 2.6s; animation-delay: -1.1s; }
+.us-jet-6 { animation-duration: 3.2s; animation-delay: -0.3s; }
+.us-jet-7 { animation-duration: 2.4s; animation-delay: -1.6s; }
+.us-jet-8 { animation-duration: 2.9s; animation-delay: -0.7s; }
+.us-jet-9 { animation-duration: 3.3s; animation-delay: -1.3s; }
+@keyframes us-jet-pulse {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.7; }
+  50%      { transform: scaleY(1.0); opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .us-fountain-spray, .us-fountain-arc { animation: none !important; }
+  .us-jet { animation: none !important; transform: scaleY(0.75); }
 }
 
 /* ── v11 Rooftop steam wisps + City Hall flag ──────────────── */
@@ -2530,27 +2567,46 @@ body:has(#weather-stormy:checked) .wa-illumination {
 .bridge-train {
   will-change: transform;
 }
-/* Train A — L→R; travels from off-left onto the bridge, then tucks fully behind Union Station */
+/* v14e Hannibal bridge train schedule — single 320s master cycle drives both trains.
+   Only one train is visible on the bridge at a time. The sequence alternates direction
+   with runs of 1, 2, or 3 consecutive same-direction crossings:
+   slot 1: L→R, 2: L→R, 3: R→L, 4: R→L, 5: R→L, 6: L→R, 7: R→L, 8: R→L
+   (L×2, R×3, L×1, R×2 — fits the 1-3 consecutive cap Brian asked for).
+   Each slot is 12.5% of 320s = 40s. During inactive slots the train parks OFF-clip
+   (x=260 for R→L parked behind Kauffman; x=400 for L→R parked far right). translateX
+   jumps happen only while the train is off-clip, so no visible teleport. */
 .bridge-train-a {
-  animation: bridge-train-l2r 30s linear infinite;
-  animation-delay: -4s;
+  animation: bridge-train-a 320s linear infinite;
 }
-@keyframes bridge-train-l2r {
-  0%   { transform: translateX(-160px); }
-  14%  { transform: translateX(-160px); }
-  60%  { transform: translateX(230px); }
-  100% { transform: translateX(230px); }
+@keyframes bridge-train-a {
+  0%      { transform: translateX(-160px); }  /* slot 1 begins */
+  12.5%   { transform: translateX(260px); }   /* slot 1 ends (off-right) */
+  12.51%  { transform: translateX(-160px); }  /* slot 2 reset (off-left) */
+  25%     { transform: translateX(260px); }   /* slot 2 ends */
+  25.01%  { transform: translateX(400px); }   /* parked during R×3 run */
+  62.5%   { transform: translateX(400px); }
+  62.51%  { transform: translateX(-160px); }  /* slot 6 reset */
+  75%     { transform: translateX(260px); }   /* slot 6 ends */
+  75.01%  { transform: translateX(400px); }   /* parked during R×2 run */
+  100%    { transform: translateX(400px); }
 }
-/* Train B — R→L, 40s cycle, offset so it doesn't overlap with Train A */
+
 .bridge-train-b {
-  animation: bridge-train-r2l 40s linear infinite;
-  animation-delay: -14s;
+  animation: bridge-train-b 320s linear infinite;
 }
-@keyframes bridge-train-r2l {
-  0%   { transform: translateX(260px); }
-  12%  { transform: translateX(260px); }
-  55%  { transform: translateX(-160px); }
-  100% { transform: translateX(-160px); }
+@keyframes bridge-train-b {
+  0%      { transform: translateX(260px); }   /* hidden behind Kauffman (slots 1-2 = L) */
+  25%     { transform: translateX(260px); }   /* slot 3 about to begin */
+  37.5%   { transform: translateX(-160px); }  /* slot 3 ends */
+  37.51%  { transform: translateX(260px); }   /* slot 4 reset */
+  50%     { transform: translateX(-160px); }  /* slot 4 ends */
+  50.01%  { transform: translateX(260px); }   /* slot 5 reset */
+  62.5%   { transform: translateX(-160px); }  /* slot 5 ends */
+  62.51%  { transform: translateX(260px); }   /* parked during slot 6 (L) */
+  75%     { transform: translateX(260px); }   /* slot 7 about to begin */
+  87.5%   { transform: translateX(-160px); }  /* slot 7 ends */
+  87.51%  { transform: translateX(260px); }   /* slot 8 reset */
+  100%    { transform: translateX(-160px); }  /* slot 8 ends */
 }
 @media (prefers-reduced-motion: reduce) {
   .bridge-train-a, .bridge-train-b {
@@ -2609,6 +2665,32 @@ body:has(#weather-stormy:checked) .wa-illumination {
   70%  { opacity: 0.9; }
   74%  { opacity: 0; }
   100% { opacity: 0; }
+}
+
+/* v13 Banner plane — long cycle so it's a treat, not a constant feature.
+   Slightly larger than the normal plane so the banner text reads, but toned
+   down from the first pass (1.4 → 1.2). */
+.sky-plane-banner {
+  scale: 1.2;
+  animation: plane-banner-sweep 180s linear infinite;
+  animation-delay: -45s;
+}
+@keyframes plane-banner-sweep {
+  /* Full-sky crossing. Plane + trailing banner span ~190u at scale 1.2.
+     Fade in ONLY at the viewport left edge, fully visible through the entire
+     crossing, fade out ONLY at the viewport right edge. */
+  0%   { transform: translate(-220px, 115px); opacity: 0; }
+  5%   { transform: translate(-220px, 115px); opacity: 0; }   /* hold off-left */
+  7%   { transform: translate(-20px,  105px); opacity: 0; }   /* at left edge, start fade-in */
+  10%  { transform: translate(150px,  95px);  opacity: 1; }   /* fully on-screen */
+  15%  { transform: translate(500px,  82px);  opacity: 1; }
+  22%  { transform: translate(1100px, 78px);  opacity: 1; }
+  29%  { transform: translate(1580px, 98px);  opacity: 1; }   /* banner still fully inside */
+  32%  { transform: translate(1780px, 115px); opacity: 0; }   /* exited right edge */
+  100% { transform: translate(1780px, 115px); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sky-plane-banner { animation: none !important; opacity: 0 !important; }
 }
 
 /* ── v11 Track 1B (revised): Multiple bird flocks ───────────────────────────────
@@ -2931,13 +3013,16 @@ body:has(#ghost-toggle:checked) .skyline-ghosts .ghost-building:hover .ghost-lab
 }
 .skyline-ghost-caption {
   font-family: 'Poiret One', 'Playfair Display', serif;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   letter-spacing: 0.1em;
   color: var(--warm-grey);
   text-align: center;
   max-width: 680px;
-  margin: 0.25rem auto 1.25rem;
-  line-height: 1.55;
+  margin: 0.2rem auto 0.5rem;
+  line-height: 1.4;
+}
+@media (max-width: 700px) {
+  .skyline-ghost-caption { font-size: 0.82rem; margin: 0.1rem auto 0.25rem; }
 }
 .skyline-ghost-caption a {
   font-family: 'Poiret One', 'Playfair Display', serif;
@@ -2956,11 +3041,14 @@ body:has(#ghost-toggle:checked) .skyline-ghosts .ghost-building:hover .ghost-lab
   align-items: center;
   gap: 0.8rem;
   flex-wrap: wrap;
-  margin: 1rem auto 0;
+  margin: 0.25rem auto 0;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 0.65rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
+}
+@media (max-width: 700px) {
+  .phase-legend { margin-top: 0.1rem; gap: 0.45rem; font-size: 0.6rem; letter-spacing: 0.22em; }
 }
 .phase-sep {
   color: rgba(140,126,106,0.5);
@@ -4756,8 +4844,11 @@ body:has(#view-now:checked) .district-map-caption .caption-now { display: inline
   align-items: center;
   justify-content: center;
   gap: clamp(0.75rem, 2.5vw, 2rem);
-  margin: 0.75rem 0 0.5rem;
+  margin: 0.4rem 0 0.3rem;
   flex-wrap: nowrap;
+}
+@media (max-width: 700px) {
+  .homepage-title { margin: 0.2rem 0 0.15rem; gap: 0.55rem; }
 }
 
 .skyline-hero h1.homepage-title-text,
@@ -4796,15 +4887,18 @@ body:has(#view-now:checked) .district-map-caption .caption-now { display: inline
 
 .homepage-tagline {
   font-family: 'Poiret One', 'Playfair Display', serif;
-  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  font-size: clamp(0.92rem, 1.5vw, 1.35rem);
   color: var(--cream);
   text-align: center;
   max-width: 680px;
-  margin: 0.5rem auto 0.75rem;
-  line-height: 1.5;
+  margin: 0.1rem auto 0.3rem;
+  line-height: 1.4;
   letter-spacing: 0.12em;
   opacity: 0.95;
   font-weight: 400;
+}
+@media (max-width: 700px) {
+  .homepage-tagline { margin: 0.05rem auto 0.2rem; line-height: 1.3; font-size: clamp(0.82rem, 3.6vw, 1.05rem); }
 }
 
 /* ── Nav dropdown divider (v9 Reading dropdown) ─────────── */
@@ -5294,7 +5388,7 @@ body:has(#weather-stormy:checked) .marriott-led {
   align-items: center;
   gap: 0.6rem;
   border: none;
-  padding: 0.35rem 0 0;
+  padding: 0.2rem 0 0;
   margin: 0 auto;
   max-width: 340px;
 }
@@ -5889,4 +5983,325 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
     animation: none;
     opacity: 0.2;
   }
+}
+
+/* ── v13 Train interior windows — warm glow visible at dusk/night ───── */
+.train-window {
+  fill: rgba(255, 222, 150, 0);
+  animation: train-window-glow 40s linear infinite;
+}
+@keyframes train-window-glow {
+  0%, 45%  { fill: rgba(255, 222, 150, 0); }        /* dawn + day: off */
+  55%      { fill: rgba(255, 222, 150, 0.55); }     /* dusk: on */
+  92%      { fill: rgba(255, 222, 150, 0.65); }     /* night: peak */
+  100%     { fill: rgba(255, 222, 150, 0); }        /* fading into dawn */
+}
+@media (prefers-reduced-motion: reduce) {
+  .train-window { animation: none !important; fill: rgba(255, 222, 150, 0.4) !important; }
+}
+
+/* ── v13 Bond Bridge traffic — cars crossing the Missouri ─────────────
+   Two tiers of cars:
+   - `.bond-traffic-always` visible through the whole TOD cycle (dim at night)
+   - `.bond-traffic-day` fades out at night, filling in again just before dawn
+   Each car carries its own translate animation. Foreground cars (leaving the
+   city) drive L→R at y=515; background cars (entering) drive R→L at y=513. */
+.bond-traffic {
+  will-change: transform;
+}
+.bond-traffic-always {
+  animation: bond-tod-always 40s linear infinite;
+}
+.bond-traffic-day {
+  animation: bond-tod-day 40s linear infinite;
+}
+@keyframes bond-tod-always {
+  0%   { opacity: 0.55; }   /* end of night — dim traffic */
+  12%  { opacity: 1; }       /* dawn peak */
+  68%  { opacity: 1; }       /* through dusk */
+  82%  { opacity: 0.55; }    /* early night */
+  100% { opacity: 0.55; }
+}
+@keyframes bond-tod-day {
+  0%   { opacity: 0.1; }     /* pre-dawn pickup just starting */
+  3%   { opacity: 0.3; }     /* building */
+  10%  { opacity: 1; }       /* dawn full rush */
+  65%  { opacity: 1; }       /* dusk still busy */
+  76%  { opacity: 0.2; }     /* early night — most cars off */
+  85%  { opacity: 0; }       /* night: gone */
+  94%  { opacity: 0; }       /* still gone */
+  100% { opacity: 0.1; }     /* pre-dawn: starting to pick up */
+}
+
+.bond-car { will-change: transform; }
+.bond-car-fg { animation: bond-car-right var(--dur, 12s) linear infinite var(--delay, 0s); }
+.bond-car-bg { animation: bond-car-left  var(--dur, 12s) linear infinite var(--delay, 0s); }
+
+/* v14e — car lights.
+   Tail lights stay on whenever the car is running (all TOD phases).
+   Headlights only come on at dusk and through night (same gate as
+   building-night-lights), off during day. */
+.bond-taillight {
+  /* always on */
+}
+.bond-headlight {
+  opacity: 0;
+  animation: night-lights-visibility 40s linear infinite;
+}
+/* v14e — plane navigation lights (nav beacons only visible at dusk+night).
+   Inside the wrapper, each light blinks independently so they read as
+   separate beacons rather than a cluster. */
+.plane-nav-lights {
+  opacity: 0;
+  animation: night-lights-visibility 40s linear infinite;
+}
+.plane-nav-lights .plane-nav-red    { animation: plane-nav-blink 1.4s ease-in-out -0.1s infinite; }
+.plane-nav-lights .plane-nav-green  { animation: plane-nav-blink 1.4s ease-in-out -0.7s infinite; }
+.plane-nav-lights .plane-nav-strobe { animation: plane-nav-strobe 1.1s linear infinite; }
+.plane-nav-lights .plane-nav-red    { fill: #FF3030; }
+.plane-nav-lights .plane-nav-green  { fill: #32D472; }
+.plane-nav-lights .plane-nav-strobe { fill: #FFF6D8; }
+@keyframes plane-nav-blink {
+  0%, 38%, 100% { opacity: 0.18; }
+  48%, 64%      { opacity: 1; }
+}
+@keyframes plane-nav-strobe {
+  0%, 85%, 100% { opacity: 0.12; }
+  88%, 93%      { opacity: 1; }
+}
+
+/* Varied durations + delays give the feel of independent vehicles */
+.bond-car-fg-1 { --dur: 11s; --delay: -1s;  }
+.bond-car-fg-2 { --dur: 13s; --delay: -5s;  }
+.bond-car-fg-3 { --dur: 14s; --delay: -3s;  }
+.bond-car-fg-4 { --dur: 10s; --delay: -7s;  }
+.bond-car-fg-5 { --dur: 12s; --delay: -10s; }
+
+.bond-car-bg-1 { --dur: 12s; --delay: -2s;  }
+.bond-car-bg-2 { --dur: 14s; --delay: -6s;  }
+.bond-car-bg-3 { --dur: 11s; --delay: -4s;  }
+.bond-car-bg-4 { --dur: 13s; --delay: -9s;  }
+.bond-car-bg-5 { --dur: 15s; --delay: -12s; }
+
+@keyframes bond-car-right {
+  from { transform: translateX(1438px); opacity: 1; }
+  92%  { transform: translateX(1594px); opacity: 1; }
+  to   { transform: translateX(1608px); opacity: 0; }
+}
+/* Cars entering the city: fade out as they reach the right edge of the
+   18th & Vine building (x≈1440) — that's the last vertical element before
+   the bridge, so the car "disappears into the city" rather than driving over it. */
+@keyframes bond-car-left {
+  from { transform: translateX(1608px); opacity: 1; }
+  90%  { transform: translateX(1454px); opacity: 1; }
+  to   { transform: translateX(1440px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bond-traffic-always, .bond-traffic-day { animation: none !important; opacity: 0.4 !important; }
+  .bond-car-fg, .bond-car-bg { animation: none !important; }
+  .bond-car-fg { transform: translateX(1490px); }
+  .bond-car-bg { transform: translateX(1550px); }
+}
+
+/* ── v13 Hill walkers — small figures fading in along the bluff,
+   walking a short stretch, and fading out as if entering a doorway ─── */
+.hill-walker {
+  will-change: transform, opacity;
+  opacity: 0;
+}
+.hill-walker-1 { animation: walker-1 28s ease-in-out infinite; animation-delay: 0s; }
+.hill-walker-2 { animation: walker-2 25s ease-in-out infinite; animation-delay: -8s; }
+.hill-walker-3 { animation: walker-3 22s ease-in-out infinite; animation-delay: -4s; }
+.hill-walker-4 { animation: walker-4 30s ease-in-out infinite; animation-delay: -13s; }
+.hill-walker-5 { animation: walker-5 26s ease-in-out infinite; animation-delay: -17s; }
+.hill-walker-6 { animation: walker-6 24s ease-in-out infinite; animation-delay: -11s; }
+.hill-walker-7 { animation: walker-7 29s ease-in-out infinite; animation-delay: -6s;  }
+.hill-walker-8 { animation: walker-8 27s ease-in-out infinite; animation-delay: -19s; }
+.hill-walker-9 { animation: walker-9 23s ease-in-out infinite; animation-delay: -14s; }
+
+/* Walker 1 — emerges near x=280 off the tree clump and walks east toward the first lamp */
+@keyframes walker-1 {
+  0%   { opacity: 0; transform: translate(282px, 559px) scale(0.55); }
+  8%   { opacity: 0.25; transform: translate(282px, 559px) scale(0.7); }
+  15%  { opacity: 1; transform: translate(286px, 559px) scale(1); }
+  70%  { opacity: 1; transform: translate(336px, 557px) scale(1); }
+  85%  { opacity: 0.3; transform: translate(346px, 556px) scale(0.75); }
+  92%  { opacity: 0; transform: translate(352px, 555px) scale(0.55); }
+  100% { opacity: 0; transform: translate(352px, 555px) scale(0.55); }
+}
+/* Walker 2 — west-bound near the Bartle district (entering a lobby) */
+@keyframes walker-2 {
+  0%   { opacity: 0; transform: translate(752px, 552px) scale(0.55); }
+  10%  { opacity: 0.3; transform: translate(750px, 552px) scale(0.75); }
+  18%  { opacity: 1; transform: translate(745px, 552px) scale(1); }
+  72%  { opacity: 1; transform: translate(685px, 553px) scale(1); }
+  86%  { opacity: 0.3; transform: translate(678px, 554px) scale(0.75); }
+  94%  { opacity: 0; transform: translate(674px, 554px) scale(0.55); }
+  100% { opacity: 0; transform: translate(674px, 554px) scale(0.55); }
+}
+/* Walker 3 — east-bound near the peak of the bluff */
+@keyframes walker-3 {
+  0%   { opacity: 0; transform: translate(920px, 550px) scale(0.5); }
+  10%  { opacity: 0.3; transform: translate(922px, 550px) scale(0.72); }
+  20%  { opacity: 1; transform: translate(928px, 550px) scale(1); }
+  72%  { opacity: 1; transform: translate(988px, 551px) scale(1); }
+  86%  { opacity: 0.3; transform: translate(996px, 551px) scale(0.75); }
+  94%  { opacity: 0; transform: translate(1002px, 551px) scale(0.5); }
+  100% { opacity: 0; transform: translate(1002px, 551px) scale(0.5); }
+}
+/* Walker 4 — west-bound east of the skyline peak, near 909 Walnut */
+@keyframes walker-4 {
+  0%   { opacity: 0; transform: translate(1158px, 553px) scale(0.55); }
+  8%   { opacity: 0.3; transform: translate(1155px, 553px) scale(0.72); }
+  17%  { opacity: 1; transform: translate(1150px, 553px) scale(1); }
+  72%  { opacity: 1; transform: translate(1084px, 553px) scale(1); }
+  85%  { opacity: 0.3; transform: translate(1078px, 553px) scale(0.75); }
+  93%  { opacity: 0; transform: translate(1074px, 553px) scale(0.55); }
+  100% { opacity: 0; transform: translate(1074px, 553px) scale(0.55); }
+}
+/* Walker 5 — east-bound, between Bartle and the peak */
+@keyframes walker-5 {
+  0%   { opacity: 0; transform: translate(620px, 553px) scale(0.55); }
+  10%  { opacity: 0.3; transform: translate(624px, 553px) scale(0.75); }
+  18%  { opacity: 1; transform: translate(628px, 553px) scale(1); }
+  70%  { opacity: 1; transform: translate(692px, 552px) scale(1); }
+  84%  { opacity: 0.3; transform: translate(700px, 552px) scale(0.75); }
+  92%  { opacity: 0; transform: translate(706px, 552px) scale(0.55); }
+  100% { opacity: 0; transform: translate(706px, 552px) scale(0.55); }
+}
+/* Walker 6 — east-bound, lower-left hill (between trees/lamps at x=350-470) */
+@keyframes walker-6 {
+  0%   { opacity: 0; transform: translate(390px, 556px) scale(0.55); }
+  9%   { opacity: 0.3; transform: translate(392px, 556px) scale(0.72); }
+  17%  { opacity: 1; transform: translate(396px, 556px) scale(1); }
+  70%  { opacity: 1; transform: translate(452px, 555px) scale(1); }
+  85%  { opacity: 0.3; transform: translate(460px, 555px) scale(0.75); }
+  93%  { opacity: 0; transform: translate(466px, 555px) scale(0.55); }
+  100% { opacity: 0; transform: translate(466px, 555px) scale(0.55); }
+}
+/* Walker 7 — west-bound, between lamp at 580 and the tree cluster at 470 */
+@keyframes walker-7 {
+  0%   { opacity: 0; transform: translate(540px, 553px) scale(0.55); }
+  10%  { opacity: 0.3; transform: translate(537px, 553px) scale(0.74); }
+  18%  { opacity: 1; transform: translate(532px, 553px) scale(1); }
+  72%  { opacity: 1; transform: translate(478px, 554px) scale(1); }
+  86%  { opacity: 0.3; transform: translate(470px, 555px) scale(0.75); }
+  94%  { opacity: 0; transform: translate(466px, 555px) scale(0.55); }
+  100% { opacity: 0; transform: translate(466px, 555px) scale(0.55); }
+}
+/* Walker 8 — east-bound, near lamp at x=1100 */
+@keyframes walker-8 {
+  0%   { opacity: 0; transform: translate(1040px, 553px) scale(0.55); }
+  10%  { opacity: 0.3; transform: translate(1044px, 553px) scale(0.74); }
+  18%  { opacity: 1; transform: translate(1048px, 553px) scale(1); }
+  72%  { opacity: 1; transform: translate(1108px, 553px) scale(1); }
+  85%  { opacity: 0.3; transform: translate(1114px, 554px) scale(0.75); }
+  93%  { opacity: 0; transform: translate(1118px, 554px) scale(0.55); }
+  100% { opacity: 0; transform: translate(1118px, 554px) scale(0.55); }
+}
+/* Walker 9 — west-bound, east side of the bluff near x=1280 */
+@keyframes walker-9 {
+  0%   { opacity: 0; transform: translate(1286px, 553px) scale(0.55); }
+  11%  { opacity: 0.3; transform: translate(1282px, 553px) scale(0.72); }
+  19%  { opacity: 1; transform: translate(1276px, 553px) scale(1); }
+  72%  { opacity: 1; transform: translate(1216px, 554px) scale(1); }
+  85%  { opacity: 0.3; transform: translate(1208px, 554px) scale(0.75); }
+  93%  { opacity: 0; transform: translate(1204px, 554px) scale(0.55); }
+  100% { opacity: 0; transform: translate(1204px, 554px) scale(0.55); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hill-walker { animation: none !important; opacity: 0.55 !important; }
+  .hill-walker-1 { transform: translate(310px, 558px); }
+  .hill-walker-2 { transform: translate(720px, 552px); }
+  .hill-walker-3 { transform: translate(955px, 550px); }
+  .hill-walker-4 { transform: translate(1115px, 553px); }
+  .hill-walker-5 { transform: translate(660px, 553px); }
+  .hill-walker-6 { transform: translate(420px, 555px); }
+  .hill-walker-7 { transform: translate(505px, 553px); }
+  .hill-walker-8 { transform: translate(1080px, 553px); }
+  .hill-walker-9 { transform: translate(1250px, 553px); }
+  .hill-walker-10 { transform: translate(820px, 575px) scale(1.1); }
+  .hill-walker-11 { transform: translate(850px, 575px) scale(1.05); }
+  .hill-walker-12 { transform: translate(610px, 575px) scale(1.15); }
+}
+
+/* v14e walker part palette ─── detailed figures with hats and coats in the Art Deco family.
+   Each walker picks one of six coat classes (A–F), rotating across the twelve walkers.
+   Cool accents (slate #4E6A78, burgundy #7A3848) stay muted so the overall skyline still
+   reads as warm-gold Art Deco. */
+.hill-walker .walker-head { fill: #F5EFE0; opacity: 0.92; }
+.hill-walker .walker-hat  { opacity: 0.92; stroke: rgba(8,6,3,0.4);  stroke-width: 0.2; }
+.hill-walker .walker-coat { opacity: 0.86; stroke: rgba(8,6,3,0.45); stroke-width: 0.28; stroke-linejoin: round; }
+.hill-walker .walker-arm,
+.hill-walker .walker-leg  { stroke-linecap: round; }
+.hill-walker .walker-arm  { stroke-width: 0.75; }
+.hill-walker .walker-leg  { stroke-width: 0.95; }
+
+.hill-walker.walker-coat-A .walker-coat { fill: #C9A84C; }
+.hill-walker.walker-coat-A .walker-hat  { fill: #7A3848; }
+.hill-walker.walker-coat-A .walker-arm,
+.hill-walker.walker-coat-A .walker-leg  { stroke: #C9A84C; }
+
+.hill-walker.walker-coat-B .walker-coat { fill: #F5D98A; }
+.hill-walker.walker-coat-B .walker-hat  { fill: #C9A84C; }
+.hill-walker.walker-coat-B .walker-arm,
+.hill-walker.walker-coat-B .walker-leg  { stroke: #E6C46F; }
+
+.hill-walker.walker-coat-C .walker-coat { fill: #B0703A; }
+.hill-walker.walker-coat-C .walker-hat  { fill: #F5EFE0; }
+.hill-walker.walker-coat-C .walker-arm,
+.hill-walker.walker-coat-C .walker-leg  { stroke: #B0703A; }
+
+.hill-walker.walker-coat-D .walker-coat { fill: #4E6A78; }
+.hill-walker.walker-coat-D .walker-hat  { fill: #F5D98A; }
+.hill-walker.walker-coat-D .walker-arm,
+.hill-walker.walker-coat-D .walker-leg  { stroke: #6A8A99; }
+
+.hill-walker.walker-coat-E .walker-coat { fill: #7A3848; }
+.hill-walker.walker-coat-E .walker-hat  { fill: #C9A84C; }
+.hill-walker.walker-coat-E .walker-arm,
+.hill-walker.walker-coat-E .walker-leg  { stroke: #7A3848; }
+
+.hill-walker.walker-coat-F .walker-coat { fill: #F5EFE0; }
+.hill-walker.walker-coat-F .walker-hat  { fill: #B0703A; }
+.hill-walker.walker-coat-F .walker-arm,
+.hill-walker.walker-coat-F .walker-leg  { stroke: #E6DCC0; }
+
+/* Vertical walkers — climb or descend the hill. Scale grows as they approach the viewer
+   and shrinks as they retreat, giving the on-hill-layer a hint of depth. */
+.hill-walker-10 { animation: walker-10 32s ease-in-out infinite; animation-delay: -3s; }
+.hill-walker-11 { animation: walker-11 30s ease-in-out infinite; animation-delay: -15s; }
+.hill-walker-12 { animation: walker-12 28s ease-in-out infinite; animation-delay: -9s; }
+
+/* Walker 10 — descends from upper-right bluff toward the foreground near the fountain */
+@keyframes walker-10 {
+  0%   { opacity: 0;   transform: translate(860px, 553px) scale(0.55); }
+  8%   { opacity: 0.3; transform: translate(853px, 557px) scale(0.7); }
+  18%  { opacity: 1;   transform: translate(846px, 562px) scale(0.9); }
+  70%  { opacity: 1;   transform: translate(790px, 588px) scale(1.3); }
+  86%  { opacity: 0.35;transform: translate(780px, 593px) scale(1.4); }
+  95%  { opacity: 0;   transform: translate(776px, 596px) scale(1.45); }
+  100% { opacity: 0;   transform: translate(776px, 596px) scale(1.45); }
+}
+/* Walker 11 — climbs from near Liberty plaza back up the bluff */
+@keyframes walker-11 {
+  0%   { opacity: 0;   transform: translate(820px, 590px) scale(1.4); }
+  8%   { opacity: 0.35;transform: translate(826px, 586px) scale(1.3); }
+  17%  { opacity: 1;   transform: translate(835px, 580px) scale(1.15); }
+  70%  { opacity: 1;   transform: translate(892px, 554px) scale(0.78); }
+  86%  { opacity: 0.3; transform: translate(900px, 551px) scale(0.65); }
+  95%  { opacity: 0;   transform: translate(904px, 549px) scale(0.55); }
+  100% { opacity: 0;   transform: translate(904px, 549px) scale(0.55); }
+}
+/* Walker 12 — descends near the Scout/Municipal area toward the foreground */
+@keyframes walker-12 {
+  0%   { opacity: 0;   transform: translate(580px, 553px) scale(0.55); }
+  8%   { opacity: 0.3; transform: translate(575px, 557px) scale(0.72); }
+  17%  { opacity: 1;   transform: translate(570px, 562px) scale(0.92); }
+  70%  { opacity: 1;   transform: translate(525px, 590px) scale(1.35); }
+  86%  { opacity: 0.35;transform: translate(518px, 594px) scale(1.45); }
+  95%  { opacity: 0;   transform: translate(513px, 597px) scale(1.5); }
+  100% { opacity: 0;   transform: translate(513px, 597px) scale(1.5); }
 }
