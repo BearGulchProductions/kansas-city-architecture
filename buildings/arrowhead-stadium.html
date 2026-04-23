@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Arrowhead Stadium — Look Up, Kansas City" />
   <meta name="twitter:description" content="Arrowhead Stadium — home of the Kansas City Chiefs since 1972. One of the loudest stadiums in the NFL, part of the Truman Sports Complex." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/3/34/Kansas_City_Arrowhead_Stadium.jpg" />
-  <link rel="stylesheet" href="../style.css?v=12b" />
+  <link rel="stylesheet" href="../style.css?v=13e" />
 </head>
 <body>
 
@@ -153,6 +153,48 @@
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+      <div class="building-elevation-wrap">
+        <svg class="building-elevation-svg" viewBox="0 0 500 600" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-labelledby="elev-ah-title">
+          <title id="elev-ah-title">Arrowhead Stadium elevation, approximately 200 feet at the scoreboard, with a 6-foot human figure for scale</title>
+          <!-- Scale: 6-foot human at x=40 (artistically enlarged to 22 units for legibility) -->
+          <g aria-hidden="true">
+            <circle pathLength="1" style="--order: 0;" cx="40" cy="562" r="2.6" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="565" x2="40" y2="573" />
+            <line pathLength="1" style="--order: 0;" x1="34" y1="568" x2="46" y2="568" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="35" y2="580" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="45" y2="580" />
+          </g>
+          <line pathLength="1" style="--order: 2;" x1="20" y1="580" x2="480" y2="580" />
+          <!-- Main base concourse (wide rectangular plinth) -->
+          <path pathLength="1" style="--order: 3;"
+                d="M 70 580 L 70 470 L 430 470 L 430 580 Z" />
+          <!-- Saddle-shaped upper bowl profile: rises toward the center -->
+          <path pathLength="1" style="--order: 4;"
+                d="M 70 470 Q 140 425 250 425 Q 360 425 430 470" />
+          <!-- Structural columns / pilasters on the concourse -->
+          <line pathLength="1" style="--order: 5;" x1="110" y1="470" x2="110" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="150" y1="470" x2="150" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="190" y1="470" x2="190" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="230" y1="470" x2="230" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="270" y1="470" x2="270" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="310" y1="470" x2="310" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="350" y1="470" x2="350" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="390" y1="470" x2="390" y2="580" />
+          <!-- Central scoreboard tower rising above the bowl -->
+          <path pathLength="1" style="--order: 6;"
+                d="M 216 425 L 216 355 L 284 355 L 284 425 Z" />
+          <!-- Arrowhead logo on the scoreboard -->
+          <path pathLength="1" style="--order: 7;"
+                d="M 250 397 L 234 375 L 250 382 L 266 375 Z" />
+          <!-- Callout leader to the scoreboard -->
+          <line pathLength="1" style="--order: 7;" x1="286" y1="385" x2="392" y2="385" />
+          <circle pathLength="1" style="--order: 7;" cx="395" cy="385" r="2.2" />
+          <circle class="elevation-fill" cx="395" cy="385" r="4" />
+          <text x="498" y="389" text-anchor="end">The Scoreboard</text>
+        </svg>
+        <p class="building-elevation-caption">Opened 1972, 76,000 seats. The scoreboard tower sits at the center of the saddle-shaped upper rim, visible from Interstate 70.</p>
+      </div>
+
 
       <div class="detail-section">
         <h2>The Loudest Stadium in the World</h2>
@@ -308,5 +350,6 @@
     </div>
   </footer>
 
+  <script defer src="/js/essay-enhance.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css?v=12b" />
+  <link rel="stylesheet" href="../style.css?v=13e" />
   <meta property="og:title" content="Jackson County Courthouse — Look Up, Kansas City" />
   <meta property="og:description" content="The Art Deco Jackson County Courthouse, completed 1934 — Harry Truman's workplace as presiding judge, part of the Pendergast era Ten-Year Plan civic campus." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/2/21/Kansas_City_Missouri_City_Hall.jpg" />
@@ -196,6 +196,49 @@
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+      <div class="building-elevation-wrap">
+        <svg class="building-elevation-svg" viewBox="0 0 500 600" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-labelledby="elev-jcc-title">
+          <title id="elev-jcc-title">Jackson County Courthouse elevation, 354 feet tall, shown with human and Liberty Memorial references for scale</title>
+          <!-- Scale: 6-foot human at x=40 (artistically enlarged to 22 units for legibility) -->
+          <g aria-hidden="true">
+            <circle pathLength="1" style="--order: 0;" cx="40" cy="562" r="2.6" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="565" x2="40" y2="573" />
+            <line pathLength="1" style="--order: 0;" x1="34" y1="568" x2="46" y2="568" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="35" y2="580" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="45" y2="580" />
+          </g>
+          <!-- Scale: Liberty Memorial 217 ft, for reference -->
+          <g aria-hidden="true">
+            <path pathLength="1" style="--order: 1;" d="M 86 580 L 86 575 L 104 575 L 104 580" />
+            <path pathLength="1" style="--order: 1;" d="M 92 575 L 92 405 L 98 405 L 98 575" />
+            <path pathLength="1" style="--order: 1;" d="M 88 405 L 88 398 L 102 398 L 102 405 Z" />
+            <path pathLength="1" style="--order: 1;" d="M 93 398 Q 95 390 95 393 Q 95 386 97 398 Z" />
+          </g>
+          <line pathLength="1" style="--order: 2;" x1="20" y1="580" x2="480" y2="580" />
+          <!-- Stepped Art Deco silhouette: base + three setbacks + crown -->
+          <path pathLength="1" style="--order: 3;"
+                d="M 210 580 L 210 350 L 222 350 L 222 310 L 234 310 L 234 280 L 246 280 L 246 272 L 294 272 L 294 280 L 306 280 L 306 310 L 318 310 L 318 350 L 330 350 L 330 580 Z" />
+          <!-- Vertical piers on the base -->
+          <line pathLength="1" style="--order: 4;" x1="228" y1="380" x2="228" y2="580" />
+          <line pathLength="1" style="--order: 4;" x1="246" y1="380" x2="246" y2="580" />
+          <line pathLength="1" style="--order: 4;" x1="264" y1="380" x2="264" y2="580" />
+          <line pathLength="1" style="--order: 4;" x1="282" y1="380" x2="282" y2="580" />
+          <line pathLength="1" style="--order: 4;" x1="300" y1="380" x2="300" y2="580" />
+          <line pathLength="1" style="--order: 4;" x1="312" y1="380" x2="312" y2="580" />
+          <!-- Horizontal bands marking setbacks -->
+          <line pathLength="1" style="--order: 5;" x1="210" y1="380" x2="330" y2="380" />
+          <line pathLength="1" style="--order: 5;" x1="210" y1="460" x2="330" y2="460" />
+          <!-- Flagpole -->
+          <line pathLength="1" style="--order: 6;" x1="270" y1="272" x2="270" y2="250" />
+          <!-- Callout leader to the stepped crown -->
+          <line pathLength="1" style="--order: 7;" x1="319" y1="330" x2="392" y2="330" />
+          <circle pathLength="1" style="--order: 7;" cx="395" cy="330" r="2.2" />
+          <circle class="elevation-fill" cx="395" cy="330" r="4" />
+          <text x="498" y="334" text-anchor="end">The Ziggurat</text>
+        </svg>
+        <p class="building-elevation-caption">1934, Wight &amp; Wight, 22 floors. The same firm designed City Hall across the street in 1937, in the same Art Deco mode.</p>
+      </div>
+
 
       <div class="author-byline">
         <span class="author-byline-label">Written by</span>
@@ -370,5 +413,6 @@
     </div>
   </footer>
 
+  <script defer src="/js/essay-enhance.js"></script>
 </body>
 </html>

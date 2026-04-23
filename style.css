@@ -5672,6 +5672,121 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   .page-toc-inner a.is-active::after { animation: none; opacity: 1; }
 }
 
+/* ── v13 Building elevations — line-art silhouettes with human scale + callout ── */
+
+.building-elevation-wrap {
+  max-width: 500px;
+  margin: 2.5rem auto 3rem;
+  text-align: center;
+}
+.building-elevation-svg {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto;
+  overflow: visible;
+}
+.building-elevation-svg path:not(.elevation-fill),
+.building-elevation-svg line:not(.elevation-fill),
+.building-elevation-svg polyline:not(.elevation-fill),
+.building-elevation-svg circle:not(.elevation-fill),
+.building-elevation-svg polygon:not(.elevation-fill),
+.building-elevation-svg ellipse:not(.elevation-fill),
+.building-elevation-svg rect:not(.elevation-fill) {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.building-elevation-svg .elevation-fill {
+  fill: var(--gold-light);
+  stroke: none;
+  opacity: 0.15;
+  transform-origin: center;
+}
+.building-elevation-svg text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  fill: var(--gold);
+  opacity: 0;
+  font-weight: 400;
+  /* Halo: a matching-background stroke under the fill so the label
+     reads cleanly over leader lines and other artwork. */
+  paint-order: stroke fill;
+  stroke: #1A1610;
+  stroke-width: 6px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.building-elevation-wrap.specimen-animate .building-elevation-svg path:not(.elevation-fill),
+.building-elevation-wrap.specimen-animate .building-elevation-svg line:not(.elevation-fill),
+.building-elevation-wrap.specimen-animate .building-elevation-svg polyline:not(.elevation-fill),
+.building-elevation-wrap.specimen-animate .building-elevation-svg circle:not(.elevation-fill),
+.building-elevation-wrap.specimen-animate .building-elevation-svg polygon:not(.elevation-fill),
+.building-elevation-wrap.specimen-animate .building-elevation-svg ellipse:not(.elevation-fill),
+.building-elevation-wrap.specimen-animate .building-elevation-svg rect:not(.elevation-fill) {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: specimen-draw 1.6s cubic-bezier(0.5, 0.1, 0.25, 1) forwards;
+  animation-delay: calc(var(--order, 0) * 0.18s + 0.15s);
+}
+.building-elevation-wrap.specimen-animate .building-elevation-svg .elevation-fill {
+  opacity: 0;
+  animation: elevation-accent 2.6s ease-in-out infinite;
+  animation-delay: 2.8s;
+}
+.building-elevation-wrap.specimen-animate .building-elevation-svg text {
+  animation: elevation-label-fade 0.75s ease-out forwards;
+  animation-delay: 2.6s;
+}
+
+.building-elevation-caption {
+  margin: 1.5rem auto 0;
+  max-width: 440px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--warm-grey);
+  font-style: italic;
+}
+
+@keyframes elevation-accent {
+  0%   { opacity: 0; }
+  30%  { opacity: 0.45; }
+  100% { opacity: 0.15; }
+}
+@keyframes elevation-label-fade {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .building-elevation-svg path:not(.elevation-fill),
+  .building-elevation-svg line:not(.elevation-fill),
+  .building-elevation-svg polyline:not(.elevation-fill),
+  .building-elevation-svg circle:not(.elevation-fill),
+  .building-elevation-svg polygon:not(.elevation-fill),
+  .building-elevation-svg ellipse:not(.elevation-fill),
+  .building-elevation-svg rect:not(.elevation-fill) {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  .building-elevation-svg .elevation-fill {
+    animation: none !important;
+    opacity: 0.2 !important;
+  }
+  .building-elevation-svg text {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* ── v12 Style specimens — draw-on-load line-art ornaments ── */
 
 .style-specimen {

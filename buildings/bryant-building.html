@@ -15,7 +15,7 @@
   <meta property="og:description" content="The Bryant Building (1931) — one of downtown Kansas City's quieter Art Deco survivors." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/7/70/Kansas_City_Power_and_Light_Building_1931.jpg" />
   <meta property="og:type" content="website" />
-  <link rel="stylesheet" href="../style.css?v=12b" />
+  <link rel="stylesheet" href="../style.css?v=13e" />
 </head>
 <body>
 
@@ -148,6 +148,48 @@
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+      <div class="building-elevation-wrap">
+        <svg class="building-elevation-svg" viewBox="0 0 500 600" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-labelledby="elev-br-title">
+          <title id="elev-br-title">Bryant Building elevation, 205 feet, shown with human and Liberty Memorial references for scale</title>
+          <!-- Scale: 6-foot human at x=40 (artistically enlarged to 22 units for legibility) -->
+          <g aria-hidden="true">
+            <circle pathLength="1" style="--order: 0;" cx="40" cy="562" r="2.6" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="565" x2="40" y2="573" />
+            <line pathLength="1" style="--order: 0;" x1="34" y1="568" x2="46" y2="568" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="35" y2="580" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="45" y2="580" />
+          </g>
+          <!-- Scale: Liberty Memorial 217 ft, for reference -->
+          <g aria-hidden="true">
+            <path pathLength="1" style="--order: 1;" d="M 86 580 L 86 575 L 104 575 L 104 580" />
+            <path pathLength="1" style="--order: 1;" d="M 92 575 L 92 405 L 98 405 L 98 575" />
+            <path pathLength="1" style="--order: 1;" d="M 88 405 L 88 398 L 102 398 L 102 405 Z" />
+            <path pathLength="1" style="--order: 1;" d="M 93 398 Q 95 390 95 393 Q 95 386 97 398 Z" />
+          </g>
+          <line pathLength="1" style="--order: 2;" x1="20" y1="580" x2="480" y2="580" />
+          <!-- Main silhouette with a small crown setback -->
+          <path pathLength="1" style="--order: 3;"
+                d="M 220 580 L 220 420 L 230 420 L 230 410 L 310 410 L 310 420 L 320 420 L 320 580 Z" />
+          <!-- Three vertical mullions creating four window bays -->
+          <line pathLength="1" style="--order: 4;" x1="244" y1="420" x2="244" y2="580" />
+          <line pathLength="1" style="--order: 4;" x1="270" y1="420" x2="270" y2="580" />
+          <line pathLength="1" style="--order: 4;" x1="296" y1="420" x2="296" y2="580" />
+          <!-- Horizontal spandrel bands between floors (the bronze panels) -->
+          <line pathLength="1" style="--order: 5;" x1="225" y1="455" x2="315" y2="455" />
+          <line pathLength="1" style="--order: 5;" x1="225" y1="485" x2="315" y2="485" />
+          <line pathLength="1" style="--order: 5;" x1="225" y1="515" x2="315" y2="515" />
+          <line pathLength="1" style="--order: 5;" x1="225" y1="545" x2="315" y2="545" />
+          <!-- Cornice at the crown -->
+          <line pathLength="1" style="--order: 6;" x1="220" y1="425" x2="320" y2="425" />
+          <!-- Callout leader to a spandrel band -->
+          <line pathLength="1" style="--order: 7;" x1="321" y1="485" x2="392" y2="485" />
+          <circle pathLength="1" style="--order: 7;" cx="395" cy="485" r="2.2" />
+          <circle class="elevation-fill" cx="395" cy="485" r="4" />
+          <text x="498" y="489" text-anchor="end">The Spandrels</text>
+        </svg>
+        <p class="building-elevation-caption">Completed 1931, 17 floors. Each floor plate is separated from the next by an engraved bronze spandrel — the building's Art Deco detail.</p>
+      </div>
+
 
       <div class="detail-section">
         <h2>The Deco Building That Isn&apos;t Famous</h2>
@@ -300,5 +342,6 @@
     </div>
   </footer>
 
+  <script defer src="/js/essay-enhance.js"></script>
 </body>
 </html>

@@ -77,7 +77,7 @@
   // The CSS gates the draw + glow on this class, so animations start fresh
   // on scroll-in rather than running at page load regardless of position. ──
   (function () {
-    var specimens = document.querySelectorAll('.style-specimen');
+    var specimens = document.querySelectorAll('.style-specimen, .building-elevation-wrap');
     if (!specimens.length) return;
 
     // Reduced motion: mark them all animate-ready; CSS handles the no-motion
@@ -89,25 +89,20 @@
       return;
     }
 
-    var viewportH = window.innerHeight;
-
+    // Always observe — IntersectionObserver fires immediately for elements
+    // already in view at load, and fires on scroll-in for elements below
+    // the fold. That way the draw always happens *while the user is looking
+    // at it*, never before they've scrolled to it.
     var specObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         e.target.classList.add('specimen-animate');
         specObs.unobserve(e.target);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    }, { rootMargin: '0px 0px -15% 0px', threshold: 0.2 });
 
     Array.prototype.forEach.call(specimens, function (spec) {
-      var rect = spec.getBoundingClientRect();
-      // Animate immediately only if the specimen's top is in the upper
-      // half of the viewport — otherwise the user won't see the draw.
-      if (rect.top < viewportH * 0.5 && rect.top + rect.height > 0) {
-        spec.classList.add('specimen-animate');
-      } else {
-        specObs.observe(spec);
-      }
+      specObs.observe(spec);
     });
   })();
 })();

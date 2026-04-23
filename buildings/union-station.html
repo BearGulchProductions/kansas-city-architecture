@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css?v=12b" />
+  <link rel="stylesheet" href="../style.css?v=13e" />
   <meta property="og:title" content="Union Station — Look Up, Kansas City" />
   <meta property="og:description" content="Opened in 1914, KC's Union Station was one of the largest rail terminals in the world. Its restoration is one of the city's great second acts." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/e/ea/KCUnionStation.jpg" />
@@ -196,6 +196,51 @@
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+      <div class="building-elevation-wrap">
+        <svg class="building-elevation-svg" viewBox="0 0 500 600" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-labelledby="elev-us-title">
+          <title id="elev-us-title">Union Station elevation, 95 feet tall, with a 6-foot human figure for scale</title>
+          <!-- Scale: 6-foot human at x=40 (artistically enlarged to 22 units for legibility) -->
+          <g aria-hidden="true">
+            <circle pathLength="1" style="--order: 0;" cx="40" cy="562" r="2.6" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="565" x2="40" y2="573" />
+            <line pathLength="1" style="--order: 0;" x1="34" y1="568" x2="46" y2="568" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="35" y2="580" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="45" y2="580" />
+          </g>
+          <line pathLength="1" style="--order: 2;" x1="20" y1="580" x2="480" y2="580" />
+          <!-- Main silhouette: two wings flanking a taller central hall -->
+          <path pathLength="1" style="--order: 3;"
+                d="M 135 580 L 135 525 L 225 525 L 225 497 L 315 497 L 315 525 L 405 525 L 405 580 Z" />
+          <!-- Raised parapet crown on the central hall -->
+          <path pathLength="1" style="--order: 3;"
+                d="M 245 497 L 245 488 L 295 488 L 295 497" />
+          <!-- Cornice band on the wings -->
+          <line pathLength="1" style="--order: 4;" x1="135" y1="535" x2="225" y2="535" />
+          <line pathLength="1" style="--order: 4;" x1="315" y1="535" x2="405" y2="535" />
+          <!-- Pilasters / windows on the wings (vertical strips) -->
+          <line pathLength="1" style="--order: 5;" x1="155" y1="540" x2="155" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="175" y1="540" x2="175" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="195" y1="540" x2="195" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="215" y1="540" x2="215" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="325" y1="540" x2="325" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="345" y1="540" x2="345" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="365" y1="540" x2="365" y2="580" />
+          <line pathLength="1" style="--order: 5;" x1="385" y1="540" x2="385" y2="580" />
+          <!-- Three arched entrance openings in the central hall -->
+          <path pathLength="1" style="--order: 6;" d="M 232 580 L 232 550 Q 232 540 242 540 Q 252 540 252 550 L 252 580" />
+          <path pathLength="1" style="--order: 6;" d="M 260 580 L 260 548 Q 260 533 270 533 Q 280 533 280 548 L 280 580" />
+          <path pathLength="1" style="--order: 6;" d="M 288 580 L 288 550 Q 288 540 298 540 Q 308 540 308 550 L 308 580" />
+          <!-- Clock face in the parapet -->
+          <circle pathLength="1" style="--order: 6;" cx="270" cy="493" r="3" />
+          <!-- Callout leader to the Grand Hall -->
+          <line pathLength="1" style="--order: 7;" x1="316" y1="510" x2="392" y2="510" />
+          <circle pathLength="1" style="--order: 7;" cx="395" cy="510" r="2.2" />
+          <circle class="elevation-fill" cx="395" cy="510" r="4" />
+          <text x="498" y="514" text-anchor="end">The Grand Hall</text>
+        </svg>
+        <p class="building-elevation-caption">Opened 1914, restored 1999. The central Grand Hall ceiling rises 95 feet above the waiting room floor.</p>
+      </div>
+
 
       <div class="detail-section">
         <h2>Built for the Golden Age of Rail</h2>
@@ -409,5 +454,6 @@
     <a href="#" class="lightbox-close">&times;</a>
     <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Kansas_City_June_2022_04_%28Kansas_City_Union_Station%29.jpg" alt="Union Station interior restored, 2022" />
   </div>
+  <script defer src="/js/essay-enhance.js"></script>
 </body>
 </html>

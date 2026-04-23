@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Kauffman Stadium — Look Up, Kansas City" />
   <meta name="twitter:description" content="Kauffman Stadium — home of the Kansas City Royals since 1973. One of the last single-sport stadiums in Major League Baseball." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/f/ff/Kauffman_Stadium_exterior_July_26_2019.jpg" />
-  <link rel="stylesheet" href="../style.css?v=12b" />
+  <link rel="stylesheet" href="../style.css?v=13e" />
 </head>
 <body>
 
@@ -153,6 +153,53 @@
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+      <div class="building-elevation-wrap">
+        <svg class="building-elevation-svg" viewBox="0 0 500 600" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-labelledby="elev-kfs-title">
+          <title id="elev-kfs-title">Kauffman Stadium elevation, approximately 100 feet to the upper rim, with a 6-foot human figure for scale</title>
+          <!-- Scale: 6-foot human at x=40 (artistically enlarged to 22 units for legibility) -->
+          <g aria-hidden="true">
+            <circle pathLength="1" style="--order: 0;" cx="40" cy="562" r="2.6" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="565" x2="40" y2="573" />
+            <line pathLength="1" style="--order: 0;" x1="34" y1="568" x2="46" y2="568" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="35" y2="580" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="45" y2="580" />
+          </g>
+          <line pathLength="1" style="--order: 2;" x1="20" y1="580" x2="480" y2="580" />
+          <!-- Main stadium base / concourse -->
+          <path pathLength="1" style="--order: 3;"
+                d="M 80 580 L 80 505 L 420 505 L 420 580 Z" />
+          <!-- Upper seating bowl rim: symmetric arches rising toward the center -->
+          <path pathLength="1" style="--order: 4;"
+                d="M 80 505 Q 150 478 250 478 Q 350 478 420 505" />
+          <!-- Crown scoreboard tower (the Royals' signature) -->
+          <path pathLength="1" style="--order: 5;"
+                d="M 222 478 L 222 430 L 278 430 L 278 478 Z" />
+          <!-- Crown points on top of the scoreboard -->
+          <path pathLength="1" style="--order: 6;"
+                d="M 222 430 L 228 418 L 234 430 L 240 416 L 250 430 L 260 416 L 266 430 L 272 418 L 278 430" />
+          <!-- Fountain cascades flanking the scoreboard (the 322-ft fountain feature) -->
+          <path pathLength="1" style="--order: 6;" d="M 140 485 L 138 470 L 142 470 Z" />
+          <path pathLength="1" style="--order: 6;" d="M 155 488 L 153 472 L 157 472 Z" />
+          <path pathLength="1" style="--order: 6;" d="M 170 485 L 168 468 L 172 468 Z" />
+          <path pathLength="1" style="--order: 6;" d="M 330 485 L 328 468 L 332 468 Z" />
+          <path pathLength="1" style="--order: 6;" d="M 345 488 L 343 472 L 347 472 Z" />
+          <path pathLength="1" style="--order: 6;" d="M 360 485 L 358 470 L 362 470 Z" />
+          <!-- Structural ribs on the concourse -->
+          <line pathLength="1" style="--order: 6;" x1="120" y1="505" x2="120" y2="580" />
+          <line pathLength="1" style="--order: 6;" x1="170" y1="505" x2="170" y2="580" />
+          <line pathLength="1" style="--order: 6;" x1="220" y1="505" x2="220" y2="580" />
+          <line pathLength="1" style="--order: 6;" x1="280" y1="505" x2="280" y2="580" />
+          <line pathLength="1" style="--order: 6;" x1="330" y1="505" x2="330" y2="580" />
+          <line pathLength="1" style="--order: 6;" x1="380" y1="505" x2="380" y2="580" />
+          <!-- Callout leader to the fountains (on the right side, pointing to the right cascade) -->
+          <line pathLength="1" style="--order: 7;" x1="365" y1="475" x2="392" y2="475" />
+          <circle pathLength="1" style="--order: 7;" cx="395" cy="475" r="2.2" />
+          <circle class="elevation-fill" cx="395" cy="475" r="4" />
+          <text x="498" y="479" text-anchor="end">The Fountains</text>
+        </svg>
+        <p class="building-elevation-caption">Opened 1973, 37,000 seats. The 322-foot water spectacle behind the outfield is the longest privately funded fountain in the world.</p>
+      </div>
+
 
       <div class="detail-section">
         <h2>The Waterfall Stadium</h2>
@@ -291,5 +338,6 @@
     </div>
   </footer>
 
+  <script defer src="/js/essay-enhance.js"></script>
 </body>
 </html>

@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Liberty Memorial — Look Up, Kansas City" />
   <meta name="twitter:description" content="The Liberty Memorial (1926) — Harold Van Buren Magonigle's Egyptian Revival tower, America's only national World War I museum and memorial, rising 217 feet above Penn Valley Park." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/9/9b/Liberty_Memorial_2008.jpg" />
-  <link rel="stylesheet" href="../style.css?v=12b" />
+  <link rel="stylesheet" href="../style.css?v=13e" />
 </head>
 <body>
 
@@ -231,6 +231,48 @@
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+      <div class="building-elevation-wrap">
+        <svg class="building-elevation-svg" viewBox="0 0 500 600" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-labelledby="elev-lm-title">
+          <title id="elev-lm-title">Liberty Memorial elevation, 217 feet, with a 6-foot human figure for scale</title>
+          <!-- Scale: 6-foot human at x=40 (artistically enlarged to 22 units for legibility) -->
+          <g aria-hidden="true">
+            <circle pathLength="1" style="--order: 0;" cx="40" cy="562" r="2.6" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="565" x2="40" y2="573" />
+            <line pathLength="1" style="--order: 0;" x1="34" y1="568" x2="46" y2="568" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="35" y2="580" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="45" y2="580" />
+          </g>
+          <!-- Ground line -->
+          <line pathLength="1" style="--order: 2;" x1="20" y1="580" x2="480" y2="580" />
+          <!-- Wide stone plaza / podium base -->
+          <path pathLength="1" style="--order: 3;"
+                d="M 180 580 L 180 560 L 360 560 L 360 580 Z" />
+          <!-- Plinth cube under the shaft -->
+          <path pathLength="1" style="--order: 3;"
+                d="M 240 560 L 240 530 L 300 530 L 300 560" />
+          <!-- Decorative base moldings -->
+          <line pathLength="1" style="--order: 4;" x1="236" y1="555" x2="304" y2="555" />
+          <line pathLength="1" style="--order: 4;" x1="190" y1="565" x2="350" y2="565" />
+          <!-- Tapered shaft: slight taper toward the top -->
+          <path pathLength="1" style="--order: 5;"
+                d="M 255 530 L 262 420 L 278 420 L 285 530 Z" />
+          <!-- Flame bowl: wider than the top of the shaft -->
+          <path pathLength="1" style="--order: 6;"
+                d="M 255 420 L 255 408 L 285 408 L 285 420 Z" />
+          <!-- Flame bowl lip detail -->
+          <line pathLength="1" style="--order: 6;" x1="252" y1="410" x2="288" y2="410" />
+          <!-- Flame itself -->
+          <path pathLength="1" style="--order: 7;"
+                d="M 263 408 Q 267 395 270 400 Q 273 390 272 408 Q 270 398 268 408 Z" />
+          <!-- Callout leader pointing at the flame -->
+          <line pathLength="1" style="--order: 7;" x1="290" y1="400" x2="392" y2="400" />
+          <circle pathLength="1" style="--order: 7;" cx="395" cy="400" r="2.2" />
+          <circle class="elevation-fill" cx="395" cy="400" r="4" />
+          <text x="498" y="404" text-anchor="end">The Flame</text>
+        </svg>
+        <p class="building-elevation-caption">217 feet tall, dedicated 1926. The bronze bowl at the top holds a simulated flame &mdash; steam and light, visible from the plaza below.</p>
+      </div>
+
 
       <div class="detail-section">
         <h2>Five Commanders, One Hill</h2>
@@ -395,5 +437,6 @@
     </div>
   </footer>
 
+  <script defer src="/js/essay-enhance.js"></script>
 </body>
 </html>

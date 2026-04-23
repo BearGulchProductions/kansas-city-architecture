@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css?v=12b" />
+  <link rel="stylesheet" href="../style.css?v=13e" />
   <meta property="og:title" content="Kansas City City Hall — Look Up, Kansas City" />
   <meta property="og:description" content="Thirty stories of limestone and bronze, completed in 1937 — City Hall is the crown of KC's Art Deco skyline and open to the public." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/2/21/Kansas_City_Missouri_City_Hall.jpg" />
@@ -204,6 +204,52 @@
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+      <div class="building-elevation-wrap">
+        <svg class="building-elevation-svg" viewBox="0 0 500 600" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-labelledby="elev-ch-title">
+          <title id="elev-ch-title">Kansas City City Hall elevation, 443 feet, with human and Liberty Memorial references for scale</title>
+          <!-- Scale: 6-foot human at x=40 (artistically enlarged to 22 units for legibility) -->
+          <g aria-hidden="true">
+            <circle pathLength="1" style="--order: 0;" cx="40" cy="562" r="2.6" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="565" x2="40" y2="573" />
+            <line pathLength="1" style="--order: 0;" x1="34" y1="568" x2="46" y2="568" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="35" y2="580" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="45" y2="580" />
+          </g>
+          <!-- Scale: Liberty Memorial 217 ft, for reference -->
+          <g aria-hidden="true">
+            <!-- Plinth -->
+            <path pathLength="1" style="--order: 1;" d="M 86 580 L 86 575 L 104 575 L 104 580" />
+            <!-- Shaft (tapers slightly as it rises) -->
+            <path pathLength="1" style="--order: 1;" d="M 92 575 L 92 405 L 98 405 L 98 575" />
+            <!-- Flame bowl (wider than the shaft) -->
+            <path pathLength="1" style="--order: 1;" d="M 88 405 L 88 398 L 102 398 L 102 405 Z" />
+            <!-- Flame -->
+            <path pathLength="1" style="--order: 1;" d="M 93 398 Q 95 390 95 393 Q 95 386 97 398 Z" />
+          </g>
+          <!-- Ground line -->
+          <line pathLength="1" style="--order: 2;" x1="20" y1="580" x2="480" y2="580" />
+          <!-- Main silhouette: stepped base + shaft + observation-deck band + pyramid -->
+          <path pathLength="1" style="--order: 3;"
+                d="M 200 580 L 200 380 L 212 380 L 212 290 L 224 290 L 224 240 L 234 240 L 234 218 L 246 218 L 246 210 L 294 210 L 294 218 L 306 218 L 306 240 L 316 240 L 316 290 L 328 290 L 328 380 L 340 380 L 340 580 Z" />
+          <!-- Observation deck band detail (horizontal line at the narrowing) -->
+          <line pathLength="1" style="--order: 4;" x1="246" y1="214" x2="294" y2="214" />
+          <!-- Pyramid on top -->
+          <path pathLength="1" style="--order: 5;"
+                d="M 246 210 L 270 180 L 294 210" />
+          <!-- Flagpole -->
+          <line pathLength="1" style="--order: 6;" x1="270" y1="180" x2="270" y2="162" />
+          <!-- Horizontal floor-plate hints -->
+          <line pathLength="1" style="--order: 6;" x1="200" y1="450" x2="340" y2="450" />
+          <line pathLength="1" style="--order: 6;" x1="212" y1="330" x2="328" y2="330" />
+          <!-- Callout pointing at the pyramid -->
+          <line pathLength="1" style="--order: 7;" x1="295" y1="195" x2="392" y2="195" />
+          <circle pathLength="1" style="--order: 7;" cx="395" cy="195" r="2.2" />
+          <circle class="elevation-fill" cx="395" cy="195" r="4" />
+          <text x="498" y="199" text-anchor="end">The Pyramid</text>
+        </svg>
+        <p class="building-elevation-caption">Thirty floors of Indiana limestone. The observation deck below the pyramid is open to the public on weekdays.</p>
+      </div>
+
 
       <div class="detail-section">
         <h2>Civic Ambition in Stone</h2>
@@ -355,5 +401,6 @@
     </div>
   </footer>
 
+  <script defer src="/js/essay-enhance.js"></script>
 </body>
 </html>

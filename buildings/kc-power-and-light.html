@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css?v=12b" />
+  <link rel="stylesheet" href="../style.css?v=13e" />
   <meta property="og:title" content="KC Power &amp; Light Building — Look Up, Kansas City" />
   <meta property="og:description" content="The Power &amp; Light Building's illuminated crown has defined the KC skyline since 1931. One of the purest Art Deco towers in the United States." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/9/9d/Power_and_Light_Building.jpg" />
@@ -210,6 +210,55 @@
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+      <div class="building-elevation-wrap">
+        <svg class="building-elevation-svg" viewBox="0 0 500 600" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-labelledby="elev-pl-title">
+          <title id="elev-pl-title">KC Power and Light Building elevation, 476 feet, with human and Liberty Memorial references for scale</title>
+          <!-- Scale: 6-foot human at x=40 (artistically enlarged to 22 units for legibility) -->
+          <g aria-hidden="true">
+            <circle pathLength="1" style="--order: 0;" cx="40" cy="562" r="2.6" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="565" x2="40" y2="573" />
+            <line pathLength="1" style="--order: 0;" x1="34" y1="568" x2="46" y2="568" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="35" y2="580" />
+            <line pathLength="1" style="--order: 0;" x1="40" y1="573" x2="45" y2="580" />
+          </g>
+          <!-- Scale: Liberty Memorial 217 ft, for reference -->
+          <g aria-hidden="true">
+            <!-- Plinth -->
+            <path pathLength="1" style="--order: 1;" d="M 86 580 L 86 575 L 104 575 L 104 580" />
+            <!-- Shaft (tapers slightly as it rises) -->
+            <path pathLength="1" style="--order: 1;" d="M 92 575 L 92 405 L 98 405 L 98 575" />
+            <!-- Flame bowl (wider than the shaft) -->
+            <path pathLength="1" style="--order: 1;" d="M 88 405 L 88 398 L 102 398 L 102 405 Z" />
+            <!-- Flame -->
+            <path pathLength="1" style="--order: 1;" d="M 93 398 Q 95 390 95 393 Q 95 386 97 398 Z" />
+          </g>
+          <!-- Ground line -->
+          <line pathLength="1" style="--order: 2;" x1="20" y1="580" x2="480" y2="580" />
+          <!-- Main silhouette: big base, compressed setbacks, then the lantern crown -->
+          <path pathLength="1" style="--order: 3;"
+                d="M 200 580 L 200 270 L 213 270 L 213 230 L 226 230 L 226 200 L 238 200 L 238 180 L 248 180 L 248 172 L 256 172 L 256 166 L 284 166 L 284 172 L 292 172 L 292 180 L 302 180 L 302 200 L 314 200 L 314 230 L 327 230 L 327 270 L 340 270 L 340 580 Z" />
+          <!-- Floor-plate hairlines across the big base -->
+          <line pathLength="1" style="--order: 4;" x1="200" y1="370" x2="340" y2="370" />
+          <line pathLength="1" style="--order: 4;" x1="200" y1="450" x2="340" y2="450" />
+          <line pathLength="1" style="--order: 4;" x1="200" y1="530" x2="340" y2="530" />
+          <!-- Crown lantern: small vertical bars inside the lantern -->
+          <line pathLength="1" style="--order: 5;" x1="260" y1="168" x2="260" y2="172" />
+          <line pathLength="1" style="--order: 5;" x1="266" y1="168" x2="266" y2="172" />
+          <line pathLength="1" style="--order: 5;" x1="270" y1="168" x2="270" y2="172" />
+          <line pathLength="1" style="--order: 5;" x1="274" y1="168" x2="274" y2="172" />
+          <line pathLength="1" style="--order: 5;" x1="280" y1="168" x2="280" y2="172" />
+          <!-- Finial spire -->
+          <line pathLength="1" style="--order: 6;" x1="270" y1="166" x2="270" y2="138" />
+          <!-- Callout leader + terminal dot pointing at the lantern -->
+          <line pathLength="1" style="--order: 7;" x1="286" y1="170" x2="392" y2="170" />
+          <circle pathLength="1" style="--order: 7;" cx="395" cy="170" r="2.2" />
+          <circle class="elevation-fill" cx="395" cy="170" r="4" />
+          <!-- Callout label -->
+          <text x="498" y="174" text-anchor="end">The Lantern</text>
+        </svg>
+        <p class="building-elevation-caption">The lantern crown was the tallest lit form west of the Mississippi when the building opened in 1931.</p>
+      </div>
+
 
       <div class="detail-section">
         <h2>A Tower of Optimism</h2>
@@ -383,5 +432,6 @@
     <a href="#" class="lightbox-close">&times;</a>
     <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Kansas_City_Power_and_Light_Building_1931.jpg" alt="Kansas City Power and Light Building, 1931" />
   </div>
+  <script defer src="/js/essay-enhance.js"></script>
 </body>
 </html>
