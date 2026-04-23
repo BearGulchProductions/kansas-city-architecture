@@ -6318,7 +6318,8 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 .bacchus-hero-scene,
 .pomona-hero-scene,
 .volker-hero-scene,
-.firefighters-hero-scene {
+.firefighters-hero-scene,
+.midtown-hero-scene {
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -6330,7 +6331,8 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 .bacchus-hero-backdrop,
 .pomona-hero-backdrop,
 .volker-hero-backdrop,
-.firefighters-hero-backdrop {
+.firefighters-hero-backdrop,
+.midtown-hero-backdrop {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -6340,7 +6342,8 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 .bacchus-hero-svg,
 .pomona-hero-svg,
 .volker-hero-svg,
-.firefighters-hero-svg {
+.firefighters-hero-svg,
+.midtown-hero-svg {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -6353,7 +6356,8 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 .bacchus-hero-overlay,
 .pomona-hero-overlay,
 .volker-hero-overlay,
-.firefighters-hero-overlay {
+.firefighters-hero-overlay,
+.midtown-hero-overlay {
   position: absolute;
   z-index: 2;
   top: 0;
@@ -6368,7 +6372,8 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 .bacchus-hero-overlay .eyebrow,
 .pomona-hero-overlay .eyebrow,
 .volker-hero-overlay .eyebrow,
-.firefighters-hero-overlay .eyebrow {
+.firefighters-hero-overlay .eyebrow,
+.midtown-hero-overlay .eyebrow {
   font-size: 0.65rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
@@ -6381,7 +6386,8 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 .bacchus-hero-overlay h1,
 .pomona-hero-overlay h1,
 .volker-hero-overlay h1,
-.firefighters-hero-overlay h1 {
+.firefighters-hero-overlay h1,
+.midtown-hero-overlay h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 400;
@@ -6395,7 +6401,8 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 .bacchus-hero-overlay h1 span,
 .pomona-hero-overlay h1 span,
 .volker-hero-overlay h1 span,
-.firefighters-hero-overlay h1 span { color: var(--gold); }
+.firefighters-hero-overlay h1 span,
+.midtown-hero-overlay h1 span { color: var(--gold); }
 
 /* Below-hero sense-making caption (v13 elevation-caption voice). */
 .nichols-hero-caption,
@@ -6403,7 +6410,8 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 .bacchus-hero-caption,
 .pomona-hero-caption,
 .volker-hero-caption,
-.firefighters-hero-caption {
+.firefighters-hero-caption,
+.midtown-hero-caption {
   max-width: 720px;
   margin: 1.5rem auto 0;
   padding: 0 2rem;
@@ -6421,13 +6429,15 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   .bacchus-hero-scene,
   .pomona-hero-scene,
   .volker-hero-scene,
-  .firefighters-hero-scene { height: 440px; }
+  .firefighters-hero-scene,
+  .midtown-hero-scene { height: 440px; }
   .nichols-hero-overlay,
   .meyer-hero-overlay,
   .bacchus-hero-overlay,
   .pomona-hero-overlay,
   .volker-hero-overlay,
-  .firefighters-hero-overlay { max-width: 70%; }
+  .firefighters-hero-overlay,
+  .midtown-hero-overlay { max-width: 70%; }
 }
 @media (max-width: 640px) {
   .nichols-hero-scene,
@@ -6435,13 +6445,15 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   .bacchus-hero-scene,
   .pomona-hero-scene,
   .volker-hero-scene,
-  .firefighters-hero-scene { height: 360px; }
+  .firefighters-hero-scene,
+  .midtown-hero-scene { height: 360px; }
   .nichols-hero-overlay,
   .meyer-hero-overlay,
   .bacchus-hero-overlay,
   .pomona-hero-overlay,
   .volker-hero-overlay,
-  .firefighters-hero-overlay {
+  .firefighters-hero-overlay,
+  .midtown-hero-overlay {
     padding: 1.25rem 1.2rem 1rem 1.2rem;
     max-width: 88%;
   }
@@ -6450,7 +6462,8 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   .bacchus-hero-caption,
   .pomona-hero-caption,
   .volker-hero-caption,
-  .firefighters-hero-caption {
+  .firefighters-hero-caption,
+  .midtown-hero-caption {
     font-size: 0.85rem;
     padding: 0 1.2rem;
     margin-top: 1.1rem;
@@ -6507,21 +6520,21 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
    blue-grey pool cycles through TOD via river-color-cycle filter; water jets
    use fm-spray-pulse vocabulary. Landscape lights gate on during night via the
    shared .building-night-lights opacity gate. */
-.nichols-pool-rim-outer {
+.scene-pool-rim-outer {
   fill: rgba(201, 168, 76, 0.08);
   stroke: #C9A84C;
   stroke-width: 1.2;
 }
-.nichols-pool-rim-inner {
+.scene-pool-rim-inner {
   fill: none;
   stroke: rgba(201, 168, 76, 0.45);
   stroke-width: 0.55;
 }
-.nichols-pool-water {
+.scene-pool-water {
   fill: rgba(92, 130, 160, 0.72);
   animation: river-color-cycle 40s linear infinite;
 }
-.nichols-pool-ripple {
+.scene-pool-ripple {
   fill: none;
   stroke: rgba(200, 222, 240, 0.55);
   stroke-width: 0.4;
@@ -6529,41 +6542,41 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   transform-box: fill-box;
   animation: fm-pool-ripple 3.2s ease-in-out infinite;
 }
-.nichols-pedestal-step,
-.nichols-pedestal-shaft,
-.nichols-pedestal-cap,
-.nichols-pedestal-urn {
+.scene-pedestal-step,
+.scene-pedestal-shaft,
+.scene-pedestal-cap,
+.scene-pedestal-urn {
   fill: rgba(201, 168, 76, 0.12);
   stroke: #C9A84C;
   stroke-width: 0.9;
 }
-.nichols-pedestal-band {
+.scene-pedestal-band {
   stroke: rgba(201, 168, 76, 0.55);
   stroke-width: 0.5;
 }
-.nichols-pedestal-urn-lip {
+.scene-pedestal-urn-lip {
   stroke: rgba(201, 168, 76, 0.65);
   stroke-width: 0.6;
 }
-.nichols-bronze-body {
+.scene-bronze-body {
   fill: rgba(178, 108, 52, 0.88);
   stroke: #6B3E22;
   stroke-width: 0.45;
   stroke-linejoin: round;
 }
-.nichols-bronze-stroke {
+.scene-bronze-stroke {
   stroke: #6B3E22;
   stroke-width: 1.1;
   fill: none;
   stroke-linecap: round;
 }
-.nichols-bronze-plinth {
+.scene-bronze-plinth {
   fill: rgba(80, 52, 30, 0.82);
   stroke: #3A2410;
   stroke-width: 0.35;
 }
 /* Water jets — filled silhouette style, growing-from-bottom pulse. */
-.nichols-jet {
+.scene-jet {
   fill: rgba(200, 222, 240, 0.58);
   stroke: rgba(230, 242, 252, 0.25);
   stroke-width: 0.35;
@@ -6571,82 +6584,82 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   transform-box: fill-box;
   animation: fm-spray-pulse 3.4s ease-in-out infinite;
 }
-.nichols-jet-center {
+.scene-jet-center {
   fill: rgba(200, 222, 240, 0.65);
   animation-duration: 3.2s;
 }
-.nichols-jet-horse {
+.scene-jet-horse {
   fill: rgba(200, 222, 240, 0.45);
   animation-duration: 3.8s;
   animation-delay: -0.6s;
 }
-.nichols-jet-arc {
+.scene-jet-arc {
   fill: none;
   stroke: rgba(200, 222, 240, 0.5);
   stroke-width: 2.2;
   stroke-linecap: round;
   stroke-dasharray: 1.5 1.3;
-  animation: nichols-arc-flow 2.8s linear infinite;
+  animation: scene-arc-flow 2.8s linear infinite;
 }
-.nichols-jet-arc-left  { animation-delay: -0.3s; }
-.nichols-jet-arc-right { animation-delay: -0.9s; }
-@keyframes nichols-arc-flow {
+.scene-jet-arc-left  { animation-delay: -0.3s; }
+.scene-jet-arc-right { animation-delay: -0.9s; }
+@keyframes scene-arc-flow {
   0%   { stroke-dashoffset: 0;   opacity: 0.8; }
   50%  { opacity: 1; }
   100% { stroke-dashoffset: -14; opacity: 0.8; }
 }
-.nichols-jet-drop {
+.scene-jet-drop {
   fill: rgba(215, 230, 245, 0.85);
-  animation: nichols-drop-drift 2.4s ease-out infinite;
+  animation: scene-drop-drift 2.4s ease-out infinite;
 }
-.nichols-jet-drop-a { animation-delay: 0s; }
-.nichols-jet-drop-b { animation-delay: 0.5s; }
-.nichols-jet-drop-c { animation-delay: 1s; }
-.nichols-jet-drop-d { animation-delay: 1.5s; }
-@keyframes nichols-drop-drift {
+.scene-jet-drop-a { animation-delay: 0s; }
+.scene-jet-drop-b { animation-delay: 0.5s; }
+.scene-jet-drop-c { animation-delay: 1s; }
+.scene-jet-drop-d { animation-delay: 1.5s; }
+@keyframes scene-drop-drift {
   0%   { opacity: 0;   transform: translateY(8px); }
   25%  { opacity: 0.9; }
   100% { opacity: 0;   transform: translateY(-18px); }
 }
 /* Landscape lights — warm glow around basin rim, gated to night via parent
    .building-night-lights opacity animation. */
-.nichols-landscape-lights circle {
+.scene-landscape-lights circle {
   fill: #FFE0A8;
   filter: drop-shadow(0 0 2.5px rgba(255, 220, 150, 0.75));
 }
 
 /* Foreground plaza — paving, paths, benches, planters, walkers. */
-.nichols-paving line {
+.scene-paving line {
   stroke: rgba(201, 168, 76, 0.12);
   stroke-width: 0.4;
 }
-.nichols-path {
+.scene-path {
   stroke: rgba(245, 239, 224, 0.48);
   stroke-width: 1.6;
   stroke-dasharray: 2.8 2.4;
   stroke-linecap: round;
 }
-.nichols-path-b { stroke-opacity: 0.4; }
-.nichols-planter-pot {
+.scene-path-b { stroke-opacity: 0.4; }
+.scene-planter-pot {
   fill: rgba(166, 96, 70, 0.78);
   stroke: rgba(110, 56, 40, 0.55);
   stroke-width: 0.45;
 }
-.nichols-planter-band {
+.scene-planter-band {
   stroke: rgba(110, 56, 40, 0.55);
   stroke-width: 0.4;
 }
-.nichols-planter-shrub {
+.scene-planter-shrub {
   fill: rgba(95, 120, 75, 0.72);
   stroke: rgba(70, 90, 55, 0.55);
   stroke-width: 0.3;
 }
-.nichols-bench-plank {
+.scene-bench-plank {
   stroke: rgba(201, 168, 76, 0.72);
   stroke-width: 1.3;
   stroke-linecap: round;
 }
-.nichols-bench-leg {
+.scene-bench-leg {
   stroke: rgba(201, 168, 76, 0.68);
   stroke-width: 0.85;
   stroke-linecap: round;
@@ -6654,7 +6667,7 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 
 /* Static Nichols walkers — stay visible, no movement animation.
    (Overrides .hill-walker base opacity: 0.) */
-.hill-walker.nichols-static {
+.hill-walker.scene-walker-static {
   opacity: 1;
   animation: none;
   will-change: auto;
@@ -6664,22 +6677,22 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
    Long slow loops (48-55s) — meant to read as ambient foot traffic, not
    choreography. The couple on Path A arrives at the fountain from the
    bottom-left; the solo walker on Path B exits toward the bottom-right. */
-.hill-walker.nichols-walker-path-a {
+.hill-walker.scene-walker-path-a {
   opacity: 0;
-  animation: nichols-walker-path-a 55s ease-in-out infinite;
+  animation: scene-walker-path-a 55s ease-in-out infinite;
 }
-.hill-walker.nichols-walker-path-a-2 {
+.hill-walker.scene-walker-path-a-2 {
   opacity: 0;
-  animation: nichols-walker-path-a-2 55s ease-in-out infinite;
+  animation: scene-walker-path-a-2 55s ease-in-out infinite;
   animation-delay: -1.2s;
 }
-.hill-walker.nichols-walker-path-b {
+.hill-walker.scene-walker-path-b {
   opacity: 0;
-  animation: nichols-walker-path-b 48s ease-in-out infinite;
+  animation: scene-walker-path-b 48s ease-in-out infinite;
   animation-delay: -8s;
 }
 /* Path A — arrive at fountain from bottom-left. Couple walker #1. */
-@keyframes nichols-walker-path-a {
+@keyframes scene-walker-path-a {
   0%   { opacity: 0;   transform: translate(120px, 598px) scale(1.55); }
   4%   { opacity: 0.45;transform: translate(150px, 596px) scale(1.6); }
   12%  { opacity: 1;   transform: translate(220px, 591px) scale(1.65); }
@@ -6690,7 +6703,7 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   100% { opacity: 0;   transform: translate(120px, 598px) scale(1.55); }
 }
 /* Path A — companion walker, slight x+y offset so they read as a pair. */
-@keyframes nichols-walker-path-a-2 {
+@keyframes scene-walker-path-a-2 {
   0%   { opacity: 0;   transform: translate(138px, 595px) scale(1.55); }
   4%   { opacity: 0.45;transform: translate(168px, 593px) scale(1.6); }
   12%  { opacity: 1;   transform: translate(238px, 588px) scale(1.65); }
@@ -6701,7 +6714,7 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   100% { opacity: 0;   transform: translate(138px, 595px) scale(1.55); }
 }
 /* Path B — solo walker, departs from fountain area toward bottom-right. */
-@keyframes nichols-walker-path-b {
+@keyframes scene-walker-path-b {
   0%   { opacity: 0;   transform: translate(1050px, 565px) scale(1.35); }
   8%   { opacity: 0.55;transform: translate(1080px, 568px) scale(1.45); }
   18%  { opacity: 1;   transform: translate(1140px, 572px) scale(1.55); }
@@ -6714,28 +6727,28 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 
 /* Reduced-motion: park trail-followers mid-path and freeze. */
 @media (prefers-reduced-motion: reduce) {
-  .hill-walker.nichols-walker-path-a {
+  .hill-walker.scene-walker-path-a {
     animation: none; opacity: 0.85;
     transform: translate(400px, 578px) scale(1.6);
   }
-  .hill-walker.nichols-walker-path-a-2 {
+  .hill-walker.scene-walker-path-a-2 {
     animation: none; opacity: 0.85;
     transform: translate(418px, 575px) scale(1.6);
   }
-  .hill-walker.nichols-walker-path-b {
+  .hill-walker.scene-walker-path-b {
     animation: none; opacity: 0.85;
     transform: translate(1300px, 582px) scale(1.62);
   }
-  .nichols-pool-water,
-  .nichols-pool-ripple,
-  .nichols-jet,
-  .nichols-jet-arc,
-  .nichols-jet-drop {
+  .scene-pool-water,
+  .scene-pool-ripple,
+  .scene-jet,
+  .scene-jet-arc,
+  .scene-jet-drop {
     animation: none !important;
   }
-  .nichols-jet { transform: scaleY(0.92); }
+  .scene-jet { transform: scaleY(0.92); }
   .nichols-bg-arch { animation: none !important; filter: none !important; }
-  .nichols-landscape-lights,
+  .scene-landscape-lights,
   .nichols-bg-facade .building-night-lights,
   .nichols-bg-giralda .building-night-lights {
     opacity: 0 !important;
@@ -6744,7 +6757,7 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 
 /* ── v15.2 Meyer Circle Sea Horse Fountain hero ───────────────────────────
    Extends the v15 Nichols peopled-scene pattern to a second fountain page.
-   Reuses the .nichols-pool/-pedestal/-bronze/-jet/-landscape-lights
+   Reuses the .scene-pool/-pedestal/-bronze/-jet/-landscape-lights
    vocabulary directly (shared "fountain grammar" — flagged for v16 rename
    to .scene-*). Adds Meyer-specific Ward Parkway backdrop elements: tree
    silhouettes, Tudor revival mansion palette, obelisk-pedestal finial. */
@@ -6807,7 +6820,7 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   stroke-linecap: round;
 }
 /* Meyer-specific: brighter path dashes (boulevard paths read more clearly). */
-.meyer-hero-scene .nichols-path {
+.meyer-hero-scene .scene-path {
   stroke: rgba(245, 239, 224, 0.58);
   stroke-width: 1.75;
 }
@@ -6855,4 +6868,835 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   .firefighters-bg { animation: none !important; filter: none !important; }
   .volker-bg .building-night-lights,
   .firefighters-bg .building-night-lights { opacity: 0 !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v16c Midtown signature scene palette + animations
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.midtown-sky-stars {
+  opacity: 0;
+  animation: night-lights-visibility 40s linear infinite;
+}
+.midtown-sky-stars circle { fill: rgba(245, 239, 224, 0.85); }
+
+.midtown-cloud { fill: rgba(245, 239, 224, 0.55); }
+.midtown-cloud-a { animation: midtown-cloud-drift-a 260s linear infinite; }
+.midtown-cloud-b { animation: midtown-cloud-drift-b 320s linear infinite; animation-delay: -80s; }
+@keyframes midtown-cloud-drift-a {
+  0%   { transform: translate(-100px, 120px); }
+  100% { transform: translate(1720px, 120px); }
+}
+@keyframes midtown-cloud-drift-b {
+  0%   { transform: translate(-80px, 180px); }
+  100% { transform: translate(1720px, 180px); }
+}
+
+/* KCTV5 tower lattice + guy wires + FAA beacon + LED segments */
+.midtown-kctv5-mast,
+.midtown-kctv5-rail {
+  stroke: rgba(180, 150, 100, 0.7);
+  stroke-width: 0.7;
+  fill: none;
+}
+.midtown-kctv5-strut,
+.midtown-kctv5-diag {
+  stroke: rgba(180, 150, 100, 0.5);
+  stroke-width: 0.45;
+  fill: none;
+}
+.midtown-kctv5-guy {
+  stroke: rgba(180, 150, 100, 0.4);
+  stroke-width: 0.4;
+  fill: none;
+}
+.midtown-kctv5-faa {
+  fill: #D13030;
+  filter: drop-shadow(0 0 3px rgba(255, 80, 60, 0.6));
+  animation: midtown-faa-blink 2.4s ease-in-out infinite;
+}
+@keyframes midtown-faa-blink {
+  0%, 40%, 100% { opacity: 0.35; }
+  50%  { opacity: 1; }
+  55%  { opacity: 0.3; }
+  65%  { opacity: 1; }
+  70%  { opacity: 0.35; }
+}
+.midtown-kctv5-leds rect {
+  filter: drop-shadow(0 0 2.5px currentColor);
+  opacity: 0;
+  animation: midtown-kctv5-led-on 40s linear infinite;
+}
+.midtown-kctv5-leds .led-red   { fill: #D62828; color: #D62828; }
+.midtown-kctv5-leds .led-white { fill: #F5EFE0; color: #F5EFE0; animation-delay: -8s; }
+.midtown-kctv5-leds .led-blue  { fill: #3A6EA5; color: #3A6EA5; animation-delay: -16s; }
+@keyframes midtown-kctv5-led-on {
+  0%, 45% { opacity: 0; }
+  55%, 92% { opacity: 0.95; }
+  100% { opacity: 0; }
+}
+
+/* Plaza distant towers — converted to gold line-art matching homepage style. */
+.midtown-distant-stucco {
+  fill: rgba(201, 168, 76, 0.06);
+  stroke: rgba(201, 168, 76, 0.4);
+  stroke-width: 0.45;
+}
+.midtown-distant-tile {
+  fill: rgba(201, 168, 76, 0.09);
+  stroke: rgba(232, 201, 106, 0.5);
+  stroke-width: 0.4;
+}
+.midtown-distant-clock {
+  fill: rgba(201, 168, 76, 0.08);
+  stroke: rgba(232, 201, 106, 0.55);
+  stroke-width: 0.5;
+}
+.midtown-distant-dome {
+  fill: rgba(201, 168, 76, 0.07);
+  stroke: rgba(201, 168, 76, 0.45);
+  stroke-width: 0.45;
+}
+.midtown-distant-spire { stroke: rgba(201, 168, 76, 0.5); stroke-width: 0.45; }
+.midtown-distant-finial { fill: rgba(232, 201, 106, 0.55); }
+
+/* Giralda prominent — now gold line-art (matching homepage building style)
+   with a slightly stronger stroke so it still reads as the featured tower
+   of the middle. Plaza palette dropped. */
+.midtown-giralda-stucco {
+  fill: rgba(201, 168, 76, 0.12);
+  stroke: rgba(232, 201, 106, 0.9);
+  stroke-width: 1.0;
+}
+.midtown-giralda-window {
+  fill: rgba(201, 168, 76, 0.06);
+  stroke: rgba(201, 168, 76, 0.5);
+  stroke-width: 0.4;
+}
+.midtown-giralda-tile {
+  fill: rgba(201, 168, 76, 0.16);
+  stroke: rgba(232, 201, 106, 0.85);
+  stroke-width: 0.8;
+}
+.midtown-giralda-spire { stroke: rgba(232, 201, 106, 0.85); stroke-width: 0.9; }
+.midtown-giralda-finial { fill: rgba(232, 201, 106, 0.9); }
+.midtown-giralda-glow { fill: rgba(255, 210, 140, 0.78); }
+
+/* One Park Place — shifted to homepage gold line-art palette (was solid
+   concrete + glass). Transparent fill + warm gold stroke to match the
+   homepage skyline aesthetic. */
+.midtown-opp-podium {
+  fill: rgba(201, 168, 76, 0.1);
+  stroke: rgba(201, 168, 76, 0.85);
+  stroke-width: 0.9;
+}
+.midtown-opp-tower {
+  fill: rgba(201, 168, 76, 0.08);
+  stroke: rgba(201, 168, 76, 0.85);
+  stroke-width: 0.9;
+}
+.midtown-opp-cap { stroke: rgba(232, 201, 106, 0.8); stroke-width: 0.8; }
+.midtown-opp-band { stroke: rgba(201, 168, 76, 0.5); stroke-width: 0.3; }
+.midtown-opp-mullion { stroke: rgba(201, 168, 76, 0.4); stroke-width: 0.3; }
+.midtown-opp-glow { fill: rgba(255, 220, 140, 0.85); }
+
+/* Katz Drug — shifted to gold line-art (was cream solid). Rooftop sign
+   frame stays dark so the neon letters pop against it. */
+.midtown-katz-body {
+  fill: rgba(201, 168, 76, 0.1);
+  stroke: rgba(201, 168, 76, 0.85);
+  stroke-width: 0.9;
+}
+.midtown-katz-band { stroke: rgba(201, 168, 76, 0.5); stroke-width: 0.3; }
+.midtown-katz-window { stroke: rgba(201, 168, 76, 0.5); stroke-width: 0.45; }
+.midtown-katz-cap { stroke: rgba(232, 201, 106, 0.8); stroke-width: 0.6; }
+.midtown-katz-sign-frame {
+  fill: rgba(50, 38, 24, 0.88);
+  stroke: rgba(201, 168, 76, 0.6);
+  stroke-width: 0.6;
+}
+.midtown-katz-letters { fill: rgba(232, 201, 106, 0.85); }
+.midtown-katz-neon {
+  opacity: 0;
+  animation: midtown-katz-neon-on 40s linear infinite;
+}
+.midtown-katz-neon-box { fill: rgba(214, 40, 40, 0.35); }
+.midtown-katz-neon-letters {
+  fill: #FF6B60;
+  filter: drop-shadow(0 0 3px rgba(255, 80, 60, 0.85));
+}
+.midtown-katz-halo {
+  fill: rgba(255, 80, 60, 0.16);
+  filter: blur(6px);
+}
+.midtown-katz-window-glow { fill: rgba(255, 210, 140, 0.6); }
+@keyframes midtown-katz-neon-on {
+  0%, 45%  { opacity: 0; }
+  47%  { opacity: 0.3; }
+  48%  { opacity: 0.15; }
+  49%  { opacity: 0.7; }
+  51%  { opacity: 0.3; }
+  52%  { opacity: 0.9; }
+  53%  { opacity: 0.6; }
+  55%  { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Uptown Theatre — shifted to gold line-art. Marquee frame stays dark so
+   the red neon letters pop. */
+.midtown-uptown-body {
+  fill: rgba(201, 168, 76, 0.1);
+  stroke: rgba(201, 168, 76, 0.85);
+  stroke-width: 0.9;
+}
+.midtown-uptown-parapet {
+  stroke: rgba(232, 201, 106, 0.85);
+  stroke-width: 0.9;
+  fill: none;
+}
+.midtown-uptown-window {
+  fill: rgba(201, 168, 76, 0.08);
+  stroke: rgba(201, 168, 76, 0.7);
+  stroke-width: 0.55;
+}
+.midtown-uptown-canopy {
+  fill: rgba(201, 168, 76, 0.18);
+  stroke: rgba(232, 201, 106, 0.85);
+  stroke-width: 0.7;
+}
+.midtown-uptown-door { stroke: rgba(201, 168, 76, 0.6); stroke-width: 0.55; }
+.midtown-uptown-marquee-frame {
+  fill: rgba(50, 38, 24, 0.88);
+  stroke: rgba(201, 168, 76, 0.6);
+  stroke-width: 0.6;
+}
+.midtown-uptown-marquee-letters { fill: rgba(232, 201, 106, 0.85); }
+.midtown-uptown-neon {
+  opacity: 0;
+  animation: midtown-uptown-neon-on 40s linear infinite;
+  animation-delay: -0.4s;
+}
+.midtown-uptown-neon-box { fill: rgba(214, 40, 40, 0.35); }
+.midtown-uptown-halo {
+  fill: rgba(255, 80, 60, 0.18);
+  filter: blur(4px);
+}
+.midtown-uptown-window-glow { fill: rgba(255, 210, 140, 0.7); }
+@keyframes midtown-uptown-neon-on {
+  0%, 46%  { opacity: 0; }
+  48%  { opacity: 0.35; }
+  50%  { opacity: 0.15; }
+  52%  { opacity: 0.7; }
+  54%  { opacity: 0.4; }
+  56%  { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Nelson-Atkins — shifted to gold line-art. Lawn drops to a subtle
+   hairline green to keep the ground distinction without punching green
+   into the warm-gold composition. */
+.midtown-nelson-lawn {
+  fill: rgba(120, 140, 90, 0.18);
+  stroke: rgba(201, 168, 76, 0.35);
+  stroke-width: 0.35;
+}
+.midtown-nelson-wing,
+.midtown-nelson-main {
+  fill: rgba(201, 168, 76, 0.1);
+  stroke: rgba(201, 168, 76, 0.85);
+  stroke-width: 0.9;
+}
+.midtown-nelson-pediment {
+  fill: rgba(201, 168, 76, 0.14);
+  stroke: rgba(232, 201, 106, 0.88);
+  stroke-width: 0.9;
+}
+.midtown-nelson-column {
+  fill: rgba(201, 168, 76, 0.12);
+  stroke: rgba(201, 168, 76, 0.75);
+  stroke-width: 0.35;
+}
+.midtown-nelson-capital-hint {
+  fill: rgba(232, 201, 106, 0.55);
+  stroke: rgba(232, 201, 106, 0.75);
+  stroke-width: 0.3;
+}
+/* Entablature (horizontal capital band + plinth) — gold line-art, not the
+   default black that was rendering before. Transparent fill + gold stroke. */
+.midtown-nelson-entablature {
+  fill: rgba(201, 168, 76, 0.14);
+  stroke: rgba(232, 201, 106, 0.8);
+  stroke-width: 0.55;
+}
+.midtown-nelson-capital { stroke: rgba(232, 201, 106, 0.75); stroke-width: 0.6; }
+.midtown-nelson-pilaster {
+  stroke: rgba(201, 168, 76, 0.5);
+  stroke-width: 0.3;
+  fill: none;
+}
+.midtown-nelson-window {
+  fill: rgba(201, 168, 76, 0.08);
+  stroke: rgba(201, 168, 76, 0.6);
+  stroke-width: 0.35;
+}
+.midtown-nelson-stairs { stroke: rgba(201, 168, 76, 0.55); stroke-width: 0.45; }
+.midtown-nelson-window-glow { fill: rgba(255, 210, 140, 0.78); }
+
+/* Shuttlecocks — iconic Oldenburg+van Bruggen silhouettes on Nelson's lawn.
+   Cork-nose base + narrow collar + fanning feather cone. Gold line-art
+   palette matching the homepage. */
+.midtown-shuttlecock-cork {
+  fill: rgba(201, 168, 76, 0.2);
+  stroke: rgba(232, 201, 106, 0.9);
+  stroke-width: 0.7;
+}
+.midtown-shuttlecock-collar {
+  fill: rgba(201, 168, 76, 0.12);
+  stroke: rgba(232, 201, 106, 0.8);
+  stroke-width: 0.5;
+}
+.midtown-shuttlecock-feathers {
+  fill: rgba(201, 168, 76, 0.1);
+  stroke: rgba(232, 201, 106, 0.88);
+  stroke-width: 0.7;
+  stroke-linejoin: round;
+}
+.midtown-shuttlecock-vein {
+  stroke: rgba(232, 201, 106, 0.55);
+  stroke-width: 0.35;
+}
+.midtown-shuttlecock-sway-wrapper {
+  transform-origin: 0 0;
+  animation: midtown-shuttlecock-sway 14s ease-in-out infinite;
+}
+@keyframes midtown-shuttlecock-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(3deg); }
+}
+
+/* Kauffman Memorial Park — formal English garden foreground */
+.midtown-park-hedge {
+  stroke: rgba(70, 96, 56, 0.88);
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+}
+.midtown-park-gate {
+  stroke: rgba(201, 168, 76, 0.55);
+  stroke-width: 0.8;
+  fill: none;
+}
+.midtown-park-path {
+  stroke: rgba(245, 239, 224, 0.45);
+  stroke-width: 1;
+  stroke-dasharray: 2 1.8;
+  stroke-linecap: round;
+}
+.midtown-park-topiary {
+  fill: rgba(70, 96, 56, 0.85);
+  stroke: rgba(50, 72, 40, 0.65);
+  stroke-width: 0.4;
+}
+/* Stone terrace plinth — gives fountain a proper foreground place to sit */
+.midtown-park-terrace {
+  fill: rgba(201, 168, 76, 0.06);
+  stroke: rgba(201, 168, 76, 0.28);
+  stroke-width: 0.4;
+}
+.midtown-park-terrace-rim {
+  stroke: rgba(232, 201, 106, 0.55);
+  stroke-width: 0.5;
+  fill: none;
+  stroke-linecap: round;
+}
+/* Flower / planting beds — subtle warm color */
+.midtown-park-flowerbed {
+  fill: rgba(196, 140, 80, 0.4);
+  stroke: rgba(232, 201, 106, 0.55);
+  stroke-width: 0.35;
+}
+/* Benches — brass-toned line art */
+.midtown-park-bench rect {
+  fill: rgba(201, 168, 76, 0.35);
+  stroke: rgba(232, 201, 106, 0.75);
+  stroke-width: 0.3;
+}
+.midtown-park-bench line {
+  stroke: rgba(232, 201, 106, 0.7);
+  stroke-width: 0.4;
+}
+/* Water side-falls (from upper basin to lower pool) */
+.scene-jet-side {
+  stroke: rgba(220, 235, 255, 0.55);
+  stroke-width: 0.8;
+  stroke-linecap: round;
+  fill: none;
+}
+/* Parterre beds — formal flower-bed ground */
+.midtown-park-parterre-bed {
+  fill: rgba(201, 168, 76, 0.04);
+  stroke: rgba(232, 201, 106, 0.4);
+  stroke-width: 0.35;
+}
+.midtown-park-parterre-line {
+  stroke: rgba(232, 201, 106, 0.55);
+  stroke-width: 0.35;
+  fill: none;
+}
+.midtown-park-flower {
+  fill: rgba(232, 120, 110, 0.85);
+  stroke: rgba(232, 201, 106, 0.5);
+  stroke-width: 0.15;
+}
+.midtown-park-ornament {
+  fill: rgba(201, 168, 76, 0.4);
+  stroke: rgba(232, 201, 106, 0.85);
+  stroke-width: 0.35;
+}
+/* Pergola — rose arbor timber frame */
+.midtown-park-pergola-post,
+.midtown-park-pergola-beam {
+  stroke: rgba(201, 168, 76, 0.65);
+  stroke-width: 0.45;
+  fill: none;
+}
+/* Low hedges framing parterre compartments */
+.midtown-park-hedge-low {
+  stroke: rgba(70, 96, 56, 0.65);
+  stroke-width: 0.55;
+  fill: none;
+  stroke-linecap: round;
+}
+/* Ornamental topiary — sphere-on-stem */
+.midtown-park-ornamental line {
+  stroke: rgba(201, 168, 76, 0.6);
+  stroke-width: 0.4;
+  fill: none;
+}
+.midtown-park-ornamental circle {
+  fill: rgba(70, 96, 56, 0.75);
+  stroke: rgba(50, 72, 40, 0.6);
+  stroke-width: 0.3;
+}
+/* Ornamental urns at garden corners */
+.midtown-park-urn path,
+.midtown-park-urn ellipse {
+  fill: rgba(201, 168, 76, 0.25);
+  stroke: rgba(232, 201, 106, 0.85);
+  stroke-width: 0.35;
+}
+
+/* Peripheral edge trees — kept slightly more visible than hill trees */
+.midtown-tree-canopy {
+  fill: rgba(201, 168, 76, 0.12);
+  stroke: rgba(201, 168, 76, 0.55);
+  stroke-width: 0.4;
+}
+.midtown-tree-trunk { fill: rgba(201, 168, 76, 0.3); }
+.midtown-ground-line { stroke: rgba(201, 168, 76, 0.25); stroke-width: 0.5; }
+
+/* ── Hill topography layer ──
+   Rolling-bluff foreground and atmospheric distant ridge, matching the
+   homepage's gold line-art landscape vocabulary. */
+.midtown-hill-far {
+  stroke: rgba(201, 168, 76, 0.18);
+  stroke-width: 0.4;
+}
+.midtown-hill-near {
+  fill: rgba(201, 168, 76, 0.1);
+  stroke: rgba(201, 168, 76, 0.55);
+  stroke-width: 0.55;
+}
+.midtown-hill-ridge-line {
+  stroke: rgba(232, 201, 106, 0.45);
+  stroke-width: 0.55;
+  fill: none;
+}
+/* Hill-top trees — subtle silhouettes scattered across the near hill */
+.midtown-hill-tree ellipse {
+  fill: rgba(201, 168, 76, 0.1);
+  stroke: rgba(201, 168, 76, 0.45);
+  stroke-width: 0.35;
+}
+.midtown-hill-tree rect {
+  fill: rgba(201, 168, 76, 0.3);
+}
+
+/* Plaza mid-ground silhouettes — converted to gold line-art matching
+   homepage building style. Spanish Colonial form still reads via stepped
+   parapets and arched windows, but palette is unified. */
+.midtown-plaza-mid-stucco {
+  fill: rgba(201, 168, 76, 0.1);
+  stroke: rgba(201, 168, 76, 0.75);
+  stroke-width: 0.75;
+}
+.midtown-plaza-mid-tile {
+  fill: rgba(201, 168, 76, 0.14);
+  stroke: rgba(232, 201, 106, 0.75);
+  stroke-width: 0.6;
+}
+.midtown-plaza-mid-ridge {
+  stroke: rgba(201, 168, 76, 0.5);
+  stroke-width: 0.4;
+}
+.midtown-plaza-mid-spire {
+  stroke: rgba(232, 201, 106, 0.75);
+  stroke-width: 0.7;
+}
+.midtown-plaza-mid-finial {
+  fill: rgba(232, 201, 106, 0.8);
+}
+.midtown-plaza-mid-window {
+  fill: rgba(201, 168, 76, 0.06);
+  stroke: rgba(201, 168, 76, 0.45);
+  stroke-width: 0.35;
+}
+.midtown-plaza-mid-glow {
+  fill: rgba(255, 198, 120, 0.72);
+}
+
+/* Brush Creek — curving water ribbon through the foreground. Color cycles
+   with TOD via the river-color-cycle filter reused from the homepage. */
+.midtown-creek {
+  filter: url(#none);
+}
+.midtown-creek-bank {
+  stroke: rgba(201, 168, 76, 0.45);
+  stroke-width: 0.5;
+}
+.midtown-creek-water {
+  fill: rgba(92, 130, 160, 0.58);
+  stroke: rgba(120, 158, 190, 0.45);
+  stroke-width: 0.3;
+  animation: river-color-cycle 40s linear infinite;
+}
+/* Moonstreak reflection — silver sheen at night only */
+.midtown-creek-moonstreak {
+  fill: rgba(215, 225, 240, 0.6);
+  opacity: 0;
+  animation: river-moonstreak-visibility 40s linear infinite;
+}
+/* Creek reeds — hairlines marking bank vegetation */
+.midtown-creek-reeds line {
+  stroke: rgba(140, 165, 120, 0.65);
+  stroke-width: 0.4;
+  stroke-linecap: round;
+}
+/* Creek stones — small foreground rocks along the water */
+.midtown-creek-stones ellipse {
+  fill: rgba(201, 168, 76, 0.3);
+  stroke: rgba(232, 201, 106, 0.55);
+  stroke-width: 0.3;
+}
+/* Plaza-side paved stone embankment — pale horizontal stroke lines */
+.midtown-creek-embankment path,
+.midtown-creek-embankment line {
+  stroke: rgba(232, 201, 106, 0.7);
+  stroke-width: 0.45;
+  fill: none;
+  stroke-linecap: round;
+}
+/* Plaza bridge — stone-arch crossing */
+.midtown-bridge-deck {
+  fill: rgba(201, 168, 76, 0.22);
+  stroke: rgba(232, 201, 106, 0.88);
+  stroke-width: 0.5;
+}
+.midtown-bridge-rail {
+  stroke: rgba(232, 201, 106, 0.85);
+  stroke-width: 0.55;
+  fill: none;
+  stroke-linecap: round;
+}
+.midtown-bridge-arch {
+  fill: rgba(28, 22, 16, 0.58);
+  stroke: rgba(232, 201, 106, 0.75);
+  stroke-width: 0.45;
+}
+.midtown-bridge-stone {
+  fill: rgba(201, 168, 76, 0.35);
+  stroke: rgba(232, 201, 106, 0.9);
+  stroke-width: 0.25;
+}
+.midtown-bridge-lamp line {
+  stroke: rgba(232, 201, 106, 0.85);
+  stroke-width: 0.5;
+}
+.midtown-bridge-lamp circle {
+  fill: rgba(255, 232, 150, 0.7);
+  stroke: rgba(232, 201, 106, 0.9);
+  stroke-width: 0.3;
+  filter: drop-shadow(0 0 1.2px rgba(255, 232, 150, 0.7));
+}
+.midtown-bridge-reflection {
+  fill: rgba(220, 200, 150, 0.3);
+  opacity: 0.7;
+}
+/* River current hints — subtle flow-direction lines */
+.midtown-river-current {
+  stroke: rgba(180, 200, 220, 0.55);
+  stroke-width: 0.5;
+  fill: none;
+  stroke-linecap: round;
+}
+/* Kansas + Missouri Rivers — distant horizon water visible above far-hill
+   ridge peaks. Very faint blue-gold hairlines that echo the creek palette
+   but much more subtle since these are meant to read as atmospheric
+   horizon-line water, not a foreground feature. */
+.midtown-river-kansas,
+.midtown-river-missouri {
+  stroke: rgba(150, 178, 200, 0.4);
+  stroke-width: 0.55;
+  fill: none;
+  stroke-linecap: round;
+}
+.midtown-river-confluence {
+  fill: rgba(150, 178, 200, 0.35);
+  stroke: rgba(180, 200, 220, 0.5);
+  stroke-width: 0.3;
+}
+
+/* Right-side meandering highway — a nod to the KC loop that historically
+   cut downtown off. Kept very subtle so it reads as a distant winding ribbon
+   threading the back of the hill. */
+.midtown-highway {
+  fill: rgba(60, 55, 48, 0.32);
+  stroke: rgba(201, 168, 76, 0.28);
+  stroke-width: 0.35;
+}
+.midtown-highway-center {
+  stroke: rgba(232, 201, 106, 0.3);
+  stroke-width: 0.3;
+  stroke-dasharray: 2 3;
+}
+
+/* Small residential houses scattered on the hill — Midtown is a significant
+   residential area; these fill the back of the scene with atmospheric density.
+   Glow warmly at night (accurate to an inhabited neighborhood after dusk). */
+.midtown-hill-house-body {
+  fill: rgba(201, 168, 76, 0.08);
+  stroke: rgba(201, 168, 76, 0.45);
+  stroke-width: 0.3;
+}
+.midtown-hill-house-roof {
+  fill: rgba(201, 168, 76, 0.12);
+  stroke: rgba(201, 168, 76, 0.55);
+  stroke-width: 0.3;
+}
+.midtown-hill-house-glow {
+  fill: rgba(255, 210, 140, 0.7);
+}
+
+/* UMKC Haag Hall — Collegiate Gothic tower on the right edge, gold line-art */
+.midtown-haag-body {
+  fill: rgba(201, 168, 76, 0.1);
+  stroke: rgba(201, 168, 76, 0.75);
+  stroke-width: 0.75;
+}
+.midtown-haag-window {
+  fill: rgba(201, 168, 76, 0.06);
+  stroke: rgba(201, 168, 76, 0.5);
+  stroke-width: 0.4;
+}
+.midtown-haag-band { stroke: rgba(201, 168, 76, 0.55); stroke-width: 0.45; }
+.midtown-haag-glow { fill: rgba(255, 210, 140, 0.72); }
+
+/* Downtown silhouettes on far ridge — clustered tower hints with THREE
+   depth layers for 3D effect:
+   • .downtown-far  : faint atmospheric (far back of cluster)
+   • .downtown-mid  : medium (middle depth)
+   • .downtown-near : more defined (front of cluster)
+   The layered shading suggests ~6-10 blocks of depth within the tight
+   downtown core, making it read as a cluster rather than a flat row. */
+.midtown-downtown-silhouettes .downtown-far {
+  fill: rgba(201, 168, 76, 0.04);
+  stroke: rgba(201, 168, 76, 0.28);
+  stroke-width: 0.3;
+}
+.midtown-downtown-silhouettes .downtown-mid {
+  fill: rgba(201, 168, 76, 0.09);
+  stroke: rgba(201, 168, 76, 0.45);
+  stroke-width: 0.35;
+}
+.midtown-downtown-silhouettes .downtown-near {
+  fill: rgba(201, 168, 76, 0.16);
+  stroke: rgba(232, 201, 106, 0.72);
+  stroke-width: 0.5;
+}
+
+/* Road leading north to downtown + row of older KC houses along the left.
+   Road runs from foreground-left (x=50, y=594) angling up and slightly
+   right toward the downtown silhouettes in the background (x=500, y=465).
+   Perspective tapers the road narrower as it recedes. Houses line the
+   left (west) side of the road. Two animated car silhouettes travel north
+   toward downtown on a 35s loop. */
+.midtown-road {
+  fill: rgba(40, 36, 28, 0.55);
+  stroke: rgba(201, 168, 76, 0.35);
+  stroke-width: 0.35;
+}
+.midtown-road-center {
+  stroke: rgba(232, 201, 106, 0.45);
+  stroke-width: 0.35;
+  stroke-dasharray: 3 4;
+  fill: none;
+}
+.midtown-kc-house-body {
+  fill: rgba(201, 168, 76, 0.1);
+  stroke: rgba(201, 168, 76, 0.65);
+  stroke-width: 0.5;
+}
+.midtown-kc-house-roof {
+  fill: rgba(201, 168, 76, 0.14);
+  stroke: rgba(232, 201, 106, 0.7);
+  stroke-width: 0.5;
+}
+.midtown-kc-house-porch {
+  stroke: rgba(201, 168, 76, 0.5);
+  stroke-width: 0.35;
+  fill: none;
+}
+.midtown-kc-house-window {
+  fill: rgba(201, 168, 76, 0.08);
+  stroke: rgba(201, 168, 76, 0.4);
+  stroke-width: 0.3;
+}
+.midtown-kc-house-glow {
+  fill: rgba(255, 210, 140, 0.75);
+}
+/* Cars traveling along road toward downtown — two cars on staggered loops */
+.midtown-car {
+  will-change: transform;
+  animation: midtown-car-north 42s linear infinite;
+}
+.midtown-car-2 { animation-delay: -18s; }
+/* Car path samples points along the road bezier (P0=(42,598), P1=(80,524), P2=(485,475))
+   at t=0.0, 0.25, 0.5, 0.75, 0.95, 1.0. Keyframes interpolate linearly
+   between these. Scale shrinks with distance. */
+@keyframes midtown-car-north {
+  0%   { transform: translate(42px, 598px) scale(1.0); opacity: 0.25; }
+  6%   { opacity: 1; }
+  25%  { transform: translate(84px, 563px) scale(0.75); }
+  50%  { transform: translate(172px, 530px) scale(0.5); }
+  75%  { transform: translate(306px, 501px) scale(0.3); }
+  92%  { transform: translate(440px, 481px) scale(0.15); opacity: 0.5; }
+  100% { transform: translate(485px, 475px) scale(0.1); opacity: 0; }
+}
+.midtown-car-body {
+  fill: rgba(201, 168, 76, 0.38);
+  stroke: rgba(232, 201, 106, 0.9);
+  stroke-width: 0.45;
+}
+.midtown-car-headlight {
+  fill: rgba(255, 232, 150, 0.88);
+  filter: drop-shadow(0 0 1.2px rgba(255, 232, 150, 0.85));
+}
+.midtown-car-taillight {
+  fill: rgba(255, 120, 80, 0.85);
+}
+/* Right-side highway cars — travel the right highway curve. Car 1 heads
+   west toward downtown (E→W). Car 2 heads east, away from downtown (W→E).
+   Cars shrink with distance since the curve goes into the hills. */
+.midtown-highway-car-1 {
+  animation: midtown-highway-west 48s linear infinite;
+}
+.midtown-highway-car-2 {
+  animation: midtown-highway-east 52s linear infinite;
+  animation-delay: -22s;
+}
+@keyframes midtown-highway-west {
+  0%   { transform: translate(1600px, 585px) scale(1.0); opacity: 0; }
+  4%   { opacity: 1; }
+  20%  { transform: translate(1450px, 572px) scale(0.9); }
+  40%  { transform: translate(1300px, 548px) scale(0.7); }
+  60%  { transform: translate(1100px, 515px) scale(0.5); }
+  78%  { transform: translate(900px, 490px) scale(0.35); }
+  90%  { transform: translate(700px, 478px) scale(0.22); opacity: 0.7; }
+  100% { transform: translate(540px, 473px) scale(0.12); opacity: 0; }
+}
+@keyframes midtown-highway-east {
+  0%   { transform: translate(540px, 475px) scale(0.12); opacity: 0; }
+  10%  { transform: translate(700px, 480px) scale(0.22); opacity: 0.7; }
+  25%  { transform: translate(900px, 493px) scale(0.35); opacity: 1; }
+  45%  { transform: translate(1100px, 518px) scale(0.5); }
+  65%  { transform: translate(1300px, 552px) scale(0.7); }
+  82%  { transform: translate(1450px, 575px) scale(0.9); }
+  96%  { transform: translate(1600px, 588px) scale(1.0); opacity: 1; }
+  100% { transform: translate(1600px, 588px) scale(1.0); opacity: 0; }
+}
+
+/* Streetcar system — planned Main Street Extension track through the
+   Midtown foreground. Streetcar translates slowly L→R, pausing at the
+   Plaza stop. Headlight gates to night via the shared glow pattern. */
+.midtown-streetcar-track {
+  stroke: rgba(201, 168, 76, 0.4);
+  stroke-width: 0.35;
+}
+.midtown-streetcar-stop {
+  fill: rgba(232, 201, 106, 0.6);
+}
+.midtown-streetcar {
+  animation: midtown-streetcar-travel 85s linear infinite;
+  will-change: transform;
+}
+@keyframes midtown-streetcar-travel {
+  0%   { transform: translate(-40px, 564px); }
+  18%  { transform: translate(270px, 564px); }
+  25%  { transform: translate(280px, 564px); }   /* brief slow near Plaza stop */
+  50%  { transform: translate(700px, 564px); }
+  58%  { transform: translate(750px, 564px); }   /* pause at Plaza stop */
+  90%  { transform: translate(1520px, 564px); }
+  100% { transform: translate(1640px, 564px); }  /* exit right */
+}
+.midtown-streetcar-body {
+  fill: rgba(201, 168, 76, 0.22);
+  stroke: rgba(232, 201, 106, 0.85);
+  stroke-width: 0.55;
+}
+.midtown-streetcar-roof {
+  fill: rgba(201, 168, 76, 0.35);
+  stroke: rgba(232, 201, 106, 0.7);
+  stroke-width: 0.4;
+}
+.midtown-streetcar-window {
+  fill: rgba(201, 168, 76, 0.08);
+  stroke: rgba(232, 201, 106, 0.6);
+  stroke-width: 0.3;
+}
+.midtown-streetcar-headlight {
+  fill: rgba(255, 232, 150, 0.85);
+  filter: drop-shadow(0 0 1.5px rgba(255, 232, 150, 0.9));
+}
+.midtown-streetcar-pole {
+  stroke: rgba(201, 168, 76, 0.55);
+  stroke-width: 0.4;
+}
+
+/* Building hover spotlight */
+.midtown-hero-svg g[data-building] { transition: filter 0.25s ease, opacity 0.3s ease; }
+.midtown-hero-svg:has(g[data-building]:hover) g[data-building]:not(:hover) { opacity: 0.35; }
+.midtown-hero-svg g[data-building]:hover {
+  filter: drop-shadow(0 0 6px rgba(255, 220, 140, 0.35));
+}
+
+/* Reduced-motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  .midtown-cloud-a,
+  .midtown-cloud-b,
+  .midtown-kctv5-faa,
+  .midtown-kctv5-leds rect,
+  .midtown-shuttlecock-sway,
+  .midtown-katz-neon,
+  .midtown-uptown-neon,
+  .midtown-sky-stars {
+    animation: none !important;
+  }
+  .midtown-katz-neon,
+  .midtown-uptown-neon { opacity: 0.85 !important; }
+  .midtown-sky-stars,
+  .midtown-kctv5-leds { opacity: 0 !important; }
+  .midtown-shuttlecock-sway { transform: rotate(0deg) !important; }
+  .midtown-kctv5-faa { opacity: 0.5 !important; }
 }

@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Midtown — Look Up, Kansas City" />
   <meta name="twitter:description" content="Midtown Kansas City — between downtown and the Plaza, a walkable district of early 20th-century architecture, galleries, and neighborhood fountains." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/c/ce/Nelson-Atkins_Museum_of_Art_-_panorama_of_facade.jpg" />
-  <link rel="stylesheet" href="../style.css?v=15d" />
+  <link rel="stylesheet" href="../style.css?v=16a" />
 </head>
 <body>
 
@@ -111,15 +111,1708 @@
     Midtown
   </div>
 
-  <div class="detail-hero">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Nelson-Atkins_Museum_of_Art_-_panorama_of_facade.jpg"
-         alt="Nelson-Atkins Museum of Art, Kansas City"
-         style="object-position: center 55%;" />
-    <div class="detail-hero-overlay">
-      <span class="eyebrow">Kansas City Neighborhoods</span>
-      <h1>Midtown<br /><span>Kansas City</span></h1>
+  <!-- v16c Midtown signature scene — INITIAL SCAFFOLD (landmark silhouettes
+       deferred to follow-on session). The scene composition is locked in:
+       viewer south-looking-north with One Park Place anchoring the LEFT,
+       Katz + Uptown mid-left, Plaza-Giralda-prominent + KCTV5 tower center,
+       Kauffman Memorial Park as foreground anchor, Nelson-Atkins + two
+       shuttlecocks on the RIGHT. TOD cycles on the standard 40s loop. -->
+  <section class="midtown-hero-scene" aria-labelledby="midtown-hero-h1">
+    <div class="midtown-hero-backdrop" aria-hidden="true">
+      <div class="tod-layer tod-dawn"></div>
+      <div class="tod-layer tod-day"></div>
+      <div class="tod-layer tod-dusk"></div>
+      <div class="tod-layer tod-night"></div>
     </div>
-  </div>
+    <svg class="midtown-hero-svg" viewBox="0 0 1600 600"
+         preserveAspectRatio="xMidYMid slice"
+         xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-labelledby="midtown-hero-title midtown-hero-desc">
+      <title id="midtown-hero-title">Midtown Kansas City — a seven-landmark scene including One Park Place, Katz Drug Building, Uptown Theatre, Plaza towers with the Giralda prominent, the KCTV5 tower, Kauffman Memorial Park, and Nelson-Atkins with shuttlecocks</title>
+      <desc id="midtown-hero-desc">Midtown Kansas City viewed south-looking-north. One Park Place's modernist glass slab anchors the left edge from its position on the Hospital Hill bluff. The Katz Drug Building's rooftop neon sign and the Uptown Theatre's vertical marquee sit mid-left. The Plaza rises in the center with the Giralda Tower prominent and the other Plaza towers in the background. The 1,042-foot KCTV5 broadcast tower dominates the center-left as the vertical anchor, its programmable LED lighting glowing dusk through dawn. Kauffman Memorial Park's formal garden with its central fountain occupies the right-of-center foreground. The Nelson-Atkins Museum spreads along the right edge with its Ionic colonnade and two shuttlecock sculptures on the lawn. The sky cycles from dawn to night on a 40-second loop, synced with the homepage skyline.</desc>
+
+      <!-- ═══════ LAYER 2: Sky atmospheric (minimal) ═══════ -->
+
+      <!-- Stars — visible only during night phase, sprinkled across upper sky -->
+      <g class="midtown-sky-stars" aria-hidden="true">
+        <circle cx="120" cy="80" r="0.8"/>
+        <circle cx="260" cy="60" r="1.0"/>
+        <circle cx="380" cy="100" r="0.7"/>
+        <circle cx="520" cy="50" r="0.9"/>
+        <circle cx="640" cy="90" r="0.7"/>
+        <circle cx="760" cy="45" r="1.0"/>
+        <circle cx="880" cy="70" r="0.8"/>
+        <circle cx="1020" cy="100" r="0.7"/>
+        <circle cx="1160" cy="55" r="0.9"/>
+        <circle cx="1300" cy="80" r="0.8"/>
+        <circle cx="1460" cy="65" r="0.9"/>
+        <circle cx="1540" cy="120" r="0.7"/>
+        <circle cx="200" cy="150" r="0.6"/>
+        <circle cx="450" cy="170" r="0.7"/>
+        <circle cx="1100" cy="140" r="0.6"/>
+      </g>
+
+      <!-- Two drifting clouds, long slow loops -->
+      <g class="midtown-sky-clouds" aria-hidden="true">
+        <g class="midtown-cloud midtown-cloud-a">
+          <ellipse cx="0" cy="0" rx="60" ry="10" opacity="0.55"/>
+          <ellipse cx="-18" cy="-6" rx="22" ry="8" opacity="0.5"/>
+          <ellipse cx="20" cy="-4" rx="26" ry="7" opacity="0.55"/>
+        </g>
+        <g class="midtown-cloud midtown-cloud-b">
+          <ellipse cx="0" cy="0" rx="48" ry="8" opacity="0.45"/>
+          <ellipse cx="-12" cy="-4" rx="18" ry="6" opacity="0.4"/>
+          <ellipse cx="14" cy="-3" rx="22" ry="6" opacity="0.45"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 2b: Rolling hill topography ═══════
+           Gives the Midtown scene landscape character matching the homepage
+           skyline's bluff. Two layers: a distant atmospheric ridge and a near
+           foreground hill the buildings sit on. Hospital Hill crest rises on
+           the left (where One Park Place perches), gentle valley through the
+           middle (Penn Valley / Midtown flats), slight rise back up on the
+           right (Rockhill / Nelson-Atkins area). -->
+
+      <!-- Far atmospheric ridge — raised to give the background horizon
+           more presence and space to hold the downtown silhouettes, hill
+           houses, and highway. Ridge peaks are pushed higher in the viewBox
+           (lower y values). -->
+      <path class="midtown-hill-far" fill="rgba(201,168,76,0.04)"
+            d="M 0,600 L 0,420
+               Q 120,408 220,432
+               Q 340,456 460,438
+               Q 620,412 760,422
+               Q 900,442 1040,432
+               Q 1180,418 1340,438
+               Q 1480,456 1600,440
+               L 1600,600 Z"/>
+
+      <!-- ═══════ LAYER 2b2: Kansas + Missouri Rivers (ON THE FAR HILL) ═══════
+           Two clearly distinct river flow lines threaded ON the far hill
+           surface (not floating in the sky). The Kansas River flows from
+           the west edge, curving east-northeast up through the hills and
+           emptying into the Missouri at the Kaw Point confluence (~x=420,
+           just back-left of the downtown cluster). The Missouri enters
+           from the west a bit farther north, meets the Kansas at the
+           confluence, then continues east across the right-side hills. -->
+      <g class="midtown-rivers" aria-hidden="true">
+        <!-- KANSAS RIVER — enters from west at y=465, rises gently to meet
+             the Missouri at Kaw Point (confluence at x=418, y=450). Flow
+             direction is LEFT-TO-RIGHT (west-to-east toward confluence). -->
+        <path class="midtown-river-kansas"
+              d="M 0,472
+                 Q 80,468 160,464
+                 Q 240,460 320,456
+                 Q 380,453 418,450" fill="none"/>
+        <path class="midtown-river-kansas"
+              d="M 0,478
+                 Q 80,474 160,470
+                 Q 240,466 320,462
+                 Q 380,458 418,455" fill="none"/>
+        <!-- Kansas River arrow-hint flow direction (subtle current lines) -->
+        <path class="midtown-river-current"
+              d="M 80,471 L 90,471 M 200,466 L 210,466 M 330,458 L 340,458" fill="none"/>
+
+        <!-- CONFLUENCE — Kaw Point. Subtle widening where Kansas meets the
+             Missouri, partially hidden behind downtown silhouette cluster. -->
+        <ellipse class="midtown-river-confluence" cx="418" cy="452" rx="14" ry="3.5"/>
+        <ellipse class="midtown-river-confluence" cx="418" cy="452" rx="8" ry="2"/>
+        <!-- Confluence label hint — tiny "Y" where the rivers merge -->
+        <path class="midtown-river-missouri"
+              d="M 400,448 Q 412,451 418,452 Q 412,453 400,456" fill="none"/>
+
+        <!-- MISSOURI RIVER — enters from west higher on the hill (y=448),
+             passes through confluence at x=418, y=452, and continues east
+             all the way to the right scene edge (curving gently over the
+             hills on its way to the Missouri state line). -->
+        <path class="midtown-river-missouri"
+              d="M 0,448
+                 Q 100,446 200,449
+                 Q 300,452 400,451
+                 Q 418,451.5 435,451
+                 Q 540,450 660,451
+                 Q 800,453 960,450
+                 Q 1120,447 1280,449
+                 Q 1440,452 1600,450" fill="none"/>
+        <path class="midtown-river-missouri"
+              d="M 0,454
+                 Q 100,452 200,455
+                 Q 300,458 400,457
+                 Q 418,457.5 435,457
+                 Q 540,456 660,457
+                 Q 800,459 960,456
+                 Q 1120,453 1280,455
+                 Q 1440,458 1600,456" fill="none"/>
+        <!-- Missouri current hints -->
+        <path class="midtown-river-current"
+              d="M 600,453 L 610,453 M 900,452 L 910,452 M 1200,451 L 1210,451 M 1460,454 L 1470,454" fill="none"/>
+      </g>
+
+      <!-- ═══════ Downtown silhouettes — clustered, 3-depth-layer cluster ═══════
+           Tight downtown core with three visual depth layers: far/mid/near.
+           Sits on the far ridge at y=418-475. Each tower tagged with its
+           depth class to get the appropriate opacity/stroke — creates a
+           sense of 3D clustering rather than a flat row. -->
+      <g class="midtown-downtown-silhouettes" aria-hidden="true">
+        <!-- === FAR layer (deepest back of cluster, most atmospheric) === -->
+        <!-- Generic backdrop towers — rows of office buildings behind the named landmarks -->
+        <rect class="downtown-far" x="440" y="460" width="10" height="15"/>
+        <rect class="downtown-far" x="452" y="456" width="12" height="19"/>
+        <rect class="downtown-far" x="462" y="460" width="8" height="15"/>
+        <rect class="downtown-far" x="472" y="454" width="10" height="21"/>
+        <rect class="downtown-far" x="490" y="456" width="8" height="19"/>
+        <rect class="downtown-far" x="510" y="452" width="10" height="23"/>
+        <rect class="downtown-far" x="546" y="450" width="8" height="25"/>
+        <rect class="downtown-far" x="582" y="456" width="8" height="19"/>
+        <rect class="downtown-far" x="592" y="460" width="10" height="15"/>
+        <rect class="downtown-far" x="606" y="458" width="8" height="17"/>
+
+        <!-- === MID layer (middle depth) === -->
+        <!-- Bartle Hall (4 pylons with spheres) — left of cluster -->
+        <line class="downtown-mid" x1="468" y1="472" x2="468" y2="444" stroke="rgba(201,168,76,0.45)"/>
+        <line class="downtown-mid" x1="472" y1="472" x2="472" y2="440" stroke="rgba(201,168,76,0.45)"/>
+        <line class="downtown-mid" x1="476" y1="472" x2="476" y2="440" stroke="rgba(201,168,76,0.45)"/>
+        <line class="downtown-mid" x1="480" y1="472" x2="480" y2="444" stroke="rgba(201,168,76,0.45)"/>
+        <circle class="downtown-mid" cx="468" cy="441" r="1.2" fill="none"/>
+        <circle class="downtown-mid" cx="472" cy="437" r="1.2" fill="none"/>
+        <circle class="downtown-mid" cx="476" cy="437" r="1.2" fill="none"/>
+        <circle class="downtown-mid" cx="480" cy="441" r="1.2" fill="none"/>
+        <!-- City Hall (pyramid-topped classical tower) -->
+        <path class="downtown-mid" d="M 486,472 L 486,452 L 488,452 L 488,446 L 492,446 L 492,438 L 502,438 L 502,446 L 506,446 L 506,452 L 508,452 L 508,472 Z"/>
+        <polygon class="downtown-mid" points="492,438 497,432 502,438"/>
+        <!-- 909 Walnut / Fidelity (slender with finial) — right edge -->
+        <path class="downtown-mid" d="M 574,472 L 574,432 L 578,428 L 580,428 L 580,432 L 584,432 L 584,472 Z"/>
+        <line class="downtown-mid" x1="579" y1="428" x2="579" y2="422"/>
+
+        <!-- === NEAR layer (front of cluster, most defined) === -->
+        <!-- Power &amp; Light (stepped crown with lantern) -->
+        <path class="downtown-near" d="M 512,472 L 512,454 L 514,454 L 514,448 L 517,448 L 517,438 L 529,438 L 529,448 L 532,448 L 532,454 L 534,454 L 534,472 Z"/>
+        <rect class="downtown-near" x="519" y="432" width="8" height="6"/>
+        <line class="downtown-near" x1="523" y1="432" x2="523" y2="428" stroke="rgba(232,201,106,0.72)"/>
+        <!-- Town Pavilion (tall stepped shaft) -->
+        <path class="downtown-near" d="M 538,472 L 538,430 L 541,426 L 549,426 L 552,430 L 552,472 Z"/>
+        <!-- One KC Place (pitched-crown tower, tallest in cluster) -->
+        <path class="downtown-near" d="M 556,472 L 556,422 L 563,414 L 570,422 L 570,472 Z"/>
+        <!-- Kauffman Center — twin curved shells in front of Bartle Hall pylons -->
+        <path class="downtown-near" d="M 456,472 Q 456,465 462,465 Q 468,465 468,472 Z"/>
+        <path class="downtown-near" d="M 470,472 Q 470,467 475,467 Q 480,467 480,472 Z"/>
+      </g>
+
+      <!-- Near hill — RAISED foreground hill so buildings sit on an elevated
+           gentle slope. Crest line pushed up to y=532-548 (was y=552-562)
+           giving the scene a more substantial foreground bluff character
+           (matches the homepage's bluff profile). Below the hill crest is a
+           widened skirt that Brush Creek threads through at y=588-598. -->
+      <path class="midtown-hill-near"
+            d="M 0,600 L 0,532
+               Q 200,536 400,542
+               Q 600,546 800,548
+               Q 1000,546 1200,542
+               Q 1400,538 1600,534
+               L 1600,600 Z"/>
+
+      <!-- Hill-top trees — small atmospheric silhouettes scattered across
+           the near hill. Reinforces landscape character without competing
+           with landmark buildings. -->
+      <g class="midtown-hill-trees" aria-hidden="true">
+        <!-- Left hill cluster (west of One Park Place) -->
+        <g class="midtown-hill-tree" transform="translate(210, 538)">
+          <ellipse cx="0" cy="-12" rx="10" ry="14"/>
+          <rect x="-1.5" y="-2" width="3" height="8"/>
+        </g>
+        <g class="midtown-hill-tree" transform="translate(250, 548)">
+          <ellipse cx="0" cy="-10" rx="8" ry="12"/>
+          <rect x="-1.2" y="-2" width="2.4" height="6"/>
+        </g>
+        <!-- Between Katz and Uptown -->
+        <g class="midtown-hill-tree" transform="translate(468, 560)">
+          <ellipse cx="0" cy="-9" rx="7" ry="10"/>
+          <rect x="-1.2" y="-2" width="2.4" height="6"/>
+        </g>
+        <!-- Between Uptown and Plaza -->
+        <g class="midtown-hill-tree" transform="translate(660, 565)">
+          <ellipse cx="0" cy="-10" rx="8" ry="12"/>
+          <rect x="-1.2" y="-2" width="2.4" height="6"/>
+        </g>
+        <g class="midtown-hill-tree" transform="translate(700, 568)">
+          <ellipse cx="0" cy="-8" rx="6" ry="9"/>
+          <rect x="-1" y="-2" width="2" height="5"/>
+        </g>
+        <!-- Right side: between Nelson and east edge -->
+        <g class="midtown-hill-tree" transform="translate(1175, 568)">
+          <ellipse cx="0" cy="-11" rx="9" ry="13"/>
+          <rect x="-1.4" y="-2" width="2.8" height="7"/>
+        </g>
+        <!-- Far right edge -->
+        <g class="midtown-hill-tree" transform="translate(1555, 560)">
+          <ellipse cx="0" cy="-11" rx="9" ry="13"/>
+          <rect x="-1.4" y="-2" width="2.8" height="7"/>
+        </g>
+      </g>
+
+      <!-- Hill hairline — matches the raised near-hill ridge -->
+      <path class="midtown-hill-ridge-line" fill="none"
+            d="M 0,552
+               Q 200,553 400,557
+               Q 600,561 800,562
+               Q 1000,561 1200,559
+               Q 1400,556 1600,554"/>
+
+      <!-- ═══════ LAYER 2d: Road to downtown + row of older KC houses ═══════
+           A tapering road runs from the foreground-left up toward the downtown
+           silhouette on the far ridge, with a row of older residential-fabric
+           houses lining its west (left) side. Two cars travel along the road
+           heading north — headlights lit at night. Reinforces the geographic
+           story that downtown sits north of Midtown. -->
+
+      <!-- Gentle winding road running from foreground north toward the
+           downtown silhouette cluster (at x~490, y=475). Single gradual
+           bezier curve — not harsh S-curves. Tapers from ~25u wide at
+           foreground to ~4u wide near the vanishing point where the road
+           visually disappears into the downtown skyline. -->
+      <path class="midtown-road"
+            d="M 30,600
+               Q 70,520 482,475
+               L 488,475
+               Q 88,527 55,600 Z"/>
+      <!-- Road centerline dashes following the curve -->
+      <path class="midtown-road-center"
+            d="M 42,598 Q 80,524 485,475"/>
+
+      <!-- Older KC neighborhood — houses follow the road's left edge with a
+           gap, curving along the bezier as it bends rightward toward the
+           downtown vanishing point. Houses stop around y=510 so the final
+           climb of the road reads open and the downtown silhouette cluster
+           isn't crowded. Sizes shrink with distance. -->
+      <g class="midtown-kc-houses" aria-hidden="true">
+        <!-- House 1 — foreground, largest. Road left at y=583 is ≈42, house at x=5-25 -->
+        <g transform="translate(5, 582)">
+          <rect class="midtown-kc-house-body" x="0" y="0" width="20" height="16"/>
+          <polygon class="midtown-kc-house-roof" points="-2,0 22,0 17,-8 3,-8"/>
+          <path class="midtown-kc-house-porch" d="M 0,5 L 20,5"/>
+          <rect class="midtown-kc-house-window" x="3" y="8" width="5" height="6"/>
+          <rect class="midtown-kc-house-window" x="12" y="8" width="5" height="6"/>
+          <g class="building-night-lights">
+            <rect x="3" y="8" width="5" height="6" class="midtown-kc-house-glow"/>
+            <rect x="12" y="8" width="5" height="6" class="midtown-kc-house-glow"/>
+          </g>
+        </g>
+        <!-- House 2 — road at y=562 left edge ≈73, house at x=45-63 -->
+        <g transform="translate(45, 560)">
+          <rect class="midtown-kc-house-body" x="0" y="0" width="18" height="13"/>
+          <polygon class="midtown-kc-house-roof" points="-2,0 20,0 15,-6 3,-6"/>
+          <path class="midtown-kc-house-porch" d="M 0,4 L 18,4"/>
+          <rect class="midtown-kc-house-window" x="2" y="7" width="4" height="5"/>
+          <rect class="midtown-kc-house-window" x="12" y="7" width="4" height="5"/>
+          <g class="building-night-lights">
+            <rect x="2" y="7" width="4" height="5" class="midtown-kc-house-glow"/>
+            <rect x="12" y="7" width="4" height="5" class="midtown-kc-house-glow"/>
+          </g>
+        </g>
+        <!-- House 3 — Victorian with gable dormer. Road at y=540 left edge ≈105, house at x=82-98 -->
+        <g transform="translate(82, 540)">
+          <rect class="midtown-kc-house-body" x="0" y="0" width="16" height="12"/>
+          <polygon class="midtown-kc-house-roof" points="-2,0 18,0 14,-6 2,-6"/>
+          <polygon class="midtown-kc-house-roof" points="6,-1 10,-1 8,-9"/>
+          <rect class="midtown-kc-house-window" x="2" y="6" width="4" height="5"/>
+          <rect class="midtown-kc-house-window" x="10" y="6" width="4" height="5"/>
+          <g class="building-night-lights">
+            <rect x="2" y="6" width="4" height="5" class="midtown-kc-house-glow"/>
+            <rect x="10" y="6" width="4" height="5" class="midtown-kc-house-glow"/>
+          </g>
+        </g>
+        <!-- House 4 — road at y=522 left edge ≈150, house at x=128-142 -->
+        <g transform="translate(128, 522)">
+          <rect class="midtown-kc-house-body" x="0" y="0" width="14" height="10"/>
+          <polygon class="midtown-kc-house-roof" points="-1,0 15,0 12,-5 3,-5"/>
+          <rect class="midtown-kc-house-window" x="2" y="5" width="3" height="4"/>
+          <rect class="midtown-kc-house-window" x="9" y="5" width="3" height="4"/>
+          <g class="building-night-lights">
+            <rect x="2" y="5" width="3" height="4" class="midtown-kc-house-glow"/>
+            <rect x="9" y="5" width="3" height="4" class="midtown-kc-house-glow"/>
+          </g>
+        </g>
+        <!-- House 5 — final visible, smallest. Road at y=507 left edge ≈205, house at x=182-194 -->
+        <g transform="translate(182, 508)">
+          <rect class="midtown-kc-house-body" x="0" y="0" width="12" height="8"/>
+          <polygon class="midtown-kc-house-roof" points="-1,0 13,0 10,-4 2,-4"/>
+          <rect class="midtown-kc-house-window" x="2" y="4" width="3" height="3"/>
+          <rect class="midtown-kc-house-window" x="7" y="4" width="3" height="3"/>
+          <g class="building-night-lights">
+            <rect x="2" y="4" width="3" height="3" class="midtown-kc-house-glow"/>
+            <rect x="7" y="4" width="3" height="3" class="midtown-kc-house-glow"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- Cars traveling along the road toward downtown. Two cars on
+           staggered 38s loops. Scale shrinks as they follow the road north. -->
+      <g class="midtown-cars" aria-hidden="true">
+        <g class="midtown-car">
+          <rect class="midtown-car-body" x="-6" y="-3" width="12" height="4" rx="1"/>
+          <circle class="midtown-car-headlight" cx="5" cy="-1" r="0.6"/>
+          <circle class="midtown-car-taillight" cx="-5" cy="-1" r="0.45"/>
+        </g>
+        <g class="midtown-car midtown-car-2">
+          <rect class="midtown-car-body" x="-6" y="-3" width="12" height="4" rx="1"/>
+          <circle class="midtown-car-headlight" cx="5" cy="-1" r="0.6"/>
+          <circle class="midtown-car-taillight" cx="-5" cy="-1" r="0.45"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 2e: Meandering right-side highway ═══════
+           A nod to the KC highway loop that historically cut downtown off
+           from the neighborhoods. Winds from the right foreground around
+           the hill and all the way west to CONNECT to the downtown
+           silhouette cluster at its east base. Extended west endpoint to
+           x=530, y=473 so it visually merges with the foot of downtown. -->
+      <path class="midtown-highway"
+            d="M 1600,600
+               L 1600,580
+               Q 1450,568 1300,544
+               Q 1100,512 900,486
+               Q 700,474 540,472
+               L 535,476
+               Q 700,478 900,490
+               Q 1100,518 1300,550
+               Q 1450,574 1600,586 Z"/>
+      <!-- Highway centerline (very faint) -->
+      <path class="midtown-highway-center" fill="none"
+            d="M 1600,588 Q 1450,571 1300,547 Q 1100,515 900,488 Q 700,476 540,474"/>
+
+      <!-- Right-side highway cars — animated travel from east (right) toward
+           downtown (west), matching the new highway curve. -->
+      <g class="midtown-highway-cars" aria-hidden="true">
+        <g class="midtown-car midtown-highway-car-1">
+          <rect class="midtown-car-body" x="-5" y="-2.5" width="10" height="3.5" rx="1"/>
+          <circle class="midtown-car-headlight" cx="-4.5" cy="-0.8" r="0.55"/>
+          <circle class="midtown-car-taillight" cx="4.5" cy="-0.8" r="0.4"/>
+        </g>
+        <g class="midtown-car midtown-highway-car-2">
+          <rect class="midtown-car-body" x="-5" y="-2.5" width="10" height="3.5" rx="1"/>
+          <circle class="midtown-car-headlight" cx="4.5" cy="-0.8" r="0.55"/>
+          <circle class="midtown-car-taillight" cx="-4.5" cy="-0.8" r="0.4"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 2f: Residential houses scattered on the hill ═══════
+           Small house silhouettes scattered across the middle-ground hill
+           behind the main buildings. Glow warmly at night (accurate to
+           Midtown's significant residential character). Kept simple and
+           subtle so they don't compete with foreground landmarks. -->
+      <g class="midtown-hill-houses" aria-hidden="true">
+        <!-- ─── NEIGHBORHOOD A: West Hospital Hill / Penn Valley ─────────────
+             Dense cluster of small homes on the hill west of One Park Place.
+             Mix of roof sizes, spacing tight like an actual Kansas City
+             streetcar-suburb grid. Small tree hints between pairs. -->
+        <g transform="translate(210, 514)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="3.5"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="0.5" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(220, 512)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="6" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 7,0 5,-2.5 1,-2.5"/>
+          <g class="building-night-lights"><rect x="1.5" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(232, 516)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="3.5"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="0.5" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(244, 517)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(255, 515)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <!-- Upper-row back houses (slight y offset for depth) -->
+        <g transform="translate(215, 507)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(238, 508)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <!-- Neighborhood tree hint -->
+        <g transform="translate(228, 513)">
+          <line x1="0" y1="0" x2="0" y2="-3" stroke="rgba(201,168,76,0.35)" stroke-width="0.4"/>
+          <circle cx="0" cy="-4" r="1.5" fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.4)" stroke-width="0.3"/>
+        </g>
+
+        <!-- ─── NEIGHBORHOOD B: Old Westport / 39th St — behind/near Katz ─────
+             Mix of shotgun houses, bungalows, and small cottages typical of
+             Westport's residential fabric. Tight pattern with tree dots. -->
+        <g transform="translate(352, 512)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(360, 510)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(368, 514)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(376, 516)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(385, 512)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(394, 515)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <!-- Back row -->
+        <g transform="translate(358, 505)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(378, 506)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(371, 509)">
+          <line x1="0" y1="0" x2="0" y2="-3" stroke="rgba(201,168,76,0.35)" stroke-width="0.4"/>
+          <circle cx="0" cy="-4" r="1.5" fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.4)" stroke-width="0.3"/>
+        </g>
+
+        <!-- ─── NEIGHBORHOOD C: South Hyde Park — Uptown/Plaza gap ───────────
+             South Hyde Park is the dense rowhouse-flavored residential that
+             sits south of Armour Blvd / near the Plaza west edge. -->
+        <g transform="translate(600, 515)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(610, 512)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="3.5"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="0.5" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(620, 514)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(630, 517)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <!-- Back row -->
+        <g transform="translate(608, 506)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(625, 507)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+
+        <!-- ─── NEIGHBORHOOD D: Hyde Park — mid-section behind KCTV5 ─────────
+             Actual Hyde Park residential fabric (west of Gillham, south of
+             31st). Slightly elevated since this is on the ridge. -->
+        <g transform="translate(820, 516)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(830, 515)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(840, 512)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(852, 510)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(864, 514)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <!-- Neighborhood tree -->
+        <g transform="translate(846, 513)">
+          <line x1="0" y1="0" x2="0" y2="-3.5" stroke="rgba(201,168,76,0.35)" stroke-width="0.4"/>
+          <circle cx="0" cy="-5" r="1.8" fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.4)" stroke-width="0.3"/>
+        </g>
+
+        <!-- ─── NEIGHBORHOOD E: Rockhill / 51st — between Kauffman & Haag ────
+             Rockhill neighborhood. Raised ABOVE the right-side highway curve
+             (which runs through y=500-512 at this x range) so houses sit
+             clearly on the hillside rather than on the road surface. -->
+        <g transform="translate(1012, 498)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1020, 496)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="3.5"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="0.5" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1030, 495)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1040, 493)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1052, 498)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <!-- Back row (depth) -->
+        <g transform="translate(1024, 488)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1044, 487)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+
+        <!-- ─── NEIGHBORHOOD F: Volker — between Nelson and old road ────────
+             Volker neighborhood. Raised above the right-side highway (which
+             is at y=512-520 through this x range) so houses are clearly on
+             the hillside, not on the road surface. -->
+        <g transform="translate(1095, 502)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1105, 500)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="3.5"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="0.5" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1118, 498)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1130, 501)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1140, 499)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="3.5"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="0.5" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <!-- Back row -->
+        <g transform="translate(1115, 491)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1135, 507)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+
+        <!-- ─── NEIGHBORHOOD G: Rockhill-Ridgeway — behind Nelson east wing ──
+             Small walk-street neighborhood just east of Rockhill Rd. -->
+        <g transform="translate(1212, 517)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1220, 516)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="3.5"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="0.5" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1232, 513)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1245, 511)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1257, 515)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <!-- Back row -->
+        <g transform="translate(1227, 506)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1248, 505)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+
+        <!-- ─── NEIGHBORHOOD H: UMKC-Area — ridge behind Haag Hall ──────────
+             Compact residential fabric east of UMKC/Haag Hall. -->
+        <g transform="translate(1432, 512)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1440, 510)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="5" height="4"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 6,0 4,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="1" y="1" width="3" height="2.5" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1451, 513)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <g transform="translate(1462, 515)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+        <!-- Back row -->
+        <g transform="translate(1446, 504)">
+          <rect class="midtown-hill-house-body" x="0" y="0" width="4" height="3"/>
+          <polygon class="midtown-hill-house-roof" points="-1,0 5,0 3,-2 1,-2"/>
+          <g class="building-night-lights"><rect x="0.5" y="0.5" width="3" height="2" class="midtown-hill-house-glow"/></g>
+        </g>
+
+        <!-- ─── DEEP BACK ROW: tiny distant houses along the far-hill downslope ──
+             Very small house silhouettes (w=3, h=2) at y=458-472, scattered
+             across the scene to create residential density deep in the hill
+             backdrop. Kept above the right-side highway curve and below
+             the far-hill ridge line. -->
+        <!-- Far west back-row cluster (behind One Park Place) -->
+        <g transform="translate(152, 466)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(160, 470)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(168, 467)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(178, 471)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(186, 468)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <!-- Between OPP and Katz cluster -->
+        <g transform="translate(268, 466)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(276, 470)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(284, 467)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <!-- Behind Uptown area (right of downtown cluster) -->
+        <g transform="translate(660, 465)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(668, 469)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(678, 466)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(686, 470)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <!-- Behind KCTV5 area (between Plaza and Giralda extent) -->
+        <g transform="translate(870, 463)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(878, 467)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(890, 464)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <!-- Behind Kauffman/Nelson area -->
+        <g transform="translate(1060, 466)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(1068, 470)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(1078, 466)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(1160, 468)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(1168, 471)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(1178, 467)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <!-- Behind east edge -->
+        <g transform="translate(1328, 465)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(1336, 469)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(1344, 466)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(1500, 465)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(1510, 469)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+        <g transform="translate(1520, 466)"><rect class="midtown-hill-house-body" x="0" y="0" width="3" height="2"/><polygon class="midtown-hill-house-roof" points="-0.5,0 3.5,0 2.5,-1.2 0.5,-1.2"/><g class="building-night-lights"><rect x="0.5" y="0.5" width="2" height="1.2" class="midtown-hill-house-glow"/></g></g>
+      </g>
+
+      <!-- ═══════ LAYER 3: KCTV5 Tower (painted first, background vertical anchor) ═══════
+           1,042 ft guyed lattice steel broadcast tower. Peak at y=62, base at y=446.
+           Triangular cross-section lattice, guy wires at three heights, FAA red warning
+           beacon at peak, programmable LED segments along the mast lit dusk→dawn. -->
+      <g class="midtown-kctv5" aria-hidden="true">
+        <!-- Main mast — tapered lattice, center at x=930 -->
+        <line class="midtown-kctv5-mast" x1="930" y1="62" x2="930" y2="446"/>
+        <!-- Lattice cross-bracing — narrowing from bottom (24u wide) to top (6u wide) -->
+        <line class="midtown-kctv5-strut" x1="918" y1="446" x2="942" y2="446"/>
+        <line class="midtown-kctv5-strut" x1="919" y1="420" x2="941" y2="420"/>
+        <line class="midtown-kctv5-strut" x1="920" y1="394" x2="940" y2="394"/>
+        <line class="midtown-kctv5-strut" x1="921" y1="368" x2="939" y2="368"/>
+        <line class="midtown-kctv5-strut" x1="922" y1="342" x2="938" y2="342"/>
+        <line class="midtown-kctv5-strut" x1="923" y1="316" x2="937" y2="316"/>
+        <line class="midtown-kctv5-strut" x1="924" y1="290" x2="936" y2="290"/>
+        <line class="midtown-kctv5-strut" x1="925" y1="264" x2="935" y2="264"/>
+        <line class="midtown-kctv5-strut" x1="926" y1="238" x2="934" y2="238"/>
+        <line class="midtown-kctv5-strut" x1="927" y1="212" x2="933" y2="212"/>
+        <line class="midtown-kctv5-strut" x1="928" y1="180" x2="932" y2="180"/>
+        <line class="midtown-kctv5-strut" x1="928" y1="140" x2="932" y2="140"/>
+        <line class="midtown-kctv5-strut" x1="929" y1="100" x2="931" y2="100"/>
+        <!-- Lattice diagonal bracing (X pattern in each bay) -->
+        <line class="midtown-kctv5-diag" x1="918" y1="446" x2="941" y2="420"/>
+        <line class="midtown-kctv5-diag" x1="942" y1="446" x2="919" y2="420"/>
+        <line class="midtown-kctv5-diag" x1="919" y1="420" x2="940" y2="394"/>
+        <line class="midtown-kctv5-diag" x1="941" y1="420" x2="920" y2="394"/>
+        <line class="midtown-kctv5-diag" x1="920" y1="394" x2="939" y2="368"/>
+        <line class="midtown-kctv5-diag" x1="940" y1="394" x2="921" y2="368"/>
+        <line class="midtown-kctv5-diag" x1="921" y1="368" x2="938" y2="342"/>
+        <line class="midtown-kctv5-diag" x1="939" y1="368" x2="922" y2="342"/>
+        <line class="midtown-kctv5-diag" x1="922" y1="342" x2="937" y2="316"/>
+        <line class="midtown-kctv5-diag" x1="938" y1="342" x2="923" y2="316"/>
+        <line class="midtown-kctv5-diag" x1="923" y1="316" x2="936" y2="290"/>
+        <line class="midtown-kctv5-diag" x1="937" y1="316" x2="924" y2="290"/>
+        <line class="midtown-kctv5-diag" x1="924" y1="290" x2="935" y2="264"/>
+        <line class="midtown-kctv5-diag" x1="936" y1="290" x2="925" y2="264"/>
+        <line class="midtown-kctv5-diag" x1="925" y1="264" x2="934" y2="238"/>
+        <line class="midtown-kctv5-diag" x1="935" y1="264" x2="926" y2="238"/>
+        <line class="midtown-kctv5-diag" x1="926" y1="238" x2="933" y2="212"/>
+        <line class="midtown-kctv5-diag" x1="934" y1="238" x2="927" y2="212"/>
+        <!-- Tower verticals (outer rails of triangular lattice) -->
+        <line class="midtown-kctv5-rail" x1="918" y1="580" x2="918" y2="446"/>
+        <line class="midtown-kctv5-rail" x1="942" y1="580" x2="942" y2="446"/>
+        <line class="midtown-kctv5-rail" x1="918" y1="446" x2="928" y2="180"/>
+        <line class="midtown-kctv5-rail" x1="942" y1="446" x2="932" y2="180"/>
+        <line class="midtown-kctv5-rail" x1="928" y1="180" x2="930" y2="62"/>
+        <line class="midtown-kctv5-rail" x1="932" y1="180" x2="930" y2="62"/>
+        <!-- Lower tower section (446 → 580) — continuous lattice to the hill line.
+             Guy wires removed; tower reads as a unified vertical silhouette. -->
+        <line class="midtown-kctv5-strut" x1="918" y1="472" x2="942" y2="472"/>
+        <line class="midtown-kctv5-strut" x1="918" y1="498" x2="942" y2="498"/>
+        <line class="midtown-kctv5-strut" x1="918" y1="524" x2="942" y2="524"/>
+        <line class="midtown-kctv5-strut" x1="918" y1="550" x2="942" y2="550"/>
+        <line class="midtown-kctv5-strut" x1="916" y1="580" x2="944" y2="580"/>
+        <line class="midtown-kctv5-diag" x1="918" y1="446" x2="942" y2="472"/>
+        <line class="midtown-kctv5-diag" x1="942" y1="446" x2="918" y2="472"/>
+        <line class="midtown-kctv5-diag" x1="918" y1="472" x2="942" y2="498"/>
+        <line class="midtown-kctv5-diag" x1="942" y1="472" x2="918" y2="498"/>
+        <line class="midtown-kctv5-diag" x1="918" y1="498" x2="942" y2="524"/>
+        <line class="midtown-kctv5-diag" x1="942" y1="498" x2="918" y2="524"/>
+        <line class="midtown-kctv5-diag" x1="918" y1="524" x2="942" y2="550"/>
+        <line class="midtown-kctv5-diag" x1="942" y1="524" x2="918" y2="550"/>
+        <line class="midtown-kctv5-diag" x1="918" y1="550" x2="942" y2="580"/>
+        <line class="midtown-kctv5-diag" x1="942" y1="550" x2="918" y2="580"/>
+        <!-- FAA red warning beacon at peak (always blinking) -->
+        <circle class="midtown-kctv5-faa" cx="930" cy="58" r="2.6"/>
+        <!-- LED segments along the mast (programmable colors, dusk→dawn) -->
+        <g class="building-night-lights midtown-kctv5-leds" aria-hidden="true">
+          <rect class="led-red"  x="927" y="420" width="6" height="24"/>
+          <rect class="led-blue" x="927" y="380" width="6" height="24"/>
+          <rect class="led-red"  x="927" y="340" width="6" height="24"/>
+          <rect class="led-white" x="927" y="300" width="6" height="24"/>
+          <rect class="led-blue" x="927" y="260" width="6" height="24"/>
+          <rect class="led-red"  x="927" y="220" width="6" height="24"/>
+          <rect class="led-white" x="927" y="180" width="6" height="24"/>
+          <rect class="led-blue" x="927" y="140" width="6" height="24"/>
+          <rect class="led-red"  x="927" y="100" width="4" height="30"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 3b: Plaza towers — distant (background) ═══════
+           Dome building only. The distant Clock Tower element that was
+           previously here has been REMOVED — its scaled position was
+           landing at x=546-576, y=400-484, which was smack in the middle
+           of the downtown silhouette cluster (x=440-614, y=414-475). That
+           was what kept reading as "a massive clock tower in downtown."
+           The Mill Creek Clock Tower lives in Layer 3b2 (Plaza mid) only. -->
+      <g class="midtown-plaza-distant" aria-hidden="true">
+        <!-- Dome building (Country Club Plaza east-side domed silhouette).
+             Final rendered bounds ~x=766-796, y=432-502 — sits cleanly in
+             the Plaza cluster, east of the Giralda. -->
+        <g transform="translate(580, 310) scale(0.35)">
+          <rect x="532" y="350" width="86" height="200" class="midtown-distant-stucco"/>
+          <rect x="540" y="320" width="70" height="30" class="midtown-distant-stucco"/>
+          <path d="M 540,320 Q 575,260 610,320 Z" class="midtown-distant-dome"/>
+          <line x1="575" y1="265" x2="575" y2="245" class="midtown-distant-spire"/>
+          <circle cx="575" cy="243" r="3" class="midtown-distant-finial"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 3b2: Plaza mid-ground + density silhouettes ═══════
+           Reduced in scale from earlier iteration so the Mill Creek Clock
+           Tower doesn't read taller than the Giralda. Plus 3 more small
+           Plaza silhouettes behind the main foreground trio for density —
+           the Plaza is a rich cluster, not just 2-3 buildings. -->
+      <g class="midtown-plaza-mid" aria-hidden="true" transform="translate(0, -20)">
+
+        <!-- Small Plaza density silhouette #1 — low Spanish Colonial behind Uptown/Katz -->
+        <g>
+          <rect x="625" y="550" width="40" height="30" class="midtown-plaza-mid-stucco"/>
+          <polygon points="623,550 667,550 662,542 628,542" class="midtown-plaza-mid-tile"/>
+          <path d="M 632,570 h 8 v -12 a 4 4 0 0 0 -8 0 Z" class="midtown-plaza-mid-window"/>
+          <path d="M 648,570 h 8 v -12 a 4 4 0 0 0 -8 0 Z" class="midtown-plaza-mid-window"/>
+          <g class="building-night-lights">
+            <rect x="632" y="558" width="8" height="12" class="midtown-plaza-mid-glow"/>
+            <rect x="648" y="558" width="8" height="12" class="midtown-plaza-mid-glow"/>
+          </g>
+        </g>
+
+        <!-- Mill Creek Clock Tower — moved east into the Plaza cluster (shifted
+             +122 units) to read clearly as a Plaza element rather than a
+             downtown skyscraper. Now sits between Giralda and Plaza facade B,
+             with Spanish tile roof + compact clock face emphasizing its
+             Mediterranean character. -->
+        <g transform="translate(122, 0)">
+          <!-- Main body (lower) -->
+          <rect x="672" y="554" width="36" height="26" class="midtown-plaza-mid-stucco"/>
+          <!-- Clock face section (compact) -->
+          <rect x="678" y="542" width="24" height="12" class="midtown-plaza-mid-stucco"/>
+          <circle cx="690" cy="548" r="3" class="midtown-plaza-mid-window"/>
+          <!-- Signature Spanish tile roof pitch -->
+          <polygon points="674,542 706,542 702,534 678,534" class="midtown-plaza-mid-tile"/>
+          <!-- Small finial spire -->
+          <line x1="690" y1="534" x2="690" y2="528" class="midtown-plaza-mid-spire"/>
+          <circle cx="690" cy="527" r="0.9" class="midtown-plaza-mid-finial"/>
+          <!-- Arched windows on main body -->
+          <path d="M 676,572 h 6 v -10 a 3 3 0 0 0 -6 0 Z" class="midtown-plaza-mid-window"/>
+          <path d="M 687,572 h 6 v -10 a 3 3 0 0 0 -6 0 Z" class="midtown-plaza-mid-window"/>
+          <path d="M 698,572 h 6 v -10 a 3 3 0 0 0 -6 0 Z" class="midtown-plaza-mid-window"/>
+          <g class="building-night-lights">
+            <rect x="676" y="562" width="6" height="10" class="midtown-plaza-mid-glow"/>
+            <rect x="687" y="562" width="6" height="10" class="midtown-plaza-mid-glow"/>
+            <rect x="698" y="562" width="6" height="10" class="midtown-plaza-mid-glow"/>
+          </g>
+        </g>
+
+        <!-- Small Plaza density silhouette #2 — between Mill Creek and Giralda -->
+        <g>
+          <rect x="720" y="553" width="35" height="27" class="midtown-plaza-mid-stucco"/>
+          <polygon points="718,553 757,553 752,546 722,546" class="midtown-plaza-mid-tile"/>
+          <path d="M 726,572 h 7 v -10 a 3.5 3.5 0 0 0 -7 0 Z" class="midtown-plaza-mid-window"/>
+          <path d="M 740,572 h 7 v -10 a 3.5 3.5 0 0 0 -7 0 Z" class="midtown-plaza-mid-window"/>
+          <g class="building-night-lights">
+            <rect x="726" y="562" width="7" height="10" class="midtown-plaza-mid-glow"/>
+            <rect x="740" y="562" width="7" height="10" class="midtown-plaza-mid-glow"/>
+          </g>
+        </g>
+
+        <!-- (Density silhouette #3 removed — Mill Creek Clock Tower now
+             occupies this slot between Giralda and Plaza facade B, giving
+             the clock tower a clear Plaza-cluster identity.) -->
+
+        <!-- New Plaza density silhouette — between Uptown Theatre and Plaza
+             cluster #1 (replaces empty space left by clock tower's old
+             position, maintaining overall Plaza density). -->
+        <g>
+          <rect x="672" y="556" width="34" height="24" class="midtown-plaza-mid-stucco"/>
+          <polygon points="670,556 708,556 704,550 674,550" class="midtown-plaza-mid-tile"/>
+          <path d="M 679,574 h 6 v -10 a 3 3 0 0 0 -6 0 Z" class="midtown-plaza-mid-window"/>
+          <path d="M 691,574 h 6 v -10 a 3 3 0 0 0 -6 0 Z" class="midtown-plaza-mid-window"/>
+          <g class="building-night-lights">
+            <rect x="679" y="564" width="6" height="10" class="midtown-plaza-mid-glow"/>
+            <rect x="691" y="564" width="6" height="10" class="midtown-plaza-mid-glow"/>
+          </g>
+        </g>
+
+        <!-- Plaza mid-ground facade B — wider low Spanish Colonial arcade
+             (Balcony Building-inspired), kept similar size but palette now
+             gold line-art matching the rest of the scene. -->
+        <g transform="translate(0, 0)">
+          <rect x="830" y="548" width="80" height="32" class="midtown-plaza-mid-stucco"/>
+          <polygon points="826,548 914,548 908,540 832,540" class="midtown-plaza-mid-tile"/>
+          <line x1="830" y1="555" x2="910" y2="555" class="midtown-plaza-mid-ridge"/>
+          <path d="M 838,572 h 10 v -14 a 5 5 0 0 0 -10 0 Z" class="midtown-plaza-mid-window"/>
+          <path d="M 855,572 h 10 v -14 a 5 5 0 0 0 -10 0 Z" class="midtown-plaza-mid-window"/>
+          <path d="M 872,572 h 10 v -14 a 5 5 0 0 0 -10 0 Z" class="midtown-plaza-mid-window"/>
+          <path d="M 889,572 h 10 v -14 a 5 5 0 0 0 -10 0 Z" class="midtown-plaza-mid-window"/>
+          <g class="building-night-lights">
+            <rect x="838" y="558" width="10" height="14" class="midtown-plaza-mid-glow"/>
+            <rect x="855" y="558" width="10" height="14" class="midtown-plaza-mid-glow"/>
+            <rect x="872" y="558" width="10" height="14" class="midtown-plaza-mid-glow"/>
+            <rect x="889" y="558" width="10" height="14" class="midtown-plaza-mid-glow"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 3c: Plaza Giralda — PROPERLY PROPORTIONED ═══════
+           Reused path data from plaza-lights.html, scaled 0.3 (was 0.75) so
+           the tower reads as ~125 ft tall relative to KCTV5's 1042 ft — the
+           real height ratio between Plaza's Giralda replica and the broadcast
+           tower. Still the tallest Plaza landmark, but no longer dwarfing the
+           scene. Reads as a Plaza foreground tower. -->
+      <g class="midtown-giralda" data-building="giralda" transform="translate(0, -20)">
+        <a href="../plaza-lights.html" aria-label="Giralda Tower — Country Club Plaza Lights">
+          <g transform="translate(445, 30)">
+            <g transform="translate(320, 550) scale(0.3) translate(-320, -550)">
+              <rect x="284" y="180" width="72" height="370" class="midtown-giralda-stucco"/>
+              <path d="M 298,320 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="midtown-giralda-window"/>
+              <path d="M 326,320 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="midtown-giralda-window"/>
+              <path d="M 298,380 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="midtown-giralda-window"/>
+              <path d="M 326,380 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="midtown-giralda-window"/>
+              <path d="M 298,440 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="midtown-giralda-window"/>
+              <path d="M 326,440 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="midtown-giralda-window"/>
+              <rect x="278" y="140" width="84" height="44" class="midtown-giralda-stucco"/>
+              <path d="M 300,180 h 40 v -30 a 20 20 0 0 0 -40 0 Z" class="midtown-giralda-window"/>
+              <rect x="272" y="132" width="96" height="10" class="midtown-giralda-tile"/>
+              <rect x="288" y="120" width="64" height="14" class="midtown-giralda-stucco"/>
+              <polygon points="320,120 312,108 328,108" class="midtown-giralda-tile"/>
+              <line x1="320" y1="108" x2="320" y2="94" class="midtown-giralda-spire"/>
+              <circle cx="320" cy="92" r="2.5" class="midtown-giralda-finial"/>
+              <g class="building-night-lights">
+                <rect x="298" y="294" width="16" height="26" class="midtown-giralda-glow"/>
+                <rect x="326" y="294" width="16" height="26" class="midtown-giralda-glow"/>
+                <rect x="298" y="354" width="16" height="26" class="midtown-giralda-glow"/>
+                <rect x="326" y="354" width="16" height="26" class="midtown-giralda-glow"/>
+                <rect x="298" y="414" width="16" height="26" class="midtown-giralda-glow"/>
+                <rect x="326" y="414" width="16" height="26" class="midtown-giralda-glow"/>
+                <rect x="302" y="152" width="36" height="28" class="midtown-giralda-glow"/>
+              </g>
+            </g>
+          </g>
+        </a>
+      </g>
+
+      <!-- ═══════ LAYER 4a: One Park Place (LEFT ANCHOR) ═══════
+           20-story late-modernist glass slab on Hospital Hill bluff. Pushed
+           slightly right from original position so the road + house strip
+           have more breathing room as the new left-side anchor. -->
+      <g class="midtown-oneparkplace" data-building="one-park-place" transform="translate(36, -20)">
+        <a href="../buildings/one-park-place.html" aria-label="One Park Place, 700 W 31st Street">
+          <!-- Podium base -->
+          <rect x="70" y="560" width="110" height="20" class="midtown-opp-podium"/>
+          <!-- Tower shaft -->
+          <rect x="95" y="350" width="60" height="210" class="midtown-opp-tower"/>
+          <!-- Flat roof cap -->
+          <line x1="93" y1="350" x2="157" y2="350" class="midtown-opp-cap"/>
+          <!-- Continuous horizontal floor bands (20 stories) -->
+          <line x1="95" y1="360" x2="155" y2="360" class="midtown-opp-band"/>
+          <line x1="95" y1="370" x2="155" y2="370" class="midtown-opp-band"/>
+          <line x1="95" y1="380" x2="155" y2="380" class="midtown-opp-band"/>
+          <line x1="95" y1="390" x2="155" y2="390" class="midtown-opp-band"/>
+          <line x1="95" y1="400" x2="155" y2="400" class="midtown-opp-band"/>
+          <line x1="95" y1="410" x2="155" y2="410" class="midtown-opp-band"/>
+          <line x1="95" y1="420" x2="155" y2="420" class="midtown-opp-band"/>
+          <line x1="95" y1="430" x2="155" y2="430" class="midtown-opp-band"/>
+          <line x1="95" y1="440" x2="155" y2="440" class="midtown-opp-band"/>
+          <line x1="95" y1="450" x2="155" y2="450" class="midtown-opp-band"/>
+          <line x1="95" y1="460" x2="155" y2="460" class="midtown-opp-band"/>
+          <line x1="95" y1="470" x2="155" y2="470" class="midtown-opp-band"/>
+          <line x1="95" y1="480" x2="155" y2="480" class="midtown-opp-band"/>
+          <line x1="95" y1="490" x2="155" y2="490" class="midtown-opp-band"/>
+          <line x1="95" y1="500" x2="155" y2="500" class="midtown-opp-band"/>
+          <line x1="95" y1="510" x2="155" y2="510" class="midtown-opp-band"/>
+          <line x1="95" y1="520" x2="155" y2="520" class="midtown-opp-band"/>
+          <line x1="95" y1="530" x2="155" y2="530" class="midtown-opp-band"/>
+          <line x1="95" y1="540" x2="155" y2="540" class="midtown-opp-band"/>
+          <line x1="95" y1="550" x2="155" y2="550" class="midtown-opp-band"/>
+          <!-- Vertical mullions -->
+          <line x1="115" y1="350" x2="115" y2="560" class="midtown-opp-mullion"/>
+          <line x1="135" y1="350" x2="135" y2="560" class="midtown-opp-mullion"/>
+          <!-- Night window glows — sprinkled across upper floors -->
+          <g class="building-night-lights">
+            <rect x="98" y="362" width="12" height="6" class="midtown-opp-glow"/>
+            <rect x="120" y="382" width="12" height="6" class="midtown-opp-glow"/>
+            <rect x="140" y="392" width="12" height="6" class="midtown-opp-glow"/>
+            <rect x="98" y="412" width="12" height="6" class="midtown-opp-glow"/>
+            <rect x="140" y="432" width="12" height="6" class="midtown-opp-glow"/>
+            <rect x="120" y="452" width="12" height="6" class="midtown-opp-glow"/>
+            <rect x="98" y="472" width="12" height="6" class="midtown-opp-glow"/>
+            <rect x="140" y="492" width="12" height="6" class="midtown-opp-glow"/>
+            <rect x="98" y="522" width="12" height="6" class="midtown-opp-glow"/>
+            <rect x="120" y="542" width="12" height="6" class="midtown-opp-glow"/>
+          </g>
+        </a>
+      </g>
+
+      <!-- ═══════ LAYER 4b: Katz Drug Building ═══════
+           1934 Streamline Moderne corner store, cream stucco body with rounded right
+           corner, rooftop KATZ neon sign lit dusk→dawn with flicker at transition. -->
+      <g class="midtown-katz" data-building="katz-drug" transform="translate(0, -20)">
+        <a href="../buildings/katz-drug.html" aria-label="Katz Drug Building, 39th &amp; Main">
+          <!-- Main two-story mass with rounded Streamline right corner -->
+          <path class="midtown-katz-body"
+                d="M 280 580 L 280 530 L 420 530 Q 455 530 455 565 L 455 580 Z"/>
+          <!-- Horizontal Streamline banding -->
+          <line x1="280" y1="540" x2="453" y2="540" class="midtown-katz-band"/>
+          <line x1="280" y1="550" x2="454" y2="550" class="midtown-katz-band"/>
+          <line x1="280" y1="560" x2="455" y2="560" class="midtown-katz-band"/>
+          <!-- Ground-floor storefront windows -->
+          <line x1="295" y1="560" x2="295" y2="580" class="midtown-katz-window"/>
+          <line x1="320" y1="560" x2="320" y2="580" class="midtown-katz-window"/>
+          <line x1="345" y1="560" x2="345" y2="580" class="midtown-katz-window"/>
+          <line x1="370" y1="560" x2="370" y2="580" class="midtown-katz-window"/>
+          <line x1="395" y1="560" x2="395" y2="580" class="midtown-katz-window"/>
+          <line x1="420" y1="560" x2="420" y2="580" class="midtown-katz-window"/>
+          <!-- Parapet cap -->
+          <line x1="278" y1="528" x2="422" y2="528" class="midtown-katz-cap"/>
+          <!-- Rooftop KATZ sign frame -->
+          <rect x="320" y="498" width="80" height="30" class="midtown-katz-sign-frame"/>
+          <!-- "KATZ" letters -->
+          <text class="midtown-katz-letters" x="360" y="521" text-anchor="middle"
+                font-family="'Josefin Sans', sans-serif" font-size="18" font-weight="700"
+                letter-spacing="2">KATZ</text>
+          <!-- Night-only neon glow + halo -->
+          <g class="midtown-katz-neon" aria-hidden="true">
+            <rect x="320" y="498" width="80" height="30" class="midtown-katz-neon-box"/>
+            <text class="midtown-katz-neon-letters" x="360" y="521" text-anchor="middle"
+                  font-family="'Josefin Sans', sans-serif" font-size="18" font-weight="700"
+                  letter-spacing="2">KATZ</text>
+            <!-- Halo aura -->
+            <ellipse cx="360" cy="513" rx="54" ry="22" class="midtown-katz-halo"/>
+          </g>
+          <!-- Night window glows on storefront -->
+          <g class="building-night-lights">
+            <rect x="282" y="532" width="140" height="28" class="midtown-katz-window-glow"/>
+          </g>
+        </a>
+      </g>
+
+      <!-- ═══════ LAYER 4c: Uptown Theatre ═══════
+           1928 Boller Brothers Spanish Colonial theatre. Brick body with stepped
+           parapet and a vertical UPTOWN marquee rising above. Marquee neon lit
+           dusk→dawn with flicker at the transition. -->
+      <g class="midtown-uptown" data-building="uptown-theatre" transform="translate(0, -20)">
+        <a href="../buildings/uptown-theatre.html" aria-label="Uptown Theatre, 37th &amp; Broadway">
+          <!-- Main three-story brick mass -->
+          <rect x="500" y="495" width="130" height="85" class="midtown-uptown-body"/>
+          <!-- Spanish Colonial stepped parapet -->
+          <path class="midtown-uptown-parapet"
+                d="M 500 495 L 512 485 L 548 485 L 560 495 M 570 495 L 582 485 L 618 485 L 630 495"/>
+          <!-- Arched second-story windows -->
+          <path d="M 515 532 L 515 520 a 7 7 0 0 1 14 0 L 529 532 Z" class="midtown-uptown-window"/>
+          <path d="M 545 532 L 545 520 a 7 7 0 0 1 14 0 L 559 532 Z" class="midtown-uptown-window"/>
+          <path d="M 575 532 L 575 520 a 7 7 0 0 1 14 0 L 589 532 Z" class="midtown-uptown-window"/>
+          <path d="M 605 532 L 605 520 a 7 7 0 0 1 14 0 L 619 532 Z" class="midtown-uptown-window"/>
+          <!-- Horizontal entry canopy marquee -->
+          <rect x="525" y="555" width="80" height="8" class="midtown-uptown-canopy"/>
+          <!-- Entry doors -->
+          <line x1="545" y1="563" x2="545" y2="580" class="midtown-uptown-door"/>
+          <line x1="565" y1="563" x2="565" y2="580" class="midtown-uptown-door"/>
+          <line x1="585" y1="563" x2="585" y2="580" class="midtown-uptown-door"/>
+          <!-- Vertical UPTOWN marquee rising above parapet -->
+          <rect x="552" y="440" width="26" height="50" class="midtown-uptown-marquee-frame"/>
+          <!-- Marquee crown -->
+          <polygon points="552,440 565,432 578,440" class="midtown-uptown-marquee-frame"/>
+          <!-- "UPTOWN" letters stacked vertically -->
+          <g class="midtown-uptown-marquee-letters" text-anchor="middle"
+             font-family="'Josefin Sans', sans-serif" font-size="6" font-weight="700" letter-spacing="0.6">
+            <text x="565" y="450">U</text>
+            <text x="565" y="458">P</text>
+            <text x="565" y="466">T</text>
+            <text x="565" y="474">O</text>
+            <text x="565" y="482">W</text>
+            <text x="565" y="490">N</text>
+          </g>
+          <!-- Night-only marquee neon glow -->
+          <g class="midtown-uptown-neon" aria-hidden="true">
+            <rect x="552" y="440" width="26" height="50" class="midtown-uptown-neon-box"/>
+            <ellipse cx="565" cy="465" rx="24" ry="34" class="midtown-uptown-halo"/>
+          </g>
+          <g class="building-night-lights">
+            <rect x="514" y="518" width="16" height="14" class="midtown-uptown-window-glow"/>
+            <rect x="544" y="518" width="16" height="14" class="midtown-uptown-window-glow"/>
+            <rect x="574" y="518" width="16" height="14" class="midtown-uptown-window-glow"/>
+            <rect x="604" y="518" width="16" height="14" class="midtown-uptown-window-glow"/>
+          </g>
+        </a>
+      </g>
+
+      <!-- ═══════ LAYER 4e-pre: UMKC campus infill buildings ═══════
+           Minor Collegiate Gothic / academic silhouettes in the gap between
+           Nelson (shifted left) and Haag Hall. Fills the right-side campus
+           density and gives Haag Hall proper context. -->
+      <!-- (UMKC infill removed — the Kauffman Memorial Garden now occupies
+           the east-of-Nelson area that this infill used to fill.) -->
+      <g class="midtown-umkc-infill" aria-hidden="true" transform="translate(-80, -20)">
+        <!-- Single compact UMKC academic building, shifted west to sit just
+             east of Nelson and west of Kauffman Garden. Gives some UMKC
+             campus density without overlapping Kauffman Garden. -->
+        <rect x="1420" y="526" width="30" height="54" class="midtown-haag-body"/>
+        <line x1="1418" y1="526" x2="1452" y2="526" class="midtown-haag-band"/>
+        <path d="M 1430,580 h 10 v -12 a 5 5 0 0 0 -10 0 Z" class="midtown-haag-window"/>
+        <rect x="1424" y="534" width="6" height="8" class="midtown-haag-window"/>
+        <rect x="1434" y="534" width="6" height="8" class="midtown-haag-window"/>
+        <rect x="1442" y="534" width="6" height="8" class="midtown-haag-window"/>
+        <rect x="1424" y="548" width="6" height="8" class="midtown-haag-window"/>
+        <rect x="1434" y="548" width="6" height="8" class="midtown-haag-window"/>
+        <rect x="1442" y="548" width="6" height="8" class="midtown-haag-window"/>
+        <g class="building-night-lights">
+          <rect x="1424" y="534" width="6" height="8" class="midtown-haag-glow"/>
+          <rect x="1434" y="534" width="6" height="8" class="midtown-haag-glow"/>
+          <rect x="1442" y="534" width="6" height="8" class="midtown-haag-glow"/>
+          <rect x="1424" y="548" width="6" height="8" class="midtown-haag-glow"/>
+          <rect x="1434" y="548" width="6" height="8" class="midtown-haag-glow"/>
+          <rect x="1442" y="548" width="6" height="8" class="midtown-haag-glow"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 4e: UMKC Haag Hall (RIGHT EDGE) ═══════
+           Collegiate Gothic brick tower on the UMKC campus (south of the
+           Nelson), filling the right edge density with a vertical counterpoint
+           to Nelson's horizontal colonnade. Reuses the silhouette pattern from
+           the Volker fountain backdrop, rendered in gold line-art. -->
+      <g class="midtown-haag-hall" data-building="haag-hall" aria-hidden="true" transform="translate(0, -20)">
+        <!-- Main tower shaft -->
+        <rect x="1520" y="460" width="50" height="120" class="midtown-haag-body"/>
+        <!-- Crenellated parapet at top -->
+        <rect x="1516" y="452" width="58" height="8" class="midtown-haag-body"/>
+        <rect x="1520" y="444" width="6" height="8" class="midtown-haag-body"/>
+        <rect x="1530" y="444" width="6" height="8" class="midtown-haag-body"/>
+        <rect x="1540" y="444" width="6" height="8" class="midtown-haag-body"/>
+        <rect x="1550" y="444" width="6" height="8" class="midtown-haag-body"/>
+        <rect x="1560" y="444" width="6" height="8" class="midtown-haag-body"/>
+        <!-- Tall Gothic arch windows near top -->
+        <path d="M 1534,510 h 12 v -22 a 6 6 0 0 0 -12 0 Z" class="midtown-haag-window"/>
+        <path d="M 1550,510 h 12 v -22 a 6 6 0 0 0 -12 0 Z" class="midtown-haag-window"/>
+        <!-- Stone band mid-height -->
+        <line x1="1520" y1="510" x2="1570" y2="510" class="midtown-haag-band"/>
+        <!-- Lower Gothic windows -->
+        <path d="M 1528,568 h 10 v -18 a 5 5 0 0 0 -10 0 Z" class="midtown-haag-window"/>
+        <path d="M 1544,568 h 10 v -18 a 5 5 0 0 0 -10 0 Z" class="midtown-haag-window"/>
+        <path d="M 1560,568 h 6 v -12 a 3 3 0 0 0 -6 0 Z" class="midtown-haag-window"/>
+        <!-- Night window glows -->
+        <g class="building-night-lights">
+          <rect x="1534" y="488" width="12" height="22" class="midtown-haag-glow"/>
+          <rect x="1550" y="488" width="12" height="22" class="midtown-haag-glow"/>
+          <rect x="1528" y="550" width="10" height="18" class="midtown-haag-glow"/>
+          <rect x="1544" y="550" width="10" height="18" class="midtown-haag-glow"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 4d: Nelson-Atkins Museum (RIGHT ANCHOR) ═══════
+           South facade (1933). Long horizontal limestone mass. Six Ionic
+           columns evenly spaced across the central portico with entablature
+           capital band above and plinth below. Shallow triangular pediment
+           crowns the portico. Flanking wings step down from the portico to
+           the east and west. Stepped base + broad staircase descends to the
+           lawn with the two shuttlecocks. -->
+      <g class="midtown-nelson" data-building="nelson-atkins" transform="translate(-180, -20)">
+        <a href="../buildings/nelson-atkins.html" aria-label="Nelson-Atkins Museum of Art">
+          <!-- Lawn in front of museum -->
+          <rect x="1180" y="560" width="340" height="20" class="midtown-nelson-lawn"/>
+          <!-- Flanking wings (stepping down from central portico) -->
+          <rect x="1200" y="528" width="80" height="52" class="midtown-nelson-wing"/>
+          <rect x="1440" y="528" width="80" height="52" class="midtown-nelson-wing"/>
+          <!-- Main central mass (portico block) -->
+          <rect x="1280" y="504" width="160" height="76" class="midtown-nelson-main"/>
+          <!-- Entablature capital band above columns -->
+          <rect x="1282" y="510" width="156" height="5" class="midtown-nelson-entablature"/>
+          <!-- Central pediment (shallow triangular — Nelson's is a low-pitch
+               classical pediment rather than a steep gable) -->
+          <polygon points="1282,504 1360,486 1438,504" class="midtown-nelson-pediment"/>
+          <!-- Ionic colonnade — SIX columns EVENLY SPACED across the full
+               portico width. Column spacing matches real Nelson (each column
+               ~27u apart center-to-center, starting ~16u from each edge of
+               the portico). -->
+          <rect x="1296" y="515" width="4" height="42" class="midtown-nelson-column"/>
+          <rect x="1323" y="515" width="4" height="42" class="midtown-nelson-column"/>
+          <rect x="1350" y="515" width="4" height="42" class="midtown-nelson-column"/>
+          <rect x="1377" y="515" width="4" height="42" class="midtown-nelson-column"/>
+          <rect x="1404" y="515" width="4" height="42" class="midtown-nelson-column"/>
+          <rect x="1431" y="515" width="4" height="42" class="midtown-nelson-column"/>
+          <!-- Ionic capitals — small scroll hint at top of each column -->
+          <ellipse cx="1298" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
+          <ellipse cx="1325" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
+          <ellipse cx="1352" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
+          <ellipse cx="1379" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
+          <ellipse cx="1406" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
+          <ellipse cx="1433" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
+          <!-- Colonnade plinth band (base of columns) -->
+          <rect x="1282" y="557" width="156" height="4" class="midtown-nelson-entablature"/>
+          <!-- Broad staircase descending from portico to lawn (6 steps) -->
+          <line x1="1292" y1="564" x2="1428" y2="564" class="midtown-nelson-stairs"/>
+          <line x1="1290" y1="568" x2="1430" y2="568" class="midtown-nelson-stairs"/>
+          <line x1="1288" y1="572" x2="1432" y2="572" class="midtown-nelson-stairs"/>
+          <line x1="1286" y1="576" x2="1434" y2="576" class="midtown-nelson-stairs"/>
+          <!-- Wing pilasters (shallow engaged columns along wing facades,
+               separating window bays). Real Nelson has classical pilasters
+               articulating the wing rhythm. -->
+          <line class="midtown-nelson-pilaster" x1="1206" y1="530" x2="1206" y2="558"/>
+          <line class="midtown-nelson-pilaster" x1="1226" y1="530" x2="1226" y2="558"/>
+          <line class="midtown-nelson-pilaster" x1="1246" y1="530" x2="1246" y2="558"/>
+          <line class="midtown-nelson-pilaster" x1="1266" y1="530" x2="1266" y2="558"/>
+          <line class="midtown-nelson-pilaster" x1="1448" y1="530" x2="1448" y2="558"/>
+          <line class="midtown-nelson-pilaster" x1="1468" y1="530" x2="1468" y2="558"/>
+          <line class="midtown-nelson-pilaster" x1="1488" y1="530" x2="1488" y2="558"/>
+          <line class="midtown-nelson-pilaster" x1="1508" y1="530" x2="1508" y2="558"/>
+          <!-- Wing windows — four per wing (between pilasters), rectangular -->
+          <rect x="1210" y="542" width="12" height="14" class="midtown-nelson-window"/>
+          <rect x="1230" y="542" width="12" height="14" class="midtown-nelson-window"/>
+          <rect x="1250" y="542" width="12" height="14" class="midtown-nelson-window"/>
+          <rect x="1452" y="542" width="12" height="14" class="midtown-nelson-window"/>
+          <rect x="1472" y="542" width="12" height="14" class="midtown-nelson-window"/>
+          <rect x="1492" y="542" width="12" height="14" class="midtown-nelson-window"/>
+          <!-- Night window glows -->
+          <g class="building-night-lights">
+            <rect x="1210" y="542" width="12" height="14" class="midtown-nelson-window-glow"/>
+            <rect x="1230" y="542" width="12" height="14" class="midtown-nelson-window-glow"/>
+            <rect x="1250" y="542" width="12" height="14" class="midtown-nelson-window-glow"/>
+            <rect x="1452" y="542" width="12" height="14" class="midtown-nelson-window-glow"/>
+            <rect x="1472" y="542" width="12" height="14" class="midtown-nelson-window-glow"/>
+            <rect x="1492" y="542" width="12" height="14" class="midtown-nelson-window-glow"/>
+          </g>
+        </a>
+      </g>
+
+      <!-- Shuttlecocks — two large iconic cone-and-feather sculptures on
+           Nelson's lawn. The Oldenburg + van Bruggen "Shuttlecocks" (1994) are
+           each ~18 feet tall, tipped at characteristic jaunty angles as if
+           mid-landing. Drawn at a readable scene scale with clear cork-nose
+           base + narrow collar + fanning feather cone silhouette. One sways;
+           the other is still. -->
+      <g class="midtown-shuttlecocks" aria-hidden="true" transform="translate(-180, -20)">
+        <!-- Cleaner, more recognizable shuttlecock silhouettes. Oldenburg +
+             van Bruggen (1994) sculptures on Nelson's south lawn. Simple
+             geometry: round cork ball base, narrow collar, smooth tapered
+             feather cone outline with subtle interior vein strokes. -->
+
+        <!-- Shuttlecock 1 (swaying) — tipped jauntily right -->
+        <g transform="translate(1258, 582)">
+          <g class="midtown-shuttlecock-sway-wrapper">
+            <g transform="rotate(-15)">
+              <!-- Cork ball — simple round leather base -->
+              <circle class="midtown-shuttlecock-cork" cx="0" cy="-4" r="6"/>
+              <!-- Collar band — narrow transition rectangle -->
+              <rect class="midtown-shuttlecock-collar" x="-5" y="-11" width="10" height="3" rx="1"/>
+              <!-- Feather cone — smooth tapered silhouette with subtle
+                   scalloped top to suggest feather tips -->
+              <path class="midtown-shuttlecock-feathers" d="
+                M -5,-11
+                C -14,-26 -16,-44 -12,-47
+                C -7,-49 -4,-42 -2,-48
+                C 0,-52 0,-52 2,-48
+                C 4,-42 7,-49 12,-47
+                C 16,-44 14,-26 5,-11 Z"/>
+              <!-- Three simple vein strokes across the cone -->
+              <line class="midtown-shuttlecock-vein" x1="-4" y1="-11" x2="-10" y2="-42"/>
+              <line class="midtown-shuttlecock-vein" x1="0" y1="-11" x2="0" y2="-50"/>
+              <line class="midtown-shuttlecock-vein" x1="4" y1="-11" x2="10" y2="-42"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- Shuttlecock 2 (still) — tipped left, farther across the lawn -->
+        <g transform="translate(1500, 582)">
+          <g transform="rotate(20)">
+            <circle class="midtown-shuttlecock-cork" cx="0" cy="-4" r="6"/>
+            <rect class="midtown-shuttlecock-collar" x="-5" y="-11" width="10" height="3" rx="1"/>
+            <path class="midtown-shuttlecock-feathers" d="
+              M -5,-11
+              C -14,-26 -16,-44 -12,-47
+              C -7,-49 -4,-42 -2,-48
+              C 0,-52 0,-52 2,-48
+              C 4,-42 7,-49 12,-47
+              C 16,-44 14,-26 5,-11 Z"/>
+            <line class="midtown-shuttlecock-vein" x1="-4" y1="-11" x2="-10" y2="-42"/>
+            <line class="midtown-shuttlecock-vein" x1="0" y1="-11" x2="0" y2="-50"/>
+            <line class="midtown-shuttlecock-vein" x1="4" y1="-11" x2="10" y2="-42"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 5: Kauffman Memorial Park FOREGROUND ═══════
+           Expanded park foreground — the park now has a proper stone terrace,
+           a tiered fountain pedestal with a visible central jet, flanking
+           topiary, flower beds, and a pair of benches. Reads clearly as a
+           landscaped memorial park at scene scale. Shifted -40 alongside
+           Nelson to open space on the right edge for UMKC infill. -->
+      <g class="midtown-kauffman-park" aria-hidden="true" transform="translate(380, -40)">
+        <!-- Stone terrace plinth — defines the park boundary on the ground
+             and gives the fountain a proper foreground place to sit. -->
+        <rect x="950" y="591" width="240" height="6" class="midtown-park-terrace"/>
+        <line x1="950" y1="591" x2="1190" y2="591" class="midtown-park-terrace-rim"/>
+        <line x1="950" y1="597" x2="1190" y2="597" class="midtown-park-terrace-rim"/>
+        <!-- Hedge line (low, simple horizontal) -->
+        <path class="midtown-park-hedge"
+              d="M 960 578 L 1180 578"/>
+        <!-- Path arc running across the park (slightly curved, in front of fountain) -->
+        <path class="midtown-park-path"
+              d="M 960 588 Q 1070 584 1180 588" fill="none"/>
+
+        <!-- ── Fountain (tiered) ─────────────────────────────────────────
+             Two-basin tiered fountain. Lower wide pool + upper smaller dish
+             + central pedestal + visible water jet. Reads as landmark-scale
+             memorial fountain. -->
+        <!-- Lower pool (wide) -->
+        <ellipse cx="1070" cy="586" rx="44" ry="7" class="scene-pool-rim-outer"/>
+        <ellipse cx="1070" cy="584" rx="40" ry="5" class="scene-pool-rim-inner"/>
+        <ellipse class="scene-pool-water" cx="1070" cy="584" rx="36" ry="3.8"/>
+        <!-- Lower pedestal shaft -->
+        <rect x="1065" y="570" width="10" height="14" class="scene-pedestal-shaft"/>
+        <line x1="1065" y1="576" x2="1075" y2="576" class="midtown-park-terrace-rim"/>
+        <!-- Upper basin (dish) — tier 2 -->
+        <ellipse cx="1070" cy="570" rx="14" ry="3" class="scene-pool-rim-outer"/>
+        <ellipse cx="1070" cy="569" rx="11" ry="2" class="scene-pool-rim-inner"/>
+        <ellipse class="scene-pool-water" cx="1070" cy="569" rx="9" ry="1.4"/>
+        <!-- Upper pedestal -->
+        <rect x="1068" y="560" width="4" height="9" class="scene-pedestal-shaft"/>
+        <ellipse cx="1070" cy="559" rx="3.5" ry="1.2" class="scene-pedestal-cap"/>
+        <!-- Central water jet — taller for better readability -->
+        <path class="scene-jet scene-jet-center"
+              d="M 1070 558 Q 1067 548 1068.5 542 Q 1070 537 1071.5 542 Q 1073 548 1070 558 Z"/>
+        <!-- Side-arc water falls from upper basin to lower pool -->
+        <path class="scene-jet-side"
+              d="M 1056 572 Q 1054 578 1048 582" fill="none"/>
+        <path class="scene-jet-side"
+              d="M 1084 572 Q 1086 578 1092 582" fill="none"/>
+        <!-- Falling drops from upper basin -->
+        <circle cx="1052" cy="579" r="0.7" class="scene-jet-drop"/>
+        <circle cx="1088" cy="579" r="0.7" class="scene-jet-drop"/>
+        <circle cx="1046" cy="582" r="0.6" class="scene-jet-drop"/>
+        <circle cx="1094" cy="582" r="0.6" class="scene-jet-drop"/>
+
+        <!-- ── Landscape elements ─────────────────────────────────────────
+             Flanking topiary (larger), flower-bed rectangles, and benches. -->
+        <!-- Topiary cones (larger, better defined) -->
+        <polygon points="1014,584 1007,570 1021,570" class="midtown-park-topiary"/>
+        <circle cx="1014" cy="570" r="1" class="midtown-park-topiary"/>
+        <polygon points="1126,584 1119,570 1133,570" class="midtown-park-topiary"/>
+        <circle cx="1126" cy="570" r="1" class="midtown-park-topiary"/>
+        <!-- Second pair of smaller topiary (further out) -->
+        <polygon points="982,586 978,576 986,576" class="midtown-park-topiary"/>
+        <polygon points="1158,586 1154,576 1162,576" class="midtown-park-topiary"/>
+        <!-- Flower/planting beds (small rectangles flanking path) -->
+        <rect x="994" y="588" width="12" height="3" class="midtown-park-flowerbed"/>
+        <rect x="1134" y="588" width="12" height="3" class="midtown-park-flowerbed"/>
+        <rect x="964" y="590" width="8" height="2" class="midtown-park-flowerbed"/>
+        <rect x="1168" y="590" width="8" height="2" class="midtown-park-flowerbed"/>
+        <!-- Benches (small horizontal with legs) -->
+        <g class="midtown-park-bench">
+          <rect x="1030" y="589" width="12" height="1.2"/>
+          <line x1="1031" y1="590" x2="1031" y2="593"/>
+          <line x1="1041" y1="590" x2="1041" y2="593"/>
+        </g>
+        <g class="midtown-park-bench">
+          <rect x="1098" y="589" width="12" height="1.2"/>
+          <line x1="1099" y1="590" x2="1099" y2="593"/>
+          <line x1="1109" y1="590" x2="1109" y2="593"/>
+        </g>
+
+        <!-- ── Formal parterre garden compartments (west + east flanks) ───
+             Low hedge borders forming symmetric garden rooms on either side
+             of the fountain, with parterre flower patterns inside. Matches
+             the Kauffman Memorial Garden's formal English design. -->
+        <!-- West parterre compartment -->
+        <g class="midtown-park-parterre">
+          <rect x="964" y="574" width="40" height="14" class="midtown-park-parterre-bed"/>
+          <!-- Parterre cross pattern -->
+          <line x1="984" y1="574" x2="984" y2="588" class="midtown-park-parterre-line"/>
+          <line x1="964" y1="581" x2="1004" y2="581" class="midtown-park-parterre-line"/>
+          <!-- Corner flower dots -->
+          <circle cx="974" cy="577" r="0.9" class="midtown-park-flower"/>
+          <circle cx="994" cy="577" r="0.9" class="midtown-park-flower"/>
+          <circle cx="974" cy="585" r="0.9" class="midtown-park-flower"/>
+          <circle cx="994" cy="585" r="0.9" class="midtown-park-flower"/>
+          <!-- Center ornament -->
+          <circle cx="984" cy="581" r="1.4" class="midtown-park-ornament"/>
+        </g>
+        <!-- East parterre compartment (mirrored) -->
+        <g class="midtown-park-parterre">
+          <rect x="1136" y="574" width="40" height="14" class="midtown-park-parterre-bed"/>
+          <line x1="1156" y1="574" x2="1156" y2="588" class="midtown-park-parterre-line"/>
+          <line x1="1136" y1="581" x2="1176" y2="581" class="midtown-park-parterre-line"/>
+          <circle cx="1146" cy="577" r="0.9" class="midtown-park-flower"/>
+          <circle cx="1166" cy="577" r="0.9" class="midtown-park-flower"/>
+          <circle cx="1146" cy="585" r="0.9" class="midtown-park-flower"/>
+          <circle cx="1166" cy="585" r="0.9" class="midtown-park-flower"/>
+          <circle cx="1156" cy="581" r="1.4" class="midtown-park-ornament"/>
+        </g>
+
+        <!-- ── Pergola / rose arbor (east side of park) ────────────────────
+             Small timber pergola with climbing vine — a classic English-
+             garden element for a memorial garden. -->
+        <g class="midtown-park-pergola">
+          <!-- Four posts + two cross-beams -->
+          <line x1="1185" y1="591" x2="1185" y2="576" class="midtown-park-pergola-post"/>
+          <line x1="1195" y1="591" x2="1195" y2="576" class="midtown-park-pergola-post"/>
+          <line x1="1205" y1="591" x2="1205" y2="576" class="midtown-park-pergola-post"/>
+          <line x1="1215" y1="591" x2="1215" y2="576" class="midtown-park-pergola-post"/>
+          <line x1="1183" y1="576" x2="1217" y2="576" class="midtown-park-pergola-beam"/>
+          <line x1="1183" y1="578" x2="1217" y2="578" class="midtown-park-pergola-beam"/>
+          <!-- Climbing vine dots on the beams -->
+          <circle cx="1188" cy="576" r="0.7" class="midtown-park-flower"/>
+          <circle cx="1198" cy="577" r="0.7" class="midtown-park-flower"/>
+          <circle cx="1208" cy="576" r="0.7" class="midtown-park-flower"/>
+          <circle cx="1214" cy="577" r="0.7" class="midtown-park-flower"/>
+        </g>
+
+        <!-- ── Secondary hedges framing the parterres ─────────────────────
+             Low hedge lines that enclose the parterre beds into garden rooms. -->
+        <line x1="962" y1="574" x2="1006" y2="574" class="midtown-park-hedge-low"/>
+        <line x1="962" y1="588" x2="1006" y2="588" class="midtown-park-hedge-low"/>
+        <line x1="962" y1="574" x2="962" y2="588" class="midtown-park-hedge-low"/>
+        <line x1="1006" y1="574" x2="1006" y2="588" class="midtown-park-hedge-low"/>
+        <line x1="1134" y1="574" x2="1178" y2="574" class="midtown-park-hedge-low"/>
+        <line x1="1134" y1="588" x2="1178" y2="588" class="midtown-park-hedge-low"/>
+        <line x1="1134" y1="574" x2="1134" y2="588" class="midtown-park-hedge-low"/>
+        <line x1="1178" y1="574" x2="1178" y2="588" class="midtown-park-hedge-low"/>
+
+        <!-- ── Additional topiary pair + small ornamental trees ───────────
+             More garden presence on both flanks. -->
+        <!-- Rounded topiary (sphere on stem) flanking the pergola entry -->
+        <g class="midtown-park-ornamental">
+          <line x1="1182" y1="591" x2="1182" y2="587" stroke-width="0.4"/>
+          <circle cx="1182" cy="586" r="1.4"/>
+        </g>
+        <g class="midtown-park-ornamental">
+          <line x1="1218" y1="591" x2="1218" y2="587" stroke-width="0.4"/>
+          <circle cx="1218" cy="586" r="1.4"/>
+        </g>
+        <!-- Small ornamental urn on west edge -->
+        <g class="midtown-park-urn">
+          <path d="M 955,591 L 954,586 L 960,586 L 959,591 Z"/>
+          <ellipse cx="957" cy="586" rx="3" ry="0.8"/>
+        </g>
+
+        <!-- ── More decorative flower beds scattered along path ──────────── -->
+        <rect x="1010" y="590" width="10" height="1.5" class="midtown-park-flowerbed"/>
+        <rect x="1120" y="590" width="10" height="1.5" class="midtown-park-flowerbed"/>
+        <rect x="1046" y="591" width="6" height="1.2" class="midtown-park-flowerbed"/>
+        <rect x="1088" y="591" width="6" height="1.2" class="midtown-park-flowerbed"/>
+
+        <!-- ── Additional meandering secondary path ───────────────────────
+             Curves through the gardens, matching the homepage's dashed-
+             stroke path convention. -->
+        <path class="midtown-park-path"
+              d="M 960 582 Q 1020 580 1080 582 Q 1140 584 1180 582" fill="none"/>
+
+        <!-- Landscape lights around pool rim (night only) + along paths -->
+        <g class="building-night-lights scene-landscape-lights">
+          <circle cx="1030" cy="588" r="1.1"/>
+          <circle cx="1070" cy="591" r="1.1"/>
+          <circle cx="1110" cy="588" r="1.1"/>
+          <circle cx="1000" cy="590" r="0.9"/>
+          <circle cx="1140" cy="590" r="0.9"/>
+          <circle cx="984" cy="581" r="0.7"/>
+          <circle cx="1156" cy="581" r="0.7"/>
+          <circle cx="1200" cy="588" r="0.7"/>
+          <circle cx="957" cy="589" r="0.6"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 6: Peripheral trees + ground ═══════ -->
+      <g class="midtown-peripheral-trees" aria-hidden="true">
+        <!-- Left-edge tree (west of One Park Place) -->
+        <g class="midtown-tree">
+          <ellipse cx="30" cy="540" rx="20" ry="32" class="midtown-tree-canopy"/>
+          <rect x="28" y="570" width="4" height="12" class="midtown-tree-trunk"/>
+        </g>
+        <!-- Right-edge tree (east of Nelson) -->
+        <g class="midtown-tree">
+          <ellipse cx="1570" cy="540" rx="20" ry="32" class="midtown-tree-canopy"/>
+          <rect x="1568" y="570" width="4" height="12" class="midtown-tree-trunk"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 7: Brush Creek ═══════
+           Meandering creek flowing east-west across the new elevated
+           foreground. Creek path curves up and down (real Brush Creek
+           meanders through Midtown/Plaza); along the Plaza stretch there
+           are paved stone embankments + a picturesque Plaza bridge at
+           the streetcar-crossing point. -->
+      <g class="midtown-creek" aria-hidden="true">
+        <!-- Creek bank hairline (upper edge) — meandering profile -->
+        <path class="midtown-creek-bank"
+              d="M 0,572
+                 Q 120,570 240,575
+                 Q 360,580 500,572
+                 Q 640,564 780,572
+                 Q 920,580 1060,571
+                 Q 1200,562 1340,570
+                 Q 1480,578 1600,573" fill="none"/>
+        <!-- Creek bank hairline (lower edge) — meandering mirror -->
+        <path class="midtown-creek-bank"
+              d="M 0,594
+                 Q 120,592 240,596
+                 Q 360,598 500,593
+                 Q 640,586 780,594
+                 Q 920,599 1060,593
+                 Q 1200,585 1340,593
+                 Q 1480,598 1600,595" fill="none"/>
+        <!-- Water ribbon — closed meandering path -->
+        <path class="midtown-creek-water"
+              d="M 0,574
+                 Q 120,572 240,577
+                 Q 360,582 500,574
+                 Q 640,566 780,574
+                 Q 920,582 1060,573
+                 Q 1200,564 1340,572
+                 Q 1480,580 1600,575
+                 L 1600,593
+                 Q 1480,596 1340,591
+                 Q 1200,583 1060,591
+                 Q 920,597 780,592
+                 Q 640,584 500,591
+                 Q 360,596 240,594
+                 Q 120,590 0,592 Z"/>
+
+        <!-- ── Plaza-area paved stone embankments ──────────────────────────
+             Along the Plaza stretch (x=600-900), the creek has architected
+             stone retaining walls (like the real Brush Creek Parkway).
+             These read as pale horizontal lines on both banks. -->
+        <g class="midtown-creek-embankment" aria-hidden="true">
+          <!-- Upper bank paving -->
+          <path d="M 600 571 L 720 570 L 780 571 L 900 572" fill="none"/>
+          <path d="M 600 574 L 720 573 L 780 574 L 900 575" fill="none"/>
+          <!-- Lower bank paving -->
+          <path d="M 600 590 L 720 589 L 780 590 L 900 591" fill="none"/>
+          <path d="M 600 593 L 720 592 L 780 593 L 900 594" fill="none"/>
+          <!-- Balustrade posts along the paved walk (upper bank) -->
+          <line x1="615" y1="570" x2="615" y2="566"/>
+          <line x1="640" y1="569" x2="640" y2="565"/>
+          <line x1="665" y1="569" x2="665" y2="565"/>
+          <line x1="690" y1="570" x2="690" y2="566"/>
+          <line x1="715" y1="571" x2="715" y2="567"/>
+          <line x1="810" y1="572" x2="810" y2="568"/>
+          <line x1="835" y1="572" x2="835" y2="568"/>
+          <line x1="860" y1="572" x2="860" y2="568"/>
+          <line x1="885" y1="572" x2="885" y2="568"/>
+          <!-- Rail line joining balustrade posts -->
+          <line x1="610" y1="566" x2="720" y2="566" stroke-width="0.35"/>
+          <line x1="800" y1="568" x2="900" y2="568" stroke-width="0.35"/>
+        </g>
+
+        <!-- ── Picturesque Plaza bridge (stone arch + parapet) ─────────────
+             Crosses Brush Creek just west of the Plaza, at the streetcar
+             crossing. Three-arch stone bridge with parapets and lamp posts.
+             Architectural anchor in the creek. -->
+        <g class="midtown-creek-bridge" aria-hidden="true">
+          <!-- Bridge deck (flat stone parapet ribbon) -->
+          <rect x="730" y="568" width="60" height="4" class="midtown-bridge-deck"/>
+          <!-- Top railing line -->
+          <line x1="728" y1="568" x2="792" y2="568" class="midtown-bridge-rail"/>
+          <line x1="728" y1="572" x2="792" y2="572" class="midtown-bridge-rail"/>
+          <!-- Balustrade posts along the bridge -->
+          <line x1="735" y1="566" x2="735" y2="568" class="midtown-bridge-rail"/>
+          <line x1="745" y1="566" x2="745" y2="568" class="midtown-bridge-rail"/>
+          <line x1="755" y1="566" x2="755" y2="568" class="midtown-bridge-rail"/>
+          <line x1="765" y1="566" x2="765" y2="568" class="midtown-bridge-rail"/>
+          <line x1="775" y1="566" x2="775" y2="568" class="midtown-bridge-rail"/>
+          <line x1="785" y1="566" x2="785" y2="568" class="midtown-bridge-rail"/>
+          <!-- Arch openings (3 stone arches) -->
+          <path class="midtown-bridge-arch" d="M 735,588 L 735,580 Q 741,574 747,580 L 747,588 Z"/>
+          <path class="midtown-bridge-arch" d="M 754,588 L 754,578 Q 761,572 768,578 L 768,588 Z"/>
+          <path class="midtown-bridge-arch" d="M 775,588 L 775,580 Q 781,574 787,580 L 787,588 Z"/>
+          <!-- Keystones -->
+          <rect x="743" y="573" width="2" height="2" class="midtown-bridge-stone"/>
+          <rect x="760" y="571" width="2" height="2" class="midtown-bridge-stone"/>
+          <rect x="780" y="573" width="2" height="2" class="midtown-bridge-stone"/>
+          <!-- Lamp posts on bridge corners -->
+          <g class="midtown-bridge-lamp">
+            <line x1="732" y1="568" x2="732" y2="562"/>
+            <circle cx="732" cy="561" r="1.2"/>
+          </g>
+          <g class="midtown-bridge-lamp">
+            <line x1="788" y1="568" x2="788" y2="562"/>
+            <circle cx="788" cy="561" r="1.2"/>
+          </g>
+          <!-- Bridge reflections in the water -->
+          <ellipse cx="761" cy="589" rx="28" ry="1" class="midtown-bridge-reflection"/>
+        </g>
+
+        <!-- Bank reed clumps — tiny vertical hairlines along the upper bank -->
+        <g class="midtown-creek-reeds" aria-hidden="true">
+          <line x1="80" y1="571" x2="80" y2="567"/>
+          <line x1="83" y1="571" x2="83" y2="568"/>
+          <line x1="86" y1="571" x2="86" y2="566"/>
+          <line x1="340" y1="580" x2="340" y2="576"/>
+          <line x1="343" y1="580" x2="343" y2="577"/>
+          <line x1="346" y1="580" x2="346" y2="575"/>
+          <line x1="460" y1="573" x2="460" y2="569"/>
+          <line x1="463" y1="573" x2="463" y2="570"/>
+          <line x1="466" y1="573" x2="466" y2="568"/>
+          <line x1="1100" y1="568" x2="1100" y2="564"/>
+          <line x1="1103" y1="568" x2="1103" y2="565"/>
+          <line x1="1106" y1="568" x2="1106" y2="563"/>
+          <line x1="1300" y1="568" x2="1300" y2="564"/>
+          <line x1="1303" y1="568" x2="1303" y2="565"/>
+          <line x1="1306" y1="568" x2="1306" y2="563"/>
+          <line x1="1520" y1="576" x2="1520" y2="572"/>
+          <line x1="1523" y1="576" x2="1523" y2="573"/>
+          <line x1="1526" y1="576" x2="1526" y2="571"/>
+        </g>
+        <!-- Stepping stones / small rocks in the creek -->
+        <g class="midtown-creek-stones" aria-hidden="true">
+          <ellipse cx="180" cy="586" rx="3" ry="1.1"/>
+          <ellipse cx="188" cy="587" rx="2.2" ry="0.9"/>
+          <ellipse cx="420" cy="587" rx="3" ry="1.1"/>
+          <ellipse cx="1180" cy="580" rx="3" ry="1.1"/>
+          <ellipse cx="1186" cy="582" rx="2.2" ry="0.9"/>
+          <ellipse cx="1420" cy="588" rx="3" ry="1.1"/>
+        </g>
+        <!-- Moonstreak reflections (night only) -->
+        <ellipse class="midtown-creek-moonstreak" cx="200" cy="583" rx="120" ry="1.2"/>
+        <ellipse class="midtown-creek-moonstreak" cx="640" cy="578" rx="100" ry="1.2"/>
+        <ellipse class="midtown-creek-moonstreak" cx="1100" cy="582" rx="140" ry="1.3"/>
+        <ellipse class="midtown-creek-moonstreak" cx="1400" cy="586" rx="100" ry="1"/>
+      </g>
+
+      <!-- ═══════ LAYER 8: Streetcar track + streetcar ═══════
+           Runs along the new elevated ground line at y=562 (above the
+           creek, below the building bases at y=560). The streetcar crosses
+           the Plaza bridge at x=760 now, visually threading the foreground
+           landscape rather than driving through water. -->
+      <g class="midtown-streetcar-system" aria-hidden="true">
+        <!-- Track pair — two thin parallel lines on new ground line -->
+        <line class="midtown-streetcar-track" x1="0" y1="562" x2="1600" y2="562"/>
+        <line class="midtown-streetcar-track" x1="0" y1="564" x2="1600" y2="564"/>
+        <!-- Stop markers at Plaza, Kauffman Park, and KCTV5-area stops -->
+        <circle class="midtown-streetcar-stop" cx="760" cy="563" r="1.2"/>
+        <circle class="midtown-streetcar-stop" cx="1070" cy="563" r="1.2"/>
+        <circle class="midtown-streetcar-stop" cx="930" cy="563" r="1.2"/>
+        <!-- Streetcar — rectangular with windows, translates across scene -->
+        <g class="midtown-streetcar">
+          <!-- Body -->
+          <rect class="midtown-streetcar-body" x="0" y="-10" width="36" height="12" rx="2"/>
+          <!-- Roof line -->
+          <rect class="midtown-streetcar-roof" x="-1" y="-12" width="38" height="3" rx="1"/>
+          <!-- Windows -->
+          <rect class="midtown-streetcar-window" x="3" y="-8" width="5" height="6"/>
+          <rect class="midtown-streetcar-window" x="11" y="-8" width="5" height="6"/>
+          <rect class="midtown-streetcar-window" x="19" y="-8" width="5" height="6"/>
+          <rect class="midtown-streetcar-window" x="27" y="-8" width="5" height="6"/>
+          <!-- Front headlight (lit at night) -->
+          <circle class="midtown-streetcar-headlight" cx="35" cy="-3" r="0.9"/>
+          <!-- Pantograph wire contact -->
+          <line class="midtown-streetcar-pole" x1="18" y1="-12" x2="18" y2="-18"/>
+        </g>
+      </g>
+
+      <!-- Elevated ground hairline — defines the new foreground shelf line
+           that buildings sit on (20u above the creek). -->
+      <line x1="0" y1="560" x2="1600" y2="560" class="midtown-ground-line"/>
+    </svg>
+    <div class="midtown-hero-overlay">
+      <span class="eyebrow">Kansas City Neighborhoods</span>
+      <h1 id="midtown-hero-h1">Midtown<br /><span>Kansas City</span></h1>
+    </div>
+  </section>
+
+  <p class="midtown-hero-caption">
+    Midtown looking north. One Park Place anchors the Hospital Hill bluff on
+    the left, the Plaza towers rise in the middle with the Giralda most
+    prominent, the KCTV5 tower carries the vertical grandeur, and the
+    Nelson-Atkins spreads along the right with its colonnade and shuttlecocks
+    on the lawn.
+  </p>
 
   <main>
     <div class="detail-body">

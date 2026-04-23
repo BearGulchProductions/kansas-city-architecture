@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Fountain of Bacchus — Look Up, Kansas City" />
   <meta name="twitter:description" content="The Fountain of Bacchus — one of Kansas City's ornamental bronze fountains, part of the Country Club Plaza's Spanish Colonial landscape." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/9/92/Fountain_of_Bacchus_Kansas_City_MO.jpg" />
-  <link rel="stylesheet" href="../style.css?v=15d" />
+  <link rel="stylesheet" href="../style.css?v=16a" />
 </head>
 <body>
 
@@ -115,7 +115,7 @@
        sculpture. Single bronze Bacchus figure (grape crown, raised arm with
        grape cluster, wine cup) on a low pedestal in a small basin. Reuses the
        Nichols Plaza backdrop (Giralda + two cream-stucco facades) verbatim
-       and the .nichols-pool/-pedestal/-bronze/-jet/-landscape-lights
+       and the .scene-pool/-pedestal/-bronze/-jet/-landscape-lights
        vocabulary directly. Fewer walkers + lower overall density than the
        Nichols scene — matches the site-text framing of Bacchus as "a
        discovered figure around a corner." -->
@@ -213,87 +213,87 @@
         <title>Fountain of Bacchus — bronze figure of the Roman god of wine, grape cluster raised.</title>
 
         <!-- Pool (smaller than Nichols: 200 rx vs 262) -->
-        <ellipse cx="800" cy="558" rx="200" ry="22" class="nichols-pool-rim-outer"/>
-        <ellipse cx="800" cy="554" rx="184" ry="16" class="nichols-pool-rim-inner"/>
-        <ellipse class="nichols-pool-water" cx="800" cy="553" rx="170" ry="13"/>
-        <ellipse class="nichols-pool-ripple" cx="720" cy="555" rx="11" ry="1.2"/>
-        <ellipse class="nichols-pool-ripple" cx="880" cy="555" rx="11" ry="1.2"/>
+        <ellipse cx="800" cy="558" rx="200" ry="22" class="scene-pool-rim-outer"/>
+        <ellipse cx="800" cy="554" rx="184" ry="16" class="scene-pool-rim-inner"/>
+        <ellipse class="scene-pool-water" cx="800" cy="553" rx="170" ry="13"/>
+        <ellipse class="scene-pool-ripple" cx="720" cy="555" rx="11" ry="1.2"/>
+        <ellipse class="scene-pool-ripple" cx="880" cy="555" rx="11" ry="1.2"/>
 
         <!-- Shift pedestal + figure + jets down 16u so the pedestal base sits
              at the 3D center of the pool (y=558) instead of the back rim. -->
         <g class="bacchus-fountain-group" transform="translate(0, 16)">
 
         <!-- Stepped pedestal — low + wider than Nichols (more of a plinth). -->
-        <polygon points="778,542 822,542 824,538 776,538" class="nichols-pedestal-step"/>
-        <rect x="782" y="510" width="36" height="28" class="nichols-pedestal-shaft"/>
-        <line x1="782" y1="524" x2="818" y2="524" class="nichols-pedestal-band"/>
-        <polygon points="779,510 821,510 820,504 780,504" class="nichols-pedestal-cap"/>
+        <polygon points="778,542 822,542 824,538 776,538" class="scene-pedestal-step"/>
+        <rect x="782" y="510" width="36" height="28" class="scene-pedestal-shaft"/>
+        <line x1="782" y1="524" x2="818" y2="524" class="scene-pedestal-band"/>
+        <polygon points="779,510 821,510 820,504 780,504" class="scene-pedestal-cap"/>
 
         <!-- The Bacchus figure — centered standing male, ivy crown, grape
              cluster raised in right hand, wine cup in left. ~84u tall. -->
         <g class="nichols-bronze bacchus-figure" transform="translate(800, 502)">
           <!-- Feet + plinth -->
-          <rect x="-10" y="0" width="20" height="3" class="nichols-bronze-plinth"/>
+          <rect x="-10" y="0" width="20" height="3" class="scene-bronze-plinth"/>
 
           <!-- Draped lower body / legs (classical contrapposto) -->
-          <path class="nichols-bronze-body" d="
+          <path class="scene-bronze-body" d="
             M -9,0 L -7,-14 L -4,-28 L -2,-34 L 2,-34 L 4,-28 L 7,-14 L 9,0 Z"/>
           <!-- Leg separation hint -->
-          <line x1="0" y1="-34" x2="0" y2="-4" class="nichols-bronze-stroke" stroke-width="0.5"/>
+          <line x1="0" y1="-34" x2="0" y2="-4" class="scene-bronze-stroke" stroke-width="0.5"/>
 
           <!-- Torso + draped toga -->
-          <path class="nichols-bronze-body" d="
+          <path class="scene-bronze-body" d="
             M -8,-34 L -10,-44 L -8,-54 L -5,-58 L 5,-58 L 8,-54 L 10,-44 L 8,-34 L 6,-32 L -6,-32 Z"/>
           <!-- Toga fold line -->
-          <line x1="-6" y1="-44" x2="5" y2="-48" class="nichols-bronze-stroke" stroke-width="0.45"/>
+          <line x1="-6" y1="-44" x2="5" y2="-48" class="scene-bronze-stroke" stroke-width="0.45"/>
 
           <!-- Right arm raised (with grape cluster) -->
-          <path class="nichols-bronze-body" d="
+          <path class="scene-bronze-body" d="
             M 6,-54 L 11,-58 L 16,-66 L 18,-72 L 15,-74 L 12,-70 L 8,-64 L 5,-58 Z"/>
           <!-- Grape cluster (cluster of small circles) -->
-          <circle cx="20" cy="-76" r="2.2" class="nichols-bronze-body"/>
-          <circle cx="17" cy="-78" r="1.6" class="nichols-bronze-body"/>
-          <circle cx="22" cy="-78" r="1.4" class="nichols-bronze-body"/>
-          <circle cx="19" cy="-80" r="1.3" class="nichols-bronze-body"/>
-          <circle cx="21" cy="-74" r="1.4" class="nichols-bronze-body"/>
-          <circle cx="18" cy="-74" r="1.3" class="nichols-bronze-body"/>
+          <circle cx="20" cy="-76" r="2.2" class="scene-bronze-body"/>
+          <circle cx="17" cy="-78" r="1.6" class="scene-bronze-body"/>
+          <circle cx="22" cy="-78" r="1.4" class="scene-bronze-body"/>
+          <circle cx="19" cy="-80" r="1.3" class="scene-bronze-body"/>
+          <circle cx="21" cy="-74" r="1.4" class="scene-bronze-body"/>
+          <circle cx="18" cy="-74" r="1.3" class="scene-bronze-body"/>
           <!-- Grape stem -->
-          <line x1="19" y1="-73" x2="18" y2="-71" class="nichols-bronze-stroke" stroke-width="0.5"/>
+          <line x1="19" y1="-73" x2="18" y2="-71" class="scene-bronze-stroke" stroke-width="0.5"/>
 
           <!-- Left arm lowered (holding wine cup) -->
-          <path class="nichols-bronze-body" d="
+          <path class="scene-bronze-body" d="
             M -6,-54 L -11,-50 L -14,-44 L -12,-42 L -10,-46 L -7,-50 Z"/>
           <!-- Wine cup (kantharos-like chalice) -->
-          <path class="nichols-bronze-body" d="
+          <path class="scene-bronze-body" d="
             M -18,-42 L -10,-42 L -10,-36 L -12,-34 L -16,-34 L -18,-36 Z"/>
-          <line x1="-14" y1="-34" x2="-14" y2="-30" class="nichols-bronze-stroke" stroke-width="0.5"/>
+          <line x1="-14" y1="-34" x2="-14" y2="-30" class="scene-bronze-stroke" stroke-width="0.5"/>
 
           <!-- Head (rounded with beard hint) -->
-          <circle cx="0" cy="-62" r="4.2" class="nichols-bronze-body"/>
+          <circle cx="0" cy="-62" r="4.2" class="scene-bronze-body"/>
           <!-- Beard (V-shape below chin) -->
-          <path d="M -2,-59 L 0,-56 L 2,-59" class="nichols-bronze-stroke" stroke-width="0.5" fill="none"/>
+          <path d="M -2,-59 L 0,-56 L 2,-59" class="scene-bronze-stroke" stroke-width="0.5" fill="none"/>
 
           <!-- Ivy crown (3 leaves arranged around head top) -->
-          <polygon points="-4,-66 -5,-71 -1,-69" class="nichols-bronze-body"/>
-          <polygon points="-1,-69 0,-74 3,-70" class="nichols-bronze-body"/>
-          <polygon points="3,-70 5,-73 5,-67" class="nichols-bronze-body"/>
-          <polygon points="-5,-65 -8,-63 -6,-60" class="nichols-bronze-body"/>
-          <polygon points="6,-60 8,-63 5,-65" class="nichols-bronze-body"/>
+          <polygon points="-4,-66 -5,-71 -1,-69" class="scene-bronze-body"/>
+          <polygon points="-1,-69 0,-74 3,-70" class="scene-bronze-body"/>
+          <polygon points="3,-70 5,-73 5,-67" class="scene-bronze-body"/>
+          <polygon points="-5,-65 -8,-63 -6,-60" class="scene-bronze-body"/>
+          <polygon points="6,-60 8,-63 5,-65" class="scene-bronze-body"/>
 
           <!-- Water jet rising from grape cluster -->
-          <path class="nichols-jet nichols-jet-horse" d="M 20,-78 Q 18,-92 22,-104 Q 26,-114 30,-104 Q 28,-92 22,-78 Z"/>
+          <path class="scene-jet scene-jet-horse" d="M 20,-78 Q 18,-92 22,-104 Q 26,-114 30,-104 Q 28,-92 22,-78 Z"/>
 
           <!-- Side water arcs (falling from grape cluster outward to pool) -->
-          <path class="nichols-jet-arc nichols-jet-arc-left"
+          <path class="scene-jet-arc scene-jet-arc-left"
                 d="M 18,-74 Q -8,-48 -24,-8 Q -34,22 -44,56"/>
-          <path class="nichols-jet-arc nichols-jet-arc-right"
+          <path class="scene-jet-arc scene-jet-arc-right"
                 d="M 22,-74 Q 44,-48 52,-8 Q 58,22 64,56"/>
         </g>
         </g>
         <!-- end bacchus-fountain-group (shifted) -->
 
         <!-- Landscape lights around rim -->
-        <g class="building-night-lights nichols-landscape-lights" aria-hidden="true">
+        <g class="building-night-lights scene-landscape-lights" aria-hidden="true">
           <circle cx="620" cy="568" r="1.8"/>
           <circle cx="680" cy="576" r="1.8"/>
           <circle cx="740" cy="579" r="1.8"/>
@@ -307,8 +307,8 @@
       <!-- ── Layer 4: Plaza foreground ──
            Fewer elements than Nichols: one dashed path, one bench, two
            planters, three walkers. Matches the "intimate Plaza niche" feel. -->
-      <g class="bacchus-foreground nichols-foreground" aria-hidden="true">
-        <g class="nichols-paving">
+      <g class="bacchus-foreground scene-foreground" aria-hidden="true">
+        <g class="scene-paving">
           <line x1="0" y1="560" x2="1600" y2="563"/>
           <line x1="0" y1="572" x2="1600" y2="575"/>
           <line x1="0" y1="586" x2="1600" y2="588"/>
@@ -317,30 +317,30 @@
           <line x1="1040" y1="576" x2="1220" y2="600"/>
         </g>
 
-        <path class="nichols-path nichols-path-a"
+        <path class="scene-path scene-path-a"
               d="M 200,598 Q 380,588 520,578 Q 580,572 620,568"
               fill="none"/>
 
-        <g class="nichols-planter" transform="translate(580, 556)">
-          <rect x="-9" y="0" width="18" height="12" class="nichols-planter-pot"/>
-          <line x1="-8" y1="3" x2="8" y2="3" class="nichols-planter-band"/>
-          <path d="M -8,-2 Q -10,-8 -4,-10 Q 0,-12 4,-10 Q 10,-8 8,-2 Z" class="nichols-planter-shrub"/>
+        <g class="scene-planter" transform="translate(580, 556)">
+          <rect x="-9" y="0" width="18" height="12" class="scene-planter-pot"/>
+          <line x1="-8" y1="3" x2="8" y2="3" class="scene-planter-band"/>
+          <path d="M -8,-2 Q -10,-8 -4,-10 Q 0,-12 4,-10 Q 10,-8 8,-2 Z" class="scene-planter-shrub"/>
         </g>
-        <g class="nichols-planter" transform="translate(1020, 556)">
-          <rect x="-9" y="0" width="18" height="12" class="nichols-planter-pot"/>
-          <line x1="-8" y1="3" x2="8" y2="3" class="nichols-planter-band"/>
-          <path d="M -8,-2 Q -10,-8 -4,-10 Q 0,-12 4,-10 Q 10,-8 8,-2 Z" class="nichols-planter-shrub"/>
+        <g class="scene-planter" transform="translate(1020, 556)">
+          <rect x="-9" y="0" width="18" height="12" class="scene-planter-pot"/>
+          <line x1="-8" y1="3" x2="8" y2="3" class="scene-planter-band"/>
+          <path d="M -8,-2 Q -10,-8 -4,-10 Q 0,-12 4,-10 Q 10,-8 8,-2 Z" class="scene-planter-shrub"/>
         </g>
 
-        <g class="nichols-bench" transform="translate(1200, 562)">
-          <line x1="-16" y1="0" x2="16" y2="0" class="nichols-bench-plank"/>
-          <line x1="-13" y1="0" x2="-13" y2="7" class="nichols-bench-leg"/>
-          <line x1="13"  y1="0" x2="13"  y2="7" class="nichols-bench-leg"/>
+        <g class="scene-bench" transform="translate(1200, 562)">
+          <line x1="-16" y1="0" x2="16" y2="0" class="scene-bench-plank"/>
+          <line x1="-13" y1="0" x2="-13" y2="7" class="scene-bench-leg"/>
+          <line x1="13"  y1="0" x2="13"  y2="7" class="scene-bench-leg"/>
         </g>
 
         <g class="bacchus-walkers">
           <!-- Static: observer standing on the plaza (burgundy) -->
-          <g class="hill-walker walker-coat-E nichols-static" transform="translate(700, 568) scale(1.85)">
+          <g class="hill-walker walker-coat-E scene-walker-static" transform="translate(700, 568) scale(1.85)">
             <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
             <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
             <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
@@ -350,7 +350,7 @@
           </g>
 
           <!-- Static: seated bench figure (cream) -->
-          <g class="hill-walker walker-coat-F nichols-static nichols-seated" transform="translate(1200, 556) scale(1.45)">
+          <g class="hill-walker walker-coat-F scene-walker-static scene-walker-seated" transform="translate(1200, 556) scale(1.45)">
             <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
             <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
             <path    d="M -1.4,-4.9 L 1.4,-4.9 L 1.5,-1.8 L -1.5,-1.8 Z" class="walker-coat"/>
@@ -359,7 +359,7 @@
           </g>
 
           <!-- Trail-follower arriving on Path A (gold-light) -->
-          <g class="hill-walker walker-coat-B nichols-walker-path-a">
+          <g class="hill-walker walker-coat-B scene-walker-path-a">
             <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
             <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
             <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
