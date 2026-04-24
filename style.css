@@ -9055,19 +9055,50 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 /* Music notes drifting up from Mutual Musicians Foundation (night-only). */
 .vine-music-note {
   font-family: 'Playfair Display', serif;
-  font-size: 18px;
+  font-size: 10px;
   fill: rgba(255,220,160,0.88);
   pointer-events: none;
   filter: drop-shadow(0 0 2px rgba(255,180,110,0.7));
+  transform-box: fill-box;
+  transform-origin: center center;
 }
-.vine-music-note-a { animation: vine-note-drift 12s ease-out infinite; }
-.vine-music-note-b { animation: vine-note-drift 14s ease-out infinite; animation-delay: -4s; }
-.vine-music-note-c { animation: vine-note-drift 13s ease-out infinite; animation-delay: -8s; }
+/* Six staggered drift variants so groups feel randomized, not synchronized. */
+.vine-music-note-a { animation: vine-note-drift-a 11s ease-out infinite; animation-delay:  0s;   }
+.vine-music-note-b { animation: vine-note-drift-b 14s ease-out infinite; animation-delay: -3.5s; }
+.vine-music-note-c { animation: vine-note-drift-c 13s ease-out infinite; animation-delay: -7s;   }
+.vine-music-note-d { animation: vine-note-drift-d 16s ease-out infinite; animation-delay: -2.2s; }
+.vine-music-note-e { animation: vine-note-drift-e 10s ease-out infinite; animation-delay: -5.8s; }
+.vine-music-note-f { animation: vine-note-drift-f 12.5s ease-out infinite; animation-delay: -9.4s; }
 
-@keyframes vine-note-drift {
+@keyframes vine-note-drift-a {
   0%   { transform: translate(0, 0); opacity: 0; }
-  10%  { opacity: 0.9; }
-  100% { transform: translate(-6px, -42px); opacity: 0; }
+  12%  { opacity: 0.92; }
+  100% { transform: translate(-6px, -40px); opacity: 0; }
+}
+@keyframes vine-note-drift-b {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: 0.88; }
+  100% { transform: translate(4px, -46px); opacity: 0; }
+}
+@keyframes vine-note-drift-c {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  14%  { opacity: 0.9; }
+  100% { transform: translate(-3px, -36px); opacity: 0; }
+}
+@keyframes vine-note-drift-d {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  11%  { opacity: 0.92; }
+  100% { transform: translate(7px, -50px); opacity: 0; }
+}
+@keyframes vine-note-drift-e {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  9%   { opacity: 0.9; }
+  100% { transform: translate(-8px, -34px); opacity: 0; }
+}
+@keyframes vine-note-drift-f {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  13%  { opacity: 0.88; }
+  100% { transform: translate(2px, -44px); opacity: 0; }
 }
 
 /* Plaza bench + planter (foreground-left) */
@@ -9758,21 +9789,23 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   stroke-width: 0.3;
 }
 
-/* Arthur Bryant's (back-left silhouette) */
+/* Arthur Bryant's — v20 visibility bump: body alpha 0.24→0.65, stroke-width
+   0.8→1.3 pre-scale so edges hold at the 0.75× transform; sign stroke bumped
+   from 0.55 to 0.9; text size 4.8→7 so it's legible after scale-down. */
 .vine-bryants-body {
-  fill: rgba(140,72,40,0.24);
+  fill: rgba(140,72,40,0.65);
   stroke: #C9A84C;
-  stroke-width: 0.8;
+  stroke-width: 1.3;
   stroke-linejoin: round;
 }
 .vine-bryants-sign {
-  fill: rgba(30,18,10,0.82);
-  stroke: rgba(232,172,86,0.88);
-  stroke-width: 0.55;
+  fill: rgba(30,18,10,0.92);
+  stroke: rgba(232,172,86,0.95);
+  stroke-width: 0.9;
 }
 .vine-bryants-text {
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 4.8px;
+  font-size: 7px;
   letter-spacing: 0.12em;
   fill: rgba(232,172,86,0.95);
   font-weight: 700;
@@ -10189,4 +10222,395 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   fill: rgba(232,216,172,0.78);
   stroke: rgba(201,168,76,0.5);
   stroke-width: 0.22;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v20 — Vine Street Brewing redesign (single-story castellated stone
+   building with scalloped parapet per Brian's reference photo)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.vine-brewery-body {
+  fill: rgba(214,198,168,0.52);       /* warm limestone */
+  stroke: rgba(201,168,76,0.85);
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+}
+.vine-brewery-finial {
+  fill: rgba(214,198,168,0.78);       /* stone ball */
+  stroke: rgba(201,168,76,0.9);
+  stroke-width: 0.45;
+}
+.vine-brewery-stone-band {
+  stroke: rgba(201,168,76,0.58);
+  stroke-width: 0.5;
+  fill: none;
+}
+.vine-brewery-door {
+  fill: rgba(30,22,14,0.92);
+  stroke: rgba(201,168,76,0.72);
+  stroke-width: 0.4;
+}
+.vine-brewery-arched-window {
+  fill: rgba(60,40,22,0.82);           /* dark glass by day */
+  stroke: rgba(201,168,76,0.7);
+  stroke-width: 0.4;
+}
+.vine-brewery-stone-hatch {
+  stroke: rgba(201,168,76,0.42);
+  stroke-width: 0.3;
+  fill: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v20 — Workhouse Castle (at 2001 Vine) — real-life castellated stone
+   landmark added as a distant backdrop element.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.vine-castle-body {
+  fill: rgba(214,198,168,0.45);          /* limestone, slightly less saturated than FG */
+  stroke: rgba(201,168,76,0.78);
+  stroke-width: 0.55;
+  stroke-linejoin: round;
+}
+.vine-castle-tower {
+  fill: rgba(214,198,168,0.55);          /* tower slightly brighter for emphasis */
+  stroke: rgba(201,168,76,0.9);
+  stroke-width: 0.6;
+  stroke-linejoin: round;
+}
+.vine-castle-crenellations rect {
+  fill: rgba(214,198,168,0.6);
+  stroke: rgba(201,168,76,0.9);
+  stroke-width: 0.4;
+}
+.vine-castle-window {
+  fill: rgba(30,22,14,0.8);
+  stroke: rgba(201,168,76,0.6);
+  stroke-width: 0.28;
+}
+.vine-castle-tower-window {
+  fill: rgba(30,22,14,0.82);
+  stroke: rgba(201,168,76,0.65);
+  stroke-width: 0.28;
+}
+.vine-castle-beltcourse {
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.4;
+  fill: none;
+}
+.vine-castle-base {
+  stroke: rgba(201,168,76,0.6);
+  stroke-width: 0.5;
+  fill: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v20 — Negro Leagues / Jazz Museum redesigned per the real "Museums at
+   18th & Vine" facade: red brick tower + sunburst + green glass wings.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.vine-nlb-wing {
+  fill: rgba(62,130,90,0.72);           /* green metal / glass */
+  stroke: rgba(201,168,76,0.8);
+  stroke-width: 0.5;
+}
+.vine-nlb-wing-mullion {
+  stroke: rgba(30,22,14,0.88);
+  stroke-width: 0.35;
+  fill: none;
+}
+.vine-nlb-tower {
+  fill: rgba(156,72,42,0.82);           /* red brick */
+  stroke: rgba(201,168,76,0.9);
+  stroke-width: 0.55;
+}
+.vine-nlb-tower-band {
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.35;
+  fill: none;
+}
+.vine-nlb-sunburst-arc {
+  stroke: rgba(232,201,106,0.92);
+  stroke-width: 0.6;
+  fill: rgba(232,201,106,0.18);
+}
+.vine-nlb-sunburst-ray {
+  stroke: rgba(232,201,106,0.78);
+  stroke-width: 0.45;
+  fill: none;
+}
+.vine-nlb-figure {
+  fill: rgba(212,120,60,0.88);          /* warm figure color */
+  stroke: rgba(40,22,12,0.7);
+  stroke-width: 0.25;
+}
+.vine-nlb-awning {
+  fill: rgba(40,26,14,0.92);
+  stroke: rgba(201,168,76,0.7);
+  stroke-width: 0.35;
+}
+.vine-nlb-sign-frame {
+  fill: rgba(16,10,6,0.92);
+  stroke: rgba(201,168,76,0.75);
+  stroke-width: 0.4;
+}
+.vine-nlb-sign-text-line1,
+.vine-nlb-sign-text-line2 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2.8px;
+  letter-spacing: 0.12em;
+  fill: rgba(232,201,106,0.92);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.vine-nlb-entry {
+  fill: rgba(60,110,80,0.78);
+  stroke: rgba(201,168,76,0.65);
+  stroke-width: 0.32;
+}
+.vine-nlb-entry-div {
+  stroke: rgba(30,22,14,0.78);
+  stroke-width: 0.3;
+  fill: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v20 — Cars driving on The Paseo (animated) + night party atmosphere
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Animated cars — each drives across the Paseo. CSS transforms override
+   the inline transform during animation. */
+.vine-car-east-1 {
+  animation: vine-car-east-upper 28s linear infinite;
+  transform-box: fill-box;
+}
+.vine-car-east-2 {
+  animation: vine-car-east-upper 36s linear infinite;
+  animation-delay: -16s;
+  transform-box: fill-box;
+}
+.vine-car-west-1 {
+  animation: vine-car-west-lower 32s linear infinite;
+  animation-delay: -10s;
+  transform-box: fill-box;
+}
+
+@keyframes vine-car-east-upper {
+  /* Upper/north lane y=492-526 (above median at y=526-538) */
+  0%   { transform: translate(-100px, 505px) scale(-1.9, 1.9); }
+  100% { transform: translate(1720px, 505px) scale(-1.9, 1.9); }
+}
+@keyframes vine-car-west-lower {
+  /* Lower/south lane y=538-600 (below median) */
+  0%   { transform: translate(1720px, 570px) scale(1.9, 1.9); }
+  100% { transform: translate(-100px, 570px) scale(1.9, 1.9); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-car-east-1,
+  .vine-car-east-2,
+  .vine-car-west-1 {
+    animation: none;
+  }
+}
+
+/* ── Night party atmosphere — extra elements visible only at night ──
+   The `.vine-night-effects.building-night-lights` wrapper already gates
+   visibility to dusk/night phases. These styles add extra intensity/glow
+   to the night-jammers and overall scene for that "busy jazz district"
+   feel after dark. */
+.vine-walker-jammer {
+  opacity: 0;
+  animation: vine-jammer-opacity 40s linear infinite;
+}
+@keyframes vine-jammer-opacity {
+  /* 40s TOD cycle: 0-10s dawn, 10-20s day, 20-30s dusk, 30-40s night.
+     Jammers: hidden in dawn/day, fade in at dusk, full at night. */
+  0%, 50%   { opacity: 0; }
+  55%       { opacity: 0.4; }
+  75%       { opacity: 0.92; }
+  100%      { opacity: 0.95; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-walker-jammer { animation: none; opacity: 0.8; }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   v20 — Food cart vendor on the Paseo median.
+   Visible only during NIGHT + DAWN phases of the 40s TOD cycle.
+   Dawn = 0-10s (0-25%), Day = 10-20s (25-50%), Dusk = 20-30s (50-75%),
+   Night = 30-40s (75-100%).
+   ═════════════════════════════════════════════════════════════════════ */
+.vine-food-cart-vendor {
+  opacity: 0;
+  animation: vine-food-cart-opacity 40s linear infinite;
+}
+@keyframes vine-food-cart-opacity {
+  0%, 22%  { opacity: 0.95; }   /* DAWN: fully visible */
+  25%, 72% { opacity: 0; }       /* DAY + DUSK: hidden */
+  75%, 100%{ opacity: 0.95; }   /* NIGHT: fully visible */
+}
+@media (prefers-reduced-motion: reduce) {
+  .vine-food-cart-vendor { animation: none; opacity: 0.9; }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   v20 — Music notes TOD-gated groups.
+   40s cycle = 10s per phase: Dawn 0-25%, Day 25-50%, Dusk 50-75%, Night 75-100%.
+   ═════════════════════════════════════════════════════════════════════ */
+.vine-notes-dusk-night {
+  animation: vine-notes-dusk-night-opacity 40s linear infinite;
+}
+@keyframes vine-notes-dusk-night-opacity {
+  0%, 47%   { opacity: 0; }     /* Dawn + Day: hidden */
+  52%, 100% { opacity: 0.95; }  /* Dusk + Night: visible */
+}
+
+.vine-notes-night-dawn {
+  animation: vine-notes-night-dawn-opacity 40s linear infinite;
+}
+@keyframes vine-notes-night-dawn-opacity {
+  0%, 22%  { opacity: 0.95; }   /* Dawn: visible */
+  25%, 72% { opacity: 0; }      /* Day + Dusk: hidden */
+  75%, 100%{ opacity: 0.95; }   /* Night: visible */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-notes-dusk-night,
+  .vine-notes-night-dawn { animation: none; opacity: 0.8; }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   v20 — Food cart grill smoke puffs
+   ═════════════════════════════════════════════════════════════════════ */
+.vine-cart-smoke-puff {
+  animation: vine-cart-smoke-drift 3.2s ease-out infinite;
+  transform-origin: center center;
+  transform-box: fill-box;
+}
+.vine-cart-smoke-a { animation-delay: 0s; }
+.vine-cart-smoke-b { animation-delay: -1.1s; }
+.vine-cart-smoke-c { animation-delay: -2.2s; }
+
+@keyframes vine-cart-smoke-drift {
+  0%   { transform: translate(0, 0) scale(0.35); opacity: 0; }
+  15%  { opacity: 0.72; }
+  100% { transform: translate(-1px, -9px) scale(1.7); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-cart-smoke-puff { animation: none; opacity: 0.5; }
+}
+
+/* Brewery music notes: visible Day + Dusk + Night (hidden during Dawn only) */
+.vine-notes-day-dusk-night {
+  animation: vine-notes-day-dusk-night-opacity 40s linear infinite;
+}
+@keyframes vine-notes-day-dusk-night-opacity {
+  0%, 22%   { opacity: 0; }      /* Dawn: hidden */
+  25%, 100% { opacity: 0.92; }   /* Day + Dusk + Night: visible */
+}
+@media (prefers-reduced-motion: reduce) {
+  .vine-notes-day-dusk-night { animation: none; opacity: 0.8; }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   v20 — Arthur Bryant's smokestack + smoke (BBQ pit smoking)
+   Visible during Dawn + Day only; hidden at Dusk/Night
+   ═════════════════════════════════════════════════════════════════════ */
+.vine-notes-dawn-day {
+  animation: vine-notes-dawn-day-opacity 40s linear infinite;
+}
+@keyframes vine-notes-dawn-day-opacity {
+  0%, 47%   { opacity: 0.95; }   /* Dawn + Day: visible */
+  52%, 100% { opacity: 0; }       /* Dusk + Night: hidden */
+}
+
+.vine-bryants-smoke-puff {
+  animation: vine-bryants-smoke-rise 4s ease-out infinite;
+  transform-origin: center center;
+  transform-box: fill-box;
+}
+.vine-bryants-smoke-a { animation-delay: 0s; }
+.vine-bryants-smoke-b { animation-delay: -1.3s; }
+.vine-bryants-smoke-c { animation-delay: -2.6s; }
+
+@keyframes vine-bryants-smoke-rise {
+  0%   { transform: translate(0, 0) scale(0.4); opacity: 0; }
+  15%  { opacity: 0.72; }
+  100% { transform: translate(-2px, -18px) scale(2.1); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-bryants-smoke-puff { animation: none; opacity: 0.5; }
+  .vine-notes-dawn-day { animation: none; opacity: 0.8; }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   v20 — Additional day-biased cars
+   Visible most of Day, fading during Dawn/Dusk, hidden at Night (slowest).
+   ═════════════════════════════════════════════════════════════════════ */
+.vine-car-east-3 {
+  animation: vine-car-east-upper-3 32s linear infinite;
+  animation-delay: -8s;
+  transform-box: fill-box;
+}
+.vine-car-west-2 {
+  animation: vine-car-west-lower-2 38s linear infinite;
+  animation-delay: -22s;
+  transform-box: fill-box;
+}
+
+@keyframes vine-car-east-upper-3 {
+  0%   { transform: translate(-100px, 505px) scale(-1.6, 1.6); }
+  100% { transform: translate(1720px, 505px) scale(-1.6, 1.6); }
+}
+@keyframes vine-car-west-lower-2 {
+  0%   { transform: translate(1720px, 570px) scale(1.7, 1.7); }
+  100% { transform: translate(-100px, 570px) scale(1.7, 1.7); }
+}
+
+/* v20 — Removed the day-heavy dual-animation; it caused cars to fade in and
+   out mid-drive (read as "just blocks" or disappearing cars). Extra cars
+   now run continuously like the original three. */
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-car-east-3, .vine-car-west-2, .vine-car-day-heavy { animation: none; opacity: 0.8; }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   v20 — Paseo walker night-only gate
+   ═════════════════════════════════════════════════════════════════════ */
+.vine-paseo-walker-gate {
+  animation: vine-paseo-walker-night 40s linear infinite;
+}
+@keyframes vine-paseo-walker-night {
+  0%, 72%   { opacity: 0; }      /* Dawn + Day + Dusk: hidden from Paseo */
+  75%, 100% { opacity: 1; }      /* Night: visible; continues from wherever they are */
+}
+
+/* v20 — Add a subtle "walking in place" shuffle to the static night-jammers so
+   they don't look frozen. Each variant has different timing for randomization. */
+.vine-walker-jammer {
+  animation: vine-walker-jammer-opacity 40s linear infinite, vine-jammer-shuffle 1.6s ease-in-out infinite;
+  transform-box: fill-box;
+}
+
+@keyframes vine-jammer-shuffle {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-1.1px); }
+}
+
+/* Rename prior vine-jammer-opacity to match the new name and keep schedule. */
+@keyframes vine-walker-jammer-opacity {
+  0%, 50%   { opacity: 0; }
+  55%       { opacity: 0.4; }
+  75%       { opacity: 0.92; }
+  100%      { opacity: 0.95; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-paseo-walker-gate { animation: none; opacity: 1; }
+  .vine-walker-jammer { animation: none; opacity: 0.85; }
 }

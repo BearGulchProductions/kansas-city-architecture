@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="18th & Vine — Look Up, Kansas City" />
   <meta name="twitter:description" content="18th & Vine — the historic heart of Kansas City's African American community, the birthplace of Kansas City jazz and blues, and a neighborhood in ongoing restoration." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/2/2b/18th_and_Vine_District_sign_and_building.jpg" />
-  <link rel="stylesheet" href="../style.css?v=19a" />
+  <link rel="stylesheet" href="../style.css?v=20a" />
 </head>
 <body>
 
@@ -118,6 +118,11 @@
        skyline simplified at the right horizon (18th & Vine sits east of
        downtown, which reads to the right of frame as receding silhouettes). -->
   <section class="vine-hero-scene" aria-labelledby="vine-hero-h1">
+    <!-- v20: ghost toggle — pure-CSS :checked sibling selector toggles
+         .scene-ghost-building inside the SVG below from solid silhouette
+         to dashed outline. Positioned BEFORE the backdrop so the :checked
+         combinator can target descendants that come AFTER it in source order. -->
+    <input type="checkbox" id="vine-ghost-toggle" class="scene-ghost-toggle-input" aria-label="Show demolished buildings as ghosted outlines"/>
     <div class="vine-hero-backdrop" aria-hidden="true">
       <div class="tod-layer tod-dawn"></div>
       <div class="tod-layer tod-day"></div>
@@ -127,6 +132,7 @@
     <div class="vine-hero-overlay">
       <span class="eyebrow">Kansas City Neighborhoods &bull; Jazz History</span>
       <h1 id="vine-hero-h1">18th &amp;<br /><span>Vine</span></h1>
+      <label for="vine-ghost-toggle" class="scene-ghost-toggle-label">The neighborhood that made the music that made America</label>
     </div>
     <svg class="vine-hero-svg" viewBox="0 0 1600 600"
          preserveAspectRatio="xMidYMid slice"
@@ -295,6 +301,436 @@
            Bryant's silhouette lives in the LEFT receding row (Layer 6),
            not at the VP. -->
       <g class="vine-vp" aria-hidden="true">
+        <!-- v20: Kansas City Monarchs at Municipal Stadium (22nd & Brooklyn, demolished 1976).
+             Historical anchor for the Negro Leagues Museum in the scene — the architectural
+             manifestation of what the NLB Museum commemorates. NORTH background (upper-left),
+             positioned at far distance. Drawn first in this layer so residentials overlap
+             its lower edge if they reach up that high. Wrapped in .scene-ghost-building so
+             the ghost toggle can swap its rendering from solid silhouette → dashed outline.
+             Clickable landmark. -->
+        <!-- v20: Left-background PARK SCENE — unified baseball-anchored public
+             park with integrated basketball half-court, bench seating, trees
+             lining the perimeter fence, and tiny human silhouettes populating
+             it. Replaces the earlier disjointed collection of recreation
+             vignettes. Sits in front of the residential silhouettes. -->
+        <g class="vine-baseball-scene" aria-hidden="true" style="display:none">
+          <!-- v20 — Distant BASEBALL SCENE visible from the viewer's perspective
+               in the upper-left backdrop. Rather than top-down diamonds, this
+               depicts a ballpark as a spectator would see it from across the
+               way: trapezoidal field in perspective, outfield fence, field
+               lights, infield dirt, pitcher's mound, home plate, silhouettes
+               of players in action (batter, catcher, pitcher, infielders,
+               outfielders) + a bleacher with spectators. A smaller second
+               field to the right suggests multiple neighborhood parks. -->
+          <!-- Main field grass (trapezoidal, viewed from south) -->
+          <path d="M 30,418 L 52,370 L 208,370 L 230,418 Z" fill="rgba(70,120,58,0.6)" stroke="rgba(201,168,76,0.62)" stroke-width="0.55"/>
+          <line x1="60" y1="400" x2="200" y2="400" stroke="rgba(201,168,76,0.18)" stroke-width="0.3"/>
+          <line x1="50" y1="385" x2="210" y2="385" stroke="rgba(201,168,76,0.18)" stroke-width="0.3"/>
+          <!-- Outfield fence with posts -->
+          <line x1="52" y1="370" x2="208" y2="370" stroke="rgba(201,168,76,0.9)" stroke-width="0.7"/>
+          <line x1="65" y1="370" x2="65" y2="374" stroke="rgba(201,168,76,0.7)" stroke-width="0.4"/>
+          <line x1="95" y1="370" x2="95" y2="374" stroke="rgba(201,168,76,0.7)" stroke-width="0.4"/>
+          <line x1="130" y1="370" x2="130" y2="374" stroke="rgba(201,168,76,0.7)" stroke-width="0.4"/>
+          <line x1="165" y1="370" x2="165" y2="374" stroke="rgba(201,168,76,0.7)" stroke-width="0.4"/>
+          <line x1="195" y1="370" x2="195" y2="374" stroke="rgba(201,168,76,0.7)" stroke-width="0.4"/>
+          <!-- Field light standards -->
+          <line x1="75" y1="370" x2="75" y2="352" stroke="rgba(201,168,76,0.82)" stroke-width="0.5"/>
+          <rect x="72" y="348" width="6" height="4" fill="rgba(255,240,180,0.88)" stroke="rgba(201,168,76,0.9)" stroke-width="0.35"/>
+          <line x1="185" y1="370" x2="185" y2="352" stroke="rgba(201,168,76,0.82)" stroke-width="0.5"/>
+          <rect x="182" y="348" width="6" height="4" fill="rgba(255,240,180,0.88)" stroke="rgba(201,168,76,0.9)" stroke-width="0.35"/>
+          <!-- Infield dirt (trapezoidal per perspective) -->
+          <path d="M 95,402 L 115,386 L 155,386 L 175,402 Z" fill="rgba(180,138,82,0.82)" stroke="rgba(245,235,210,0.62)" stroke-width="0.42"/>
+          <!-- Pitcher's mound -->
+          <ellipse cx="135" cy="394" rx="3" ry="1.5" fill="rgba(200,160,100,0.94)" stroke="rgba(245,235,210,0.7)" stroke-width="0.32"/>
+          <!-- Home plate -->
+          <path d="M 132,404 L 138,404 L 139,406 L 135,408 L 131,406 Z" fill="rgba(255,250,235,0.95)" stroke="rgba(40,28,18,0.5)" stroke-width="0.22"/>
+          <!-- Chalk foul lines -->
+          <line x1="135" y1="405" x2="60" y2="375" stroke="rgba(245,235,210,0.5)" stroke-width="0.38"/>
+          <line x1="135" y1="405" x2="205" y2="375" stroke="rgba(245,235,210,0.5)" stroke-width="0.38"/>
+          <!-- Batter at home plate (swinging) -->
+          <g transform="translate(135, 402)">
+            <circle cx="-0.6" cy="-3" r="0.8" fill="rgba(40,28,18,0.94)"/>
+            <line x1="-0.6" y1="-2.6" x2="-0.3" y2="0.2" stroke="rgba(40,28,18,0.94)" stroke-width="0.72"/>
+            <line x1="-0.3" y1="-2" x2="3.2" y2="-2.8" stroke="rgba(40,28,18,0.94)" stroke-width="0.9"/>
+          </g>
+          <!-- Catcher crouched behind home -->
+          <g transform="translate(135, 406)">
+            <circle cx="0" cy="-1.6" r="0.7" fill="rgba(40,28,18,0.9)"/>
+            <path d="M -0.9,-1.3 L 0.9,-1.3 L 1.2,0.5 L -1.2,0.5 Z" fill="rgba(40,28,18,0.9)"/>
+          </g>
+          <!-- Pitcher on mound (winding up) -->
+          <g transform="translate(135, 394)">
+            <circle cx="0" cy="-2.6" r="0.75" fill="rgba(40,28,18,0.94)"/>
+            <line x1="0" y1="-2.2" x2="0.2" y2="0" stroke="rgba(40,28,18,0.94)" stroke-width="0.7"/>
+            <line x1="0.2" y1="-1.5" x2="1.7" y2="-2.4" stroke="rgba(40,28,18,0.94)" stroke-width="0.6"/>
+          </g>
+          <!-- Infielders (4 positions) -->
+          <g transform="translate(160, 395)"><circle cx="0" cy="-2.3" r="0.65" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-1.9" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
+          <g transform="translate(145, 386)"><circle cx="0" cy="-2.3" r="0.65" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-1.9" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
+          <g transform="translate(125, 386)"><circle cx="0" cy="-2.3" r="0.65" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-1.9" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
+          <g transform="translate(110, 395)"><circle cx="0" cy="-2.3" r="0.65" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-1.9" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
+          <!-- Outfielders (3 positions) -->
+          <g transform="translate(85, 378)"><circle cx="0" cy="-2" r="0.55" fill="rgba(40,28,18,0.85)"/><line x1="0" y1="-1.6" x2="0" y2="-0.1" stroke="rgba(40,28,18,0.85)" stroke-width="0.55"/></g>
+          <g transform="translate(135, 378)"><circle cx="0" cy="-2" r="0.55" fill="rgba(40,28,18,0.85)"/><line x1="0" y1="-1.6" x2="0" y2="-0.1" stroke="rgba(40,28,18,0.85)" stroke-width="0.55"/></g>
+          <g transform="translate(180, 378)"><circle cx="0" cy="-2" r="0.55" fill="rgba(40,28,18,0.85)"/><line x1="0" y1="-1.6" x2="0" y2="-0.1" stroke="rgba(40,28,18,0.85)" stroke-width="0.55"/></g>
+          <!-- Baseball in flight (pitched toward batter) -->
+          <circle cx="137" cy="398" r="0.55" fill="rgba(255,250,235,0.98)"/>
+          <!-- Bleacher with 3 spectators (south edge, near viewer) -->
+          <rect x="35" y="408" width="26" height="10" fill="rgba(100,78,56,0.58)" stroke="rgba(201,168,76,0.65)" stroke-width="0.42"/>
+          <line x1="35" y1="412" x2="61" y2="412" stroke="rgba(201,168,76,0.45)" stroke-width="0.28"/>
+          <line x1="35" y1="415" x2="61" y2="415" stroke="rgba(201,168,76,0.45)" stroke-width="0.28"/>
+          <circle cx="41" cy="406.5" r="0.7" fill="rgba(40,28,18,0.88)"/>
+          <circle cx="48" cy="406.5" r="0.7" fill="rgba(40,28,18,0.88)"/>
+          <circle cx="55" cy="406.5" r="0.7" fill="rgba(40,28,18,0.88)"/>
+
+          <!-- SECOND smaller/more distant ballpark, suggesting multiple fields -->
+          <g transform="translate(255, 394)">
+            <path d="M 0,22 L 10,4 L 72,4 L 82,22 Z" fill="rgba(70,120,58,0.46)" stroke="rgba(201,168,76,0.5)" stroke-width="0.5"/>
+            <line x1="10" y1="4" x2="72" y2="4" stroke="rgba(201,168,76,0.75)" stroke-width="0.55"/>
+            <path d="M 28,18 L 37,10 L 55,10 L 64,18 Z" fill="rgba(180,138,82,0.66)" stroke="rgba(245,235,210,0.5)" stroke-width="0.35"/>
+            <ellipse cx="46" cy="14" rx="1.8" ry="0.9" fill="rgba(200,160,100,0.82)" stroke="rgba(245,235,210,0.5)" stroke-width="0.25"/>
+            <!-- Tiny player silhouettes -->
+            <circle cx="46" cy="12" r="0.6" fill="rgba(40,28,18,0.85)"/>
+            <circle cx="46" cy="19" r="0.6" fill="rgba(40,28,18,0.85)"/>
+            <circle cx="35" cy="15" r="0.5" fill="rgba(40,28,18,0.8)"/>
+            <circle cx="56" cy="15" r="0.5" fill="rgba(40,28,18,0.8)"/>
+            <circle cx="28" cy="8" r="0.45" fill="rgba(40,28,18,0.75)"/>
+            <circle cx="64" cy="8" r="0.45" fill="rgba(40,28,18,0.75)"/>
+          </g>
+        </g>
+
+        <!-- v20 — Left-side BACKGROUND RECREATION AREAS worked into the residential
+             backdrop: neighborhood basketball half-court with 2 kids playing,
+             small clapboard church with steeple, pocket park with bench + trees +
+             a person sitting, a dog walker strolling the residential sidewalk.
+             Gives the Black residential neighborhood around the district a lived-in
+             feel alongside the ballparks. -->
+        <!-- v20 — unified park scene (new) replaces the old disjointed neighborhood-rec group -->
+        <g class="vine-park-scene-v2" aria-hidden="true">
+          <!-- === OVERALL GROUND: large green park patch (encompasses fields + court) === -->
+          <path d="M 14,432 L 46,358 L 320,358 L 346,432 Z" fill="rgba(70,120,58,0.55)" stroke="rgba(201,168,76,0.62)" stroke-width="0.7"/>
+
+          <!-- Subtle grass striping for mowed-lawn feel -->
+          <line x1="40" y1="405" x2="320" y2="405" stroke="rgba(201,168,76,0.14)" stroke-width="0.3"/>
+          <line x1="32" y1="388" x2="328" y2="388" stroke="rgba(201,168,76,0.14)" stroke-width="0.3"/>
+          <line x1="26" y1="372" x2="334" y2="372" stroke="rgba(201,168,76,0.14)" stroke-width="0.3"/>
+
+          <!-- === BACK FENCE PERIMETER (chain-link along the back of the park) === -->
+          <line x1="46" y1="358" x2="320" y2="358" stroke="rgba(201,168,76,0.9)" stroke-width="0.75"/>
+          <!-- Fence posts -->
+          <line x1="60" y1="358" x2="60" y2="362" stroke="rgba(201,168,76,0.82)" stroke-width="0.45"/>
+          <line x1="90" y1="358" x2="90" y2="362" stroke="rgba(201,168,76,0.82)" stroke-width="0.45"/>
+          <line x1="120" y1="358" x2="120" y2="362" stroke="rgba(201,168,76,0.82)" stroke-width="0.45"/>
+          <line x1="150" y1="358" x2="150" y2="362" stroke="rgba(201,168,76,0.82)" stroke-width="0.45"/>
+          <line x1="180" y1="358" x2="180" y2="362" stroke="rgba(201,168,76,0.82)" stroke-width="0.45"/>
+          <line x1="210" y1="358" x2="210" y2="362" stroke="rgba(201,168,76,0.82)" stroke-width="0.45"/>
+          <line x1="240" y1="358" x2="240" y2="362" stroke="rgba(201,168,76,0.82)" stroke-width="0.45"/>
+          <line x1="270" y1="358" x2="270" y2="362" stroke="rgba(201,168,76,0.82)" stroke-width="0.45"/>
+          <line x1="300" y1="358" x2="300" y2="362" stroke="rgba(201,168,76,0.82)" stroke-width="0.45"/>
+
+          <!-- Field lights along the outfield fence -->
+          <line x1="75" y1="358" x2="75" y2="344" stroke="rgba(201,168,76,0.88)" stroke-width="0.55"/>
+          <rect x="72" y="340" width="6" height="4" fill="rgba(255,240,180,0.88)" stroke="rgba(201,168,76,0.9)" stroke-width="0.35"/>
+          <line x1="195" y1="358" x2="195" y2="342" stroke="rgba(201,168,76,0.88)" stroke-width="0.55"/>
+          <rect x="192" y="338" width="6" height="4" fill="rgba(255,240,180,0.88)" stroke="rgba(201,168,76,0.9)" stroke-width="0.35"/>
+          <line x1="290" y1="358" x2="290" y2="344" stroke="rgba(201,168,76,0.88)" stroke-width="0.55"/>
+          <rect x="287" y="340" width="6" height="4" fill="rgba(255,240,180,0.88)" stroke="rgba(201,168,76,0.9)" stroke-width="0.35"/>
+
+          <!-- === MAIN BASEBALL FIELD (left-center of park) === -->
+          <!-- Infield dirt (trapezoidal per perspective) -->
+          <path d="M 75,410 L 100,388 L 160,388 L 185,410 Z" fill="rgba(180,138,82,0.85)" stroke="rgba(245,235,210,0.62)" stroke-width="0.5"/>
+          <!-- Pitcher's mound -->
+          <ellipse cx="130" cy="398" rx="3.2" ry="1.6" fill="rgba(200,160,100,0.95)" stroke="rgba(245,235,210,0.75)" stroke-width="0.38"/>
+          <!-- Home plate -->
+          <path d="M 127,412 L 133,412 L 134,414 L 130,416 L 126,414 Z" fill="rgba(255,250,235,0.95)" stroke="rgba(40,28,18,0.5)" stroke-width="0.25"/>
+          <!-- Chalk foul lines (from home plate to outfield corners) -->
+          <line x1="130" y1="413" x2="58" y2="370" stroke="rgba(245,235,210,0.55)" stroke-width="0.42"/>
+          <line x1="130" y1="413" x2="202" y2="370" stroke="rgba(245,235,210,0.55)" stroke-width="0.42"/>
+
+          <!-- Players -->
+          <!-- Batter -->
+          <g transform="translate(130, 410)">
+            <circle cx="-0.6" cy="-3" r="0.85" fill="rgba(40,28,18,0.95)"/>
+            <line x1="-0.6" y1="-2.5" x2="-0.3" y2="0.2" stroke="rgba(40,28,18,0.95)" stroke-width="0.75"/>
+            <line x1="-0.3" y1="-2" x2="3.4" y2="-2.8" stroke="rgba(40,28,18,0.95)" stroke-width="0.95"/>
+          </g>
+          <!-- Catcher -->
+          <g transform="translate(130, 414)">
+            <circle cx="0" cy="-1.6" r="0.75" fill="rgba(40,28,18,0.9)"/>
+            <path d="M -1,-1.3 L 1,-1.3 L 1.3,0.5 L -1.3,0.5 Z" fill="rgba(40,28,18,0.9)"/>
+          </g>
+          <!-- Pitcher -->
+          <g transform="translate(130, 398)">
+            <circle cx="0" cy="-2.7" r="0.8" fill="rgba(40,28,18,0.95)"/>
+            <line x1="0" y1="-2.2" x2="0.2" y2="0.2" stroke="rgba(40,28,18,0.95)" stroke-width="0.72"/>
+            <line x1="0.2" y1="-1.5" x2="1.8" y2="-2.5" stroke="rgba(40,28,18,0.95)" stroke-width="0.6"/>
+          </g>
+          <!-- Infielders -->
+          <g transform="translate(160, 400)"><circle cx="0" cy="-2.4" r="0.7" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-2" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
+          <g transform="translate(145, 388)"><circle cx="0" cy="-2.4" r="0.7" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-2" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
+          <g transform="translate(115, 388)"><circle cx="0" cy="-2.4" r="0.7" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-2" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
+          <g transform="translate(100, 400)"><circle cx="0" cy="-2.4" r="0.7" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-2" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
+          <!-- Outfielders -->
+          <g transform="translate(80, 378)"><circle cx="0" cy="-2" r="0.6" fill="rgba(40,28,18,0.85)"/><line x1="0" y1="-1.6" x2="0" y2="-0.1" stroke="rgba(40,28,18,0.85)" stroke-width="0.55"/></g>
+          <g transform="translate(130, 376)"><circle cx="0" cy="-2" r="0.6" fill="rgba(40,28,18,0.85)"/><line x1="0" y1="-1.6" x2="0" y2="-0.1" stroke="rgba(40,28,18,0.85)" stroke-width="0.55"/></g>
+          <g transform="translate(180, 378)"><circle cx="0" cy="-2" r="0.6" fill="rgba(40,28,18,0.85)"/><line x1="0" y1="-1.6" x2="0" y2="-0.1" stroke="rgba(40,28,18,0.85)" stroke-width="0.55"/></g>
+          <!-- Baseball in flight (pitched) -->
+          <circle cx="132" cy="402" r="0.55" fill="rgba(255,250,235,0.98)"/>
+
+          <!-- Bleacher on first-base foul line (near side) with 3 spectators -->
+          <rect x="32" y="414" width="26" height="10" fill="rgba(100,78,56,0.65)" stroke="rgba(201,168,76,0.7)" stroke-width="0.45"/>
+          <line x1="32" y1="418" x2="58" y2="418" stroke="rgba(201,168,76,0.48)" stroke-width="0.3"/>
+          <line x1="32" y1="421" x2="58" y2="421" stroke="rgba(201,168,76,0.48)" stroke-width="0.3"/>
+          <circle cx="38" cy="413" r="0.7" fill="rgba(40,28,18,0.88)"/>
+          <circle cx="45" cy="413" r="0.7" fill="rgba(40,28,18,0.88)"/>
+          <circle cx="52" cy="413" r="0.7" fill="rgba(40,28,18,0.88)"/>
+
+          <!-- === BATTING PRACTICE CAGE (to the lower-left of main field) === -->
+          <!-- Cage frame -->
+          <path d="M 18,418 L 18,402 L 34,402 L 34,418" fill="none" stroke="rgba(201,168,76,0.72)" stroke-width="0.45"/>
+          <line x1="18" y1="402" x2="34" y2="402" stroke="rgba(201,168,76,0.72)" stroke-width="0.5"/>
+          <!-- Mesh hatching -->
+          <line x1="18" y1="406" x2="34" y2="406" stroke="rgba(201,168,76,0.25)" stroke-width="0.22"/>
+          <line x1="18" y1="410" x2="34" y2="410" stroke="rgba(201,168,76,0.25)" stroke-width="0.22"/>
+          <line x1="18" y1="414" x2="34" y2="414" stroke="rgba(201,168,76,0.25)" stroke-width="0.22"/>
+          <line x1="22" y1="402" x2="22" y2="418" stroke="rgba(201,168,76,0.22)" stroke-width="0.22"/>
+          <line x1="26" y1="402" x2="26" y2="418" stroke="rgba(201,168,76,0.22)" stroke-width="0.22"/>
+          <line x1="30" y1="402" x2="30" y2="418" stroke="rgba(201,168,76,0.22)" stroke-width="0.22"/>
+          <!-- Batter in cage -->
+          <g transform="translate(26, 416)">
+            <circle cx="0" cy="-3" r="0.75" fill="rgba(40,28,18,0.92)"/>
+            <line x1="0" y1="-2.5" x2="0" y2="0.2" stroke="rgba(40,28,18,0.92)" stroke-width="0.7"/>
+            <line x1="0" y1="-2" x2="2.5" y2="-1.8" stroke="rgba(40,28,18,0.92)" stroke-width="0.8"/>
+          </g>
+
+          <!-- === BASKETBALL HALF-COURT (right side of park) === -->
+          <g transform="translate(260, 402)">
+            <!-- Court surface -->
+            <path d="M -22,16 L -18,-10 L 22,-10 L 26,16 Z" fill="rgba(60,52,40,0.8)" stroke="rgba(201,168,76,0.6)" stroke-width="0.5"/>
+            <!-- Free-throw key + arc -->
+            <path d="M -6,-10 L 6,-10 L 5,-4 L -5,-4 Z" fill="rgba(100,88,64,0.5)" stroke="rgba(245,235,210,0.62)" stroke-width="0.38"/>
+            <path d="M -5,-4 Q 0,0 5,-4" fill="none" stroke="rgba(245,235,210,0.62)" stroke-width="0.38"/>
+            <!-- 3-point line -->
+            <path d="M -18,-10 Q 0,8 18,-10" fill="none" stroke="rgba(245,235,210,0.55)" stroke-width="0.38"/>
+            <!-- Backboard + rim -->
+            <rect x="-5" y="-14" width="10" height="2" fill="rgba(245,235,210,0.88)" stroke="rgba(40,28,18,0.7)" stroke-width="0.35"/>
+            <rect x="-1.5" y="-14.8" width="3" height="1" fill="rgba(40,28,18,0.88)"/>
+            <ellipse cx="0" cy="-10.5" rx="2.8" ry="0.8" fill="none" stroke="rgba(220,80,40,0.92)" stroke-width="0.5"/>
+            <line x1="0" y1="-14" x2="0" y2="-10" stroke="rgba(60,48,36,0.9)" stroke-width="0.55"/>
+            <!-- Shooter (arms raised, ball in flight) -->
+            <g transform="translate(0, -4)">
+              <circle cx="0" cy="-2.5" r="0.8" fill="rgba(40,28,18,0.94)"/>
+              <line x1="0" y1="-2" x2="0" y2="1" stroke="rgba(40,28,18,0.94)" stroke-width="0.65"/>
+              <line x1="0" y1="-1" x2="1.6" y2="-3.2" stroke="rgba(40,28,18,0.94)" stroke-width="0.6"/>
+              <line x1="0" y1="-1" x2="-1.2" y2="-3" stroke="rgba(40,28,18,0.94)" stroke-width="0.55"/>
+            </g>
+            <!-- Basketball in flight -->
+            <circle cx="0.8" cy="-7" r="0.65" fill="rgba(220,120,50,0.95)" stroke="rgba(40,28,18,0.7)" stroke-width="0.2"/>
+            <!-- Defender -->
+            <g transform="translate(6, 2)">
+              <circle cx="0" cy="-2.5" r="0.72" fill="rgba(40,28,18,0.9)"/>
+              <line x1="0" y1="-2" x2="0" y2="1" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/>
+              <line x1="0" y1="-1" x2="-1.8" y2="-2.2" stroke="rgba(40,28,18,0.9)" stroke-width="0.5"/>
+              <line x1="0" y1="-1" x2="1.8" y2="-2.2" stroke="rgba(40,28,18,0.9)" stroke-width="0.5"/>
+            </g>
+            <!-- Kid watching -->
+            <g transform="translate(-15, 8)">
+              <circle cx="0" cy="-2" r="0.5" fill="rgba(40,28,18,0.85)"/>
+              <line x1="0" y1="-1.6" x2="0" y2="0.3" stroke="rgba(40,28,18,0.85)" stroke-width="0.5"/>
+            </g>
+          </g>
+
+          <!-- === TREES along perimeter === -->
+          <g>
+            <!-- Tree 1 (far left corner) -->
+            <line x1="24" y1="425" x2="24" y2="370" stroke="rgba(80,52,32,0.85)" stroke-width="1.1"/>
+            <circle cx="24" cy="366" r="5" fill="rgba(60,100,52,0.72)" stroke="rgba(40,72,36,0.7)" stroke-width="0.45"/>
+            <circle cx="20" cy="368" r="3.5" fill="rgba(70,108,58,0.64)"/>
+            <circle cx="28" cy="368" r="3.5" fill="rgba(70,108,58,0.64)"/>
+            <!-- Tree 2 (between bleacher and cage) -->
+            <line x1="8" y1="420" x2="8" y2="380" stroke="rgba(80,52,32,0.8)" stroke-width="0.95"/>
+            <circle cx="8" cy="376" r="4" fill="rgba(60,100,52,0.68)"/>
+            <!-- Tree 3 (right perimeter, near basketball court) -->
+            <line x1="320" y1="425" x2="320" y2="370" stroke="rgba(80,52,32,0.85)" stroke-width="1.1"/>
+            <circle cx="320" cy="366" r="4.5" fill="rgba(60,100,52,0.72)" stroke="rgba(40,72,36,0.7)" stroke-width="0.45"/>
+            <circle cx="317" cy="368" r="3" fill="rgba(70,108,58,0.64)"/>
+          </g>
+
+          <!-- PARADE PARK sign at the park entrance (lower-right corner) -->
+          <rect x="280" y="422" width="32" height="6" fill="rgba(40,28,18,0.9)" stroke="rgba(201,168,76,0.85)" stroke-width="0.42"/>
+          <text x="296" y="426.5" text-anchor="middle" font-family="Josefin Sans, sans-serif" font-size="3.2" font-weight="700" letter-spacing="0.15em" fill="rgba(232,201,106,0.95)">PARADE PARK</text>
+          <line x1="296" y1="428" x2="296" y2="432" stroke="rgba(201,168,76,0.75)" stroke-width="0.4"/>
+
+          <!-- Extra park-goers (couple walking, kid with glove) -->
+          <g transform="translate(220, 420)">
+            <!-- Adult with kid -->
+            <circle cx="0" cy="-4" r="0.95" fill="rgba(40,28,18,0.92)"/>
+            <path d="M -1.4,-3 L 1.4,-3 L 1.8,2 L -1.8,2 Z" fill="rgba(132,40,40,0.88)" stroke="rgba(40,28,18,0.65)" stroke-width="0.28"/>
+            <line x1="-1" y1="2" x2="-1" y2="6" stroke="rgba(40,28,18,0.88)" stroke-width="0.55"/>
+            <line x1="1" y1="2" x2="1" y2="6" stroke="rgba(40,28,18,0.88)" stroke-width="0.55"/>
+            <!-- Kid next to adult -->
+            <circle cx="4" cy="-1.5" r="0.7" fill="rgba(40,28,18,0.9)"/>
+            <path d="M 3.2,-0.8 L 4.8,-0.8 L 5,3 L 3,3 Z" fill="rgba(220,140,40,0.88)" stroke="rgba(40,28,18,0.65)" stroke-width="0.22"/>
+            <line x1="3.5" y1="3" x2="3.5" y2="6" stroke="rgba(40,28,18,0.85)" stroke-width="0.5"/>
+            <line x1="4.5" y1="3" x2="4.5" y2="6" stroke="rgba(40,28,18,0.85)" stroke-width="0.5"/>
+            <!-- Tiny baseball glove kid is holding -->
+            <circle cx="5.8" cy="1.5" r="0.55" fill="rgba(140,82,42,0.88)" stroke="rgba(80,48,20,0.8)" stroke-width="0.2"/>
+          </g>
+        </g>
+
+        <!-- Old disjointed neighborhood-rec block retained below but hidden -->
+        <g class="vine-neighborhood-rec" aria-hidden="true" style="display:none">
+          <!-- Basketball half-court (between baseball fields + residentials) -->
+          <g transform="translate(295, 385)">
+            <!-- Court surface (asphalt rectangle with key in perspective) -->
+            <path d="M -18,10 L -14,-6 L 14,-6 L 18,10 Z" fill="rgba(54,48,40,0.75)" stroke="rgba(201,168,76,0.5)" stroke-width="0.45"/>
+            <!-- Free-throw key (painted rectangle near hoop) -->
+            <path d="M -5,-6 L 5,-6 L 4,-2 L -4,-2 Z" fill="rgba(90,80,60,0.42)" stroke="rgba(245,235,210,0.55)" stroke-width="0.35"/>
+            <!-- Free-throw arc -->
+            <path d="M -4,-2 Q 0,1 4,-2" fill="none" stroke="rgba(245,235,210,0.55)" stroke-width="0.35"/>
+            <!-- Three-point line (wide arc) -->
+            <path d="M -14,-6 Q 0,6 14,-6" fill="none" stroke="rgba(245,235,210,0.5)" stroke-width="0.35"/>
+            <!-- Hoop backboard + rim at the far end -->
+            <rect x="-4" y="-10" width="8" height="1.8" fill="rgba(245,235,210,0.85)" stroke="rgba(40,28,18,0.6)" stroke-width="0.3"/>
+            <rect x="-1" y="-10.5" width="2" height="0.8" fill="rgba(40,28,18,0.85)"/>
+            <ellipse cx="0" cy="-7.5" rx="2.2" ry="0.6" fill="none" stroke="rgba(220,80,40,0.88)" stroke-width="0.45"/>
+            <!-- Basketball pole -->
+            <line x1="0" y1="-10" x2="0" y2="-6" stroke="rgba(60,48,36,0.88)" stroke-width="0.5"/>
+            <!-- Player 1 (shooting, arms up) -->
+            <g transform="translate(0, -2)">
+              <circle cx="0" cy="-2.5" r="0.75" fill="rgba(40,28,18,0.92)"/>
+              <line x1="0" y1="-2" x2="0" y2="1" stroke="rgba(40,28,18,0.92)" stroke-width="0.65"/>
+              <line x1="0" y1="-1" x2="1.5" y2="-3" stroke="rgba(40,28,18,0.92)" stroke-width="0.6"/>
+              <line x1="0" y1="-1" x2="-1" y2="-2.8" stroke="rgba(40,28,18,0.92)" stroke-width="0.55"/>
+            </g>
+            <!-- Basketball in flight mid-court -->
+            <circle cx="0.8" cy="-4.5" r="0.6" fill="rgba(220,120,50,0.95)" stroke="rgba(40,28,18,0.6)" stroke-width="0.2"/>
+            <!-- Player 2 (defender, arms out) -->
+            <g transform="translate(5, 2)">
+              <circle cx="0" cy="-2.5" r="0.7" fill="rgba(40,28,18,0.88)"/>
+              <line x1="0" y1="-2" x2="0" y2="1" stroke="rgba(40,28,18,0.88)" stroke-width="0.6"/>
+              <line x1="0" y1="-1" x2="-1.6" y2="-2" stroke="rgba(40,28,18,0.88)" stroke-width="0.5"/>
+              <line x1="0" y1="-1" x2="1.6" y2="-2" stroke="rgba(40,28,18,0.88)" stroke-width="0.5"/>
+            </g>
+            <!-- Small spectator kid on sidelines -->
+            <g transform="translate(-13, 6)">
+              <circle cx="0" cy="-2" r="0.5" fill="rgba(40,28,18,0.85)"/>
+              <line x1="0" y1="-1.6" x2="0" y2="0.3" stroke="rgba(40,28,18,0.85)" stroke-width="0.5"/>
+            </g>
+          </g>
+
+          <!-- Neighborhood CHURCH with steeple (many historic Black churches
+               were in the residential area around 18th & Vine) -->
+          <g transform="translate(380, 395)">
+            <!-- Main body (narrow clapboard) -->
+            <rect x="-9" y="0" width="18" height="22" fill="rgba(196,180,140,0.8)" stroke="rgba(80,56,32,0.85)" stroke-width="0.5"/>
+            <!-- Pitched roof -->
+            <path d="M -10,0 L 0,-8 L 10,0 Z" fill="rgba(80,56,32,0.88)" stroke="rgba(40,28,18,0.85)" stroke-width="0.45"/>
+            <!-- Steeple (narrow tower with spire) -->
+            <rect x="-2" y="-14" width="4" height="8" fill="rgba(196,180,140,0.82)" stroke="rgba(80,56,32,0.85)" stroke-width="0.4"/>
+            <path d="M -2,-14 L 0,-22 L 2,-14 Z" fill="rgba(80,56,32,0.9)" stroke="rgba(40,28,18,0.85)" stroke-width="0.4"/>
+            <!-- Cross on top -->
+            <line x1="0" y1="-22" x2="0" y2="-26" stroke="rgba(232,201,106,0.85)" stroke-width="0.55"/>
+            <line x1="-1.2" y1="-24.5" x2="1.2" y2="-24.5" stroke="rgba(232,201,106,0.85)" stroke-width="0.5"/>
+            <!-- Arched entrance door -->
+            <path d="M -2,22 L -2,14 Q 0,11 2,14 L 2,22 Z" fill="rgba(40,28,18,0.88)" stroke="rgba(201,168,76,0.75)" stroke-width="0.35"/>
+            <!-- Stained glass windows (tall arched) -->
+            <path d="M -7,16 L -7,10 Q -5.5,8 -4,10 L -4,16 Z" fill="rgba(120,80,180,0.55)" stroke="rgba(201,168,76,0.65)" stroke-width="0.3"/>
+            <path d="M 4,16 L 4,10 Q 5.5,8 7,10 L 7,16 Z" fill="rgba(120,80,180,0.55)" stroke="rgba(201,168,76,0.65)" stroke-width="0.3"/>
+            <!-- Small belfry window in steeple -->
+            <path d="M -1,-10 L -1,-12 Q 0,-13 1,-12 L 1,-10 Z" fill="rgba(40,28,18,0.88)" stroke="rgba(201,168,76,0.6)" stroke-width="0.25"/>
+          </g>
+
+          <!-- Pocket park — bench + tree + seated person -->
+          <g transform="translate(50, 400)">
+            <!-- Grass patch -->
+            <ellipse cx="0" cy="8" rx="22" ry="6" fill="rgba(70,110,60,0.45)" stroke="rgba(201,168,76,0.5)" stroke-width="0.4"/>
+            <!-- Tree trunk + canopy -->
+            <line x1="-10" y1="6" x2="-10" y2="-6" stroke="rgba(80,52,32,0.88)" stroke-width="1.5"/>
+            <circle cx="-10" cy="-10" r="6" fill="rgba(60,100,52,0.72)" stroke="rgba(40,72,36,0.75)" stroke-width="0.5"/>
+            <circle cx="-14" cy="-8" r="4" fill="rgba(70,108,58,0.65)"/>
+            <circle cx="-6" cy="-9" r="4" fill="rgba(70,108,58,0.65)"/>
+            <!-- Park bench -->
+            <rect x="2" y="4" width="14" height="1.4" fill="rgba(100,78,56,0.85)" stroke="rgba(40,28,18,0.75)" stroke-width="0.3"/>
+            <rect x="2" y="1" width="14" height="0.8" fill="rgba(100,78,56,0.85)"/>
+            <line x1="3" y1="5.4" x2="3" y2="8" stroke="rgba(40,28,18,0.75)" stroke-width="0.5"/>
+            <line x1="14" y1="5.4" x2="14" y2="8" stroke="rgba(40,28,18,0.75)" stroke-width="0.5"/>
+            <!-- Person sitting on bench -->
+            <circle cx="6" cy="2" r="0.75" fill="rgba(40,28,18,0.92)"/>
+            <path d="M 5,2.6 L 7,2.6 L 7.5,5 L 4.5,5 Z" fill="rgba(132,40,40,0.9)" stroke="rgba(40,28,18,0.65)" stroke-width="0.25"/>
+            <!-- Second tree (smaller) -->
+            <line x1="12" y1="6" x2="12" y2="-2" stroke="rgba(80,52,32,0.78)" stroke-width="1.1"/>
+            <circle cx="12" cy="-5" r="4" fill="rgba(60,100,52,0.6)"/>
+          </g>
+
+          <!-- Dog walker on residential sidewalk -->
+          <g transform="translate(180, 440)">
+            <!-- Person -->
+            <circle cx="0" cy="-4" r="1.1" fill="rgba(40,28,18,0.92)"/>
+            <path d="M -1.5,-2.8 L 1.5,-2.8 L 2,2 L -2,2 Z" fill="rgba(132,80,36,0.9)" stroke="rgba(40,28,18,0.7)" stroke-width="0.3"/>
+            <line x1="-1.2" y1="2" x2="-1.2" y2="6" stroke="rgba(40,28,18,0.88)" stroke-width="0.6"/>
+            <line x1="1.2" y1="2" x2="1.2" y2="6" stroke="rgba(40,28,18,0.88)" stroke-width="0.6"/>
+            <!-- Leash -->
+            <path d="M 1.8,0 Q 4,3 6,5" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="0.35"/>
+            <!-- Dog (small silhouette) -->
+            <ellipse cx="7" cy="5.5" rx="2" ry="1" fill="rgba(60,42,28,0.9)" stroke="rgba(40,28,18,0.7)" stroke-width="0.25"/>
+            <circle cx="9" cy="4.6" r="0.8" fill="rgba(60,42,28,0.9)" stroke="rgba(40,28,18,0.7)" stroke-width="0.25"/>
+            <!-- Dog legs -->
+            <line x1="6" y1="6.3" x2="6" y2="7.2" stroke="rgba(40,28,18,0.85)" stroke-width="0.35"/>
+            <line x1="8" y1="6.3" x2="8" y2="7.2" stroke="rgba(40,28,18,0.85)" stroke-width="0.35"/>
+            <!-- Tail -->
+            <line x1="5" y1="5" x2="3.5" y2="4" stroke="rgba(60,42,28,0.9)" stroke-width="0.4"/>
+          </g>
+
+          <!-- Kids playing tag (2 kids running in a residential yard) -->
+          <g transform="translate(420, 420)">
+            <!-- Runner 1 (leaning forward, arms back) -->
+            <g>
+              <circle cx="0" cy="-6" r="0.85" fill="rgba(40,28,18,0.92)"/>
+              <path d="M -1,-5 L 1,-5 L 1.6,0 L -1,0 Z" fill="rgba(70,120,160,0.88)" stroke="rgba(40,28,18,0.65)" stroke-width="0.28"/>
+              <line x1="-1" y1="-4" x2="-2.5" y2="-1" stroke="rgba(40,28,18,0.88)" stroke-width="0.5"/>
+              <line x1="1" y1="-4" x2="2.2" y2="-2" stroke="rgba(40,28,18,0.88)" stroke-width="0.5"/>
+              <line x1="-0.6" y1="0" x2="-2" y2="4" stroke="rgba(40,28,18,0.88)" stroke-width="0.6"/>
+              <line x1="0.6" y1="0" x2="1.4" y2="4" stroke="rgba(40,28,18,0.88)" stroke-width="0.6"/>
+            </g>
+            <!-- Runner 2 (chasing, further back) -->
+            <g transform="translate(-8, 2)">
+              <circle cx="0" cy="-5" r="0.75" fill="rgba(40,28,18,0.88)"/>
+              <path d="M -0.9,-4 L 0.9,-4 L 1.4,0 L -0.9,0 Z" fill="rgba(220,140,40,0.88)" stroke="rgba(40,28,18,0.6)" stroke-width="0.25"/>
+              <line x1="-0.9" y1="-3" x2="-2.2" y2="-1" stroke="rgba(40,28,18,0.85)" stroke-width="0.45"/>
+              <line x1="0.9" y1="-3" x2="2" y2="-1" stroke="rgba(40,28,18,0.85)" stroke-width="0.45"/>
+              <line x1="-0.5" y1="0" x2="-1.4" y2="3" stroke="rgba(40,28,18,0.85)" stroke-width="0.5"/>
+              <line x1="0.5" y1="0" x2="1.2" y2="3" stroke="rgba(40,28,18,0.85)" stroke-width="0.5"/>
+            </g>
+          </g>
+        </g>
+
+        <g class="vine-monarchs-stadium scene-ghost-building" aria-labelledby="vine-monarchs-title" style="display:none">
+          <title id="vine-monarchs-title">Kansas City Monarchs at Municipal Stadium — 22nd &amp; Brooklyn, demolished 1976</title>
+          <a href="../history/kc-monarchs.html">
+            <!-- Grandstand roof + body (arched roofline, light silhouette opacity) -->
+            <path class="vine-monarchs-roof" d="M 80,260 Q 150,224 220,260 L 220,282 L 80,282 Z"/>
+            <!-- 4 tall light standards with clustered lamp heads on top -->
+            <line class="vine-monarchs-pole" x1="100" y1="260" x2="100" y2="190"/>
+            <ellipse class="vine-monarchs-lamp" cx="100" cy="186" rx="5" ry="3"/>
+            <line class="vine-monarchs-pole" x1="140" y1="258" x2="140" y2="184"/>
+            <ellipse class="vine-monarchs-lamp" cx="140" cy="180" rx="5" ry="3"/>
+            <line class="vine-monarchs-pole" x1="180" y1="258" x2="180" y2="184"/>
+            <ellipse class="vine-monarchs-lamp" cx="180" cy="180" rx="5" ry="3"/>
+            <line class="vine-monarchs-pole" x1="210" y1="260" x2="210" y2="190"/>
+            <ellipse class="vine-monarchs-lamp" cx="210" cy="186" rx="5" ry="3"/>
+            <!-- Small scoreboard on the grandstand, micro "KC MONARCHS" -->
+            <rect class="vine-monarchs-scoreboard" x="130" y="228" width="40" height="14"/>
+            <text class="vine-monarchs-scoreboard-text" x="150" y="237" text-anchor="middle">KC MONARCHS</text>
+            <!-- Bleacher tier hairlines under the roof -->
+            <line class="vine-monarchs-bleacher" x1="82" y1="286" x2="218" y2="286"/>
+            <line class="vine-monarchs-bleacher" x1="84" y1="292" x2="216" y2="292"/>
+            <line class="vine-monarchs-bleacher" x1="86" y1="298" x2="214" y2="298"/>
+            <!-- Ghost-state label (hidden by default; fades in when ghost toggle on) -->
+            <text class="vine-monarchs-ghost-label" x="150" y="312" text-anchor="middle">Municipal Stadium · demolished 1976</text>
+          </a>
+        </g>
+
         <!-- Residential house silhouettes at the VP — gable fronts and simple bungalows -->
         <!-- Row 1: closer to VP, small -->
         <path class="vine-horizon-building" d="M 750,388 L 750,378 L 756,374 L 762,378 L 762,388 Z"/>
@@ -410,43 +846,144 @@
       <g class="vine-paseo" aria-hidden="true">
         <!-- The Paseo roadway — extends to the bottom of the scene (no sidewalk strip) -->
         <rect class="vine-paseo-road" x="0" y="492" width="1600" height="108"/>
+        <!-- v20 — South-edge painted road line (bottom boundary of the roadway).
+             Cars drive WITHIN this line. -->
+        <line class="vine-paseo-edge-line" x1="0" y1="595" x2="1600" y2="595" stroke="rgba(245,235,210,0.75)" stroke-width="1.2"/>
         <!-- Central landscaped median — BROKEN at the 18th intersection -->
         <rect class="vine-paseo-median" x="0" y="526" width="620" height="12"/>
         <rect class="vine-paseo-median" x="790" y="526" width="810" height="12"/>
-        <!-- Paseo lane hairlines — BROKEN at the intersection -->
-        <line class="vine-paseo-lane" x1="0" y1="510" x2="620" y2="510"/>
-        <line class="vine-paseo-lane" x1="790" y1="510" x2="1600" y2="510"/>
-        <line class="vine-paseo-lane" x1="0" y1="554" x2="620" y2="554"/>
-        <line class="vine-paseo-lane" x1="790" y1="554" x2="1600" y2="554"/>
+        <!-- v20: Paseo lane hairlines now CONTINUOUS across the full width —
+             previously broken at x=620-790 which read as disconnected blocks. -->
+        <line class="vine-paseo-lane" x1="0" y1="510" x2="1600" y2="510"/>
+        <line class="vine-paseo-lane" x1="0" y1="554" x2="1600" y2="554"/>
         <!-- Far curb (Paseo's far edge) — BROKEN at 18th's opening -->
         <line class="vine-paseo-curb" x1="0" y1="492" x2="620" y2="492"/>
         <line class="vine-paseo-curb" x1="790" y1="492" x2="1600" y2="492"/>
         <!-- Curb corner ROUNDS at the 4 upper intersection corners (where 18th's curbs round into Paseo's far curb) -->
         <path class="vine-paseo-curb" d="M 620,492 Q 614,498 610,504" fill="none"/>
         <path class="vine-paseo-curb" d="M 790,492 Q 796,498 800,504" fill="none"/>
-        <!-- 18th's east + west edge curbs descending into Paseo (and continuing past frame bottom) -->
-        <line class="vine-paseo-curb" x1="610" y1="504" x2="610" y2="600"/>
-        <line class="vine-paseo-curb" x1="800" y1="504" x2="800" y2="600"/>
-        <!-- Crosswalks: north-side (pedestrians crossing 18th on the far side of Paseo) -->
-        <g class="vine-paseo-crosswalk">
-          <rect x="624" y="492" width="7" height="14"/>
-          <rect x="635" y="492" width="7" height="14"/>
-          <rect x="646" y="492" width="7" height="14"/>
-          <rect x="657" y="492" width="7" height="14"/>
-          <rect x="668" y="492" width="7" height="14"/>
-          <rect x="679" y="492" width="7" height="14"/>
-          <rect x="690" y="492" width="7" height="14"/>
-          <rect x="701" y="492" width="7" height="14"/>
-          <rect x="712" y="492" width="7" height="14"/>
-          <rect x="723" y="492" width="7" height="14"/>
-          <rect x="734" y="492" width="7" height="14"/>
-          <rect x="745" y="492" width="7" height="14"/>
-          <rect x="756" y="492" width="7" height="14"/>
-          <rect x="767" y="492" width="7" height="14"/>
-          <rect x="778" y="492" width="7" height="14"/>
-        </g>
+        <!-- v20: Removed the 18th-into-Paseo descending curb lines at x=610 + x=800
+             — they cut visually through the median and looked like random
+             downward lines. Curb corner rounds at top alone suffice. -->
+
+        <!-- v20: Replaced Paseo-side zebra crosswalk with a SOLID WHITE stop-line
+             (traffic-line style) at the turn-in to 18th & Vine. -->
+        <rect class="vine-paseo-stopline" x="620" y="490" width="170" height="2.5" fill="rgba(245,235,210,0.88)" stroke="rgba(40,28,18,0.4)" stroke-width="0.25"/>
 
         <!-- Median trees (only on the Paseo median segments, not in the intersection) -->
+        <!-- v20: Vintage cars driving on The Paseo. Two period-appropriate
+             sedans on both lanes, drawn with body, windshield, rear window,
+             roof, door seam, two wheels with hubs, headlight, taillight,
+             chrome bumper hint, running board. -->
+        <g class="vine-cars" aria-hidden="true">
+          <!-- Car 1 — maroon sedan, upper lane (eastbound, animated) -->
+          <g class="vine-car vine-car-east-1" transform="translate(320, 518) scale(-1.9, 1.9)">
+            <ellipse cx="0" cy="4" rx="20" ry="1.2" fill="rgba(10,8,6,0.42)"/>
+            <path d="M -20,-4 L -18,-5 L -10,-5 L -6,-9 L 6,-9 L 10,-5 L 18,-5 L 20,-4 L 20,2 L -20,2 Z" fill="rgba(130,38,38,0.95)" stroke="rgba(40,28,18,0.88)" stroke-width="0.55"/>
+            <path d="M -8,-8 L -4,-8 L -4,-5 L -8,-5 Z" fill="rgba(180,200,220,0.78)" stroke="rgba(40,28,18,0.6)" stroke-width="0.32"/>
+            <path d="M 4,-8 L 8,-8 L 8,-5 L 4,-5 Z" fill="rgba(180,200,220,0.78)" stroke="rgba(40,28,18,0.6)" stroke-width="0.32"/>
+            <line x1="-4" y1="-9" x2="4" y2="-9" stroke="rgba(40,28,18,0.55)" stroke-width="0.4"/>
+            <line x1="0" y1="-5" x2="0" y2="2" stroke="rgba(40,28,18,0.52)" stroke-width="0.3"/>
+            <circle cx="-11" cy="2.5" r="2.6" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.38)" stroke-width="0.35"/>
+            <circle cx="-11" cy="2.5" r="1" fill="rgba(201,168,76,0.6)"/>
+            <circle cx="11" cy="2.5" r="2.6" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.38)" stroke-width="0.35"/>
+            <circle cx="11" cy="2.5" r="1" fill="rgba(201,168,76,0.6)"/>
+            <ellipse cx="-19.5" cy="-2" rx="1" ry="0.8" fill="rgba(255,240,180,0.95)" stroke="rgba(201,168,76,0.55)" stroke-width="0.25"/>
+            <ellipse cx="19.5" cy="-2" rx="0.9" ry="0.65" fill="rgba(220,60,40,0.85)" stroke="rgba(120,30,20,0.7)" stroke-width="0.2"/>
+            <line x1="-20" y1="-2" x2="-18" y2="-2" stroke="rgba(220,200,160,0.65)" stroke-width="0.4"/>
+            <line x1="-18" y1="1.5" x2="18" y2="1.5" stroke="rgba(40,28,18,0.52)" stroke-width="0.45"/>
+            <!-- Whitewall rim highlight on wheels -->
+            <circle cx="-11" cy="2.5" r="1.6" fill="none" stroke="rgba(245,235,210,0.3)" stroke-width="0.22"/>
+            <circle cx="11" cy="2.5" r="1.6" fill="none" stroke="rgba(245,235,210,0.3)" stroke-width="0.22"/>
+          </g>
+
+          <!-- Car 2 — dark green sedan, lower lane (westbound, mirrored, animated) -->
+          <g class="vine-car vine-car-west-1" transform="translate(1100, 555) scale(-1.9, 1.9)">
+            <ellipse cx="0" cy="4" rx="20" ry="1.2" fill="rgba(10,8,6,0.42)"/>
+            <path d="M -20,-4 L -18,-5 L -10,-5 L -6,-9 L 6,-9 L 10,-5 L 18,-5 L 20,-4 L 20,2 L -20,2 Z" fill="rgba(32,42,30,0.95)" stroke="rgba(80,72,54,0.88)" stroke-width="0.55"/>
+            <path d="M -8,-8 L -4,-8 L -4,-5 L -8,-5 Z" fill="rgba(180,200,220,0.78)" stroke="rgba(40,28,18,0.6)" stroke-width="0.32"/>
+            <path d="M 4,-8 L 8,-8 L 8,-5 L 4,-5 Z" fill="rgba(180,200,220,0.78)" stroke="rgba(40,28,18,0.6)" stroke-width="0.32"/>
+            <line x1="-4" y1="-9" x2="4" y2="-9" stroke="rgba(80,72,54,0.6)" stroke-width="0.4"/>
+            <line x1="0" y1="-5" x2="0" y2="2" stroke="rgba(80,72,54,0.55)" stroke-width="0.3"/>
+            <circle cx="-11" cy="2.5" r="2.6" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.38)" stroke-width="0.35"/>
+            <circle cx="-11" cy="2.5" r="1" fill="rgba(201,168,76,0.6)"/>
+            <circle cx="11" cy="2.5" r="2.6" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.38)" stroke-width="0.35"/>
+            <circle cx="11" cy="2.5" r="1" fill="rgba(201,168,76,0.6)"/>
+            <ellipse cx="-19.5" cy="-2" rx="1" ry="0.8" fill="rgba(255,240,180,0.95)" stroke="rgba(201,168,76,0.55)" stroke-width="0.25"/>
+            <ellipse cx="19.5" cy="-2" rx="0.9" ry="0.65" fill="rgba(220,60,40,0.85)" stroke="rgba(120,30,20,0.7)" stroke-width="0.2"/>
+            <line x1="-20" y1="-2" x2="-18" y2="-2" stroke="rgba(220,200,160,0.65)" stroke-width="0.4"/>
+            <line x1="-18" y1="1.5" x2="18" y2="1.5" stroke="rgba(80,72,54,0.55)" stroke-width="0.45"/>
+            <circle cx="-11" cy="2.5" r="1.6" fill="none" stroke="rgba(245,235,210,0.3)" stroke-width="0.22"/>
+            <circle cx="11" cy="2.5" r="1.6" fill="none" stroke="rgba(245,235,210,0.3)" stroke-width="0.22"/>
+          </g>
+
+          <!-- Car 4 — RED COUPE (eastbound, upper lane) -->
+          <g class="vine-car vine-car-east-3" transform="translate(600, 505) scale(-1.6, 1.6)">
+            <ellipse cx="0" cy="10" rx="30" ry="1.8" fill="rgba(10,8,6,0.42)"/>
+            <path d="M -30,-4 L -26,-6 L -14,-6 L -8,-13 L 8,-13 L 14,-6 L 26,-6 L 30,-4 L 30,3 L -30,3 Z" fill="rgba(180,50,48,0.95)" stroke="rgba(40,28,18,0.88)" stroke-width="0.6"/>
+            <path d="M -10,-12 L -5,-12 L -5,-6 L -10,-6 Z" fill="rgba(180,200,220,0.78)" stroke="rgba(40,28,18,0.6)" stroke-width="0.4"/>
+            <path d="M 5,-12 L 10,-12 L 10,-6 L 5,-6 Z" fill="rgba(180,200,220,0.78)" stroke="rgba(40,28,18,0.6)" stroke-width="0.4"/>
+            <line x1="-5" y1="-13" x2="5" y2="-13" stroke="rgba(40,28,18,0.55)" stroke-width="0.5"/>
+            <line x1="0" y1="-6" x2="0" y2="3" stroke="rgba(40,28,18,0.5)" stroke-width="0.4"/>
+            <circle cx="-18" cy="4" r="4.4" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.4)" stroke-width="0.45"/>
+            <circle cx="-18" cy="4" r="1.8" fill="rgba(201,168,76,0.6)"/>
+            <circle cx="18" cy="4" r="4.4" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.4)" stroke-width="0.45"/>
+            <circle cx="18" cy="4" r="1.8" fill="rgba(201,168,76,0.6)"/>
+            <ellipse cx="-28" cy="-1" rx="1.7" ry="1.3" fill="rgba(255,240,180,0.95)" stroke="rgba(201,168,76,0.55)" stroke-width="0.3"/>
+            <ellipse cx="28" cy="-1" rx="1.4" ry="1" fill="rgba(220,60,40,0.85)" stroke="rgba(120,30,20,0.7)" stroke-width="0.25"/>
+            <line x1="-30" y1="-1" x2="-26" y2="-1" stroke="rgba(220,200,160,0.65)" stroke-width="0.65"/>
+          </g>
+
+          <!-- Car 5 — TAN DELIVERY VAN (westbound, lower lane) — redesigned
+               with proper cab + cargo box + divider, rounded details. -->
+          <g class="vine-car vine-car-west-2" transform="translate(500, 570) scale(1.7, 1.7)">
+            <ellipse cx="0" cy="10" rx="32" ry="2" fill="rgba(10,8,6,0.42)"/>
+            <!-- Cab section (front, sloped hood) -->
+            <path d="M -30,-4 L -27,-6 L -20,-6 L -16,-13 L -8,-13 L -8,-4 L -8,3 L -30,3 Z" fill="rgba(196,150,90,0.95)" stroke="rgba(40,28,18,0.88)" stroke-width="0.65"/>
+            <!-- Cargo box (taller, boxy, behind cab) -->
+            <rect x="-8" y="-14" width="38" height="17" fill="rgba(196,150,90,0.95)" stroke="rgba(40,28,18,0.88)" stroke-width="0.65"/>
+            <!-- Cab windshield -->
+            <path d="M -14,-12 L -10,-12 L -10,-6 L -14,-6 Z" fill="rgba(180,200,220,0.8)" stroke="rgba(40,28,18,0.6)" stroke-width="0.4"/>
+            <!-- Cab door seam + handle -->
+            <line x1="-17" y1="-6" x2="-17" y2="3" stroke="rgba(40,28,18,0.6)" stroke-width="0.4"/>
+            <rect x="-23" y="-1" width="2" height="0.8" fill="rgba(40,28,18,0.75)"/>
+            <!-- Cargo box side panel lines -->
+            <line x1="-8" y1="-8" x2="30" y2="-8" stroke="rgba(120,82,44,0.55)" stroke-width="0.35"/>
+            <line x1="5" y1="-14" x2="5" y2="3" stroke="rgba(120,82,44,0.55)" stroke-width="0.35"/>
+            <line x1="18" y1="-14" x2="18" y2="3" stroke="rgba(120,82,44,0.55)" stroke-width="0.35"/>
+            <!-- Wheels -->
+            <circle cx="-22" cy="4" r="4.4" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.4)" stroke-width="0.45"/>
+            <circle cx="-22" cy="4" r="1.8" fill="rgba(201,168,76,0.6)"/>
+            <circle cx="22" cy="4" r="4.4" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.4)" stroke-width="0.45"/>
+            <circle cx="22" cy="4" r="1.8" fill="rgba(201,168,76,0.6)"/>
+            <!-- Headlight + bumper -->
+            <ellipse cx="-30" cy="-1" rx="1.7" ry="1.3" fill="rgba(255,240,180,0.95)" stroke="rgba(201,168,76,0.55)" stroke-width="0.3"/>
+            <line x1="-30" y1="-1" x2="-28" y2="-1" stroke="rgba(220,200,160,0.65)" stroke-width="0.65"/>
+            <!-- Rear taillight -->
+            <ellipse cx="30" cy="-1" rx="1.3" ry="1" fill="rgba(220,60,40,0.85)"/>
+          </g>
+
+          <!-- Car 3 — cream/tan coupe, upper lane (eastbound, animated) -->
+          <g class="vine-car vine-car-east-2" transform="translate(1380, 518) scale(-1.7, 1.7)">
+            <ellipse cx="0" cy="4" rx="18" ry="1.1" fill="rgba(10,8,6,0.4)"/>
+            <path d="M -18,-4 L -16,-5 L -9,-5 L -5,-9 L 5,-9 L 9,-5 L 16,-5 L 18,-4 L 18,2 L -18,2 Z" fill="rgba(196,180,140,0.95)" stroke="rgba(40,28,18,0.88)" stroke-width="0.55"/>
+            <path d="M -7,-8 L -3,-8 L -3,-5 L -7,-5 Z" fill="rgba(180,200,220,0.78)" stroke="rgba(40,28,18,0.6)" stroke-width="0.32"/>
+            <path d="M 3,-8 L 7,-8 L 7,-5 L 3,-5 Z" fill="rgba(180,200,220,0.78)" stroke="rgba(40,28,18,0.6)" stroke-width="0.32"/>
+            <line x1="-3" y1="-9" x2="3" y2="-9" stroke="rgba(40,28,18,0.55)" stroke-width="0.4"/>
+            <line x1="0" y1="-5" x2="0" y2="2" stroke="rgba(40,28,18,0.52)" stroke-width="0.3"/>
+            <circle cx="-10" cy="2.5" r="2.4" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.38)" stroke-width="0.32"/>
+            <circle cx="-10" cy="2.5" r="0.9" fill="rgba(201,168,76,0.6)"/>
+            <circle cx="10" cy="2.5" r="2.4" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.38)" stroke-width="0.32"/>
+            <circle cx="10" cy="2.5" r="0.9" fill="rgba(201,168,76,0.6)"/>
+            <ellipse cx="-17.5" cy="-2" rx="1" ry="0.75" fill="rgba(255,240,180,0.95)" stroke="rgba(201,168,76,0.55)" stroke-width="0.25"/>
+            <ellipse cx="17.5" cy="-2" rx="0.85" ry="0.6" fill="rgba(220,60,40,0.85)" stroke="rgba(120,30,20,0.7)" stroke-width="0.2"/>
+            <line x1="-18" y1="-2" x2="-16" y2="-2" stroke="rgba(220,200,160,0.65)" stroke-width="0.4"/>
+            <line x1="-16" y1="1.5" x2="16" y2="1.5" stroke="rgba(40,28,18,0.52)" stroke-width="0.45"/>
+            <circle cx="-10" cy="2.5" r="1.5" fill="none" stroke="rgba(245,235,210,0.3)" stroke-width="0.22"/>
+            <circle cx="10" cy="2.5" r="1.5" fill="none" stroke="rgba(245,235,210,0.3)" stroke-width="0.22"/>
+          </g>
+        </g>
+
         <g class="vine-paseo-median-trees" aria-hidden="true">
           <circle cx="180" cy="528" r="7"/>
           <line x1="180" y1="532" x2="180" y2="538" stroke="rgba(201,168,76,0.72)" stroke-width="1"/>
@@ -462,6 +999,93 @@
           <line x1="1230" y1="532" x2="1230" y2="538" stroke="rgba(201,168,76,0.72)" stroke-width="1"/>
           <circle cx="1430" cy="528" r="7"/>
           <line x1="1430" y1="532" x2="1430" y2="538" stroke="rgba(201,168,76,0.72)" stroke-width="1"/>
+        </g>
+
+        <!-- v20 — FOOD CART VENDOR in the Paseo median, in the bush gap between
+             the trees at x=830 and x=1020 (east of the 18th intersection).
+             Visible only during NIGHT + DAWN phases via opacity keyframes. -->
+        <g class="vine-food-cart-vendor" aria-hidden="true" transform="translate(925, 530) scale(1.4)">
+          <!-- v20 — Cart + vendor enlarged via scale(1.4), with animated steam
+               puffs rising from the grill (3 staggered puffs). -->
+          <!-- Cart body -->
+          <rect x="-9" y="-3" width="18" height="8" fill="rgba(180,80,40,0.92)" stroke="rgba(40,28,18,0.88)" stroke-width="0.45"/>
+          <!-- Cart side panel / sign -->
+          <rect x="-8" y="-1.5" width="16" height="3" fill="rgba(245,235,210,0.88)" stroke="rgba(40,28,18,0.7)" stroke-width="0.32"/>
+          <text x="0" y="0.8" text-anchor="middle" font-family="Josefin Sans, sans-serif" font-weight="700" font-size="2.4" letter-spacing="0.14em" fill="rgba(180,80,40,0.95)">HOT DOGS</text>
+          <!-- Wheels -->
+          <circle cx="-6" cy="5.5" r="1.8" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.55)" stroke-width="0.3"/>
+          <circle cx="-6" cy="5.5" r="0.7" fill="rgba(201,168,76,0.72)"/>
+          <circle cx="6" cy="5.5" r="1.8" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.55)" stroke-width="0.3"/>
+          <circle cx="6" cy="5.5" r="0.7" fill="rgba(201,168,76,0.72)"/>
+          <!-- Umbrella canopy post + umbrella -->
+          <line x1="0" y1="-3" x2="0" y2="-13" stroke="rgba(80,52,32,0.88)" stroke-width="0.5"/>
+          <path d="M -9,-12 Q 0,-18 9,-12 L 9,-11 L -9,-11 Z" fill="rgba(180,80,40,0.92)" stroke="rgba(40,28,18,0.85)" stroke-width="0.45"/>
+          <!-- Umbrella scallops -->
+          <line x1="-6" y1="-12" x2="-6" y2="-10.5" stroke="rgba(40,28,18,0.7)" stroke-width="0.28"/>
+          <line x1="-3" y1="-12.4" x2="-3" y2="-10.5" stroke="rgba(40,28,18,0.7)" stroke-width="0.28"/>
+          <line x1="0" y1="-13" x2="0" y2="-10.5" stroke="rgba(40,28,18,0.7)" stroke-width="0.28"/>
+          <line x1="3" y1="-12.4" x2="3" y2="-10.5" stroke="rgba(40,28,18,0.7)" stroke-width="0.28"/>
+          <line x1="6" y1="-12" x2="6" y2="-10.5" stroke="rgba(40,28,18,0.7)" stroke-width="0.28"/>
+          <!-- Umbrella finial -->
+          <circle cx="0" cy="-13.4" r="0.5" fill="rgba(232,201,106,0.92)"/>
+          <!-- Vendor person (standing behind cart, visible from shoulders up) -->
+          <ellipse cx="11" cy="-8" rx="2.4" ry="0.7" fill="rgba(40,28,18,0.9)"/>
+          <path d="M 8.5,-8 L 13.5,-8 L 13,-14 L 9,-14 Z" fill="rgba(40,28,18,0.95)"/>
+          <circle cx="11" cy="-5" r="1.7" fill="rgba(178,108,52,0.9)" stroke="rgba(40,28,18,0.7)" stroke-width="0.28"/>
+          <!-- Apron / shirt -->
+          <path d="M 8,-3 L 14,-3 L 15,2 L 7,2 Z" fill="rgba(245,235,210,0.88)" stroke="rgba(40,28,18,0.6)" stroke-width="0.28"/>
+          <!-- Arm reaching toward cart -->
+          <line x1="8.5" y1="-2" x2="6" y2="1" stroke="rgba(178,108,52,0.92)" stroke-width="0.6"/>
+          <!-- Warm glow above cart (lit umbrella) -->
+          <circle cx="0" cy="-11.5" r="4" fill="rgba(255,220,160,0.18)"/>
+          <!-- Grill smoke — 3 staggered puffs rising from the cart's cook area -->
+          <g class="vine-cart-smoke">
+            <circle class="vine-cart-smoke-puff vine-cart-smoke-a" cx="-2" cy="-4" r="1" fill="rgba(245,235,210,0.55)"/>
+            <circle class="vine-cart-smoke-puff vine-cart-smoke-b" cx="0" cy="-4" r="1" fill="rgba(245,235,210,0.55)"/>
+            <circle class="vine-cart-smoke-puff vine-cart-smoke-c" cx="2" cy="-4" r="1" fill="rgba(245,235,210,0.55)"/>
+          </g>
+        </g>
+
+        <!-- v20 — SECOND FOOD VENDOR (PRETZEL CART) on the Paseo sidewalk to
+             the right of the main musicians, near the 18th & Vine sign.
+             Distinct from the hot-dog cart (blue body + yellow umbrella +
+             PRETZELS sign + female vendor). Night-only visibility via the
+             .vine-walker-jammer class (fades in at dusk, full at night). -->
+        <g class="vine-food-cart-pretzel vine-walker-jammer" aria-hidden="true" transform="translate(585, 494) scale(1.2)">
+          <!-- Cart body (dark blue) -->
+          <rect x="-8" y="-3" width="16" height="7" fill="rgba(48,76,140,0.95)" stroke="rgba(40,28,18,0.88)" stroke-width="0.42"/>
+          <!-- Sign panel -->
+          <rect x="-7" y="-1.5" width="14" height="3" fill="rgba(245,235,210,0.9)" stroke="rgba(40,28,18,0.7)" stroke-width="0.3"/>
+          <text x="0" y="0.7" text-anchor="middle" font-family="Josefin Sans, sans-serif" font-weight="700" font-size="2.3" letter-spacing="0.14em" fill="rgba(48,76,140,0.95)">PRETZELS</text>
+          <!-- Wheels -->
+          <circle cx="-5" cy="4.5" r="1.6" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.55)" stroke-width="0.28"/>
+          <circle cx="-5" cy="4.5" r="0.6" fill="rgba(201,168,76,0.72)"/>
+          <circle cx="5" cy="4.5" r="1.6" fill="rgba(20,14,10,0.98)" stroke="rgba(201,168,76,0.55)" stroke-width="0.28"/>
+          <circle cx="5" cy="4.5" r="0.6" fill="rgba(201,168,76,0.72)"/>
+          <!-- Umbrella post + canopy (yellow/green, different shape) -->
+          <line x1="0" y1="-3" x2="0" y2="-12" stroke="rgba(80,52,32,0.88)" stroke-width="0.45"/>
+          <path d="M -8,-11 L 8,-11 L 6,-14 L -6,-14 Z" fill="rgba(232,200,70,0.95)" stroke="rgba(40,28,18,0.85)" stroke-width="0.4"/>
+          <path d="M -8,-11 L -5,-12 L 0,-11 L 5,-12 L 8,-11" fill="none" stroke="rgba(40,28,18,0.7)" stroke-width="0.3"/>
+          <circle cx="0" cy="-14.3" r="0.45" fill="rgba(201,168,76,0.92)"/>
+          <!-- Pretzel display icon on sign (simplified pretzel shape) -->
+          <path d="M -3,2 Q -3,1 -2,1 Q -1,1.5 0,1 Q 1,1.5 2,1 Q 3,1 3,2" fill="none" stroke="rgba(200,100,40,0.85)" stroke-width="0.35"/>
+          <!-- Vendor (female, different from male hot dog vendor) -->
+          <ellipse cx="10" cy="-7" rx="2" ry="0.6" fill="rgba(40,28,18,0.88)"/>
+          <path d="M 8,-7 L 12,-7 L 12.2,-12 L 7.8,-12 Z" fill="rgba(40,28,18,0.95)"/>
+          <circle cx="10" cy="-4.5" r="1.5" fill="rgba(178,108,52,0.9)" stroke="rgba(40,28,18,0.7)" stroke-width="0.25"/>
+          <!-- Hair bun -->
+          <circle cx="10" cy="-6.2" r="1" fill="rgba(40,28,18,0.92)"/>
+          <!-- Apron / dress -->
+          <path d="M 7.5,-3 L 12.5,-3 L 13.5,2 L 6.5,2 Z" fill="rgba(180,80,40,0.88)" stroke="rgba(40,28,18,0.6)" stroke-width="0.25"/>
+          <!-- Arm -->
+          <line x1="8" y1="-2" x2="5.5" y2="0" stroke="rgba(178,108,52,0.92)" stroke-width="0.55"/>
+          <!-- Warm glow above cart -->
+          <circle cx="0" cy="-11" r="3.5" fill="rgba(255,220,160,0.18)"/>
+          <!-- Steam puffs from warming case -->
+          <g class="vine-cart-smoke">
+            <circle class="vine-cart-smoke-puff vine-cart-smoke-a" cx="-1" cy="-4" r="0.85" fill="rgba(245,235,210,0.5)"/>
+            <circle class="vine-cart-smoke-puff vine-cart-smoke-b" cx="0.5" cy="-4" r="0.85" fill="rgba(245,235,210,0.5)"/>
+          </g>
         </g>
       </g>
 
@@ -481,49 +1105,95 @@
         <line class="vine-18th-curb" x1="636" y1="492" x2="764" y2="380"/>
         <line class="vine-18th-curb" x1="780" y1="492" x2="820" y2="380"/>
 
-        <!-- VINE STREET cross-street at the 18th & Vine intersection.
-             Simplified to a single horizontal pavement strip (no north/
-             south extensions). Runs through the district perpendicular to
-             18th Street; buildings on either side of Vine are placed to
-             frame the intersection. -->
-        <!-- Vine pavement strip -->
-        <rect class="vine-cross-street-pavement" x="678" y="446" width="144" height="16"/>
-        <!-- Curb hairlines along top and bottom of Vine pavement (N + S boundaries) -->
-        <line class="vine-18th-curb" x1="678" y1="446" x2="696" y2="446"/>
-        <line class="vine-18th-curb" x1="800" y1="446" x2="822" y2="446"/>
-        <line class="vine-18th-curb" x1="678" y1="462" x2="696" y2="462"/>
-        <line class="vine-18th-curb" x1="800" y1="462" x2="822" y2="462"/>
-        <!-- Rounded corners at 4 main intersection points -->
-        <path class="vine-18th-curb" d="M 696,446 Q 697,449 696,452" fill="none"/>
-        <path class="vine-18th-curb" d="M 800,446 Q 799,449 800,452" fill="none"/>
-        <path class="vine-18th-curb" d="M 696,460 Q 697,463 696,462" fill="none"/>
-        <path class="vine-18th-curb" d="M 800,460 Q 799,463 800,462" fill="none"/>
-        <!-- Vine pavement edges (closing east + west sides of the strip) -->
-        <line class="vine-18th-curb" x1="678" y1="446" x2="678" y2="462"/>
-        <line class="vine-18th-curb" x1="822" y1="446" x2="822" y2="462"/>
-        <!-- Zebra crosswalks at the W + E entries of 18th into the intersection -->
+        <!-- v20: VINE STREET — full-width horizontal cross-street at y=446-462.
+             Curbs now terminate at the ACTUAL 18th pavement edges (not at
+             arbitrary x=696/800), so the intersection connects naturally to
+             the receding 18th street. 18th pavement polygon has west edge
+             going from x=636 at y=492 to x=764 at y=380, east edge from
+             x=780 to x=820. At Vine's north edge (y=446) those hit x=688.5
+             and x=796.4. At Vine's south edge (y=462) they hit x=670.3 and
+             x=790.7. Curbs stop at those points. -->
+        <rect class="vine-cross-street-pavement" x="200" y="446" width="1400" height="16"/>
+        <!-- North curb of Vine — gap matches 18th pavement at y=446 (x=688.5 to x=796.4) -->
+        <line class="vine-18th-curb" x1="200" y1="446" x2="688.5" y2="446"/>
+        <line class="vine-18th-curb" x1="796.4" y1="446" x2="1600" y2="446"/>
+        <!-- South curb of Vine — gap matches 18th pavement at y=462 (x=670.3 to x=790.7) -->
+        <line class="vine-18th-curb" x1="200" y1="462" x2="670.3" y2="462"/>
+        <line class="vine-18th-curb" x1="790.7" y1="462" x2="1600" y2="462"/>
+        <!-- Centerline dashes along Vine (gap at intersection, matching the curb gaps) -->
+        <line class="vine-cross-street-centerline" x1="200" y1="454" x2="680" y2="454" stroke-dasharray="10 6" stroke="rgba(232,201,106,0.45)" stroke-width="0.6"/>
+        <line class="vine-cross-street-centerline" x1="794" y1="454" x2="1600" y2="454" stroke-dasharray="10 6" stroke="rgba(232,201,106,0.45)" stroke-width="0.6"/>
+
+        <!-- v20 — CROSSWALKS with proper real-world orientation.
+             Rule: zebra stripes are PERPENDICULAR to pedestrian walking direction
+             (= PARALLEL to the street being crossed / to the direction of cars).
+
+             CROSSING 18TH (pedestrians walk N-S): stripes run ALONG 18th
+             (east-west, i.e., horizontal bars stacked with N-S gaps between them,
+             placed at the mouth of the intersection north + south of Vine).
+
+             CROSSING VINE (pedestrians walk E-W): stripes run ALONG Vine
+             (north-south, i.e., vertical narrow bars stacked with E-W gaps,
+             placed at the mouth of the intersection west + east of 18th). -->
         <g class="vine-cross-street-crosswalk">
-          <rect x="688" y="450" width="2" height="10"/>
-          <rect x="682" y="450" width="2" height="10"/>
-          <rect x="806" y="450" width="2" height="10"/>
-          <rect x="812" y="450" width="2" height="10"/>
+          <!-- v20 — Densified 18th & Vine crosswalks (tighter zebra spacing).
+               CROSSING 18TH: dense vertical stripes north + south of Vine. -->
+          <rect x="700" y="438" width="2.2" height="7"/>
+          <rect x="707" y="438" width="2.2" height="7"/>
+          <rect x="714" y="438" width="2.2" height="7"/>
+          <rect x="721" y="438" width="2.2" height="7"/>
+          <rect x="728" y="438" width="2.2" height="7"/>
+          <rect x="735" y="438" width="2.2" height="7"/>
+          <rect x="742" y="438" width="2.2" height="7"/>
+          <rect x="749" y="438" width="2.2" height="7"/>
+          <rect x="756" y="438" width="2.2" height="7"/>
+          <rect x="763" y="438" width="2.2" height="7"/>
+          <rect x="770" y="438" width="2.2" height="7"/>
+          <rect x="777" y="438" width="2.2" height="7"/>
+          <rect x="784" y="438" width="2.2" height="7"/>
+          <rect x="791" y="438" width="2.2" height="7"/>
+          <!-- CROSSING 18TH — SOUTH crosswalk -->
+          <rect x="672" y="463" width="2.4" height="7"/>
+          <rect x="680" y="463" width="2.4" height="7"/>
+          <rect x="688" y="463" width="2.4" height="7"/>
+          <rect x="696" y="463" width="2.4" height="7"/>
+          <rect x="704" y="463" width="2.4" height="7"/>
+          <rect x="712" y="463" width="2.4" height="7"/>
+          <rect x="720" y="463" width="2.4" height="7"/>
+          <rect x="728" y="463" width="2.4" height="7"/>
+          <rect x="736" y="463" width="2.4" height="7"/>
+          <rect x="744" y="463" width="2.4" height="7"/>
+          <rect x="752" y="463" width="2.4" height="7"/>
+          <rect x="760" y="463" width="2.4" height="7"/>
+          <rect x="768" y="463" width="2.4" height="7"/>
+          <rect x="776" y="463" width="2.4" height="7"/>
+          <rect x="784" y="463" width="2.4" height="7"/>
+          <!-- CROSSING VINE — denser horizontal stripes (5 stacked per side). -->
+          <rect x="654" y="447" width="18" height="1.3"/>
+          <rect x="654" y="450" width="18" height="1.3"/>
+          <rect x="654" y="453" width="18" height="1.3"/>
+          <rect x="654" y="456" width="18" height="1.3"/>
+          <rect x="654" y="459" width="18" height="1.3"/>
+          <rect x="796" y="447" width="18" height="1.3"/>
+          <rect x="796" y="450" width="18" height="1.3"/>
+          <rect x="796" y="453" width="18" height="1.3"/>
+          <rect x="796" y="456" width="18" height="1.3"/>
+          <rect x="796" y="459" width="18" height="1.3"/>
         </g>
       </g>
 
-      <!-- v19: FG street-corner signpost at 18th & Paseo (south corner, FG scale).
-           Signifies "The Paseo" — the horizontal cross-street immediately in
-           front of the viewer, so the scene's geography reads clearly. -->
+      <!-- v20: FG street-corner signpost moved onto the Paseo median (y=526-538).
+           "THE PASEO" blade only — 18TH blade removed per Brian's direction.
+           Placed west of the 18th intersection gap at x=560 (inside median
+           strip which runs x=0-620 on the west side of the crossing). -->
       <g class="vine-paseo-streetsign" aria-hidden="true">
-        <line x1="806" y1="560" x2="806" y2="478" stroke="rgba(201,168,76,0.92)" stroke-width="1.8"/>
-        <rect x="802" y="558" width="8" height="6" fill="rgba(10,8,6,0.88)" stroke="rgba(201,168,76,0.92)" stroke-width="0.6"/>
-        <!-- THE PASEO blade (parallel to the Paseo, pointing west along its length) -->
-        <rect x="762" y="482" width="52" height="12" fill="rgba(30,18,10,0.9)" stroke="rgba(232,172,86,0.95)" stroke-width="0.7"/>
-        <text x="788" y="491" text-anchor="middle" font-family="Josefin Sans, sans-serif" font-weight="700" font-size="7.5" letter-spacing="0.14em" fill="rgba(232,172,86,0.95)">THE PASEO</text>
-        <!-- 18TH blade below, perpendicular to Paseo -->
-        <rect x="790" y="498" width="36" height="10" fill="rgba(30,18,10,0.9)" stroke="rgba(232,172,86,0.95)" stroke-width="0.6"/>
-        <text x="808" y="506" text-anchor="middle" font-family="Josefin Sans, sans-serif" font-weight="700" font-size="6.5" letter-spacing="0.12em" fill="rgba(232,172,86,0.95)">18TH</text>
+        <line x1="560" y1="538" x2="560" y2="476" stroke="rgba(201,168,76,0.92)" stroke-width="1.8"/>
+        <rect x="556" y="536" width="8" height="6" fill="rgba(10,8,6,0.88)" stroke="rgba(201,168,76,0.92)" stroke-width="0.6"/>
+        <!-- THE PASEO blade -->
+        <rect x="528" y="480" width="52" height="12" fill="rgba(30,18,10,0.9)" stroke="rgba(232,172,86,0.95)" stroke-width="0.7"/>
+        <text x="554" y="489" text-anchor="middle" font-family="Josefin Sans, sans-serif" font-weight="700" font-size="7.5" letter-spacing="0.14em" fill="rgba(232,172,86,0.95)">THE PASEO</text>
         <!-- Finial -->
-        <circle cx="806" cy="476" r="2.6" fill="rgba(232,172,86,0.95)" stroke="rgba(110,76,40,0.7)" stroke-width="0.5"/>
+        <circle cx="560" cy="474" r="2.6" fill="rgba(232,172,86,0.95)" stroke="rgba(110,76,40,0.7)" stroke-width="0.5"/>
       </g>
 
       <!-- Street-corner signpost at the 18th & Vine intersection (NW corner).
@@ -531,14 +1201,18 @@
            grammar as the early-v18 street sign: vertical pole + 18TH blade
            + VINE blade + finial. This is the LITERAL "18th & Vine" corner. -->
       <g class="vine-cross-streetsign" aria-hidden="true">
-        <line class="vine-streetsign-pole-small" x1="702" y1="446" x2="702" y2="408"/>
-        <rect class="vine-streetsign-base-small" x="700" y="444" width="4" height="4"/>
-        <!-- 18TH blade (parallel to 18th St, points west) -->
-        <rect class="vine-streetsign-blade-small" x="688" y="410" width="28" height="8"/>
-        <text class="vine-streetsign-text-small" x="702" y="416" text-anchor="middle">18TH</text>
-        <!-- VINE blade (perpendicular to 18th, points north on Vine St) -->
-        <rect class="vine-streetsign-blade-small" x="694" y="420" width="28" height="8"/>
-        <text class="vine-streetsign-text-small" x="708" y="426" text-anchor="middle">VINE</text>
+        <!-- v20 — signpost at the SE corner of 18th & Vine. Pole x=795 is
+             just east of Vine's east pavement edge (x=790.7 at y=462) and
+             base y=478 sits well south of 18th's east curb (y=450 at x=795)
+             on the south sidewalk, clear of both streets. -->
+        <line class="vine-streetsign-pole-small" x1="795" y1="478" x2="795" y2="408"/>
+        <rect class="vine-streetsign-base-small" x="793" y="476" width="4" height="4"/>
+        <!-- 18TH blade -->
+        <rect class="vine-streetsign-blade-small" x="781" y="410" width="28" height="8"/>
+        <text class="vine-streetsign-text-small" x="795" y="416" text-anchor="middle">18TH</text>
+        <!-- VINE blade -->
+        <rect class="vine-streetsign-blade-small" x="787" y="420" width="28" height="8"/>
+        <text class="vine-streetsign-text-small" x="801" y="426" text-anchor="middle">VINE</text>
         <!-- Finial -->
         <circle class="vine-streetsign-finial-small" cx="702" cy="406" r="1.6"/>
       </g>
@@ -547,7 +1221,7 @@
            These sit beyond the immediate Paseo block, visible down 18th.
            Small silhouettes at low contrast, reading as "the district
            continues west." -->
-      <g class="vine-deep-row" aria-hidden="true">
+      <g class="vine-deep-row" aria-hidden="true" style="display:none">
         <!-- Distant LEFT side (south of 18th) -->
         <path class="vine-building-body vine-deep" d="M 680,440 L 680,404 L 740,398 L 764,380 L 760,440 Z"/>
         <path class="vine-building-body vine-deep" d="M 626,450 L 626,412 L 680,404 L 680,440 Z"/>
@@ -571,11 +1245,11 @@
            the west of the district. Rendered as a small brick commercial
            silhouette with the iconic "ARTHUR BRYANT'S" sign on the far
            left of the receding south-side row. -->
-      <g class="vine-bryants" aria-hidden="true">
+      <g class="vine-bryants" aria-hidden="true" transform="translate(400, 64.1) scale(0.7)">
         <!-- Small brick commercial silhouette — back-LEFT, peeking past the Blue Room.
              Positioned further back (smaller scale) than the Blue Room to
              visually read as "a block or two beyond". -->
-        <path class="vine-bryants-body" d="M 432,454 L 432,420 L 488,418 L 488,456 Z"/>
+        <path class="vine-bryants-body" d="M 432,456 L 432,418 L 488,418 L 488,456 Z"/>
         <line class="vine-building-accent" x1="432" y1="424" x2="488" y2="422"/>
         <line class="vine-building-brickline" x1="432" y1="432" x2="488" y2="430"/>
         <line class="vine-building-brickline" x1="432" y1="442" x2="488" y2="440"/>
@@ -593,12 +1267,23 @@
         <!-- Iconic ARTHUR BRYANT'S sign strip -->
         <rect class="vine-bryants-sign" x="436" y="412" width="48" height="7"/>
         <text class="vine-bryants-text" x="460" y="417" text-anchor="middle">ARTHUR BRYANT'S</text>
+        <!-- v20 — Smokestack (BBQ pit chimney) on top of Bryant's roof -->
+        <rect class="vine-bryants-smokestack" x="474" y="408" width="5" height="12" fill="rgba(40,28,18,0.92)" stroke="rgba(201,168,76,0.7)" stroke-width="0.35"/>
+        <rect class="vine-bryants-smokestack-cap" x="472.5" y="406" width="8" height="2.5" fill="rgba(60,42,28,0.95)" stroke="rgba(201,168,76,0.72)" stroke-width="0.35"/>
+        <!-- Smoke puffs rising from stack — visible Dawn + Day only (BBQ pit
+             smoking in the morning/daytime as the brisket cooks) -->
+        <g class="vine-bryants-smoke vine-notes-dawn-day">
+          <circle class="vine-bryants-smoke-puff vine-bryants-smoke-a" cx="476.5" cy="402" r="1.4" fill="rgba(200,185,160,0.72)"/>
+          <circle class="vine-bryants-smoke-puff vine-bryants-smoke-b" cx="476.5" cy="402" r="1.4" fill="rgba(200,185,160,0.72)"/>
+          <circle class="vine-bryants-smoke-puff vine-bryants-smoke-c" cx="476.5" cy="402" r="1.4" fill="rgba(200,185,160,0.72)"/>
+        </g>
       </g>
 
       <!-- Commercial row far west (south side, deepest visible non-silhouette)
            Now with cornice detail, brick courses, and a few lit storefront
            windows plus a second-tier "Lincoln Building" lit sign detail. -->
-      <g class="vine-far-commercial-south" aria-hidden="true">
+      <!-- v20: Lincoln Building hidden per Brian's direction — shelved for now. -->
+      <g class="vine-far-commercial-south" aria-hidden="true" style="display:none">
         <path class="vine-building-body vine-deep" d="M 540,458 L 540,422 L 626,412 L 626,450 Z"/>
         <!-- Cornice + parapet -->
         <line class="vine-building-accent" x1="540" y1="426" x2="626" y2="416"/>
@@ -629,6 +1314,59 @@
            Silhouettes signaling density further west down 18th beyond the
            named buildings. Church spire hints at the district's many
            historic churches; water tower reads as typical commercial-era KC. -->
+      <!-- v20: Workhouse Castle at 2001 Vine — a real-life castellated stone building
+           just south of 18th & Vine. Added as a distinctive distant landmark on the
+           deep-back layer. Two round crenellated towers flanking a central body
+           with arched windows; right-side single-story wing. Positioned upper-middle
+           at x=740-854 so it reads as "farther up the screen" across from the new
+           Vine Street Brewing. -->
+      <g class="vine-castle" aria-hidden="true" transform="translate(323.4, 75) scale(0.85)">
+        <!-- Main central body (rectangular stone with 2 rows of arched windows) -->
+        <rect class="vine-castle-body" x="756" y="370" width="50" height="52"/>
+        <!-- Upper row: 4 narrow arched windows -->
+        <path class="vine-castle-window" d="M 762,390 L 762,382 Q 765,378.5 768,382 L 768,390 Z"/>
+        <path class="vine-castle-window" d="M 772,390 L 772,382 Q 775,378.5 778,382 L 778,390 Z"/>
+        <path class="vine-castle-window" d="M 782,390 L 782,382 Q 785,378.5 788,382 L 788,390 Z"/>
+        <path class="vine-castle-window" d="M 792,390 L 792,382 Q 795,378.5 798,382 L 798,390 Z"/>
+        <!-- Lower row: 3 larger arched windows -->
+        <path class="vine-castle-window" d="M 763,416 L 763,408 Q 768,403 773,408 L 773,416 Z"/>
+        <path class="vine-castle-window" d="M 777,416 L 777,408 Q 782,403 787,408 L 787,416 Z"/>
+        <path class="vine-castle-window" d="M 791,416 L 791,408 Q 796,403 801,408 L 801,416 Z"/>
+        <!-- Horizontal stone belt course -->
+        <line class="vine-castle-beltcourse" x1="756" y1="396" x2="806" y2="396"/>
+
+        <!-- LEFT tower (taller, round, crenellated) -->
+        <rect class="vine-castle-tower" x="740" y="346" width="18" height="76"/>
+        <!-- Tower crenellations (4 battlements on top) -->
+        <g class="vine-castle-crenellations">
+          <rect x="740" y="342" width="3.5" height="4"/>
+          <rect x="746.5" y="342" width="3.5" height="4"/>
+          <rect x="753" y="342" width="3.5" height="4"/>
+        </g>
+        <!-- Tower narrow arched windows -->
+        <path class="vine-castle-tower-window" d="M 747,374 L 747,367 Q 749,364 751,367 L 751,374 Z"/>
+        <path class="vine-castle-tower-window" d="M 747,394 L 747,387 Q 749,384 751,387 L 751,394 Z"/>
+        <path class="vine-castle-tower-window" d="M 747,412 L 747,405 Q 749,402 751,405 L 751,412 Z"/>
+
+        <!-- RIGHT tower (shorter, round, crenellated) -->
+        <rect class="vine-castle-tower" x="806" y="360" width="15" height="62"/>
+        <g class="vine-castle-crenellations">
+          <rect x="806" y="356" width="3" height="4"/>
+          <rect x="811" y="356" width="3" height="4"/>
+          <rect x="816" y="356" width="3" height="4"/>
+        </g>
+        <path class="vine-castle-tower-window" d="M 812,382 L 812,375 Q 814,372 816,375 L 816,382 Z"/>
+        <path class="vine-castle-tower-window" d="M 812,402 L 812,395 Q 814,392 816,395 L 816,402 Z"/>
+
+        <!-- Right wing extension (single-story) -->
+        <rect class="vine-castle-body" x="821" y="388" width="32" height="34"/>
+        <path class="vine-castle-window" d="M 826,412 L 826,404 Q 830,400 834,404 L 834,412 Z"/>
+        <path class="vine-castle-window" d="M 839,412 L 839,404 Q 843,400 847,404 L 847,412 Z"/>
+
+        <!-- Base/ground line unifying the whole castle -->
+        <line class="vine-castle-base" x1="740" y1="422" x2="853" y2="422"/>
+      </g>
+
       <g class="vine-deep-ornaments" aria-hidden="true">
         <!-- Church spire (back-left, deep distance) -->
         <path class="vine-building-body vine-deep" d="M 650,440 L 650,424 L 665,424 L 665,440 Z"/>
@@ -652,7 +1390,50 @@
            The Blue Room is the historic jazz club inside/adjacent to the
            American Jazz Museum complex. Iconic red neon "Blue Room" cursive
            sign on the east wall. -->
-      <g class="vine-blue-room" aria-hidden="true">
+      <!-- Negro Leagues Baseball Museum / Jazz Museum ("Museums at 18th & Vine").
+           v20 redesign: central RED BRICK tower with SUNBURST sculpture +
+           5 musician-figure silhouettes, flanked by GREEN glass wings and
+           a marquee awning carrying the joint NEGRO LEAGUES / JAZZ MUSEUM
+           sign. Placed at translate(276.8, 92.7) scale(0.7) — upper-middle
+           on the north side past Vine. Renders BEFORE Blue Room so Blue
+           Room sits visually in front (proper perspective). -->
+      <g class="vine-nlb-museum" aria-hidden="true" transform="translate(248.7, 52.6) scale(0.78)">
+        <!-- LEFT green glass wing -->
+        <rect class="vine-nlb-wing" x="548" y="436" width="12" height="26"/>
+        <line class="vine-nlb-wing-mullion" x1="554" y1="436" x2="554" y2="462"/>
+        <line class="vine-nlb-wing-mullion" x1="548" y1="450" x2="560" y2="450"/>
+        <!-- CENTRAL red brick tower -->
+        <rect class="vine-nlb-tower" x="560" y="416" width="32" height="46"/>
+        <line class="vine-nlb-tower-band" x1="560" y1="425" x2="592" y2="425"/>
+        <line class="vine-nlb-tower-band" x1="560" y1="434" x2="592" y2="434"/>
+        <!-- SUNBURST sculpture -->
+        <path class="vine-nlb-sunburst-arc" d="M 565,444 Q 576,425 587,444" fill="none"/>
+        <line class="vine-nlb-sunburst-ray" x1="576" y1="444" x2="566" y2="436"/>
+        <line class="vine-nlb-sunburst-ray" x1="576" y1="444" x2="571" y2="431"/>
+        <line class="vine-nlb-sunburst-ray" x1="576" y1="444" x2="576" y2="428"/>
+        <line class="vine-nlb-sunburst-ray" x1="576" y1="444" x2="581" y2="431"/>
+        <line class="vine-nlb-sunburst-ray" x1="576" y1="444" x2="586" y2="436"/>
+        <!-- Musician-figure silhouettes -->
+        <rect class="vine-nlb-figure" x="568" y="439" width="1.8" height="5"/>
+        <rect class="vine-nlb-figure" x="572" y="438" width="1.8" height="6"/>
+        <rect class="vine-nlb-figure" x="576" y="437" width="1.8" height="7"/>
+        <rect class="vine-nlb-figure" x="580" y="438" width="1.8" height="6"/>
+        <rect class="vine-nlb-figure" x="584" y="439" width="1.8" height="5"/>
+        <!-- Marquee awning + joint sign -->
+        <rect class="vine-nlb-awning" x="557" y="446" width="38" height="3"/>
+        <rect class="vine-nlb-sign-frame" x="557" y="449" width="38" height="8"/>
+        <text class="vine-nlb-sign-text-line1" x="576" y="453" text-anchor="middle">NEGRO LEAGUES</text>
+        <text class="vine-nlb-sign-text-line2" x="576" y="456.5" text-anchor="middle">JAZZ MUSEUM</text>
+        <!-- Glass entry doors -->
+        <rect class="vine-nlb-entry" x="568" y="457" width="16" height="5"/>
+        <line class="vine-nlb-entry-div" x1="576" y1="457" x2="576" y2="462"/>
+        <!-- RIGHT green glass wing -->
+        <rect class="vine-nlb-wing" x="592" y="436" width="12" height="26"/>
+        <line class="vine-nlb-wing-mullion" x1="598" y1="436" x2="598" y2="462"/>
+        <line class="vine-nlb-wing-mullion" x1="592" y1="450" x2="604" y2="450"/>
+      </g>
+
+      <g class="vine-blue-room" aria-hidden="true" transform="translate(-15, -16)">
         <path class="vine-blue-room-body" d="M 608,460 L 608,426 L 690,424 L 690,462 Z"/>
         <line class="vine-building-accent" x1="608" y1="430" x2="690" y2="428"/>
         <line class="vine-building-brickline" x1="608" y1="440" x2="690" y2="438"/>
@@ -675,40 +1456,46 @@
           <!-- Dark backer panel (narrow + vertical, mounted on right side of facade) -->
           <rect class="vine-blue-room-sign-panel" x="678" y="400" width="18" height="42"/>
           <rect class="vine-blue-room-sign-inner" x="680" y="402" width="14" height="38"/>
-          <!-- BLUE letters stacked -->
+          <!-- BLUE letters stacked (top) -->
           <text class="vine-blue-room-letter" x="687" y="411" text-anchor="middle">B</text>
           <text class="vine-blue-room-letter" x="687" y="418" text-anchor="middle">L</text>
           <text class="vine-blue-room-letter" x="687" y="425" text-anchor="middle">U</text>
           <text class="vine-blue-room-letter" x="687" y="432" text-anchor="middle">E</text>
-          <!-- Piano keyboard strip (smaller) -->
-          <rect class="vine-blue-room-pianokeys-bg" x="680" y="434" width="14" height="3"/>
-          <line class="vine-blue-room-pianokey-div" x1="508" y1="441" x2="508" y2="446"/>
-          <line class="vine-blue-room-pianokey-div" x1="512" y1="441" x2="512" y2="446"/>
-          <line class="vine-blue-room-pianokey-div" x1="516" y1="441" x2="516" y2="446"/>
-          <line class="vine-blue-room-pianokey-div" x1="520" y1="441" x2="520" y2="446"/>
-          <rect class="vine-blue-room-pianokey-black" x="510" y="441" width="1.5" height="3"/>
-          <rect class="vine-blue-room-pianokey-black" x="518" y="441" width="1.5" height="3"/>
-          <!-- ROOM banner -->
-          <rect class="vine-blue-room-room-banner" x="679" y="438" width="16" height="4"/>
-          <text class="vine-blue-room-room-text" x="687" y="441.5" text-anchor="middle">ROOM</text>
-          <!-- CURVED chase bulb arrangement on the right edge only — per reference photo -->
+          <!-- ROOM banner (middle, moved up from y=438 so piano keys can land at bottom) -->
+          <rect class="vine-blue-room-room-banner" x="679" y="433" width="16" height="4"/>
+          <text class="vine-blue-room-room-text" x="687" y="436.5" text-anchor="middle">ROOM</text>
+          <!-- v20 — piano keyboard strip at the BOTTOM of the sign (was splitting the
+               text between BLUE and ROOM). Also fixed div/black x-coords — they were
+               stranded at x=508-520 (a pre-v18f ghost position) instead of on the
+               current sign panel at x=678-696. -->
+          <rect class="vine-blue-room-pianokeys-bg" x="680" y="438" width="14" height="3"/>
+          <line class="vine-blue-room-pianokey-div" x1="683" y1="438" x2="683" y2="441"/>
+          <line class="vine-blue-room-pianokey-div" x1="686" y1="438" x2="686" y2="441"/>
+          <line class="vine-blue-room-pianokey-div" x1="689" y1="438" x2="689" y2="441"/>
+          <line class="vine-blue-room-pianokey-div" x1="692" y1="438" x2="692" y2="441"/>
+          <rect class="vine-blue-room-pianokey-black" x="684.5" y="438" width="1" height="1.8"/>
+          <rect class="vine-blue-room-pianokey-black" x="690.5" y="438" width="1" height="1.8"/>
+          <!-- CURVED chase bulb arrangement on the right edge (x=696 panel edge).
+               v20 — repositioned from stranded cx~526-532 ghost to current sign. -->
           <g class="vine-blue-room-chase">
-            <circle class="vine-blue-room-bulb vine-blue-room-bulb-1" cx="530" cy="400" r="0.9"/>
-            <circle class="vine-blue-room-bulb vine-blue-room-bulb-2" cx="531" cy="406" r="0.9"/>
-            <circle class="vine-blue-room-bulb vine-blue-room-bulb-3" cx="532" cy="412" r="0.9"/>
-            <circle class="vine-blue-room-bulb vine-blue-room-bulb-4" cx="532" cy="418" r="0.9"/>
-            <circle class="vine-blue-room-bulb vine-blue-room-bulb-5" cx="532" cy="424" r="0.9"/>
-            <circle class="vine-blue-room-bulb vine-blue-room-bulb-6" cx="532" cy="430" r="0.9"/>
-            <circle class="vine-blue-room-bulb vine-blue-room-bulb-7" cx="531" cy="436" r="0.9"/>
-            <circle class="vine-blue-room-bulb vine-blue-room-bulb-8" cx="530" cy="442" r="0.9"/>
-            <circle class="vine-blue-room-bulb vine-blue-room-bulb-1" cx="528" cy="448" r="0.9"/>
-            <circle class="vine-blue-room-bulb vine-blue-room-bulb-2" cx="526" cy="454" r="0.9"/>
+            <circle class="vine-blue-room-bulb vine-blue-room-bulb-1" cx="698" cy="402" r="0.8"/>
+            <circle class="vine-blue-room-bulb vine-blue-room-bulb-2" cx="699" cy="408" r="0.8"/>
+            <circle class="vine-blue-room-bulb vine-blue-room-bulb-3" cx="700" cy="414" r="0.8"/>
+            <circle class="vine-blue-room-bulb vine-blue-room-bulb-4" cx="700" cy="420" r="0.8"/>
+            <circle class="vine-blue-room-bulb vine-blue-room-bulb-5" cx="700" cy="426" r="0.8"/>
+            <circle class="vine-blue-room-bulb vine-blue-room-bulb-6" cx="700" cy="432" r="0.8"/>
+            <circle class="vine-blue-room-bulb vine-blue-room-bulb-7" cx="699" cy="437" r="0.8"/>
+            <circle class="vine-blue-room-bulb vine-blue-room-bulb-8" cx="698" cy="441" r="0.8"/>
           </g>
         </g>
       </g>
 
       <!-- American Jazz Museum + Negro Leagues Baseball Museum (south side) -->
-      <g class="vine-museum" aria-hidden="true">
+      <!-- v20: .vine-museum (old Jazz Museum brick mass) hidden — the NLB
+           redesign now carries the joint JAZZ / NEGRO LEAGUES sign, so this
+           orphan block no longer represents a named building and was drifting
+           into the 18th pavement area. -->
+      <g class="vine-museum" aria-hidden="true" style="display:none">
         <path class="vine-museum-mass" d="M 490,456 L 490,420 L 550,418 L 550,458 Z"/>
         <!-- Stepped upper parapet -->
         <path class="vine-museum-mass" d="M 505,420 L 505,412 L 540,410 L 540,418 Z"/>
@@ -719,13 +1506,14 @@
         <rect class="vine-museum-glass" x="494" y="440" width="24" height="6"/>
         <rect class="vine-museum-glass" x="522" y="439" width="24" height="6"/>
         <rect class="vine-museum-entry-frame" x="517" y="449" width="10" height="7"/>
-        <!-- Lit sign: both Negro Leagues and Jazz Museums share this complex -->
-        <rect class="vine-museum-sign-frame" x="328" y="410" width="104" height="12"/>
-        <text class="vine-museum-sign-text" x="380" y="418" text-anchor="middle">NEGRO LEAGUES · JAZZ MUSEUM</text>
+        <!-- v20: removed orphan "NEGRO LEAGUES · JAZZ MUSEUM" sign at x=328, y=410
+             which was floating below the district sign from the pre-redesign layout.
+             The proper joint sign now lives on the redesigned NLB museum facade. -->
       </g>
 
-      <!-- Commercial infill (Lincoln Building-esque brick, between Museum and sign building) -->
-      <g class="vine-infill-south-a" aria-hidden="true">
+      <!-- v20: Commercial infill backfill hidden — was bleeding out to the left
+           of the main sign building and reading as a random unanchored mass. -->
+      <g class="vine-infill-south-a" aria-hidden="true" style="display:none">
         <path class="vine-building-body" d="M 240,488 L 240,414 L 320,426 L 320,474 Z"/>
         <line class="vine-building-accent" x1="240" y1="422" x2="320" y2="432"/>
         <line class="vine-building-brickline" x1="240" y1="438" x2="320" y2="446"/>
@@ -759,7 +1547,7 @@
            Real-life: the 18th & Vine DISTRICT sign is attached to a
            building at the corner of 18th & Paseo, facing east so approaches
            from The Paseo see it as they turn in. -->
-      <g class="vine-sign-building" aria-hidden="true">
+      <g class="vine-sign-building" aria-hidden="true" transform="translate(36, 0)">
         <!-- Main facade (east wall, perpendicular to viewer) -->
         <path class="vine-sign-building-face" d="M 260,492 L 260,220 L 420,220 L 420,490 Z"/>
         <!-- Cornice + parapet at top -->
@@ -790,7 +1578,7 @@
            BOTTOM. Two-layer approach: base (muted fill, visible day) +
            night-lit overlay (bright saturated neon with drop-shadow glow,
            visible dusk→dawn via .building-night-lights gate). -->
-      <g class="vine-district-sign" aria-labelledby="vine-district-sign-title">
+      <g class="vine-district-sign" aria-labelledby="vine-district-sign-title" transform="translate(36, 0)">
         <title id="vine-district-sign-title">18th &amp; Vine District — the iconic neon sign</title>
 
         <!-- v19 redesign — panel is dark backer with chamfered upper corners and
@@ -898,32 +1686,7 @@
            Positioned to the RIGHT of Blue Room in scene coords (x=548-620
            east of Blue Room's east edge at x=540). Modernist brick-and-
            glass mass with a baseball accent. -->
-      <g class="vine-nlb-museum" aria-hidden="true">
-        <!-- Main mass -->
-        <path class="vine-nlb-body" d="M 550,458 L 550,424 L 608,422 L 608,460 Z"/>
-        <!-- Stepped upper parapet -->
-        <path class="vine-nlb-body" d="M 560,424 L 560,416 L 598,414 L 598,422 Z"/>
-        <!-- Horizontal banding -->
-        <line class="vine-building-accent" x1="550" y1="430" x2="608" y2="428"/>
-        <line class="vine-building-accent" x1="550" y1="442" x2="608" y2="440"/>
-        <line class="vine-building-accent" x1="550" y1="452" x2="608" y2="450"/>
-        <!-- Glass strips -->
-        <rect class="vine-museum-glass" x="554" y="432" width="22" height="8"/>
-        <rect class="vine-museum-glass" x="580" y="432" width="22" height="8"/>
-        <rect class="vine-museum-glass" x="554" y="442" width="22" height="6"/>
-        <rect class="vine-museum-glass" x="580" y="442" width="22" height="6"/>
-        <!-- Entry -->
-        <rect class="vine-museum-entry-frame" x="575" y="450" width="12" height="8"/>
-        <rect class="vine-building-door" x="577" y="451" width="4" height="7"/>
-        <rect class="vine-building-door" x="582" y="451" width="4" height="7"/>
-        <!-- Baseball accent on the stepped parapet -->
-        <circle class="vine-nlb-ball" cx="579" cy="418" r="2"/>
-        <path class="vine-nlb-ball-stitch" d="M 577,417 Q 579,419 581,417" fill="none"/>
-        <path class="vine-nlb-ball-stitch" d="M 577,419 Q 579,417 581,419" fill="none"/>
-        <!-- Lit sign over entry -->
-        <rect class="vine-nlb-sign-frame" x="550" y="418" width="58" height="6"/>
-        <text class="vine-nlb-sign-text" x="579" y="422.5" text-anchor="middle">NEGRO LEAGUES</text>
-      </g>
+      <!-- v20: NLB moved — block relocated to render BEFORE Blue Room in source order (see above). -->
 
       <!-- ═══════ LAYER 10: RIGHT side — Paseo YMCA + receding north-side buildings ═══════
            The YMCA anchors the mid-right. Sized smaller than the foreground-
@@ -1017,8 +1780,8 @@
         <line class="vine-building-brickline" x1="1080" y1="402" x2="1180" y2="392"/>
         <line class="vine-building-brickline" x1="1080" y1="434" x2="1180" y2="424"/>
         <line class="vine-building-brickline" x1="1080" y1="466" x2="1180" y2="458"/>
-        <!-- v19: roofline STREET HOTEL sign at top of building -->
-        <text class="vine-hotel-roofline-sign" x="1130" y="353" text-anchor="middle">STREET HOTEL</text>
+        <!-- v20: STREET HOTEL roofline text removed per Brian's direction -->
+
         <!-- 3-story window grid -->
         <rect class="vine-building-window" x="1088" y="378" width="14" height="18"/>
         <rect class="vine-building-window" x="1112" y="376" width="14" height="18"/>
@@ -1040,50 +1803,41 @@
         <rect class="vine-gem-canopy" x="1114" y="484" width="14" height="3"/>
       </g>
 
-      <!-- Vine Street Brewing (v19 swap — now west of Street Hotel, closer to
-           the Vine cross-street per Brian's geographic correction). 4-story brick. -->
+      <!-- Vine Street Brewing — v20 redesign per Brian's reference photo.
+           Single-story stone building with scalloped parapet, arched window
+           bays flanking a central arched entry, finial balls at outer corners.
+           Short + long profile (wider than tall). Moved west to x=920-1016
+           to fill the space between MMF and Street Hotel. -->
       <g class="vine-brewery" aria-hidden="true">
-        <path class="vine-building-body" d="M 1000,486 L 1000,352 L 1080,362 L 1080,488 Z"/>
-        <line class="vine-building-accent" x1="1000" y1="360" x2="1080" y2="370"/>
-        <line class="vine-building-accent" x1="1000" y1="480" x2="1080" y2="480"/>
-        <line class="vine-building-brickline" x1="1000" y1="384" x2="1080" y2="394"/>
-        <line class="vine-building-brickline" x1="1000" y1="412" x2="1080" y2="420"/>
-        <line class="vine-building-brickline" x1="1000" y1="442" x2="1080" y2="450"/>
-        <!-- VINE ST BREWING facade sign between 2nd and 3rd floor -->
-        <rect class="vine-brewery-sign" x="1008" y="410" width="64" height="8"/>
-        <text class="vine-brewery-sign-text" x="1040" y="416" text-anchor="middle">VINE ST BREWING</text>
-        <!-- 4-row × 5-col window grid -->
-        <rect class="vine-building-window" x="1005" y="366" width="9" height="14"/>
-        <rect class="vine-building-window" x="1020" y="367" width="9" height="14"/>
-        <rect class="vine-building-window" x="1035" y="369" width="9" height="14"/>
-        <rect class="vine-building-window" x="1050" y="370" width="9" height="14"/>
-        <rect class="vine-building-window" x="1065" y="372" width="9" height="14"/>
-        <rect class="vine-building-window" x="1005" y="392" width="9" height="16"/>
-        <rect class="vine-building-window" x="1020" y="393" width="9" height="16"/>
-        <rect class="vine-building-window" x="1035" y="395" width="9" height="16"/>
-        <rect class="vine-building-window" x="1050" y="396" width="9" height="16"/>
-        <rect class="vine-building-window" x="1065" y="398" width="9" height="16"/>
-        <rect class="vine-building-window" x="1005" y="420" width="9" height="16"/>
-        <rect class="vine-building-window" x="1020" y="421" width="9" height="16"/>
-        <rect class="vine-building-window" x="1035" y="423" width="9" height="16"/>
-        <rect class="vine-building-window" x="1050" y="424" width="9" height="16"/>
-        <rect class="vine-building-window" x="1065" y="426" width="9" height="16"/>
-        <rect class="vine-building-window" x="1005" y="450" width="9" height="16"/>
-        <rect class="vine-building-window" x="1020" y="451" width="9" height="16"/>
-        <rect class="vine-building-window" x="1035" y="453" width="9" height="16"/>
-        <rect class="vine-building-window" x="1050" y="454" width="9" height="16"/>
-        <rect class="vine-building-window" x="1065" y="456" width="9" height="16"/>
-        <!-- Entry canopy + doors -->
-        <rect class="vine-gem-canopy" x="1024" y="482" width="26" height="4"/>
-        <rect class="vine-building-door" x="1030" y="470" width="7" height="16"/>
-        <rect class="vine-building-door" x="1040" y="470" width="7" height="16"/>
+        <!-- Body with scalloped parapet top edge (5 shallow arches over 4 windows + door) -->
+        <path class="vine-brewery-body" d="M 920,490 L 920,456 Q 932,446 944,456 Q 956,446 968,456 Q 980,444 992,456 Q 1004,446 1016,456 L 1016,490 Z"/>
+        <!-- Finial balls at the two outer parapet corners -->
+        <circle class="vine-brewery-finial" cx="922" cy="454" r="1.8"/>
+        <circle class="vine-brewery-finial" cx="1014" cy="454" r="1.8"/>
+        <!-- Horizontal stone band just below the parapet -->
+        <line class="vine-brewery-stone-band" x1="920" y1="462" x2="1016" y2="462"/>
+        <!-- Central arched entry door -->
+        <path class="vine-brewery-door" d="M 964,490 L 964,476 Q 968,470 972,476 L 972,490 Z"/>
+        <!-- 4 arched window bays (2 each side of the entry) -->
+        <path class="vine-brewery-arched-window" d="M 928,486 L 928,474 Q 934,468 940,474 L 940,486 Z"/>
+        <path class="vine-brewery-arched-window" d="M 946,486 L 946,474 Q 952,468 958,474 L 958,486 Z"/>
+        <path class="vine-brewery-arched-window" d="M 978,486 L 978,474 Q 984,468 990,474 L 990,486 Z"/>
+        <path class="vine-brewery-arched-window" d="M 996,486 L 996,474 Q 1002,468 1008,474 L 1008,486 Z"/>
+        <!-- Small rusticated-stone hatching hints on the ground band -->
+        <line class="vine-brewery-stone-hatch" x1="934" y1="488" x2="934" y2="490"/>
+        <line class="vine-brewery-stone-hatch" x1="950" y1="488" x2="950" y2="490"/>
+        <line class="vine-brewery-stone-hatch" x1="984" y1="488" x2="984" y2="490"/>
+        <line class="vine-brewery-stone-hatch" x1="1000" y1="488" x2="1000" y2="490"/>
+        <!-- VINE ST BREWING sign banner above the entry -->
+        <rect class="vine-brewery-sign" x="948" y="464" width="40" height="7"/>
+        <text class="vine-brewery-sign-text" x="968" y="469.5" text-anchor="middle">VINE ST BREWING</text>
       </g>
 
       <!-- Mutual Musicians Foundation (north side, between Hotel and Gem —
            per Brian's direction). Small gable-front brick building, the
            iconic 1904 home of the Black musicians union Local 627. Gable
            roof + porch + arched upper window. -->
-      <g class="vine-mmf" aria-hidden="true">
+      <g class="vine-mmf" aria-hidden="true" transform="translate(218, 51.8) scale(0.8)">
         <path class="vine-mmf-body" d="M 804,484 L 804,438 L 840,422 L 876,434 L 876,486 Z"/>
         <!-- Gable roof ridge -->
         <line class="vine-building-accent" x1="804" y1="438" x2="840" y2="422"/>
@@ -1124,7 +1878,7 @@
            horizontal neon strip along the marquee canopy. Classical
            arched upper window with keystone detail. Per the real Gem
            Theater reference photo. -->
-      <g class="vine-gem" aria-hidden="true">
+      <g class="vine-gem" aria-hidden="true" transform="translate(197.4, 68.2) scale(0.7)">
         <!-- Main facade (cream terra-cotta) -->
         <path class="vine-gem-facade" d="M 886,478 L 886,436 L 890,432 L 890,425 L 946,425 L 946,432 L 950,436 L 950,474 Z"/>
         <!-- Decorative parapet lines -->
@@ -1207,7 +1961,10 @@
           <path class="vine-streetlamp-arm" d="M 262,352 L 248,346 L 248,336"/>
           <circle class="vine-streetlamp-lantern" cx="248" cy="330" r="5"/>
         </g>
-        <g class="vine-streetlamp vine-streetlamp-mid">
+        <!-- v20: removed mid-distance streetlamp that was rendering at x=720,
+             which sits inside the 18th pavement (636-780 at y=486). A lamp
+             in the middle of the street was unintentional. -->
+        <g class="vine-streetlamp vine-streetlamp-mid" style="display:none" aria-hidden="true">
           <line class="vine-streetlamp-post" x1="720" y1="486" x2="720" y2="420"/>
           <rect class="vine-streetlamp-base" x="717" y="484" width="6" height="4"/>
           <path class="vine-streetlamp-arm" d="M 720,420 L 728,418 L 728,413"/>
@@ -1232,7 +1989,7 @@
            collar, shoulders, arms with elbows, legs with stance, shoes,
            and detailed instruments. Positioned just east of the sign
            building on the far sidewalk (feet at y≈510). -->
-      <g class="vine-musicians" aria-hidden="true">
+      <g class="vine-musicians" aria-hidden="true" transform="translate(200, 124) scale(0.7)">
         <!-- SAX PLAYER -->
         <g class="vine-musician vine-musician-sax" transform="translate(432, 0)">
           <ellipse class="vine-musician-hat-brim" cx="0" cy="450" rx="8" ry="1.4"/>
@@ -1255,33 +2012,70 @@
           <path class="vine-musician-leg" d="M 3.5,492 L 4,510 L 1.5,510 L 0.8,492 Z"/>
           <ellipse class="vine-musician-shoe" cx="-2.5" cy="511" rx="2.2" ry="1"/>
           <ellipse class="vine-musician-shoe" cx="2.5" cy="511" rx="2.2" ry="1"/>
-          <!-- Alto sax -->
-          <path class="vine-musician-sax-tube" d="M 2,456 Q 7,463 10,470 Q 13,480 11,488 Q 7,494 2,494 Q -3,492 -4,488 Q -4,484 0,480"/>
-          <line class="vine-musician-sax-neck" x1="2" y1="456" x2="2.5" y2="454"/>
-          <path class="vine-musician-sax-bell" d="M 2,494 Q -3,495 -5,492 Q -6,488 -3,486 Q 0,487 2,490 Z"/>
-          <circle class="vine-musician-sax-key" cx="6" cy="466" r="0.8"/>
-          <circle class="vine-musician-sax-key" cx="9" cy="474" r="0.8"/>
-          <circle class="vine-musician-sax-key" cx="11" cy="482" r="0.8"/>
-          <circle class="vine-musician-sax-key" cx="8" cy="490" r="0.8"/>
+          <!-- v20 — Alto sax quality pass: cleaner S-curve body, flared bell
+               as ellipse with dark throat, 6 pearl keys, proper neck + crook +
+               mouthpiece, neck strap from player to sax ring. -->
+          <!-- Neck strap (dark cord from player's neck) -->
+          <path class="vine-musician-sax-strap" d="M 0,459 Q 2,462 4,464" fill="none" stroke="rgba(40,28,18,0.72)" stroke-width="0.45"/>
+          <!-- Neck crook (curved top segment going up from body) -->
+          <path d="M 3,460 Q 3.5,455 5.5,452" fill="none" stroke="rgba(232,195,90,0.95)" stroke-width="1.4" stroke-linecap="round"/>
+          <!-- Mouthpiece (dark chunk at top of crook) -->
+          <path d="M 5.5,452 L 7.5,450.5 L 7,452.5 L 6,453 Z" fill="rgba(40,28,18,0.95)" stroke="rgba(120,80,30,0.75)" stroke-width="0.25"/>
+          <!-- Octave key lever on neck -->
+          <line x1="4" y1="458" x2="5.5" y2="460" stroke="rgba(120,80,30,0.85)" stroke-width="0.4"/>
+          <!-- Main body tube: smooth continuous brass stroke in an S-curve -->
+          <path class="vine-musician-sax-tube" d="M 3,461 Q 8,470 11,480 Q 13,488 11,492 Q 7,496 2,495 Q -3,493 -4,489 Q -5,484 -1,481" fill="none" stroke="rgba(220,180,70,0.95)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Flared bell (rotated ellipse at lower end) -->
+          <ellipse class="vine-musician-sax-bell" cx="-3" cy="487" rx="3.8" ry="2.2" fill="rgba(232,195,90,0.95)" stroke="rgba(120,80,30,0.9)" stroke-width="0.45" transform="rotate(-18 -3 487)"/>
+          <!-- Bell throat shadow -->
+          <ellipse cx="-3" cy="487" rx="2.2" ry="1.2" fill="rgba(40,28,18,0.55)" transform="rotate(-18 -3 487)"/>
+          <!-- 6 pearl keys along the tube -->
+          <circle class="vine-musician-sax-key" cx="5.5" cy="465" r="0.75" fill="rgba(245,235,210,0.95)" stroke="rgba(120,80,30,0.85)" stroke-width="0.25"/>
+          <circle class="vine-musician-sax-key" cx="8" cy="471" r="0.75" fill="rgba(245,235,210,0.95)" stroke="rgba(120,80,30,0.85)" stroke-width="0.25"/>
+          <circle class="vine-musician-sax-key" cx="10.2" cy="477" r="0.75" fill="rgba(245,235,210,0.95)" stroke="rgba(120,80,30,0.85)" stroke-width="0.25"/>
+          <circle class="vine-musician-sax-key" cx="11.5" cy="484" r="0.75" fill="rgba(245,235,210,0.95)" stroke="rgba(120,80,30,0.85)" stroke-width="0.25"/>
+          <circle class="vine-musician-sax-key" cx="9.5" cy="490" r="0.75" fill="rgba(245,235,210,0.95)" stroke="rgba(120,80,30,0.85)" stroke-width="0.25"/>
+          <circle class="vine-musician-sax-key" cx="4" cy="486" r="0.7" fill="rgba(245,235,210,0.95)" stroke="rgba(120,80,30,0.85)" stroke-width="0.25"/>
         </g>
 
         <!-- UPRIGHT BASS PLAYER -->
         <g class="vine-musician vine-musician-bass" transform="translate(476, 0)">
-          <!-- Bass body -->
-          <path class="vine-musician-bass-body" d="M 6,472 Q 0,478 0,488 Q -1,500 4,508 Q 7,512 11,512 Q 15,512 17,508 Q 22,500 22,490 Q 22,480 18,474 Q 14,470 10,470 Q 7,470 6,472 Z"/>
-          <path class="vine-musician-bass-f" d="M 4,486 Q 3,488 4,490" fill="none"/>
-          <path class="vine-musician-bass-f" d="M 17,486 Q 18,488 17,490" fill="none"/>
-          <line class="vine-musician-bass-bridge" x1="7" y1="495" x2="14" y2="495"/>
-          <path class="vine-musician-bass-tailpiece" d="M 9,500 L 12,500 L 11,504 L 10,504 Z"/>
-          <line class="vine-musician-bass-neck" x1="10" y1="472" x2="9" y2="450"/>
-          <line class="vine-musician-bass-neck" x1="12" y1="472" x2="11" y2="450"/>
-          <circle class="vine-musician-bass-scroll" cx="10" cy="447" r="2"/>
-          <circle class="vine-musician-bass-peg" cx="8" cy="452" r="0.6"/>
-          <circle class="vine-musician-bass-peg" cx="12" cy="456" r="0.6"/>
-          <line class="vine-musician-bass-string" x1="10" y1="450" x2="9" y2="500"/>
-          <line class="vine-musician-bass-string" x1="11" y1="450" x2="10" y2="500"/>
-          <line class="vine-musician-bass-string" x1="12" y1="450" x2="11" y2="500"/>
-          <line class="vine-musician-bass-endpin" x1="11" y1="512" x2="11" y2="516"/>
+          <!-- v20 — Upright bass quality pass: proper figure-8 body with upper
+               bout + waist + lower bout, clearer F-holes, visible bridge,
+               proper scroll spiral, 4 pegs on pegbox, 4 strings, endpin. -->
+          <!-- Body (figure-8: upper bout narrower, lower bout wider) -->
+          <path class="vine-musician-bass-body" d="M 6,472 Q 2,474 1,480 Q 0,486 3,490 Q 5,493 4,498 Q 2,504 4,510 Q 7,514 11,514 Q 15,514 18,510 Q 20,504 18,498 Q 17,493 19,490 Q 22,486 21,480 Q 20,474 16,472 Q 13,471 11,471 Q 9,471 6,472 Z"/>
+          <!-- F-holes (more pronounced S-curve) -->
+          <path class="vine-musician-bass-f" d="M 4,488 Q 3.5,492 3.5,494 Q 3.5,496 4.5,498" fill="none"/>
+          <path class="vine-musician-bass-f" d="M 18,488 Q 18.5,492 18.5,494 Q 18.5,496 17.5,498" fill="none"/>
+          <!-- F-hole eyes (dots at ends) -->
+          <circle fill="rgba(40,28,18,0.88)" cx="4" cy="488" r="0.35"/>
+          <circle fill="rgba(40,28,18,0.88)" cx="4.5" cy="498" r="0.35"/>
+          <circle fill="rgba(40,28,18,0.88)" cx="18" cy="488" r="0.35"/>
+          <circle fill="rgba(40,28,18,0.88)" cx="17.5" cy="498" r="0.35"/>
+          <!-- Bridge (arched piece between the F-holes) -->
+          <path class="vine-musician-bass-bridge" d="M 7,499 Q 11,496 15,499" fill="none" stroke-width="0.6"/>
+          <!-- Tailpiece (extends from bottom of body) -->
+          <path class="vine-musician-bass-tailpiece" d="M 9,503 L 13,503 L 12,509 L 10,509 Z"/>
+          <!-- Bass neck (tapered, two rails suggesting fingerboard) -->
+          <line class="vine-musician-bass-neck" x1="10" y1="471" x2="9.5" y2="448" stroke-width="0.55"/>
+          <line class="vine-musician-bass-neck" x1="12" y1="471" x2="11.5" y2="448" stroke-width="0.55"/>
+          <!-- Scroll (volute spiral at top) -->
+          <circle class="vine-musician-bass-scroll" cx="10.5" cy="445" r="2.4"/>
+          <path d="M 9.5,445 Q 10.5,443.5 11.5,445 Q 11.5,446 10.5,446 Q 9.5,446 9.5,445" fill="rgba(60,36,20,0.88)" stroke="rgba(40,24,12,0.9)" stroke-width="0.2"/>
+          <!-- Pegbox with 4 pegs (2 each side) -->
+          <circle class="vine-musician-bass-peg" cx="8" cy="450" r="0.8"/>
+          <circle class="vine-musician-bass-peg" cx="8.5" cy="455" r="0.8"/>
+          <circle class="vine-musician-bass-peg" cx="13" cy="451" r="0.8"/>
+          <circle class="vine-musician-bass-peg" cx="12.5" cy="456" r="0.8"/>
+          <!-- 4 strings running from pegs to tailpiece -->
+          <line class="vine-musician-bass-string" x1="9.5" y1="450" x2="10" y2="503"/>
+          <line class="vine-musician-bass-string" x1="10.5" y1="450" x2="10.7" y2="503"/>
+          <line class="vine-musician-bass-string" x1="11.5" y1="450" x2="11.4" y2="503"/>
+          <line class="vine-musician-bass-string" x1="12.3" y1="450" x2="12.1" y2="503"/>
+          <!-- Endpin (spike at bottom, supporting the bass) -->
+          <line class="vine-musician-bass-endpin" x1="11" y1="514" x2="11" y2="518" stroke-width="0.7"/>
+          <circle cx="11" cy="518" r="0.45" fill="rgba(40,28,18,0.95)"/>
           <!-- Player -->
           <ellipse class="vine-musician-hat-brim" cx="-4" cy="452" rx="7" ry="1.2"/>
           <path class="vine-musician-hat" d="M -9,452 L 1,452 L 0,444 L -8,444 Z"/>
@@ -1322,15 +2116,33 @@
           <path class="vine-musician-leg" d="M 3.5,492 L 3.8,510 L 1.5,510 L 0.8,492 Z"/>
           <ellipse class="vine-musician-shoe" cx="-2.5" cy="511" rx="2.2" ry="1"/>
           <ellipse class="vine-musician-shoe" cx="2.5" cy="511" rx="2.2" ry="1"/>
-          <!-- Trumpet -->
+          <!-- v20 — Trumpet quality pass: proper mouthpiece cup, lead pipe to
+               valve block with 3 circular valve buttons, tuning-slide U-loop,
+               main tube to a conical flared bell with dark throat shadow. -->
           <g class="vine-musician-trumpet-horn">
-            <rect class="vine-musician-trumpet-mouthpiece" x="2.5" y="456" width="1.6" height="2.5"/>
-            <line class="vine-musician-trumpet-tube" x1="3" y1="458" x2="16" y2="452"/>
-            <line class="vine-musician-trumpet-valve" x1="8" y1="456" x2="8" y2="459"/>
-            <line class="vine-musician-trumpet-valve" x1="10" y1="455.5" x2="10" y2="458.5"/>
-            <line class="vine-musician-trumpet-valve" x1="12" y1="455" x2="12" y2="458"/>
-            <path class="vine-musician-trumpet-slide" d="M 14,453.5 L 14,462 L 12,462" fill="none"/>
-            <path class="vine-musician-trumpet-bell" d="M 16,452 L 22,448 L 24,452 L 18,456 Z"/>
+            <!-- Mouthpiece (small cup) -->
+            <circle class="vine-musician-trumpet-mouthpiece" cx="2.8" cy="457" r="0.9" fill="rgba(40,28,18,0.92)" stroke="rgba(120,80,30,0.8)" stroke-width="0.25"/>
+            <!-- Lead pipe from mouthpiece to valve block -->
+            <line class="vine-musician-trumpet-tube" x1="3.6" y1="457" x2="7.5" y2="456.3" stroke="rgba(232,195,90,0.95)" stroke-width="1.4" stroke-linecap="round"/>
+            <!-- Valve block (rectangle) -->
+            <rect class="vine-musician-trumpet-valveblock" x="7.5" y="454.5" width="5" height="4.5" fill="rgba(232,195,90,0.95)" stroke="rgba(120,80,30,0.88)" stroke-width="0.4"/>
+            <!-- 3 valve buttons on top of the block -->
+            <line class="vine-musician-trumpet-valve" x1="8.5" y1="452.5" x2="8.5" y2="454.5" stroke="rgba(120,80,30,0.88)" stroke-width="0.5" stroke-linecap="round"/>
+            <line class="vine-musician-trumpet-valve" x1="10" y1="452.5" x2="10" y2="454.5" stroke="rgba(120,80,30,0.88)" stroke-width="0.5" stroke-linecap="round"/>
+            <line class="vine-musician-trumpet-valve" x1="11.5" y1="452.5" x2="11.5" y2="454.5" stroke="rgba(120,80,30,0.88)" stroke-width="0.5" stroke-linecap="round"/>
+            <circle cx="8.5" cy="452" r="0.55" fill="rgba(40,28,18,0.88)"/>
+            <circle cx="10" cy="452" r="0.55" fill="rgba(40,28,18,0.88)"/>
+            <circle cx="11.5" cy="452" r="0.55" fill="rgba(40,28,18,0.88)"/>
+            <!-- Tuning slide U-loop (below valve block) -->
+            <path class="vine-musician-trumpet-slide" d="M 8,459 L 8,462 L 12.5,462 L 12.5,459" fill="none" stroke="rgba(232,195,90,0.95)" stroke-width="1.1" stroke-linecap="round"/>
+            <!-- Main tube from valve block to bell -->
+            <line x1="12.5" y1="457" x2="18.5" y2="455" stroke="rgba(232,195,90,0.95)" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Flared bell (conical) -->
+            <path class="vine-musician-trumpet-bell" d="M 18.5,455 L 24.5,450 Q 25.5,451.5 24.8,455 L 18.5,458 Z" fill="rgba(232,195,90,0.95)" stroke="rgba(120,80,30,0.88)" stroke-width="0.45"/>
+            <!-- Dark bell throat (depth illusion) -->
+            <ellipse cx="24.5" cy="452.5" rx="1.4" ry="2.5" fill="rgba(40,28,18,0.6)" transform="rotate(-10 24.5 452.5)"/>
+            <!-- Small water key tab -->
+            <line x1="16" y1="457.5" x2="16" y2="459" stroke="rgba(120,80,30,0.8)" stroke-width="0.35"/>
           </g>
         </g>
 
@@ -1341,7 +2153,101 @@
            coat with lapels, shirt, tie, arms with hands, legs in stride,
            shoes. Four walkers at varied perspective distances. -->
       <g class="vine-walkers" aria-hidden="true">
-        <!-- FG walker on Paseo crosswalk (scales up approaching viewer) -->
+        <!-- v20 — More walkers distributed ALONG 18TH STREET sidewalks and VINE
+             STREET sidewalks (not just on the Paseo). Small static figures at
+             varied depths for perspective. Always visible. -->
+        <!-- 18th NORTH sidewalk walker, mid-depth -->
+        <g class="vine-walker vine-walker-small" transform="translate(540, 445) scale(0.6)" aria-label="walker">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-18" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-18 L 3.5,-18 L 3,-24 L -3,-24 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-14.5" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-burgundy" d="M -3.5,-10 L -2,-11 L 2,-11 L 3.5,-10 L 4.2,-2 L 3,5 L -3,5 L -4.2,-2 Z"/>
+          <path class="vine-walker-leg" d="M -1.8,5 L -2,17 L -0.6,17 L 0,5 Z"/>
+          <path class="vine-walker-leg" d="M 1.8,5 L 2,17 L 0.6,17 L 0,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="17.5" rx="1.8" ry="0.7"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="17.5" rx="1.8" ry="0.7"/>
+        </g>
+        <!-- 18th NORTH sidewalk walker, deeper -->
+        <g class="vine-walker vine-walker-small" transform="translate(700, 418) scale(0.45)" aria-label="walker">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-18" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-18 L 3.5,-18 L 3,-24 L -3,-24 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-14.5" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-gold" d="M -3.5,-10 L -2,-11 L 2,-11 L 3.5,-10 L 4.2,-2 L 3,5 L -3,5 L -4.2,-2 Z"/>
+          <path class="vine-walker-leg" d="M -1.8,5 L -2,17 L -0.6,17 L 0,5 Z"/>
+          <path class="vine-walker-leg" d="M 1.8,5 L 2,17 L 0.6,17 L 0,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="17.5" rx="1.8" ry="0.7"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="17.5" rx="1.8" ry="0.7"/>
+        </g>
+        <!-- 18th SOUTH sidewalk walker, mid-depth -->
+        <g class="vine-walker vine-walker-small" transform="translate(980, 472) scale(0.65)" aria-label="walker">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-18" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-18 L 3.5,-18 L 3,-24 L -3,-24 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-14.5" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-cream" d="M -3.5,-10 L -2,-11 L 2,-11 L 3.5,-10 L 4.2,-2 L 3,5 L -3,5 L -4.2,-2 Z"/>
+          <path class="vine-walker-leg" d="M -1.8,5 L -2,17 L -0.6,17 L 0,5 Z"/>
+          <path class="vine-walker-leg" d="M 1.8,5 L 2,17 L 0.6,17 L 0,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="17.5" rx="1.8" ry="0.7"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="17.5" rx="1.8" ry="0.7"/>
+        </g>
+        <!-- 18th SOUTH sidewalk walker, deeper -->
+        <g class="vine-walker vine-walker-small" transform="translate(860, 446) scale(0.5)" aria-label="walker">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-18" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-18 L 3.5,-18 L 3,-24 L -3,-24 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-14.5" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-rust" d="M -3.5,-10 L -2,-11 L 2,-11 L 3.5,-10 L 4.2,-2 L 3,5 L -3,5 L -4.2,-2 Z"/>
+          <path class="vine-walker-leg" d="M -1.8,5 L -2,17 L -0.6,17 L 0,5 Z"/>
+          <path class="vine-walker-leg" d="M 1.8,5 L 2,17 L 0.6,17 L 0,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="17.5" rx="1.8" ry="0.7"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="17.5" rx="1.8" ry="0.7"/>
+        </g>
+        <!-- VINE STREET walker (on the north sidewalk of Vine, east side) -->
+        <g class="vine-walker vine-walker-small" transform="translate(250, 442) scale(0.5)" aria-label="walker">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-18" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-18 L 3.5,-18 L 3,-24 L -3,-24 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-14.5" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-gold" d="M -3.5,-10 L -2,-11 L 2,-11 L 3.5,-10 L 4.2,-2 L 3,5 L -3,5 L -4.2,-2 Z"/>
+          <path class="vine-walker-leg" d="M -1.8,5 L -2,17 L -0.6,17 L 0,5 Z"/>
+          <path class="vine-walker-leg" d="M 1.8,5 L 2,17 L 0.6,17 L 0,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="17.5" rx="1.8" ry="0.7"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="17.5" rx="1.8" ry="0.7"/>
+        </g>
+        <!-- VINE STREET walker (on north sidewalk, west of intersection) -->
+        <g class="vine-walker vine-walker-small" transform="translate(420, 442) scale(0.5)" aria-label="walker">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-18" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-18 L 3.5,-18 L 3,-24 L -3,-24 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-14.5" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-burgundy" d="M -3.5,-10 L -2,-11 L 2,-11 L 3.5,-10 L 4.2,-2 L 3,5 L -3,5 L -4.2,-2 Z"/>
+          <path class="vine-walker-leg" d="M -1.8,5 L -2,17 L -0.6,17 L 0,5 Z"/>
+          <path class="vine-walker-leg" d="M 1.8,5 L 2,17 L 0.6,17 L 0,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="17.5" rx="1.8" ry="0.7"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="17.5" rx="1.8" ry="0.7"/>
+        </g>
+        <!-- VINE STREET walker (on south sidewalk of Vine, east side) -->
+        <g class="vine-walker vine-walker-small" transform="translate(1100, 468) scale(0.55)" aria-label="walker">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-18" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-18 L 3.5,-18 L 3,-24 L -3,-24 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-14.5" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-cream" d="M -3.5,-10 L -2,-11 L 2,-11 L 3.5,-10 L 4.2,-2 L 3,5 L -3,5 L -4.2,-2 Z"/>
+          <path class="vine-walker-leg" d="M -1.8,5 L -2,17 L -0.6,17 L 0,5 Z"/>
+          <path class="vine-walker-leg" d="M 1.8,5 L 2,17 L 0.6,17 L 0,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="17.5" rx="1.8" ry="0.7"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="17.5" rx="1.8" ry="0.7"/>
+        </g>
+        <!-- VINE STREET walker (on south sidewalk, west side) -->
+        <g class="vine-walker vine-walker-small" transform="translate(1300, 468) scale(0.55)" aria-label="walker">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-18" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-18 L 3.5,-18 L 3,-24 L -3,-24 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-14.5" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-rust" d="M -3.5,-10 L -2,-11 L 2,-11 L 3.5,-10 L 4.2,-2 L 3,5 L -3,5 L -4.2,-2 Z"/>
+          <path class="vine-walker-leg" d="M -1.8,5 L -2,17 L -0.6,17 L 0,5 Z"/>
+          <path class="vine-walker-leg" d="M 1.8,5 L 2,17 L 0.6,17 L 0,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="17.5" rx="1.8" ry="0.7"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="17.5" rx="1.8" ry="0.7"/>
+        </g>
+
+        <!-- FG walker on Paseo crosswalk — v20: wrapped in night-only gate
+             since Brian doesn't want people walking on the Paseo until night. -->
+        <g class="vine-paseo-walker-gate">
         <g class="vine-walker vine-walker-path-fg" aria-label="walker">
           <ellipse class="vine-walker-hat-brim" cx="0" cy="-24" rx="7" ry="1.6"/>
           <path class="vine-walker-hat" d="M -5,-24 L 5,-24 L 4,-32 L -4,-32 Z"/>
@@ -1361,6 +2267,7 @@
           <path class="vine-walker-leg" d="M 2.5,6 L 3,25 L 1,25 L 0,6 Z"/>
           <ellipse class="vine-walker-shoe" cx="-2" cy="26" rx="2.4" ry="1"/>
           <ellipse class="vine-walker-shoe" cx="2" cy="26" rx="2.4" ry="1"/>
+        </g>
         </g>
         <!-- Mid-ground left-moving walker -->
         <g class="vine-walker vine-walker-path-left-mid vine-walker-small" aria-label="walker">
@@ -1399,7 +2306,11 @@
           <ellipse class="vine-walker-shoe" cx="1.5" cy="17.5" rx="1.8" ry="0.7"/>
         </g>
         <!-- Deep-distance walker (smallest, near VP) -->
-        <g class="vine-walker vine-walker-path-deep vine-walker-deep" aria-label="walker">
+        <!-- v20: deep walker hidden — its animation path (from 860,440 → 620,470)
+             crosses the middle of the 18th pavement, rendering a silhouette
+             in the street. Removed pending a better path that stays on the
+             sidewalks. -->
+        <g class="vine-walker vine-walker-path-deep vine-walker-deep" aria-label="walker" style="display:none">
           <ellipse class="vine-walker-hat-brim" cx="0" cy="-12" rx="3" ry="0.9"/>
           <path class="vine-walker-hat" d="M -2.2,-12 L 2.2,-12 L 2,-16 L -2,-16 Z"/>
           <circle class="vine-walker-head" cx="0" cy="-10" r="1.6"/>
@@ -1413,32 +2324,328 @@
 
       <!-- ═══════ LAYER 14: Night effects (dusk→dawn, gated by building-night-lights) ═══════ -->
       <g class="vine-night-effects building-night-lights" aria-hidden="true">
-        <!-- Sign building upper windows -->
-        <rect class="vine-night-window-warm" x="268" y="236" width="12" height="18"/>
-        <rect class="vine-night-window-warm" x="286" y="236" width="12" height="18"/>
-        <rect class="vine-night-window-warm" x="400" y="236" width="12" height="18"/>
-        <rect class="vine-night-window-warm" x="382" y="236" width="12" height="18"/>
-        <!-- Storefront warm glow -->
-        <rect class="vine-night-window-warm" x="268" y="446" width="28" height="28"/>
-        <rect class="vine-night-window-warm" x="318" y="446" width="28" height="28"/>
+        <!-- v20 — LATE-NIGHT JAM CROWD (1:30am jams): even more walkers with
+             instruments filling the sidewalks to represent the district's
+             peak late-night hours when everybody's coming out to the clubs. -->
+        <g class="vine-walker-jammer" transform="translate(140, 491)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/><path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/><circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/><path class="vine-walker-coat vine-walker-coat-gold" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/><path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/><path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/><ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/><ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <path class="vine-jammer-case" d="M 4,6 L 7.2,6 L 8.2,10 L 7.8,14 L 4.4,14 L 4,10 Z" fill="rgba(30,22,14,0.94)" stroke="rgba(201,168,76,0.8)" stroke-width="0.45"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(340, 494)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/><path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/><circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/><path class="vine-walker-coat vine-walker-coat-burgundy" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/><path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/><path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/><ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/><ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(560, 495)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/><path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/><circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/><path class="vine-walker-coat vine-walker-coat-rust" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/><path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/><path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/><ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/><ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <rect class="vine-jammer-case" x="-8.4" y="6.5" width="4.2" height="6" fill="rgba(30,22,14,0.94)" stroke="rgba(201,168,76,0.8)" stroke-width="0.4"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(720, 493)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/><path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/><circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/><path class="vine-walker-coat vine-walker-coat-cream" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/><path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/><path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/><ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/><ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <line class="vine-jammer-strap" x1="-3" y1="-5" x2="4" y2="3" stroke="rgba(201,168,76,0.7)" stroke-width="0.55"/><path class="vine-jammer-case" d="M -2,-10 L 2,-10 L 3,4 L 0,6 L -3,4 Z" fill="rgba(40,28,18,0.85)" stroke="rgba(201,168,76,0.65)" stroke-width="0.4"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(960, 493)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/><path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/><circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/><path class="vine-walker-coat vine-walker-coat-burgundy" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/><path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/><path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/><ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/><ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <path class="vine-jammer-case" d="M 4,6 L 7.2,6 L 8.2,10 L 7.8,14 L 4.4,14 L 4,10 Z" fill="rgba(30,22,14,0.94)" stroke="rgba(201,168,76,0.8)" stroke-width="0.45"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(1140, 492)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/><path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/><circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/><path class="vine-walker-coat vine-walker-coat-gold" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/><path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/><path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/><ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/><ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <rect class="vine-jammer-case" x="-8.4" y="6.5" width="4.2" height="6" fill="rgba(30,22,14,0.94)" stroke="rgba(201,168,76,0.8)" stroke-width="0.4"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(1320, 491)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/><path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/><circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/><path class="vine-walker-coat vine-walker-coat-cream" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/><path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/><path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/><ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/><ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(1440, 494)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/><path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/><circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/><path class="vine-walker-coat vine-walker-coat-rust" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/><path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/><path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/><ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/><ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <path class="vine-jammer-case" d="M 4,6 L 7.2,6 L 8.2,10 L 7.8,14 L 4.4,14 L 4,10 Z" fill="rgba(30,22,14,0.94)" stroke="rgba(201,168,76,0.8)" stroke-width="0.45"/>
+        </g>
 
-        <!-- 18TH & VINE DISTRICT neon at night — halo + bright overlays
-             (matches v19 base-layer geometry — 5 rules, big clef, blue VINE) -->
-        <rect class="vine-district-sign-halo" x="230" y="240" width="220" height="160" fill="url(#vine-district-halo)"/>
-        <line class="vine-district-sign-rule-lit" x1="268" y1="264" x2="412" y2="264"/>
-        <line class="vine-district-sign-rule-lit" x1="268" y1="287" x2="412" y2="287"/>
-        <line class="vine-district-sign-rule-lit" x1="268" y1="310" x2="412" y2="310"/>
-        <line class="vine-district-sign-rule-lit" x1="268" y1="333" x2="412" y2="333"/>
-        <line class="vine-district-sign-rule-lit" x1="268" y1="355" x2="412" y2="355"/>
-        <text class="vine-district-sign-18th-lit" x="276" y="298" text-anchor="start">18</text>
-        <text class="vine-district-sign-18th-super-lit" x="309" y="283" text-anchor="start">th</text>
-        <circle cx="378" cy="270" r="30" fill="url(#vine-clef-halo)"/>
-        <text class="vine-district-sign-clef-lit" x="392" y="288" text-anchor="end">&#119070;</text>
-        <text class="vine-district-sign-vine-lit" x="340" y="350" text-anchor="middle">VINE</text>
-        <rect class="vine-district-sign-strip-lit" x="250" y="364" width="180" height="18"/>
-        <rect class="vine-district-sign-flank-bar-lit" x="293" y="366" width="3" height="14"/>
-        <rect class="vine-district-sign-flank-bar-lit" x="384" y="366" width="3" height="14"/>
-        <text class="vine-district-sign-district-lit" x="340" y="377" text-anchor="middle">DISTRICT</text>
+        <!-- v20 — EXTRA NIGHT CROWD: more walkers + musicians scattered across
+             the sidewalks after dark for a heightened nightlife vibe. Uses the
+             same .vine-walker-jammer opacity keyframes so they fade in at dusk
+             and are fully visible at night. -->
+        <g class="vine-walker-jammer" transform="translate(78, 492)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-burgundy" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/>
+          <path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/>
+          <path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <!-- Trumpet case in right hand -->
+          <rect class="vine-jammer-case" x="4" y="6" width="4.2" height="6" fill="rgba(30,22,14,0.94)" stroke="rgba(201,168,76,0.8)" stroke-width="0.4"/>
+          <line x1="4.4" y1="5.5" x2="7.2" y2="5.5" stroke="rgba(201,168,76,0.85)" stroke-width="0.5"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(260, 495)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-rust" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/>
+          <path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/>
+          <path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <!-- Sax case (curved) -->
+          <path class="vine-jammer-case" d="M 4,6 L 7.2,6 L 8.2,10 L 7.8,14 L 4.4,14 L 4,10 Z" fill="rgba(30,22,14,0.94)" stroke="rgba(201,168,76,0.8)" stroke-width="0.45"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(620, 494)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-gold" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/>
+          <path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/>
+          <path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <!-- Guitar case strapped over shoulder -->
+          <line class="vine-jammer-strap" x1="-3" y1="-5" x2="4" y2="3" stroke="rgba(201,168,76,0.7)" stroke-width="0.55"/>
+          <path class="vine-jammer-case" d="M -2,-10 L 2,-10 L 3,4 L 0,6 L -3,4 Z" fill="rgba(40,28,18,0.85)" stroke="rgba(201,168,76,0.65)" stroke-width="0.4"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(1200, 490)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-cream" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/>
+          <path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/>
+          <path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <!-- Trumpet case -->
+          <rect class="vine-jammer-case" x="-8.4" y="6.5" width="4.2" height="6" fill="rgba(30,22,14,0.94)" stroke="rgba(201,168,76,0.8)" stroke-width="0.4"/>
+        </g>
+        <!-- Regular night walkers (no instruments) to add crowd density -->
+        <g class="vine-walker-jammer" transform="translate(380, 495)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-burgundy" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/>
+          <path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/>
+          <path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(870, 492)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-gold" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/>
+          <path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/>
+          <path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+        </g>
+        <g class="vine-walker-jammer" transform="translate(1080, 495)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+          <circle class="vine-walker-head" cx="0" cy="-11" r="2.4"/>
+          <path class="vine-walker-coat vine-walker-coat-rust" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/>
+          <path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/>
+          <path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+        </g>
+
+        <!-- v20 — NIGHT JAMMERS: walkers carrying instrument cases, visible only
+             during dusk/night (inside .building-night-lights gating). Represent
+             musicians coming into the district to jam at the clubs after dark. -->
+        <!-- Jammer 1 — carrying saxophone case, walking across Paseo sidewalk -->
+        <g class="vine-walker vine-walker-jammer" transform="translate(180, 488)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+          <line class="vine-walker-hat-band" x1="-3.5" y1="-15.4" x2="3.5" y2="-15.4"/>
+          <circle class="vine-walker-head" cx="0" cy="-11" r="2.5"/>
+          <path class="vine-walker-neck" d="M -1,-8.5 L 1,-8.5 L 1.2,-7 L -1.2,-7 Z"/>
+          <path class="vine-walker-coat vine-walker-coat-cream" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/>
+          <path class="vine-walker-lapel" d="M -3,-7 L -1.2,-4 L -1,-1"/>
+          <path class="vine-walker-lapel" d="M 3,-7 L 1.2,-4 L 1,-1"/>
+          <path class="vine-walker-arm" d="M -4,-5 L -5.5,1 L -5,5 L -4,5 L -3.5,1 Z"/>
+          <path class="vine-walker-arm" d="M 4,-5 L 5.5,1 L 5,5 L 4,5 L 3.5,1 Z"/>
+          <circle class="vine-walker-hand" cx="-4.5" cy="5" r="0.8"/>
+          <circle class="vine-walker-hand" cx="4.5" cy="5" r="0.8"/>
+          <path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/>
+          <path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <!-- SAX CASE hanging from right hand -->
+          <path class="vine-jammer-case" d="M 4,6 L 7.2,6 L 8.2,10 L 7.8,14 L 4.4,14 L 4,10 Z" fill="rgba(30,22,14,0.94)" stroke="rgba(201,168,76,0.8)" stroke-width="0.45"/>
+          <line x1="4.5" y1="5.5" x2="6.5" y2="5.5" stroke="rgba(201,168,76,0.85)" stroke-width="0.5"/>
+          <rect x="5.4" y="8.6" width="1.4" height="0.9" fill="rgba(201,168,76,0.7)"/>
+          <rect x="5.4" y="11" width="1.4" height="0.9" fill="rgba(201,168,76,0.7)"/>
+        </g>
+        <!-- Jammer 2 — carrying trumpet/clarinet case, walking west on south sidewalk -->
+        <g class="vine-walker vine-walker-jammer" transform="translate(1020, 490)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+          <line class="vine-walker-hat-band" x1="-3.5" y1="-15.4" x2="3.5" y2="-15.4"/>
+          <circle class="vine-walker-head" cx="0" cy="-11" r="2.5"/>
+          <path class="vine-walker-neck" d="M -1,-8.5 L 1,-8.5 L 1.2,-7 L -1.2,-7 Z"/>
+          <path class="vine-walker-coat vine-walker-coat-burgundy" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/>
+          <path class="vine-walker-lapel" d="M -3,-7 L -1.2,-4 L -1,-1"/>
+          <path class="vine-walker-lapel" d="M 3,-7 L 1.2,-4 L 1,-1"/>
+          <path class="vine-walker-arm" d="M -4,-5 L -5.5,1 L -5,5 L -4,5 L -3.5,1 Z"/>
+          <path class="vine-walker-arm" d="M 4,-5 L 5.5,1 L 5,5 L 4,5 L 3.5,1 Z"/>
+          <circle class="vine-walker-hand" cx="-4.5" cy="5" r="0.8"/>
+          <circle class="vine-walker-hand" cx="4.5" cy="5" r="0.8"/>
+          <path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/>
+          <path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <!-- TRUMPET CASE (smaller rectangular case) hanging from left hand -->
+          <rect class="vine-jammer-case" x="-8.4" y="6.5" width="4.2" height="6" fill="rgba(30,22,14,0.94)" stroke="rgba(201,168,76,0.8)" stroke-width="0.4" rx="0.4"/>
+          <line x1="-7.8" y1="5.8" x2="-5" y2="5.8" stroke="rgba(201,168,76,0.85)" stroke-width="0.5"/>
+          <rect x="-7.4" y="8.8" width="2.4" height="0.6" fill="rgba(201,168,76,0.7)"/>
+        </g>
+        <!-- Jammer 3 — further east on the sidewalk near the district sign, with a guitar case on back -->
+        <g class="vine-walker vine-walker-jammer" transform="translate(440, 484)">
+          <ellipse class="vine-walker-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+          <path class="vine-walker-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+          <line class="vine-walker-hat-band" x1="-3.5" y1="-15.4" x2="3.5" y2="-15.4"/>
+          <circle class="vine-walker-head" cx="0" cy="-11" r="2.5"/>
+          <path class="vine-walker-neck" d="M -1,-8.5 L 1,-8.5 L 1.2,-7 L -1.2,-7 Z"/>
+          <path class="vine-walker-coat vine-walker-coat-gold" d="M -4,-7 L -2.5,-8 L 2.5,-8 L 4,-7 L 4.5,0 L 3.5,5 L -3.5,5 L -4.5,0 Z"/>
+          <path class="vine-walker-lapel" d="M -3,-7 L -1.2,-4 L -1,-1"/>
+          <path class="vine-walker-lapel" d="M 3,-7 L 1.2,-4 L 1,-1"/>
+          <!-- Guitar case strap across chest (diagonal line) -->
+          <line class="vine-jammer-strap" x1="-3.5" y1="-5" x2="3.5" y2="3" stroke="rgba(201,168,76,0.7)" stroke-width="0.6"/>
+          <path class="vine-walker-arm" d="M -4,-5 L -5.5,1 L -5,5 L -4,5 L -3.5,1 Z"/>
+          <path class="vine-walker-arm" d="M 4,-5 L 5.5,1 L 5,5 L 4,5 L 3.5,1 Z"/>
+          <circle class="vine-walker-hand" cx="-4.5" cy="5" r="0.8"/>
+          <circle class="vine-walker-hand" cx="4.5" cy="5" r="0.8"/>
+          <path class="vine-walker-leg" d="M -2,5 L -2.2,15 L -0.8,15 L -0.2,5 Z"/>
+          <path class="vine-walker-leg" d="M 2,5 L 2.2,15 L 0.8,15 L 0.2,5 Z"/>
+          <ellipse class="vine-walker-shoe" cx="-1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <ellipse class="vine-walker-shoe" cx="1.5" cy="15.5" rx="1.7" ry="0.65"/>
+          <!-- Guitar case on back (visible as a shape behind body) -->
+          <path class="vine-jammer-case" d="M -2,-10 L 2,-10 L 3,4 L 0,6 L -3,4 Z" fill="rgba(40,28,18,0.82)" stroke="rgba(201,168,76,0.65)" stroke-width="0.4"/>
+        </g>
+
+        <!-- v20 — SECOND JAZZ BAND (night-only) playing in front of the Gem Theater.
+             Smaller scale than the main musicians since this is farther back in
+             the scene. Trio of sax, trumpet, upright bass on the sidewalk at
+             the Gem's ground level. Fades in with the .vine-walker-jammer
+             opacity keyframes (so it's a night-hours party). -->
+        <g class="vine-walker-jammer" transform="translate(832, 414) scale(0.56)">
+          <!-- Sax player (smaller) -->
+          <g transform="translate(0, 0)">
+            <ellipse class="vine-musician-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+            <path class="vine-musician-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+            <line class="vine-musician-hat-band" x1="-3.5" y1="-16" x2="3.5" y2="-16"/>
+            <circle class="vine-musician-head" cx="0" cy="-11" r="2.4"/>
+            <path class="vine-musician-collar" d="M -1.3,-8 L 1.3,-8 L 1.6,-5 L -1.6,-5 Z"/>
+            <path class="vine-musician-suit" d="M -3.5,-5 L -1.3,-6 L 1.3,-6 L 3.5,-5 L 4,5 L 3,15 L -3,15 L -4,5 Z"/>
+            <path class="vine-musician-arm" d="M 3.5,-3 L 5.5,2 L 6,7 L 5,7 L 4,2 Z"/>
+            <path class="vine-musician-arm" d="M -3.5,-3 L -5,2 L -5.5,6 L -4.5,6 L -3.5,2 Z"/>
+            <!-- Simplified sax: curved neck + bell -->
+            <path d="M 5.2,3 Q 8,5 8.5,10 Q 9,14 6,15" fill="none" stroke="rgba(220,180,70,0.95)" stroke-width="0.85"/>
+            <path d="M 5.5,14 Q 7,15.5 9,14.5 L 8.5,12 L 6,12.5 Z" fill="rgba(232,195,90,0.95)" stroke="rgba(120,80,30,0.8)" stroke-width="0.3"/>
+            <path class="vine-musician-leg" d="M -2,15 L -2.2,24 L -0.8,24 L -0.3,15 Z"/>
+            <path class="vine-musician-leg" d="M 2,15 L 2.2,24 L 0.8,24 L 0.3,15 Z"/>
+            <ellipse class="vine-musician-shoe" cx="-1.5" cy="24.5" rx="2" ry="0.8"/>
+            <ellipse class="vine-musician-shoe" cx="1.5" cy="24.5" rx="2" ry="0.8"/>
+          </g>
+          <!-- Trumpet player (to the right of sax) -->
+          <g transform="translate(14, 0)">
+            <ellipse class="vine-musician-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+            <path class="vine-musician-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+            <circle class="vine-musician-head" cx="0" cy="-11" r="2.4"/>
+            <path class="vine-musician-collar" d="M -1.3,-8 L 1.3,-8 L 1.6,-5 L -1.6,-5 Z"/>
+            <path class="vine-musician-suit" d="M -3.5,-5 L -1.3,-6 L 1.3,-6 L 3.5,-5 L 4,5 L 3,15 L -3,15 L -4,5 Z"/>
+            <path class="vine-musician-arm" d="M 3.5,-4 L 5,-3 L 5.5,0 L 4.5,0 L 3.5,-2 Z"/>
+            <path class="vine-musician-arm" d="M -3.5,-4 L -4.5,-3 L -5,0 L -4,0 L -3.5,-2 Z"/>
+            <!-- Trumpet -->
+            <line x1="4.5" y1="-1" x2="9" y2="-3" stroke="rgba(220,180,70,0.95)" stroke-width="0.95"/>
+            <path d="M 9,-4.5 L 11,-3 L 10,-1 L 8,-1.5 Z" fill="rgba(232,195,90,0.95)" stroke="rgba(120,80,30,0.8)" stroke-width="0.3"/>
+            <path class="vine-musician-leg" d="M -2,15 L -2.2,24 L -0.8,24 L -0.3,15 Z"/>
+            <path class="vine-musician-leg" d="M 2,15 L 2.2,24 L 0.8,24 L 0.3,15 Z"/>
+            <ellipse class="vine-musician-shoe" cx="-1.5" cy="24.5" rx="2" ry="0.8"/>
+            <ellipse class="vine-musician-shoe" cx="1.5" cy="24.5" rx="2" ry="0.8"/>
+          </g>
+          <!-- Upright bass player (to the left) -->
+          <g transform="translate(-16, 0)">
+            <ellipse class="vine-musician-hat-brim" cx="0" cy="-14" rx="5" ry="1.2"/>
+            <path class="vine-musician-hat" d="M -3.5,-14 L 3.5,-14 L 3,-20 L -3,-20 Z"/>
+            <circle class="vine-musician-head" cx="0" cy="-11" r="2.4"/>
+            <path class="vine-musician-collar" d="M -1.3,-8 L 1.3,-8 L 1.6,-5 L -1.6,-5 Z"/>
+            <path class="vine-musician-suit" d="M -3.5,-5 L -1.3,-6 L 1.3,-6 L 3.5,-5 L 4,5 L 3,15 L -3,15 L -4,5 Z"/>
+            <!-- Upright bass (to figure's left side) -->
+            <path d="M -8,-4 L -7,-16 L -5,-20 L -3,-16 L -4,-4 Z" fill="rgba(140,82,42,0.92)" stroke="rgba(80,48,20,0.88)" stroke-width="0.35"/>
+            <line x1="-7" y1="-18" x2="-5.5" y2="-20.5" stroke="rgba(40,28,18,0.9)" stroke-width="0.35"/>
+            <line x1="-5.5" y1="-19" x2="-4" y2="-20.5" stroke="rgba(40,28,18,0.9)" stroke-width="0.35"/>
+            <line x1="-4" y1="-18" x2="-2.5" y2="-20.5" stroke="rgba(40,28,18,0.9)" stroke-width="0.35"/>
+            <path class="vine-musician-arm" d="M -3.5,-4 L -5,-3 L -5.5,0 L -4.5,0 Z"/>
+            <path class="vine-musician-arm" d="M 3.5,-4 L 4.5,-3 L 5,0 L 4,0 Z"/>
+            <path class="vine-musician-leg" d="M -2,15 L -2.2,24 L -0.8,24 L -0.3,15 Z"/>
+            <path class="vine-musician-leg" d="M 2,15 L 2.2,24 L 0.8,24 L 0.3,15 Z"/>
+            <ellipse class="vine-musician-shoe" cx="-1.5" cy="24.5" rx="2" ry="0.8"/>
+            <ellipse class="vine-musician-shoe" cx="1.5" cy="24.5" rx="2" ry="0.8"/>
+          </g>
+          <!-- v20 — Drummer (behind/right of trumpet player) seated at a small
+               kit: snare + bass drum + hi-hat cymbal + seat, holding sticks. -->
+          <g transform="translate(28, 4)">
+            <!-- Drummer body -->
+            <ellipse class="vine-musician-hat-brim" cx="0" cy="-12" rx="5" ry="1.2"/>
+            <path class="vine-musician-hat" d="M -3.5,-12 L 3.5,-12 L 3,-18 L -3,-18 Z"/>
+            <circle class="vine-musician-head" cx="0" cy="-9" r="2.4"/>
+            <path class="vine-musician-collar" d="M -1.3,-6 L 1.3,-6 L 1.6,-3 L -1.6,-3 Z"/>
+            <path class="vine-musician-suit" d="M -3.5,-3 L -1.3,-4 L 1.3,-4 L 3.5,-3 L 4,5 L 3,12 L -3,12 L -4,5 Z"/>
+            <!-- Arms holding drumsticks -->
+            <path class="vine-musician-arm" d="M -3.5,-1 L -6,2 L -6,6 L -5,6 L -4,2 Z"/>
+            <path class="vine-musician-arm" d="M 3.5,-1 L 6,2 L 6,6 L 5,6 L 4,2 Z"/>
+            <!-- Drumsticks -->
+            <line x1="-6" y1="6" x2="-9" y2="10" stroke="rgba(245,235,210,0.95)" stroke-width="0.65"/>
+            <line x1="6" y1="6" x2="9" y2="10" stroke="rgba(245,235,210,0.95)" stroke-width="0.65"/>
+            <!-- Seat (stool) -->
+            <rect x="-2" y="12" width="4" height="2" fill="rgba(60,40,24,0.88)"/>
+            <line x1="-1" y1="14" x2="-1" y2="20" stroke="rgba(60,40,24,0.88)" stroke-width="0.5"/>
+            <line x1="1" y1="14" x2="1" y2="20" stroke="rgba(60,40,24,0.88)" stroke-width="0.5"/>
+            <!-- Bass drum (large cylinder, in front of drummer) -->
+            <ellipse cx="-9" cy="14" rx="5" ry="6" fill="rgba(245,235,210,0.92)" stroke="rgba(120,80,30,0.88)" stroke-width="0.5"/>
+            <ellipse cx="-9" cy="14" rx="3" ry="4" fill="rgba(40,28,18,0.35)" stroke="rgba(120,80,30,0.6)" stroke-width="0.3"/>
+            <!-- Snare drum (smaller, tilted) -->
+            <ellipse cx="-5" cy="6" rx="3" ry="1.6" fill="rgba(245,235,210,0.94)" stroke="rgba(120,80,30,0.85)" stroke-width="0.42"/>
+            <line x1="-8" y1="6" x2="-2" y2="6" stroke="rgba(40,28,18,0.6)" stroke-width="0.28"/>
+            <!-- Hi-hat cymbal on stand (to drummer's right) -->
+            <line x1="7" y1="4" x2="7" y2="18" stroke="rgba(80,52,32,0.85)" stroke-width="0.4"/>
+            <ellipse cx="7" cy="3.5" rx="3" ry="0.6" fill="rgba(232,195,90,0.95)" stroke="rgba(120,80,30,0.85)" stroke-width="0.32"/>
+            <ellipse cx="7" cy="2" rx="3" ry="0.6" fill="rgba(232,195,90,0.85)" stroke="rgba(120,80,30,0.85)" stroke-width="0.32"/>
+            <!-- Ride cymbal behind -->
+            <line x1="2" y1="0" x2="2" y2="-4" stroke="rgba(80,52,32,0.85)" stroke-width="0.4"/>
+            <ellipse cx="2" cy="-4.5" rx="3.5" ry="0.65" fill="rgba(232,195,90,0.92)" stroke="rgba(120,80,30,0.85)" stroke-width="0.32"/>
+            <!-- Drummer legs -->
+            <path class="vine-musician-leg" d="M -2,12 L -2.2,22 L -0.8,22 L -0.3,12 Z"/>
+            <path class="vine-musician-leg" d="M 2,12 L 2.2,22 L 0.8,22 L 0.3,12 Z"/>
+            <ellipse class="vine-musician-shoe" cx="-1.5" cy="22.5" rx="1.8" ry="0.75"/>
+            <ellipse class="vine-musician-shoe" cx="1.5" cy="22.5" rx="1.8" ry="0.75"/>
+          </g>
+        </g>
+
+        <!-- v20: Sign building + district sign night-lit overlay wrapped in
+             matching translate(24, 0) so lit windows + neon stay aligned with
+             the base sign building (which was shifted right by 24u). -->
+        <g transform="translate(36, 0)">
+          <!-- Sign building upper + storefront windows -->
+          <rect class="vine-night-window-warm" x="268" y="236" width="12" height="18"/>
+          <rect class="vine-night-window-warm" x="286" y="236" width="12" height="18"/>
+          <rect class="vine-night-window-warm" x="400" y="236" width="12" height="18"/>
+          <rect class="vine-night-window-warm" x="382" y="236" width="12" height="18"/>
+          <rect class="vine-night-window-warm" x="268" y="446" width="28" height="28"/>
+          <rect class="vine-night-window-warm" x="318" y="446" width="28" height="28"/>
+          <!-- 18TH & VINE DISTRICT neon at night -->
+          <rect class="vine-district-sign-halo" x="230" y="240" width="220" height="160" fill="url(#vine-district-halo)"/>
+          <line class="vine-district-sign-rule-lit" x1="268" y1="264" x2="412" y2="264"/>
+          <line class="vine-district-sign-rule-lit" x1="268" y1="287" x2="412" y2="287"/>
+          <line class="vine-district-sign-rule-lit" x1="268" y1="310" x2="412" y2="310"/>
+          <line class="vine-district-sign-rule-lit" x1="268" y1="333" x2="412" y2="333"/>
+          <line class="vine-district-sign-rule-lit" x1="268" y1="355" x2="412" y2="355"/>
+          <text class="vine-district-sign-18th-lit" x="276" y="298" text-anchor="start">18</text>
+          <text class="vine-district-sign-18th-super-lit" x="309" y="283" text-anchor="start">th</text>
+          <circle cx="378" cy="270" r="30" fill="url(#vine-clef-halo)"/>
+          <text class="vine-district-sign-clef-lit" x="392" y="288" text-anchor="end">&#119070;</text>
+          <text class="vine-district-sign-vine-lit" x="340" y="350" text-anchor="middle">VINE</text>
+          <rect class="vine-district-sign-strip-lit" x="250" y="364" width="180" height="18"/>
+          <rect class="vine-district-sign-flank-bar-lit" x="293" y="366" width="3" height="14"/>
+          <rect class="vine-district-sign-flank-bar-lit" x="384" y="366" width="3" height="14"/>
+          <text class="vine-district-sign-district-lit" x="340" y="377" text-anchor="middle">DISTRICT</text>
+        </g>
 
         <!-- Commercial infill-south-a upper windows -->
         <rect class="vine-night-window-warm" x="264" y="428" width="10" height="10"/>
@@ -1446,52 +2653,64 @@
         <rect class="vine-night-window-warm" x="256" y="464" width="10" height="8"/>
         <rect class="vine-night-window-warm" x="300" y="452" width="10" height="8"/>
 
-        <!-- Jazz Museum sign + glass -->
-        <rect class="vine-museum-sign-lit" x="348" y="412" width="66" height="10"/>
-        <text class="vine-museum-sign-text-lit" x="381" y="419" text-anchor="middle">JAZZ MUSEUM</text>
-        <rect class="vine-neon-halo-museum" x="340" y="406" width="82" height="22" fill="url(#vine-sign-halo)"/>
-        <rect class="vine-night-glass-warm" x="328" y="438" width="54" height="10"/>
-        <rect class="vine-night-glass-warm" x="388" y="438" width="44" height="10"/>
+        <!-- v20: removed orphan JAZZ MUSEUM night-lit sign + halo that lived at
+             x=348,y=412 below the district sign. Joint sign now on the redesigned
+             NLB museum facade. Glass night-glows at x=328/388 were also orphans
+             from the pre-redesign museum; removed. -->
 
-        <!-- Gem Theater — green neon GEM + red accent + red marquee strip -->
-        <circle class="vine-neon-halo-gem-green" cx="919" cy="404" r="22" fill="url(#vine-gem-green-halo)"/>
-        <text class="vine-gem-blade-letter-lit" x="919" y="396" text-anchor="middle">G</text>
-        <text class="vine-gem-blade-letter-lit" x="919" y="404" text-anchor="middle">E</text>
-        <text class="vine-gem-blade-letter-lit" x="919" y="412" text-anchor="middle">M</text>
-        <!-- Red half-circle accent lit -->
-        <path class="vine-gem-blade-red-accent-lit" d="M 919,418 Q 923,420 923,424 Q 919,426 916,424 Q 916,420 919,418 Z"/>
-        <!-- Red marquee strip night-glow -->
-        <rect class="vine-gem-marquee-red-strip-lit" x="891" y="464" width="54" height="2"/>
-        <rect class="vine-night-window-warm" x="890" y="446" width="10" height="10"/>
-        <rect class="vine-night-window-warm" x="934" y="446" width="10" height="10"/>
-        <!-- Arched window glow -->
-        <path class="vine-night-window-warm" d="M 910,454 L 910,446 Q 918,438 926,446 L 926,454 Z"/>
+
+        <!-- Gem Theater night-effects — wrapped in matching transform so lit elements
+             scale/translate with the base .vine-gem group. -->
+        <g transform="translate(197.4, 68.2) scale(0.7)">
+          <circle class="vine-neon-halo-gem-green" cx="919" cy="404" r="22" fill="url(#vine-gem-green-halo)"/>
+          <text class="vine-gem-blade-letter-lit" x="919" y="396" text-anchor="middle">G</text>
+          <text class="vine-gem-blade-letter-lit" x="919" y="404" text-anchor="middle">E</text>
+          <text class="vine-gem-blade-letter-lit" x="919" y="412" text-anchor="middle">M</text>
+          <path class="vine-gem-blade-red-accent-lit" d="M 919,418 Q 923,420 923,424 Q 919,426 916,424 Q 916,420 919,418 Z"/>
+          <rect class="vine-gem-marquee-red-strip-lit" x="891" y="464" width="54" height="2"/>
+          <rect class="vine-night-window-warm" x="890" y="446" width="10" height="10"/>
+          <rect class="vine-night-window-warm" x="934" y="446" width="10" height="10"/>
+          <path class="vine-night-window-warm" d="M 910,454 L 910,446 Q 918,438 926,446 L 926,454 Z"/>
+        </g>
         <!-- Vine Street Brewing sign + windows -->
-        <rect class="vine-brewery-sign-lit" x="1092" y="396" width="82" height="8"/>
-        <text class="vine-brewery-sign-text-lit" x="1133" y="402" text-anchor="middle">VINE ST BREWING</text>
-        <rect class="vine-neon-halo-museum" x="1082" y="392" width="102" height="18" fill="url(#vine-sign-halo)"/>
-        <rect class="vine-night-window-warm" x="1112" y="376" width="14" height="18"/>
-        <rect class="vine-night-window-warm" x="1158" y="372" width="14" height="18"/>
-        <rect class="vine-night-window-warm" x="1088" y="410" width="14" height="18"/>
-        <rect class="vine-night-window-warm" x="1136" y="406" width="14" height="18"/>
-        <!-- MMF window glows (every window lit — jam session) -->
-        <path class="vine-night-window-warm" d="M 830,436 L 830,446 L 850,446 L 850,436 Q 840,428 830,436 Z"/>
-        <rect class="vine-night-window-warm" x="810" y="456" width="10" height="8"/>
-        <rect class="vine-night-window-warm" x="824" y="456" width="10" height="8"/>
-        <rect class="vine-night-window-warm" x="858" y="456" width="10" height="8"/>
-        <rect class="vine-night-window-warm" x="810" y="476" width="12" height="10"/>
-        <rect class="vine-night-window-warm" x="852" y="476" width="12" height="10"/>
+        <!-- VINE ST BREWING night-lit sign (v20 — relocated to match new brewery at x=920-1016) -->
+        <rect class="vine-brewery-sign-lit" x="948" y="464" width="40" height="7"/>
+        <text class="vine-brewery-sign-text-lit" x="968" y="469.5" text-anchor="middle">VINE ST BREWING</text>
+        <rect class="vine-neon-halo-museum" x="940" y="460" width="56" height="16" fill="url(#vine-sign-halo)"/>
+        <!-- Arched window glows through the brewery bays -->
+        <path class="vine-night-window-warm" d="M 928,486 L 928,474 Q 934,468 940,474 L 940,486 Z"/>
+        <path class="vine-night-window-warm" d="M 946,486 L 946,474 Q 952,468 958,474 L 958,486 Z"/>
+        <path class="vine-night-window-warm" d="M 978,486 L 978,474 Q 984,468 990,474 L 990,486 Z"/>
+        <path class="vine-night-window-warm" d="M 996,486 L 996,474 Q 1002,468 1008,474 L 1008,486 Z"/>
+        <!-- v20: orphan brewery/hotel night windows removed — their x-coords
+             (x=1088-1158) were from the pre-v19 building positions and now
+             render as floating lights to the right of the castle. -->
+
+        <!-- MMF window glows (every window lit — jam session).
+             v20: wrapped in matching translate so they move with the base MMF group. -->
+        <g transform="translate(218, 51.8) scale(0.8)">
+          <path class="vine-night-window-warm" d="M 830,436 L 830,446 L 850,446 L 850,436 Q 840,428 830,436 Z"/>
+          <rect class="vine-night-window-warm" x="810" y="456" width="10" height="8"/>
+          <rect class="vine-night-window-warm" x="824" y="456" width="10" height="8"/>
+          <rect class="vine-night-window-warm" x="858" y="456" width="10" height="8"/>
+          <rect class="vine-night-window-warm" x="810" y="476" width="12" height="10"/>
+          <rect class="vine-night-window-warm" x="852" y="476" width="12" height="10"/>
+        </g>
         <!-- Blue Room — night: subtle neon glow on letters + ROOM, bright on chase bulbs only
-             (per Brian's direction: "sign only lights up on the curved bulb arrangement"). -->
-        <rect class="vine-blue-room-halo" x="492" y="388" width="48" height="80" fill="url(#vine-blue-room-halo)"/>
-        <text class="vine-blue-room-letter-lit" x="514" y="408" text-anchor="middle">B</text>
-        <text class="vine-blue-room-letter-lit" x="514" y="418" text-anchor="middle">L</text>
-        <text class="vine-blue-room-letter-lit" x="514" y="428" text-anchor="middle">U</text>
-        <text class="vine-blue-room-letter-lit" x="514" y="438" text-anchor="middle">E</text>
-        <text class="vine-blue-room-room-text-lit" x="514" y="453.5" text-anchor="middle">ROOM</text>
-        <!-- Interior warm glow on windows -->
-        <rect class="vine-night-window-warm" x="450" y="458" width="20" height="12"/>
-        <rect class="vine-night-window-warm" x="490" y="458" width="20" height="12"/>
+             (per Brian's direction: "sign only lights up on the curved bulb arrangement").
+             v20: ALL x-coords fixed — this overlay was stranded at the pre-v18f Blue Room
+             position (x~514); now aligned to current sign panel at x=678-696. This was
+             the "ghost sign" Brian saw flashing in/out at night. -->
+        <g transform="translate(-15, -16)">
+          <rect class="vine-blue-room-halo" x="672" y="396" width="30" height="52" fill="url(#vine-blue-room-halo)"/>
+          <text class="vine-blue-room-letter-lit" x="687" y="411" text-anchor="middle">B</text>
+          <text class="vine-blue-room-letter-lit" x="687" y="418" text-anchor="middle">L</text>
+          <text class="vine-blue-room-letter-lit" x="687" y="425" text-anchor="middle">U</text>
+          <text class="vine-blue-room-letter-lit" x="687" y="432" text-anchor="middle">E</text>
+          <text class="vine-blue-room-room-text-lit" x="687" y="436.5" text-anchor="middle">ROOM</text>
+          <rect class="vine-night-window-warm" x="620" y="448" width="14" height="10"/>
+          <rect class="vine-night-window-warm" x="656" y="448" width="14" height="10"/>
+        </g>
 
         <!-- Paseo YMCA windows -->
         <path class="vine-night-window-warm" d="M 1200,334 L 1200,298 Q 1208,288 1216,298 L 1216,334 Z"/>
@@ -1503,18 +2722,12 @@
         <rect class="vine-ymca-lintel-lit" x="1250" y="442" width="58" height="12"/>
         <text class="vine-ymca-lintel-text-lit" x="1279" y="451" text-anchor="middle">PASEO YMCA</text>
 
-        <!-- Street Hotel windows -->
-        <rect class="vine-night-window-warm" x="1022" y="368" width="10" height="14"/>
-        <rect class="vine-night-window-warm" x="1058" y="372" width="10" height="14"/>
-        <rect class="vine-night-window-warm" x="1006" y="392" width="10" height="16"/>
-        <rect class="vine-night-window-warm" x="1040" y="396" width="10" height="16"/>
-        <rect class="vine-night-window-warm" x="1022" y="422" width="10" height="16"/>
-        <rect class="vine-night-window-warm" x="1058" y="426" width="10" height="16"/>
-        <rect class="vine-night-window-warm" x="1006" y="450" width="10" height="16"/>
+        <!-- v20: orphan "Street Hotel" + "north-side infill" night windows
+             removed — their x-coords (1006-1158) were sized/positioned for
+             the pre-v19 layout, and since the Brewery was redesigned as a
+             castellated stone building with arched windows, these rectangular
+             lit windows were floating unanchored near the castle. -->
 
-        <!-- North-side infill windows -->
-        <rect class="vine-night-window-warm" x="1088" y="378" width="14" height="18"/>
-        <rect class="vine-night-window-warm" x="1136" y="374" width="14" height="18"/>
 
         <!-- Streetlamp halos (5 lamps, depth-scaled) -->
         <circle class="vine-lamp-halo-glow" cx="1154" cy="328" r="32" fill="url(#vine-lamp-halo)"/>
@@ -1528,11 +2741,43 @@
         <circle class="vine-lamp-halo-glow" cx="1502" cy="336" r="44" fill="url(#vine-lamp-halo)"/>
         <circle class="vine-lamp-core-lit" cx="1502" cy="336" r="5.5"/>
 
-        <!-- Music notes drifting up from the district block -->
+      </g>
+
+      <!-- v20 — Music notes MOVED OUT of vine-night-effects so their TOD-based
+           opacity classes (.vine-notes-dusk-night, .vine-notes-night-dawn, etc.)
+           work independently of the parent building-night-lights gate. Each
+           group uses a MIX of note sub-classes (a..f) for randomized drift
+           timing + delay + drift distance so they don't feel synchronized. -->
+      <g class="vine-music-notes-layer" aria-hidden="true">
+        <!-- Musicians playing (always visible) -->
         <g class="vine-music-notes">
-          <text class="vine-music-note vine-music-note-a" x="400" y="420" text-anchor="middle">&#9835;</text>
-          <text class="vine-music-note vine-music-note-b" x="380" y="420" text-anchor="middle">&#9833;</text>
-          <text class="vine-music-note vine-music-note-c" x="420" y="420" text-anchor="middle">&#9839;</text>
+          <text class="vine-music-note vine-music-note-a" x="500" y="456" text-anchor="middle">&#9835;</text>
+          <text class="vine-music-note vine-music-note-d" x="520" y="456" text-anchor="middle">&#9833;</text>
+          <text class="vine-music-note vine-music-note-f" x="540" y="456" text-anchor="middle">&#9835;</text>
+        </g>
+        <!-- Blue Room (Dusk + Night) -->
+        <g class="vine-music-notes vine-notes-dusk-night">
+          <text class="vine-music-note vine-music-note-b" x="660" y="400" text-anchor="middle">&#9835;</text>
+          <text class="vine-music-note vine-music-note-e" x="676" y="400" text-anchor="middle">&#9833;</text>
+          <text class="vine-music-note vine-music-note-c" x="692" y="400" text-anchor="middle">&#9835;</text>
+        </g>
+        <!-- Gem Theater (Dusk + Night) -->
+        <g class="vine-music-notes vine-notes-dusk-night">
+          <text class="vine-music-note vine-music-note-d" x="830" y="372" text-anchor="middle">&#9835;</text>
+          <text class="vine-music-note vine-music-note-f" x="846" y="376" text-anchor="middle">&#9833;</text>
+          <text class="vine-music-note vine-music-note-a" x="862" y="372" text-anchor="middle">&#9835;</text>
+        </g>
+        <!-- Mutual Musicians Foundation (Night + Dawn) -->
+        <g class="vine-music-notes vine-notes-night-dawn">
+          <text class="vine-music-note vine-music-note-c" x="882" y="388" text-anchor="middle">&#9835;</text>
+          <text class="vine-music-note vine-music-note-a" x="898" y="388" text-anchor="middle">&#9833;</text>
+          <text class="vine-music-note vine-music-note-e" x="914" y="388" text-anchor="middle">&#9835;</text>
+        </g>
+        <!-- Vine Street Brewing (Day + Dusk + Night) -->
+        <g class="vine-music-notes vine-notes-day-dusk-night">
+          <text class="vine-music-note vine-music-note-f" x="952" y="442" text-anchor="middle">&#9835;</text>
+          <text class="vine-music-note vine-music-note-b" x="968" y="442" text-anchor="middle">&#9833;</text>
+          <text class="vine-music-note vine-music-note-d" x="984" y="442" text-anchor="middle">&#9835;</text>
         </g>
       </g>
 
