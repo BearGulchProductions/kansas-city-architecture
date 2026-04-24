@@ -10614,3 +10614,269 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   .vine-paseo-walker-gate { animation: none; opacity: 1; }
   .vine-walker-jammer { animation: none; opacity: 0.85; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v21 — West Bottoms signature scene + canonical ghost toggle pattern.
+   Camera: viewer stands on the 12th Street Viaduct, looking NW and down
+   into the basin. Tonal target is QUIETER and more ATMOSPHERIC than
+   18th & Vine — industrial silence with occasional life, not a crowd of
+   activity. No jammers, no food carts, no music notes. Animation is
+   atmospheric (steam, distant train, lamp halos) not performative.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.westbottoms-hero-scene {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  overflow: hidden;
+  background: #0A0603;
+  isolation: isolate;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 900px) { .westbottoms-hero-scene { height: 440px; } }
+@media (max-width: 640px) { .westbottoms-hero-scene { height: 360px; } }
+
+.westbottoms-hero-backdrop { position: absolute; inset: 0; z-index: 1; }
+.westbottoms-hero-svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; }
+
+.westbottoms-hero-overlay {
+  position: absolute;
+  top: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  text-align: center;
+  pointer-events: none;
+  max-width: 58%;
+}
+.westbottoms-hero-overlay .eyebrow {
+  display: block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.55rem;
+  opacity: 0.92;
+}
+.westbottoms-hero-overlay h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+  color: var(--cream);
+  line-height: 0.95;
+  margin: 0;
+  font-weight: 400;
+}
+.westbottoms-hero-overlay h1 span { color: var(--gold); }
+@media (max-width: 900px) {
+  .westbottoms-hero-overlay { top: 1.4rem; max-width: 70%; }
+}
+@media (max-width: 640px) {
+  .westbottoms-hero-overlay { top: 0.9rem; max-width: 90%; }
+  .westbottoms-hero-overlay h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  .westbottoms-hero-overlay .eyebrow { font-size: 0.58rem; letter-spacing: 0.3em; margin-bottom: 0.3rem; }
+}
+
+/* ─── Palette classes (applied inside the scene SVG) ─────────────────── */
+.scene-westbottoms-brick        { fill: #8B3A1F; stroke: #A04A2A; }
+.scene-westbottoms-brick-dark   { fill: #6B2A15; stroke: #7C3A22; }
+.scene-westbottoms-limestone    { fill: #B8A788; stroke: #C7B596; }
+.scene-westbottoms-railgray     { fill: #4D4D52; stroke: #5E5E64; }
+.scene-haunted-red              { fill: #D42030; stroke: #F04050; }
+
+/* Sooty sky tint — overlays shared TOD backdrop inside SVG head */
+.westbottoms-sky-soot { fill: rgba(40, 28, 20, 0.42); }
+
+/* ─── Night-only effects (lamp halos, haunted neon) ──────────────────── */
+/* Kept OUTSIDE parent night-effects group per v20 retrospective, so TOD
+   gating is explicit per layer and easier to tune individually. */
+.westbottoms-night-glow {
+  opacity: 0;
+  animation: westbottoms-night-glow-fade 40s linear infinite;
+}
+@keyframes westbottoms-night-glow-fade {
+  0%, 50%   { opacity: 0; }
+  55%       { opacity: 0.25; }
+  75%       { opacity: 0.92; }
+  100%      { opacity: 0.95; }
+}
+
+/* Haunted district subdued red glow: crossfades at night with a slow
+   low-amplitude pulse. NOT chase bulbs. NOT bright. A nod, not a party. */
+.westbottoms-haunted-glow {
+  opacity: 0;
+  animation: westbottoms-haunted-glow-fade 40s linear infinite,
+             westbottoms-haunted-pulse 4.2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes westbottoms-haunted-glow-fade {
+  0%, 55%   { opacity: 0; }
+  65%       { opacity: 0.3; }
+  80%       { opacity: 0.65; }
+  100%      { opacity: 0.7; }
+}
+@keyframes westbottoms-haunted-pulse {
+  0%, 100% { filter: brightness(0.88); }
+  50%      { filter: brightness(1.08); }
+}
+
+/* ─── Atmospheric animations ─────────────────────────────────────────── */
+/* Steam plume from distant industrial stack on far riverbank.
+   Three offset puffs give continuous rise without synchrony. */
+.westbottoms-steam-puff {
+  opacity: 0;
+  transform-origin: center bottom;
+  animation: westbottoms-steam-rise 6.4s ease-out infinite;
+}
+.westbottoms-steam-puff-a { animation-delay: 0s; }
+.westbottoms-steam-puff-b { animation-delay: 2.1s; }
+.westbottoms-steam-puff-c { animation-delay: 4.0s; }
+@keyframes westbottoms-steam-rise {
+  0%   { opacity: 0;    transform: translateY(0)    scale(0.55); }
+  15%  { opacity: 0.55; }
+  55%  { opacity: 0.3; }
+  100% { opacity: 0;    transform: translateY(-38px) scale(2.1); }
+}
+
+/* Distant train on the far rail line, slow horizontal crawl, low opacity.
+   TOD-independent (always running) so the scene always feels "a train somewhere."
+   Long duration (~105s) + low opacity = atmospheric, not performative. */
+.westbottoms-distant-train {
+  animation: westbottoms-distant-train-crawl 108s linear infinite;
+  opacity: 0.55;
+}
+@keyframes westbottoms-distant-train-crawl {
+  0%   { transform: translateX(1700px); }
+  100% { transform: translateX(-420px); }
+}
+
+/* Kansas River subtle horizontal shimmer — not waves, just a gentle shift. */
+.westbottoms-river-shimmer {
+  animation: westbottoms-river-shift 22s ease-in-out infinite;
+  transform-box: fill-box;
+}
+@keyframes westbottoms-river-shift {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .westbottoms-steam-puff,
+  .westbottoms-distant-train,
+  .westbottoms-haunted-glow,
+  .westbottoms-river-shimmer,
+  .westbottoms-night-glow { animation: none; }
+  .westbottoms-haunted-glow { opacity: 0.55; }
+  .westbottoms-night-glow   { opacity: 0.7; }
+  .westbottoms-steam-puff   { opacity: 0.5; transform: translateY(-12px) scale(1.2); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v21 — CANONICAL ghost toggle pattern.
+   First real implementation. Any signature scene whose wrapper class
+   matches `*-hero-scene` can drop in a `.scene-ghost-toggle-input` +
+   `.scene-ghost-toggle-label` and wrap ghost SVG groups in
+   `.scene-ghost-building` to reveal demolished-building footprints.
+   Modern browsers: `:has()` lets the scene container observe its own
+   checkbox state, so the pattern is DOM-order agnostic.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.scene-ghost-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.scene-ghost-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.42rem 0.95rem;
+  border: 1px solid rgba(201, 168, 76, 0.42);
+  border-radius: 999px;
+  background: rgba(14, 10, 6, 0.55);
+  color: var(--cream);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+  transition: background 240ms ease, border-color 240ms ease, color 240ms ease;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.scene-ghost-toggle-label::before {
+  content: '';
+  display: inline-block;
+  width: 0.82rem;
+  height: 0.82rem;
+  border: 1px solid rgba(201, 168, 76, 0.58);
+  border-radius: 2px;
+  background: transparent;
+  transition: background 240ms ease, border-color 240ms ease;
+  flex-shrink: 0;
+}
+
+.scene-ghost-toggle-label:hover {
+  background: rgba(30, 22, 14, 0.72);
+  border-color: rgba(201, 168, 76, 0.65);
+  color: var(--gold);
+}
+
+[class*="-hero-scene"]:has(.scene-ghost-toggle-input:focus-visible) .scene-ghost-toggle-label {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+[class*="-hero-scene"]:has(.scene-ghost-toggle-input:checked) .scene-ghost-toggle-label {
+  background: rgba(201, 168, 76, 0.16);
+  border-color: rgba(201, 168, 76, 0.75);
+  color: var(--gold);
+}
+
+[class*="-hero-scene"]:has(.scene-ghost-toggle-input:checked) .scene-ghost-toggle-label::before {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+/* Ghost building default: invisible. When the scene's toggle is checked,
+   fade in at 0.55 with dashed gold stroke. */
+.scene-ghost-building {
+  opacity: 0;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+.scene-ghost-building path,
+.scene-ghost-building rect,
+.scene-ghost-building polygon,
+.scene-ghost-building polyline,
+.scene-ghost-building line,
+.scene-ghost-building circle,
+.scene-ghost-building ellipse {
+  fill: none !important;
+  stroke: var(--gold);
+  stroke-width: 1.3;
+  stroke-dasharray: 4 3;
+  vector-effect: non-scaling-stroke;
+}
+
+[class*="-hero-scene"]:has(.scene-ghost-toggle-input:checked) .scene-ghost-building {
+  opacity: 0.62;
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-ghost-building,
+  .scene-ghost-toggle-label,
+  .scene-ghost-toggle-label::before {
+    transition: none;
+  }
+}

@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="West Bottoms — Look Up, Kansas City" />
   <meta name="twitter:description" content="The West Bottoms — Kansas City's industrial riverfront neighborhood, once the economic engine of the city, now a weekend antiques and events district." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/c/ca/Snowing_in_the_West_Bottoms%2C_Kansas_City.jpg" />
-  <link rel="stylesheet" href="../style.css?v=20a" />
+  <link rel="stylesheet" href="../style.css?v=21a" />
 </head>
 <body>
 
@@ -111,15 +111,720 @@
     West Bottoms
   </div>
 
-  <div class="detail-hero">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Snowing_in_the_West_Bottoms%2C_Kansas_City.jpg"
-         alt="Snow falling over the West Bottoms industrial district, Kansas City"
-         style="object-position: center 50%;" />
-    <div class="detail-hero-overlay">
-      <span class="eyebrow">Kansas City Neighborhoods</span>
-      <h1>West<br /><span>Bottoms</span></h1>
+  <!-- v21 — West Bottoms signature scene.
+       Industrial district at the bottom of a hill, camera on the 12th
+       Street Viaduct looking NW and down into the basin. Tonal target
+       is QUIETER and more ATMOSPHERIC than 18th & Vine — no jammers,
+       no food carts, no music notes. Animation is atmospheric (steam
+       plume, distant train, lamp halos, haunted glow) not performative.
+       Canonical ghost toggle pattern debuts here: checkbox + label
+       reveal the stockyards footprint south of the Livestock Exchange. -->
+  <section class="westbottoms-hero-scene" aria-labelledby="westbottoms-hero-h1">
+    <!-- v21: canonical ghost toggle — pure-CSS :has(:checked) reveals the
+         .scene-ghost-building stockyards footprint inside the SVG below. -->
+    <input type="checkbox" id="westbottoms-ghost-toggle" class="scene-ghost-toggle-input" aria-label="Show demolished buildings as ghosted outlines"/>
+    <div class="westbottoms-hero-backdrop" aria-hidden="true">
+      <div class="tod-layer tod-dawn"></div>
+      <div class="tod-layer tod-day"></div>
+      <div class="tod-layer tod-dusk"></div>
+      <div class="tod-layer tod-night"></div>
+      <div class="tod-layer tod-stormy"></div>
+      <div class="tod-layer tod-snowy"></div>
     </div>
-  </div>
+    <div class="westbottoms-hero-overlay">
+      <span class="eyebrow">Kansas City Neighborhoods &bull; Industrial Origins</span>
+      <h1 id="westbottoms-hero-h1">West<br /><span>Bottoms</span></h1>
+      <label for="westbottoms-ghost-toggle" class="scene-ghost-toggle-label">Show what was lost</label>
+    </div>
+    <svg class="westbottoms-hero-svg" viewBox="0 0 1600 600"
+         preserveAspectRatio="xMidYMid slice"
+         xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-labelledby="westbottoms-hero-title westbottoms-hero-desc">
+      <title id="westbottoms-hero-title">West Bottoms — looking NW from the 12th Street Viaduct into the basin. The Livestock Exchange Building anchors the view; Mosaic (Kemper) Arena sits to the left, warehouse row receding right, antique row at the foreground-right corner, haunted district bulk at foreground-left, and the Kansas River + distant downtown skyline on the far horizon. The Hereford bull stands on the viaduct deck in the near foreground.</title>
+      <desc id="westbottoms-hero-desc">A quiet industrial-evening composition. The 12th Street Viaduct forms a foreground S-curve; the viewer stands on the deck and looks NW. Beyond the deck: the Livestock Exchange Building rises nine stories as the scene's anchor, flanked by Mosaic (Kemper) Arena's saddle-roof silhouette on the left and a row of surviving brick warehouses to the right. Rail tracks curve along the near bank of the Kansas River; three boxcars sit static on a spur. A distant industrial stack on the far riverbank releases a slow steam plume. At night, viaduct lamp halos and a subdued red glow from the haunted district are the only lit elements; downtown Kansas City's skyline is a low, far-horizon silhouette. The sky cycles dawn through night on a 40-second loop synced with the homepage hero.</desc>
+
+      <!-- ═══════════════════════════════════════════════════════════════════════
+           GEOGRAPHIC BLOCK-OUT (v21 — canonical layout reference)
+           ─────────────────────────────────────────────────────────────────────
+           CARDINAL ORIENTATION:
+             Viewer stands on the 12th Street Viaduct deck, which at its
+             highest point sits ~80 ft above the basin floor. Camera looks
+             NW and DOWN into the West Bottoms. Horizon is NW (far distance).
+             LEFT of view  = SW (Mosaic Arena, haunted district)
+             RIGHT of view = NE (antique row, Hereford bull on deck)
+
+           Key geometry (viewBox 0 0 1600 600):
+             Horizon line: ~y=218
+             Kansas River band: y=218-252 (thin horizontal)
+             Rail line along near bank: y=252-272
+             Basin floor (mid-ground): y=260-430
+             Foreground viaduct deck: y=365-600 (curves across)
+
+           LANDMARKS (x-range · y-range):
+             x=60-300    Haunted district (warehouse bulk, FG-left, red glow)
+             x=80-330    Mosaic (Kemper) Arena saddle roof (mid-left, behind haunted)
+             x=400-880   Stockyards ghost footprint (dashed; behind/south of Livestock Ex.)
+             x=560-790   LIVESTOCK EXCHANGE BUILDING (ANCHOR, 9-story, center)
+             x=800-1180  Warehouse row (6 brick buildings, mid-right)
+             x=900-1180  Rail yard + 3 boxcars (on tracks)
+             x=1050-1075 HEREFORD BULL statue on viaduct plinth (FG-near)
+             x=1240-1520 Antique row (narrow brick storefronts, FG-right)
+             x=1080-1430 Distant downtown KC skyline (far horizon)
+             x=130-170   Distant industrial stack + steam plume (far riverbank)
+
+           DEPTH TIER POLICY (v21):
+             y<220      Far background = silhouettes only
+             y=220-340  Background     = cornice + window grid + one feature
+             y=340-430  Mid-ground     = full articulation on Livestock Exchange,
+                                          silhouettes on warehouses/arena
+             y=430-600  Foreground     = viaduct deck, railing, lamps, bull
+
+           When moving or adding buildings, UPDATE THIS BLOCK — it's the
+           canonical geography reference. Cardinals were established v21.
+           ═══════════════════════════════════════════════════════════════════════ -->
+
+      <!-- ═══════ LAYER 1: Defs (gradients, patterns) ═══════ -->
+      <defs>
+        <radialGradient id="wb-lamp-halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="rgba(255,220,160,0.62)"/>
+          <stop offset="65%"  stop-color="rgba(255,190,120,0.14)"/>
+          <stop offset="100%" stop-color="rgba(255,170,90,0)"/>
+        </radialGradient>
+        <radialGradient id="wb-haunted-halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="rgba(212,32,48,0.55)"/>
+          <stop offset="60%"  stop-color="rgba(212,32,48,0.18)"/>
+          <stop offset="100%" stop-color="rgba(212,32,48,0)"/>
+        </radialGradient>
+        <radialGradient id="wb-steam" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="rgba(235,220,200,0.82)"/>
+          <stop offset="60%"  stop-color="rgba(200,180,160,0.45)"/>
+          <stop offset="100%" stop-color="rgba(200,180,160,0)"/>
+        </radialGradient>
+        <linearGradient id="wb-river" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#2A3440"/>
+          <stop offset="100%" stop-color="#1E2630"/>
+        </linearGradient>
+        <linearGradient id="wb-viaduct-deck" x1="50%" y1="0%" x2="50%" y2="100%">
+          <stop offset="0%"   stop-color="#8A8377"/>
+          <stop offset="60%"  stop-color="#5E5750"/>
+          <stop offset="100%" stop-color="#3C362F"/>
+        </linearGradient>
+        <linearGradient id="wb-livestock-front" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#A04A2A"/>
+          <stop offset="50%"  stop-color="#8B3A1F"/>
+          <stop offset="100%" stop-color="#6B2A15"/>
+        </linearGradient>
+      </defs>
+
+      <!-- ═══════ LAYER 2: Sooty sky tint (overlays shared TOD backdrop) ═══════ -->
+      <rect class="westbottoms-sky-soot" x="0" y="0" width="1600" height="220" aria-hidden="true"/>
+      <rect x="0" y="200" width="1600" height="40" fill="url(#wb-river)" opacity="0.18" aria-hidden="true"/>
+
+      <!-- ═══════ LAYER 3: Stars (visible at night via TOD sync) ═══════ -->
+      <g class="westbottoms-night-glow" aria-hidden="true">
+        <circle cx="120"  cy="42"  r="0.7" fill="rgba(255,240,210,0.85)"/>
+        <circle cx="260"  cy="68"  r="0.9" fill="rgba(255,240,210,0.9)"/>
+        <circle cx="380"  cy="34"  r="0.6" fill="rgba(255,240,210,0.8)"/>
+        <circle cx="510"  cy="88"  r="0.8" fill="rgba(255,240,210,0.85)"/>
+        <circle cx="640"  cy="52"  r="0.7" fill="rgba(255,240,210,0.8)"/>
+        <circle cx="780"  cy="28"  r="0.9" fill="rgba(255,240,210,0.92)"/>
+        <circle cx="920"  cy="78"  r="0.7" fill="rgba(255,240,210,0.82)"/>
+        <circle cx="1060" cy="44"  r="0.8" fill="rgba(255,240,210,0.88)"/>
+        <circle cx="1190" cy="90"  r="0.6" fill="rgba(255,240,210,0.78)"/>
+        <circle cx="1340" cy="56"  r="0.8" fill="rgba(255,240,210,0.85)"/>
+        <circle cx="1480" cy="36"  r="0.7" fill="rgba(255,240,210,0.8)"/>
+        <circle cx="200"  cy="148" r="0.5" fill="rgba(255,240,210,0.7)"/>
+        <circle cx="720"  cy="156" r="0.55" fill="rgba(255,240,210,0.72)"/>
+        <circle cx="1280" cy="140" r="0.5" fill="rgba(255,240,210,0.7)"/>
+      </g>
+
+      <!-- ═══════ LAYER 4: Distant downtown KC skyline on far horizon ═══════
+           Low-opacity silhouette suggesting Liberty Memorial + the downtown
+           cluster. Viewer is WEST of downtown, so KC reads as a distant
+           eastern horizon behind the basin. -->
+      <g class="westbottoms-downtown-distant" aria-hidden="true" opacity="0.38">
+        <!-- Horizon haze -->
+        <rect x="1020" y="196" width="480" height="26" fill="#2A2418"/>
+        <!-- Liberty Memorial shaft + flame -->
+        <rect x="1080" y="172" width="4" height="24" fill="#1A1410"/>
+        <circle cx="1082" cy="170" r="2.5" fill="#1A1410"/>
+        <!-- Power &amp; Light stepped crown -->
+        <path d="M 1180,196 L 1180,172 L 1184,172 L 1184,162 L 1188,162 L 1188,152 L 1200,152 L 1200,162 L 1204,162 L 1204,172 L 1208,172 L 1208,196 Z" fill="#1A1410"/>
+        <rect x="1192" y="148" width="4" height="4" fill="#1A1410"/>
+        <!-- Town Pavilion -->
+        <path d="M 1230,196 L 1230,162 L 1234,158 L 1246,158 L 1250,162 L 1250,196 Z" fill="#1A1410"/>
+        <!-- One KC Place (tallest, pitched roof) -->
+        <path d="M 1270,196 L 1270,156 L 1278,148 L 1286,156 L 1286,196 Z" fill="#1A1410"/>
+        <!-- Commerce Tower -->
+        <path d="M 1302,196 L 1302,160 L 1316,160 L 1316,196 Z" fill="#1A1410"/>
+        <!-- T-Mobile Center drum -->
+        <ellipse cx="1344" cy="196" rx="18" ry="6" fill="#1A1410"/>
+        <rect x="1326" y="184" width="36" height="12" fill="#1A1410"/>
+        <!-- Bartle Hall pylons -->
+        <line x1="1380" y1="196" x2="1380" y2="168" stroke="#1A1410" stroke-width="1"/>
+        <line x1="1386" y1="196" x2="1386" y2="164" stroke="#1A1410" stroke-width="1"/>
+        <line x1="1392" y1="196" x2="1392" y2="164" stroke="#1A1410" stroke-width="1"/>
+        <line x1="1398" y1="196" x2="1398" y2="168" stroke="#1A1410" stroke-width="1"/>
+        <!-- Distant other buildings -->
+        <rect x="1420" y="178" width="10" height="18" fill="#1A1410"/>
+        <rect x="1434" y="182" width="8" height="14" fill="#1A1410"/>
+        <rect x="1448" y="176" width="12" height="20" fill="#1A1410"/>
+      </g>
+
+      <!-- ═══════ LAYER 5: Far-bank industrial + steam plume ═══════
+           Single smokestack on far riverbank with three offset steam puffs.
+           The stack stays static; the puffs rise and fade on varied delays. -->
+      <g class="westbottoms-far-bank" aria-hidden="true">
+        <!-- Far-bank buildings (low silhouettes) -->
+        <rect x="80"  y="194" width="60"  height="26" fill="#1F1810" opacity="0.8"/>
+        <rect x="180" y="198" width="80"  height="22" fill="#1F1810" opacity="0.78"/>
+        <rect x="280" y="196" width="40"  height="24" fill="#1F1810" opacity="0.8"/>
+        <rect x="340" y="200" width="90"  height="20" fill="#1F1810" opacity="0.78"/>
+        <rect x="460" y="196" width="60"  height="24" fill="#1F1810" opacity="0.8"/>
+        <rect x="540" y="200" width="70"  height="20" fill="#1F1810" opacity="0.78"/>
+        <rect x="640" y="198" width="50"  height="22" fill="#1F1810" opacity="0.8"/>
+        <rect x="720" y="196" width="80"  height="24" fill="#1F1810" opacity="0.78"/>
+        <rect x="830" y="200" width="60"  height="20" fill="#1F1810" opacity="0.8"/>
+        <rect x="920" y="198" width="40"  height="22" fill="#1F1810" opacity="0.78"/>
+        <!-- Industrial smokestack (far-left of far bank) -->
+        <rect x="138" y="160" width="10" height="60" fill="#1A140E"/>
+        <rect x="136" y="158" width="14" height="4" fill="#1A140E"/>
+        <!-- Steam plume — three offset puffs rising from stack top -->
+        <g transform="translate(143, 158)">
+          <circle class="westbottoms-steam-puff westbottoms-steam-puff-a" cx="0" cy="-4" r="6" fill="url(#wb-steam)"/>
+          <circle class="westbottoms-steam-puff westbottoms-steam-puff-b" cx="-2" cy="-4" r="5" fill="url(#wb-steam)"/>
+          <circle class="westbottoms-steam-puff westbottoms-steam-puff-c" cx="2" cy="-4" r="5.5" fill="url(#wb-steam)"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 6: Kansas River ═══════ -->
+      <g class="westbottoms-river-shimmer" aria-hidden="true">
+        <rect x="180" y="218" width="1240" height="34" fill="url(#wb-river)"/>
+        <!-- Subtle highlight bands -->
+        <line x1="220"  y1="226" x2="420"  y2="226" stroke="rgba(255,240,210,0.1)" stroke-width="0.6"/>
+        <line x1="520"  y1="232" x2="760"  y2="232" stroke="rgba(255,240,210,0.08)" stroke-width="0.5"/>
+        <line x1="840"  y1="240" x2="1080" y2="240" stroke="rgba(255,240,210,0.1)" stroke-width="0.6"/>
+        <line x1="1160" y1="228" x2="1380" y2="228" stroke="rgba(255,240,210,0.08)" stroke-width="0.5"/>
+      </g>
+
+      <!-- ═══════ LAYER 7: Rail lines along near bank + distant train ═══════ -->
+      <g class="westbottoms-rails" aria-hidden="true">
+        <!-- Near-bank rail bed -->
+        <rect x="180" y="252" width="1240" height="14" fill="#2F2A24"/>
+        <!-- Two rails -->
+        <line x1="180" y1="257" x2="1420" y2="257" stroke="#8A8377" stroke-width="0.8" opacity="0.6"/>
+        <line x1="180" y1="263" x2="1420" y2="263" stroke="#8A8377" stroke-width="0.8" opacity="0.6"/>
+        <!-- Tie marks -->
+        <g stroke="#4D4343" stroke-width="0.6" opacity="0.55">
+          <line x1="200" y1="253" x2="200" y2="266"/><line x1="240" y1="253" x2="240" y2="266"/>
+          <line x1="280" y1="253" x2="280" y2="266"/><line x1="320" y1="253" x2="320" y2="266"/>
+          <line x1="360" y1="253" x2="360" y2="266"/><line x1="400" y1="253" x2="400" y2="266"/>
+          <line x1="440" y1="253" x2="440" y2="266"/><line x1="480" y1="253" x2="480" y2="266"/>
+          <line x1="520" y1="253" x2="520" y2="266"/><line x1="560" y1="253" x2="560" y2="266"/>
+          <line x1="600" y1="253" x2="600" y2="266"/><line x1="640" y1="253" x2="640" y2="266"/>
+          <line x1="680" y1="253" x2="680" y2="266"/><line x1="720" y1="253" x2="720" y2="266"/>
+          <line x1="760" y1="253" x2="760" y2="266"/><line x1="800" y1="253" x2="800" y2="266"/>
+          <line x1="840" y1="253" x2="840" y2="266"/><line x1="880" y1="253" x2="880" y2="266"/>
+          <line x1="920" y1="253" x2="920" y2="266"/><line x1="960" y1="253" x2="960" y2="266"/>
+          <line x1="1000" y1="253" x2="1000" y2="266"/><line x1="1040" y1="253" x2="1040" y2="266"/>
+          <line x1="1080" y1="253" x2="1080" y2="266"/><line x1="1120" y1="253" x2="1120" y2="266"/>
+          <line x1="1160" y1="253" x2="1160" y2="266"/><line x1="1200" y1="253" x2="1200" y2="266"/>
+          <line x1="1240" y1="253" x2="1240" y2="266"/><line x1="1280" y1="253" x2="1280" y2="266"/>
+          <line x1="1320" y1="253" x2="1320" y2="266"/><line x1="1360" y1="253" x2="1360" y2="266"/>
+        </g>
+      </g>
+
+      <!-- Far-bank distant train — very slow east-to-west crawl across upper river.
+           TOD-independent, low opacity, atmospheric. -->
+      <g class="westbottoms-distant-train" aria-hidden="true">
+        <!-- Locomotive + 4 cars, each ~46 wide -->
+        <rect x="-240" y="208" width="44" height="12" fill="#1A1410"/>
+        <rect x="-230" y="202" width="22" height="6"  fill="#1A1410"/>
+        <rect x="-192" y="210" width="42" height="10" fill="#241A14"/>
+        <rect x="-146" y="210" width="42" height="10" fill="#241A14"/>
+        <rect x="-100" y="210" width="42" height="10" fill="#241A14"/>
+        <rect x="-54"  y="210" width="42" height="10" fill="#241A14"/>
+      </g>
+
+      <!-- ═══════ LAYER 8: Stockyards ghost footprint ═══════
+           Wrapped in .scene-ghost-building — invisible by default, dashed
+           gold outline when the scene's ghost toggle is checked. Placed
+           BEHIND the Livestock Exchange to suggest the vast demolished
+           complex the Exchange once anchored. -->
+      <a href="../history/kc-stockyards.html" aria-label="Kansas City Stockyards (1871–1991, demolished) — click for history">
+        <g class="westbottoms-stockyards-ghost scene-ghost-building" aria-labelledby="wb-stockyards-title">
+          <title id="wb-stockyards-title">Kansas City Stockyards (1871–1991, demolished)</title>
+          <!-- Outer footprint (irregular L-shape across basin floor) -->
+          <path d="M 400,380 L 820,380 L 820,410 L 880,410 L 880,432 L 420,432 L 420,410 L 400,410 Z"/>
+          <!-- Internal pen divisions (suggest the scale of the former yards) -->
+          <line x1="470" y1="380" x2="470" y2="432"/>
+          <line x1="540" y1="380" x2="540" y2="432"/>
+          <line x1="610" y1="380" x2="610" y2="432"/>
+          <line x1="680" y1="380" x2="680" y2="432"/>
+          <line x1="750" y1="380" x2="750" y2="432"/>
+          <line x1="400" y1="406" x2="880" y2="406"/>
+          <!-- Loading platforms (rectangular notches at rear) -->
+          <rect x="430" y="362" width="80" height="18"/>
+          <rect x="620" y="362" width="80" height="18"/>
+          <rect x="770" y="362" width="50" height="18"/>
+        </g>
+      </a>
+
+      <!-- ═══════ LAYER 9: Mosaic (Kemper) Arena ═══════
+           Saddle-roof silhouette on the left. Distinctive inverted-catenary
+           curve. The building's signage historically said KEMPER for
+           decades — renamed Mosaic in 2023 but the stencil lingers on. -->
+      <a href="../buildings/mosaic-arena.html" aria-label="Mosaic (Kemper) Arena — click for detail">
+        <g class="westbottoms-mosaic-arena" aria-labelledby="wb-mosaic-title">
+          <title id="wb-mosaic-title">Mosaic (Kemper) Arena — renamed 2023</title>
+          <!-- Base / body -->
+          <rect x="100" y="360" width="240" height="74" class="scene-westbottoms-limestone" stroke-width="0.8"/>
+          <!-- Saddle roof: inverted catenary via quadratic curve -->
+          <path d="M 100,360 Q 220,306 340,360 L 340,366 Q 220,314 100,366 Z" class="scene-westbottoms-limestone" stroke-width="0.9"/>
+          <!-- Exterior trusses (distinctive exposed structure) -->
+          <g stroke="#6F675A" stroke-width="0.7" fill="none" opacity="0.85">
+            <line x1="116" y1="360" x2="124" y2="340"/>
+            <line x1="160" y1="350" x2="172" y2="328"/>
+            <line x1="220" y1="346" x2="220" y2="320"/>
+            <line x1="278" y1="350" x2="268" y2="328"/>
+            <line x1="322" y1="360" x2="316" y2="340"/>
+          </g>
+          <!-- Horizontal banding -->
+          <line x1="104" y1="390" x2="336" y2="390" stroke="#7A6F5E" stroke-width="0.5" opacity="0.7"/>
+          <line x1="104" y1="410" x2="336" y2="410" stroke="#7A6F5E" stroke-width="0.5" opacity="0.7"/>
+          <!-- Entry doors -->
+          <rect x="196" y="414" width="14" height="20" fill="#2C251D" stroke="#7A6F5E" stroke-width="0.4"/>
+          <rect x="228" y="414" width="14" height="20" fill="#2C251D" stroke="#7A6F5E" stroke-width="0.4"/>
+          <!-- "KEMPER" stencil signage (ghostly, persistent across rename) -->
+          <text x="220" y="402" fill="rgba(201,168,76,0.65)" font-size="9" font-family="'Josefin Sans', sans-serif" text-anchor="middle" letter-spacing="2.5">KEMPER</text>
+        </g>
+      </a>
+
+      <!-- ═══════ LAYER 10: Livestock Exchange Building (ANCHOR) ═══════
+           1910 Neoclassical. 9 stories of buff brick over a rusticated
+           limestone base, with a mansard-roofed crown. Central projecting
+           bay. This is the scene's anchor — Paseo YMCA equivalent for
+           18th & Vine. Full articulation: cornice, window grid, limestone
+           base with arched entrance, mansard attic with dormers, and the
+           building's name signage across the cornice. -->
+      <a href="../buildings/livestock-exchange.html" aria-label="Kansas City Livestock Exchange Building — click for detail">
+        <g class="westbottoms-livestock-exchange" aria-labelledby="wb-livestock-title">
+          <title id="wb-livestock-title">Kansas City Livestock Exchange Building (1910) — anchor of the West Bottoms</title>
+          <!-- Main mass: 9 stories of brick -->
+          <rect x="560" y="254" width="230" height="148" fill="url(#wb-livestock-front)" stroke="#A04A2A" stroke-width="0.8"/>
+          <!-- Central projecting bay (darker to suggest shadow return) -->
+          <rect x="638" y="250" width="74" height="152" class="scene-westbottoms-brick-dark" stroke-width="0.8"/>
+          <!-- Limestone rusticated base (2 stories) -->
+          <rect x="560" y="372" width="230" height="30" class="scene-westbottoms-limestone" stroke-width="0.7"/>
+          <!-- Rustication lines on base -->
+          <g stroke="#A29474" stroke-width="0.35" opacity="0.75">
+            <line x1="560" y1="380" x2="790" y2="380"/>
+            <line x1="560" y1="388" x2="790" y2="388"/>
+            <line x1="560" y1="396" x2="790" y2="396"/>
+          </g>
+          <!-- Arched main entrance (central bay) -->
+          <path d="M 665,402 L 665,388 Q 665,376 675,376 L 685,376 Q 695,376 695,388 L 695,402 Z" fill="#1E140C" stroke="#A29474" stroke-width="0.5"/>
+          <!-- Keystone + rusticated arch -->
+          <rect x="672" y="374" width="6" height="3" fill="#A29474"/>
+          <!-- Cornice band (top of brick mass) -->
+          <rect x="556" y="250" width="238" height="6" class="scene-westbottoms-limestone" stroke-width="0.5"/>
+          <!-- Mansard roof with dormers -->
+          <path d="M 556,250 L 564,232 L 788,232 L 794,250 Z" fill="#2A2018" stroke="#5E5048" stroke-width="0.5"/>
+          <!-- Three dormer windows -->
+          <rect x="600" y="236" width="10" height="12" fill="#3E2E20" stroke="#8A7A68" stroke-width="0.3"/>
+          <path d="M 598,236 L 605,230 L 612,236 Z" fill="#2A2018" stroke="#5E5048" stroke-width="0.3"/>
+          <rect x="670" y="234" width="10" height="14" fill="#3E2E20" stroke="#8A7A68" stroke-width="0.3"/>
+          <path d="M 668,234 L 675,228 L 682,234 Z" fill="#2A2018" stroke="#5E5048" stroke-width="0.3"/>
+          <rect x="740" y="236" width="10" height="12" fill="#3E2E20" stroke="#8A7A68" stroke-width="0.3"/>
+          <path d="M 738,236 L 745,230 L 752,236 Z" fill="#2A2018" stroke="#5E5048" stroke-width="0.3"/>
+          <!-- Flagpole + flag finial at center -->
+          <line x1="675" y1="228" x2="675" y2="210" stroke="#A29474" stroke-width="0.6"/>
+          <circle cx="675" cy="208" r="1.2" fill="#C9A84C"/>
+          <!-- Upper cornice detail -->
+          <rect x="560" y="258" width="230" height="3" fill="#6B2A15" opacity="0.8"/>
+          <!-- Window grid: 7 stories × 8 columns (2 columns in central bay, 3 each wing) -->
+          <g fill="#2A1810" stroke="#6B3A20" stroke-width="0.25">
+            <!-- Row heights: stories at y=268, 284, 300, 316, 332, 348, 364 -->
+            <!-- Left wing: 3 windows per story at x=572, 592, 612 -->
+            <!-- Right wing: 3 windows per story at x=728, 748, 768 -->
+            <!-- Central bay: 2 windows per story at x=654, 688 -->
+            <!-- Story 9 (top) -->
+            <rect x="572" y="266" width="8" height="10"/><rect x="592" y="266" width="8" height="10"/><rect x="612" y="266" width="8" height="10"/>
+            <rect x="654" y="264" width="10" height="12"/><rect x="686" y="264" width="10" height="12"/>
+            <rect x="728" y="266" width="8" height="10"/><rect x="748" y="266" width="8" height="10"/><rect x="768" y="266" width="8" height="10"/>
+            <!-- Story 8 -->
+            <rect x="572" y="282" width="8" height="10"/><rect x="592" y="282" width="8" height="10"/><rect x="612" y="282" width="8" height="10"/>
+            <rect x="654" y="280" width="10" height="12"/><rect x="686" y="280" width="10" height="12"/>
+            <rect x="728" y="282" width="8" height="10"/><rect x="748" y="282" width="8" height="10"/><rect x="768" y="282" width="8" height="10"/>
+            <!-- Story 7 -->
+            <rect x="572" y="298" width="8" height="10"/><rect x="592" y="298" width="8" height="10"/><rect x="612" y="298" width="8" height="10"/>
+            <rect x="654" y="296" width="10" height="12"/><rect x="686" y="296" width="10" height="12"/>
+            <rect x="728" y="298" width="8" height="10"/><rect x="748" y="298" width="8" height="10"/><rect x="768" y="298" width="8" height="10"/>
+            <!-- Story 6 -->
+            <rect x="572" y="314" width="8" height="10"/><rect x="592" y="314" width="8" height="10"/><rect x="612" y="314" width="8" height="10"/>
+            <rect x="654" y="312" width="10" height="12"/><rect x="686" y="312" width="10" height="12"/>
+            <rect x="728" y="314" width="8" height="10"/><rect x="748" y="314" width="8" height="10"/><rect x="768" y="314" width="8" height="10"/>
+            <!-- Story 5 -->
+            <rect x="572" y="330" width="8" height="10"/><rect x="592" y="330" width="8" height="10"/><rect x="612" y="330" width="8" height="10"/>
+            <rect x="654" y="328" width="10" height="12"/><rect x="686" y="328" width="10" height="12"/>
+            <rect x="728" y="330" width="8" height="10"/><rect x="748" y="330" width="8" height="10"/><rect x="768" y="330" width="8" height="10"/>
+            <!-- Story 4 -->
+            <rect x="572" y="346" width="8" height="10"/><rect x="592" y="346" width="8" height="10"/><rect x="612" y="346" width="8" height="10"/>
+            <rect x="654" y="344" width="10" height="12"/><rect x="686" y="344" width="10" height="12"/>
+            <rect x="728" y="346" width="8" height="10"/><rect x="748" y="346" width="8" height="10"/><rect x="768" y="346" width="8" height="10"/>
+            <!-- Story 3 (top of limestone base is at y=372, so this is last brick story) -->
+            <rect x="572" y="362" width="8" height="8"/><rect x="592" y="362" width="8" height="8"/><rect x="612" y="362" width="8" height="8"/>
+            <rect x="728" y="362" width="8" height="8"/><rect x="748" y="362" width="8" height="8"/><rect x="768" y="362" width="8" height="8"/>
+          </g>
+          <!-- Night window glows (on a subset at night) -->
+          <g class="westbottoms-night-glow" aria-hidden="true">
+            <rect x="592" y="282" width="8" height="10" fill="rgba(255,200,140,0.6)"/>
+            <rect x="654" y="312" width="10" height="12" fill="rgba(255,200,140,0.55)"/>
+            <rect x="748" y="298" width="8" height="10" fill="rgba(255,200,140,0.58)"/>
+            <rect x="686" y="344" width="10" height="12" fill="rgba(255,200,140,0.62)"/>
+            <rect x="572" y="330" width="8" height="10" fill="rgba(255,200,140,0.55)"/>
+            <rect x="768" y="266" width="8" height="10" fill="rgba(255,200,140,0.5)"/>
+          </g>
+          <!-- Cornice sign lettering (small, readable on close inspection) -->
+          <text x="675" y="249" fill="rgba(201,168,76,0.72)" font-size="5.5" font-family="'Josefin Sans', sans-serif" text-anchor="middle" letter-spacing="1.2">LIVESTOCK EXCHANGE</text>
+        </g>
+      </a>
+
+      <!-- ═══════ LAYER 11: Warehouse row (6 surviving brick buildings) ═══════
+           Mid-right of the basin. Varied heights and rooflines, Romanesque
+           Revival detailing where visible. Reads as "the district" rather
+           than individual buildings. -->
+      <g class="westbottoms-warehouse-row" aria-hidden="true">
+        <!-- Warehouse 1 -->
+        <rect x="800" y="350" width="60" height="80" class="scene-westbottoms-brick" stroke-width="0.6"/>
+        <rect x="800" y="346" width="60" height="6"  class="scene-westbottoms-brick-dark" stroke-width="0.4"/>
+        <g fill="#1E1008" opacity="0.85">
+          <rect x="810" y="362" width="6" height="8"/><rect x="822" y="362" width="6" height="8"/><rect x="834" y="362" width="6" height="8"/><rect x="846" y="362" width="6" height="8"/>
+          <rect x="810" y="378" width="6" height="8"/><rect x="822" y="378" width="6" height="8"/><rect x="834" y="378" width="6" height="8"/><rect x="846" y="378" width="6" height="8"/>
+          <rect x="810" y="394" width="6" height="8"/><rect x="822" y="394" width="6" height="8"/><rect x="834" y="394" width="6" height="8"/><rect x="846" y="394" width="6" height="8"/>
+        </g>
+        <!-- Warehouse 2 (taller, 6 stories) -->
+        <rect x="860" y="336" width="54" height="94" class="scene-westbottoms-brick-dark" stroke-width="0.6"/>
+        <rect x="858" y="332" width="58" height="6" class="scene-westbottoms-brick" stroke-width="0.4"/>
+        <g fill="#1E1008" opacity="0.85">
+          <rect x="870" y="344" width="5" height="7"/><rect x="880" y="344" width="5" height="7"/><rect x="890" y="344" width="5" height="7"/><rect x="900" y="344" width="5" height="7"/>
+          <rect x="870" y="358" width="5" height="7"/><rect x="880" y="358" width="5" height="7"/><rect x="890" y="358" width="5" height="7"/><rect x="900" y="358" width="5" height="7"/>
+          <rect x="870" y="372" width="5" height="7"/><rect x="880" y="372" width="5" height="7"/><rect x="890" y="372" width="5" height="7"/><rect x="900" y="372" width="5" height="7"/>
+          <rect x="870" y="386" width="5" height="7"/><rect x="880" y="386" width="5" height="7"/><rect x="890" y="386" width="5" height="7"/><rect x="900" y="386" width="5" height="7"/>
+          <rect x="870" y="400" width="5" height="7"/><rect x="880" y="400" width="5" height="7"/><rect x="890" y="400" width="5" height="7"/><rect x="900" y="400" width="5" height="7"/>
+        </g>
+        <!-- Warehouse 3 -->
+        <rect x="914" y="358" width="68" height="72" class="scene-westbottoms-brick" stroke-width="0.6"/>
+        <path d="M 914,358 L 948,346 L 982,358 Z" class="scene-westbottoms-brick-dark" stroke-width="0.4"/>
+        <g fill="#1E1008" opacity="0.85">
+          <rect x="924" y="368" width="7" height="9"/><rect x="938" y="368" width="7" height="9"/><rect x="952" y="368" width="7" height="9"/><rect x="966" y="368" width="7" height="9"/>
+          <rect x="924" y="384" width="7" height="9"/><rect x="938" y="384" width="7" height="9"/><rect x="952" y="384" width="7" height="9"/><rect x="966" y="384" width="7" height="9"/>
+          <rect x="924" y="400" width="7" height="9"/><rect x="938" y="400" width="7" height="9"/><rect x="952" y="400" width="7" height="9"/><rect x="966" y="400" width="7" height="9"/>
+        </g>
+        <!-- Warehouse 4 (with arched cornice — Romanesque) -->
+        <rect x="982" y="340" width="64" height="90" class="scene-westbottoms-brick-dark" stroke-width="0.6"/>
+        <g fill="#4A2818" opacity="0.9">
+          <path d="M 990,340 Q 995,332 1000,340"/>
+          <path d="M 1006,340 Q 1011,332 1016,340"/>
+          <path d="M 1022,340 Q 1027,332 1032,340"/>
+          <path d="M 1038,340 Q 1043,332 1048,340"/>
+        </g>
+        <g fill="#1E1008" opacity="0.85">
+          <rect x="990" y="350" width="6" height="8"/><rect x="1002" y="350" width="6" height="8"/><rect x="1014" y="350" width="6" height="8"/><rect x="1026" y="350" width="6" height="8"/><rect x="1038" y="350" width="6" height="8"/>
+          <rect x="990" y="366" width="6" height="8"/><rect x="1002" y="366" width="6" height="8"/><rect x="1014" y="366" width="6" height="8"/><rect x="1026" y="366" width="6" height="8"/><rect x="1038" y="366" width="6" height="8"/>
+          <rect x="990" y="382" width="6" height="8"/><rect x="1002" y="382" width="6" height="8"/><rect x="1014" y="382" width="6" height="8"/><rect x="1026" y="382" width="6" height="8"/><rect x="1038" y="382" width="6" height="8"/>
+          <rect x="990" y="398" width="6" height="8"/><rect x="1002" y="398" width="6" height="8"/><rect x="1014" y="398" width="6" height="8"/><rect x="1026" y="398" width="6" height="8"/><rect x="1038" y="398" width="6" height="8"/>
+        </g>
+        <!-- Warehouse 5 -->
+        <rect x="1046" y="354" width="58" height="76" class="scene-westbottoms-brick" stroke-width="0.6"/>
+        <rect x="1046" y="350" width="58" height="6" class="scene-westbottoms-brick-dark" stroke-width="0.4"/>
+        <g fill="#1E1008" opacity="0.85">
+          <rect x="1054" y="362" width="6" height="8"/><rect x="1066" y="362" width="6" height="8"/><rect x="1078" y="362" width="6" height="8"/><rect x="1090" y="362" width="6" height="8"/>
+          <rect x="1054" y="378" width="6" height="8"/><rect x="1066" y="378" width="6" height="8"/><rect x="1078" y="378" width="6" height="8"/><rect x="1090" y="378" width="6" height="8"/>
+          <rect x="1054" y="394" width="6" height="8"/><rect x="1066" y="394" width="6" height="8"/><rect x="1078" y="394" width="6" height="8"/><rect x="1090" y="394" width="6" height="8"/>
+        </g>
+        <!-- Warehouse 6 -->
+        <rect x="1104" y="346" width="76" height="84" class="scene-westbottoms-brick-dark" stroke-width="0.6"/>
+        <rect x="1102" y="342" width="80" height="6" class="scene-westbottoms-brick" stroke-width="0.4"/>
+        <g fill="#1E1008" opacity="0.85">
+          <rect x="1114" y="354" width="6" height="8"/><rect x="1126" y="354" width="6" height="8"/><rect x="1138" y="354" width="6" height="8"/><rect x="1150" y="354" width="6" height="8"/><rect x="1162" y="354" width="6" height="8"/><rect x="1174" y="354" width="6" height="8"/>
+          <rect x="1114" y="370" width="6" height="8"/><rect x="1126" y="370" width="6" height="8"/><rect x="1138" y="370" width="6" height="8"/><rect x="1150" y="370" width="6" height="8"/><rect x="1162" y="370" width="6" height="8"/><rect x="1174" y="370" width="6" height="8"/>
+          <rect x="1114" y="386" width="6" height="8"/><rect x="1126" y="386" width="6" height="8"/><rect x="1138" y="386" width="6" height="8"/><rect x="1150" y="386" width="6" height="8"/><rect x="1162" y="386" width="6" height="8"/><rect x="1174" y="386" width="6" height="8"/>
+          <rect x="1114" y="402" width="6" height="8"/><rect x="1126" y="402" width="6" height="8"/><rect x="1138" y="402" width="6" height="8"/><rect x="1150" y="402" width="6" height="8"/><rect x="1162" y="402" width="6" height="8"/><rect x="1174" y="402" width="6" height="8"/>
+        </g>
+        <!-- A few scattered night window glows on warehouses -->
+        <g class="westbottoms-night-glow" aria-hidden="true">
+          <rect x="822" y="378" width="6" height="8" fill="rgba(255,200,140,0.5)"/>
+          <rect x="890" y="386" width="5" height="7" fill="rgba(255,200,140,0.55)"/>
+          <rect x="1014" y="366" width="6" height="8" fill="rgba(255,200,140,0.52)"/>
+          <rect x="1138" y="386" width="6" height="8" fill="rgba(255,200,140,0.5)"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 12: Boxcars on near-bank rail spur ═══════ -->
+      <g class="westbottoms-boxcars" aria-hidden="true">
+        <rect x="900" y="418" width="78" height="28" class="scene-westbottoms-railgray" stroke-width="0.6"/>
+        <rect x="900" y="414" width="78" height="4"  fill="#3A3A40"/>
+        <line x1="908" y1="418" x2="908" y2="446" stroke="#6E6E74" stroke-width="0.4"/>
+        <line x1="940" y1="418" x2="940" y2="446" stroke="#6E6E74" stroke-width="0.4"/>
+        <line x1="970" y1="418" x2="970" y2="446" stroke="#6E6E74" stroke-width="0.4"/>
+        <circle cx="914" cy="450" r="3" fill="#2A2A30"/>
+        <circle cx="964" cy="450" r="3" fill="#2A2A30"/>
+
+        <rect x="986" y="418" width="78" height="28" fill="#5A3A2A" stroke="#6B4A38" stroke-width="0.6"/>
+        <rect x="986" y="414" width="78" height="4"  fill="#3A2418"/>
+        <line x1="994" y1="418" x2="994" y2="446" stroke="#7A5848" stroke-width="0.4"/>
+        <line x1="1026" y1="418" x2="1026" y2="446" stroke="#7A5848" stroke-width="0.4"/>
+        <line x1="1056" y1="418" x2="1056" y2="446" stroke="#7A5848" stroke-width="0.4"/>
+        <circle cx="1000" cy="450" r="3" fill="#2A2A30"/>
+        <circle cx="1050" cy="450" r="3" fill="#2A2A30"/>
+
+        <rect x="1072" y="418" width="78" height="28" class="scene-westbottoms-railgray" stroke-width="0.6"/>
+        <rect x="1072" y="414" width="78" height="4" fill="#3A3A40"/>
+        <line x1="1080" y1="418" x2="1080" y2="446" stroke="#6E6E74" stroke-width="0.4"/>
+        <line x1="1112" y1="418" x2="1112" y2="446" stroke="#6E6E74" stroke-width="0.4"/>
+        <line x1="1142" y1="418" x2="1142" y2="446" stroke="#6E6E74" stroke-width="0.4"/>
+        <circle cx="1086" cy="450" r="3" fill="#2A2A30"/>
+        <circle cx="1136" cy="450" r="3" fill="#2A2A30"/>
+      </g>
+
+      <!-- ═══════ LAYER 13: Haunted district (FG-left) ═══════
+           Edge of Hell / The Beast live in surviving warehouses. Subdued
+           red glow at night (TOD-gated); nothing festive, no chase bulbs. -->
+      <a href="../districts/west-bottoms-haunted.html" aria-label="West Bottoms haunted district (Edge of Hell / The Beast) — click for detail">
+        <g class="westbottoms-haunted-district" aria-labelledby="wb-haunted-title">
+          <title id="wb-haunted-title">West Bottoms haunted district — Edge of Hell &amp; The Beast</title>
+          <!-- Warehouse bulk -->
+          <rect x="40" y="382" width="180" height="80" class="scene-westbottoms-brick-dark" stroke-width="0.6"/>
+          <rect x="38" y="378" width="184" height="6" fill="#4A1A10" stroke="#5E2A1A" stroke-width="0.4"/>
+          <!-- Roofline with irregular crenellation -->
+          <rect x="56"  y="374" width="10" height="8" fill="#4A1A10"/>
+          <rect x="86"  y="372" width="10" height="10" fill="#4A1A10"/>
+          <rect x="118" y="376" width="10" height="6" fill="#4A1A10"/>
+          <rect x="160" y="372" width="10" height="10" fill="#4A1A10"/>
+          <rect x="192" y="376" width="10" height="6" fill="#4A1A10"/>
+          <!-- Windows (bricked over on upper rows, a few still glazed) -->
+          <g fill="#1A0A08" opacity="0.9">
+            <rect x="56" y="392" width="10" height="12"/><rect x="76" y="392" width="10" height="12"/><rect x="96" y="392" width="10" height="12"/><rect x="116" y="392" width="10" height="12"/><rect x="136" y="392" width="10" height="12"/><rect x="156" y="392" width="10" height="12"/><rect x="176" y="392" width="10" height="12"/><rect x="196" y="392" width="10" height="12"/>
+            <rect x="56" y="412" width="10" height="12"/><rect x="76" y="412" width="10" height="12"/><rect x="96" y="412" width="10" height="12"/><rect x="116" y="412" width="10" height="12"/><rect x="136" y="412" width="10" height="12"/><rect x="156" y="412" width="10" height="12"/><rect x="176" y="412" width="10" height="12"/><rect x="196" y="412" width="10" height="12"/>
+          </g>
+          <!-- Ground-level entrance (haunted attraction doorway) -->
+          <path d="M 110,462 L 110,438 Q 110,428 120,428 L 140,428 Q 150,428 150,438 L 150,462 Z" fill="#0A0504" stroke="#5E2A1A" stroke-width="0.5"/>
+          <!-- "EDGE OF HELL" blade sign (neon class for glow) -->
+          <g transform="translate(70, 386)">
+            <rect x="-16" y="-6" width="36" height="12" fill="#3A100A" stroke="#D42030" stroke-width="0.6"/>
+            <text x="2" y="2.5" fill="#D42030" font-size="5" font-family="'Josefin Sans', sans-serif" text-anchor="middle" letter-spacing="0.6" class="westbottoms-haunted-glow">EDGE OF HELL</text>
+          </g>
+          <!-- "THE BEAST" marquee -->
+          <g transform="translate(178, 384)">
+            <rect x="-24" y="-4" width="48" height="10" fill="#3A100A" stroke="#D42030" stroke-width="0.6"/>
+            <text x="0" y="3" fill="#D42030" font-size="5.5" font-family="'Josefin Sans', sans-serif" text-anchor="middle" letter-spacing="0.8" class="westbottoms-haunted-glow">THE BEAST</text>
+          </g>
+        </g>
+      </a>
+
+      <!-- Haunted red halo (night-only, soft pulse) — kept OUTSIDE the
+           district group per v20 retro so the TOD gating is independent. -->
+      <g class="westbottoms-haunted-glow" aria-hidden="true">
+        <ellipse cx="90"  cy="394" rx="46" ry="20" fill="url(#wb-haunted-halo)"/>
+        <ellipse cx="196" cy="392" rx="44" ry="18" fill="url(#wb-haunted-halo)"/>
+      </g>
+
+      <!-- ═══════ LAYER 14: Antique row (FG-right) ═══════
+           Cluster of 4 narrow brick storefronts. First Weekends banner
+           stretches above. Soft warm window glow at night. -->
+      <a href="../districts/west-bottoms-antiques.html" aria-label="West Bottoms antique row — First Weekends markets — click for detail">
+        <g class="westbottoms-antique-row" aria-labelledby="wb-antiques-title">
+          <title id="wb-antiques-title">West Bottoms antique row — First Weekends markets</title>
+          <!-- Storefront 1 (narrowest) -->
+          <rect x="1250" y="396" width="54" height="66" class="scene-westbottoms-brick" stroke-width="0.5"/>
+          <rect x="1248" y="392" width="58" height="6" class="scene-westbottoms-brick-dark" stroke-width="0.4"/>
+          <!-- Storefront 2 -->
+          <rect x="1306" y="388" width="64" height="74" class="scene-westbottoms-brick-dark" stroke-width="0.5"/>
+          <rect x="1304" y="384" width="68" height="6" class="scene-westbottoms-brick" stroke-width="0.4"/>
+          <!-- Storefront 3 (tallest) -->
+          <rect x="1372" y="380" width="70" height="82" class="scene-westbottoms-brick" stroke-width="0.5"/>
+          <rect x="1370" y="376" width="74" height="6" class="scene-westbottoms-brick-dark" stroke-width="0.4"/>
+          <!-- Pediment detail -->
+          <path d="M 1370,376 L 1407,368 L 1444,376 Z" class="scene-westbottoms-brick" stroke-width="0.4"/>
+          <!-- Storefront 4 -->
+          <rect x="1444" y="390" width="66" height="72" class="scene-westbottoms-brick-dark" stroke-width="0.5"/>
+          <rect x="1442" y="386" width="70" height="6" class="scene-westbottoms-brick" stroke-width="0.4"/>
+          <!-- Upper-floor windows -->
+          <g fill="#1E1008" opacity="0.88">
+            <rect x="1260" y="406" width="8" height="10"/><rect x="1276" y="406" width="8" height="10"/><rect x="1290" y="406" width="8" height="10"/>
+            <rect x="1260" y="424" width="8" height="10"/><rect x="1276" y="424" width="8" height="10"/><rect x="1290" y="424" width="8" height="10"/>
+            <rect x="1316" y="398" width="8" height="10"/><rect x="1332" y="398" width="8" height="10"/><rect x="1350" y="398" width="8" height="10"/>
+            <rect x="1316" y="418" width="8" height="10"/><rect x="1332" y="418" width="8" height="10"/><rect x="1350" y="418" width="8" height="10"/>
+            <rect x="1316" y="438" width="8" height="10"/><rect x="1332" y="438" width="8" height="10"/><rect x="1350" y="438" width="8" height="10"/>
+            <rect x="1382" y="390" width="8" height="10"/><rect x="1400" y="390" width="8" height="10"/><rect x="1420" y="390" width="8" height="10"/>
+            <rect x="1382" y="410" width="8" height="10"/><rect x="1400" y="410" width="8" height="10"/><rect x="1420" y="410" width="8" height="10"/>
+            <rect x="1382" y="430" width="8" height="10"/><rect x="1400" y="430" width="8" height="10"/><rect x="1420" y="430" width="8" height="10"/>
+            <rect x="1454" y="402" width="8" height="10"/><rect x="1472" y="402" width="8" height="10"/><rect x="1490" y="402" width="8" height="10"/>
+            <rect x="1454" y="422" width="8" height="10"/><rect x="1472" y="422" width="8" height="10"/><rect x="1490" y="422" width="8" height="10"/>
+            <rect x="1454" y="442" width="8" height="10"/><rect x="1472" y="442" width="8" height="10"/><rect x="1490" y="442" width="8" height="10"/>
+          </g>
+          <!-- Ground-floor storefronts with glass (suggests retail) -->
+          <rect x="1258" y="448" width="42" height="14" fill="#1A1208" stroke="#A04A2A" stroke-width="0.4"/>
+          <rect x="1314" y="446" width="52" height="16" fill="#1A1208" stroke="#A04A2A" stroke-width="0.4"/>
+          <rect x="1380" y="444" width="58" height="18" fill="#1A1208" stroke="#A04A2A" stroke-width="0.4"/>
+          <rect x="1452" y="446" width="54" height="16" fill="#1A1208" stroke="#A04A2A" stroke-width="0.4"/>
+          <!-- First Weekends banner across the row (draped between 2 and 4) -->
+          <path d="M 1306,386 Q 1380,404 1444,386" fill="none" stroke="#C9A84C" stroke-width="0.8"/>
+          <rect x="1335" y="390" width="84" height="12" fill="rgba(14,10,6,0.72)" stroke="#C9A84C" stroke-width="0.5"/>
+          <text x="1377" y="399" fill="#C9A84C" font-size="6.5" font-family="'Josefin Sans', sans-serif" text-anchor="middle" letter-spacing="1.2">FIRST WEEKENDS</text>
+          <!-- Antique row night window glow -->
+          <g class="westbottoms-night-glow" aria-hidden="true">
+            <rect x="1258" y="448" width="42" height="14" fill="rgba(255,200,140,0.46)"/>
+            <rect x="1314" y="446" width="52" height="16" fill="rgba(255,200,140,0.48)"/>
+            <rect x="1380" y="444" width="58" height="18" fill="rgba(255,200,140,0.5)"/>
+            <rect x="1452" y="446" width="54" height="16" fill="rgba(255,200,140,0.44)"/>
+          </g>
+        </g>
+      </a>
+
+      <!-- ═══════ LAYER 15: 12th Street Viaduct deck (foreground) ═══════
+           Iconic S-curve receding from the mid-right down to the near-left.
+           The viewer stands on this deck. Viaduct IS the foreground mass,
+           everything above it is what's visible across the basin. -->
+      <a href="../bridges/12th-street-viaduct.html" aria-label="12th Street Viaduct — click for detail">
+        <g class="westbottoms-viaduct" aria-labelledby="wb-viaduct-title">
+          <title id="wb-viaduct-title">12th Street Viaduct — the elevated roadway connecting Quality Hill to the West Bottoms</title>
+          <!-- Deck mass (S-curve) -->
+          <path d="M 1320,368
+                   C 1100,380 960,460 700,468
+                   C 450,475 200,536 0,548
+                   L 0,600
+                   L 1600,600
+                   L 1600,442
+                   L 1320,368 Z"
+                fill="url(#wb-viaduct-deck)" stroke="#3C362F" stroke-width="0.8"/>
+          <!-- Upper deck edge highlight (concrete curb) -->
+          <path d="M 1320,368
+                   C 1100,380 960,460 700,468
+                   C 450,475 200,536 0,548"
+                fill="none" stroke="#9F9488" stroke-width="1.4"/>
+          <!-- Near-edge sidewalk line (closer to viewer, implied) -->
+          <path d="M 1600,488
+                   C 1280,492 900,520 500,544
+                   C 240,560 80,578 0,586"
+                fill="none" stroke="rgba(160,150,140,0.35)" stroke-width="0.6"/>
+          <!-- Pavement seam line (centerline of deck, dashed) -->
+          <path d="M 1600,464
+                   C 1280,476 900,500 500,520
+                   C 240,534 80,552 0,560"
+                fill="none" stroke="rgba(201,168,76,0.22)" stroke-width="0.5" stroke-dasharray="6 4"/>
+        </g>
+      </a>
+
+      <!-- ═══════ LAYER 16: Viaduct railing + lamp posts ═══════
+           Railing runs along the far edge of the deck (following the
+           upper curve). Lamp posts every ~220 units. Halos are siblings
+           in LAYER 17 so their TOD gating is independent. -->
+      <g class="westbottoms-viaduct-furniture" aria-hidden="true">
+        <!-- Railing: vertical posts + top rail, following curve -->
+        <g stroke="#3C362F" stroke-width="0.7" opacity="0.9">
+          <!-- posts — y rises slightly as the path curves up to the right -->
+          <line x1="40"   y1="552" x2="40"   y2="540"/>
+          <line x1="140"  y1="544" x2="140"  y2="532"/>
+          <line x1="240"  y1="530" x2="240"  y2="518"/>
+          <line x1="340"  y1="510" x2="340"  y2="498"/>
+          <line x1="440"  y1="494" x2="440"  y2="482"/>
+          <line x1="540"  y1="484" x2="540"  y2="472"/>
+          <line x1="640"  y1="474" x2="640"  y2="462"/>
+          <line x1="740"  y1="466" x2="740"  y2="454"/>
+          <line x1="840"  y1="450" x2="840"  y2="438"/>
+          <line x1="940"  y1="434" x2="940"  y2="422"/>
+          <line x1="1040" y1="418" x2="1040" y2="406"/>
+          <line x1="1140" y1="402" x2="1140" y2="390"/>
+          <line x1="1240" y1="386" x2="1240" y2="374"/>
+        </g>
+        <!-- Top rail — follows deck curve, sits ~12 above deck top -->
+        <path d="M 40,540
+                 C 200,532 380,502 540,472
+                 C 700,456 860,436 1040,406
+                 C 1140,390 1220,380 1320,356"
+              fill="none" stroke="#3C362F" stroke-width="0.9"/>
+
+        <!-- Lamp posts (tall, every ~240 units along the curve) -->
+        <g class="westbottoms-lamp-posts">
+          <!-- Lamp 1 (far left) -->
+          <line x1="90"  y1="548" x2="90"  y2="502" stroke="#2A241C" stroke-width="0.9"/>
+          <path d="M 86,502 Q 90,498 94,502" fill="none" stroke="#2A241C" stroke-width="0.9"/>
+          <circle cx="90" cy="502" r="2.2" fill="#C9A84C" stroke="#7A5F2C" stroke-width="0.4"/>
+          <!-- Lamp 2 -->
+          <line x1="300" y1="524" x2="300" y2="478" stroke="#2A241C" stroke-width="0.9"/>
+          <path d="M 296,478 Q 300,474 304,478" fill="none" stroke="#2A241C" stroke-width="0.9"/>
+          <circle cx="300" cy="478" r="2.2" fill="#C9A84C" stroke="#7A5F2C" stroke-width="0.4"/>
+          <!-- Lamp 3 -->
+          <line x1="540" y1="488" x2="540" y2="442" stroke="#2A241C" stroke-width="0.9"/>
+          <path d="M 536,442 Q 540,438 544,442" fill="none" stroke="#2A241C" stroke-width="0.9"/>
+          <circle cx="540" cy="442" r="2.2" fill="#C9A84C" stroke="#7A5F2C" stroke-width="0.4"/>
+          <!-- Lamp 4 -->
+          <line x1="790" y1="462" x2="790" y2="416" stroke="#2A241C" stroke-width="0.9"/>
+          <path d="M 786,416 Q 790,412 794,416" fill="none" stroke="#2A241C" stroke-width="0.9"/>
+          <circle cx="790" cy="416" r="2.2" fill="#C9A84C" stroke="#7A5F2C" stroke-width="0.4"/>
+          <!-- Lamp 5 -->
+          <line x1="1020" y1="424" x2="1020" y2="378" stroke="#2A241C" stroke-width="0.9"/>
+          <path d="M 1016,378 Q 1020,374 1024,378" fill="none" stroke="#2A241C" stroke-width="0.9"/>
+          <circle cx="1020" cy="378" r="2.2" fill="#C9A84C" stroke="#7A5F2C" stroke-width="0.4"/>
+          <!-- Lamp 6 (far right, near the viaduct entry) -->
+          <line x1="1240" y1="388" x2="1240" y2="342" stroke="#2A241C" stroke-width="0.9"/>
+          <path d="M 1236,342 Q 1240,338 1244,342" fill="none" stroke="#2A241C" stroke-width="0.9"/>
+          <circle cx="1240" cy="342" r="2.2" fill="#C9A84C" stroke="#7A5F2C" stroke-width="0.4"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 17: Lamp halos (night-only) ═══════
+           Sibling layer to lamp posts so TOD gating is independent. -->
+      <g class="westbottoms-night-glow" aria-hidden="true">
+        <circle cx="90"   cy="502" r="28" fill="url(#wb-lamp-halo)"/>
+        <circle cx="300"  cy="478" r="30" fill="url(#wb-lamp-halo)"/>
+        <circle cx="540"  cy="442" r="30" fill="url(#wb-lamp-halo)"/>
+        <circle cx="790"  cy="416" r="32" fill="url(#wb-lamp-halo)"/>
+        <circle cx="1020" cy="378" r="32" fill="url(#wb-lamp-halo)"/>
+        <circle cx="1240" cy="342" r="28" fill="url(#wb-lamp-halo)"/>
+      </g>
+
+      <!-- ═══════ LAYER 18: Hereford bull statue on viaduct ═══════
+           The Hereford bull stands on a tall plinth on the 12th Street
+           Viaduct deck. Installed 1953, replica of the original. Clickable
+           landmark — dedicated detail page. -->
+      <a href="../landmarks/hereford-bull.html" aria-label="Hereford bull statue on the 12th Street Viaduct — click for detail">
+        <g class="westbottoms-hereford-bull" aria-labelledby="wb-bull-title">
+          <title id="wb-bull-title">Hereford bull statue — 12th Street Viaduct, Kansas City</title>
+          <!-- Plinth -->
+          <rect x="1046" y="430" width="28" height="34" fill="#6F665A" stroke="#2A241C" stroke-width="0.6"/>
+          <rect x="1042" y="428" width="36" height="4"  fill="#8A8377" stroke="#2A241C" stroke-width="0.4"/>
+          <rect x="1042" y="462" width="36" height="4"  fill="#3C362F" stroke="#2A241C" stroke-width="0.4"/>
+          <!-- Plinth inscription -->
+          <text x="1060" y="450" fill="rgba(201,168,76,0.6)" font-size="3.5" font-family="'Josefin Sans', sans-serif" text-anchor="middle" letter-spacing="0.4">HEREFORD</text>
+          <!-- Bull silhouette (side view, stocky proportions) -->
+          <g transform="translate(1060, 410)">
+            <!-- Body mass -->
+            <path d="M -12,14 L -14,10 L -14,4 L -12,0 L -6,-4 L 4,-4 L 10,-2 L 14,2 L 14,8 L 12,14 Z" fill="#4A3A28" stroke="#2A241C" stroke-width="0.4"/>
+            <!-- Head -->
+            <path d="M 10,-2 L 15,-3 L 17,-1 L 16,3 L 12,4 L 10,2 Z" fill="#4A3A28" stroke="#2A241C" stroke-width="0.4"/>
+            <!-- White face -->
+            <ellipse cx="15" cy="0" rx="2.3" ry="1.8" fill="#C9B89A"/>
+            <!-- Horns -->
+            <path d="M 14,-3 Q 15,-5 17,-4" fill="none" stroke="#C9B89A" stroke-width="0.6"/>
+            <path d="M 16,-3 Q 18,-5 19,-3" fill="none" stroke="#C9B89A" stroke-width="0.6"/>
+            <!-- Legs -->
+            <rect x="-10" y="12" width="2" height="6" fill="#2A241C"/>
+            <rect x="-4"  y="12" width="2" height="6" fill="#2A241C"/>
+            <rect x="4"   y="12" width="2" height="6" fill="#2A241C"/>
+            <rect x="10"  y="12" width="2" height="6" fill="#2A241C"/>
+            <!-- Tail -->
+            <line x1="-14" y1="2" x2="-17" y2="6" stroke="#2A241C" stroke-width="0.6"/>
+            <!-- White patches (Hereford breed) -->
+            <ellipse cx="-4" cy="10" rx="4" ry="2" fill="#C9B89A" opacity="0.7"/>
+            <ellipse cx="6"  cy="12" rx="3" ry="1.5" fill="#C9B89A" opacity="0.55"/>
+          </g>
+        </g>
+      </a>
+    </svg>
+  </section>
 
   <main>
     <div class="detail-body">

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Poiret+One&family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20a" />
+  <link rel="stylesheet" href="style.css?v=21a" />
   <meta property="og:title" content="Look Up, Kansas City — Architecture &amp; History" />
   <meta property="og:description" content="A literary guide to Kansas City's architecture, history, and public spaces — built for curious visitors and lifelong residents alike." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/f/f3/Downtown_Kansas_City_from_Liberty_Memorial_Full.jpg" />
@@ -2198,7 +2198,11 @@
         </a>
 
         <!-- Tile 4: JC Nichols Memorial Fountain (TOD cycle + trail walker) -->
-        <a class="scene-gallery-tile" href="fountains/jc-nichols.html" aria-label="J.C. Nichols Memorial Fountain — enter the peopled-scene signature page">
+        <!-- Tile 4: West Bottoms (v21 — industrial basin from the 12th Street Viaduct,
+             Livestock Exchange as focal, Mosaic saddle-roof + distant KC skyline.
+             Dusk TOD for distinctive industrial-evening mood. J.C. Nichols remains
+             reachable via the Fountains nav dropdown. -->
+        <a class="scene-gallery-tile scene-gallery-tile-dusk" href="neighborhoods/west-bottoms.html" aria-label="West Bottoms — enter the industrial-basin signature scene from the 12th Street Viaduct">
           <div class="scene-gallery-tile-inner">
             <div class="scene-gallery-tod-backdrop" aria-hidden="true">
               <div class="tod-layer tod-dawn"></div>
@@ -2207,53 +2211,86 @@
               <div class="tod-layer tod-night"></div>
             </div>
             <svg class="scene-gallery-tile-svg" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <title>J.C. Nichols Memorial Fountain</title>
-              <!-- Giralda background right (plaza anchor) -->
-              <path d="M 310,215 L 310,110 L 314,106 L 314,100 L 330,100 L 330,106 L 334,110 L 334,215 Z" data-sgline=""/>
-              <path d="M 314,100 L 322,90 L 330,100 Z" data-sgline="accent"/>
-              <line x1="318" y1="118" x2="318" y2="205" data-sgline="hair"/>
-              <line x1="326" y1="118" x2="326" y2="205" data-sgline="hair"/>
-              <!-- Stucco facade background -->
-              <rect x="40" y="150" width="80" height="65" data-sgline=""/>
-              <rect x="40" y="146" width="80" height="4" data-sgline="thin"/>
-              <rect x="50" y="166" width="8" height="10" fill="rgba(255,210,140,0.4)"/>
-              <rect x="72" y="166" width="8" height="10" fill="rgba(255,210,140,0.4)"/>
-              <rect x="94" y="166" width="8" height="10" fill="rgba(255,210,140,0.4)"/>
-              <!-- Pool (wide oval) -->
-              <ellipse cx="200" cy="195" rx="100" ry="14" data-sgline=""/>
-              <ellipse cx="200" cy="193" rx="92" ry="11" fill="rgba(60,80,100,0.4)" stroke="rgba(179,206,229,0.6)" stroke-width="0.6"/>
-              <!-- Stepped pedestal (center of pool 3D) -->
-              <g transform="translate(0, 6)">
-                <rect x="188" y="150" width="24" height="30" data-sgline=""/>
-                <rect x="186" y="146" width="28" height="4" data-sgline=""/>
-                <rect x="192" y="134" width="16" height="16" data-sgline=""/>
-                <!-- Urn -->
-                <path d="M 194,134 Q 194,126 200,126 Q 206,126 206,134 Z" data-sgline=""/>
-                <!-- Water jet from urn -->
-                <path class="sg-water-spray" d="M 200,126 Q 198,108 200,92 Q 202,108 200,126 Z" fill="rgba(179,206,229,0.55)" stroke-width="0"/>
-                <!-- Side arcs -->
-                <path class="sg-water-spray" d="M 200,110 Q 178,130 170,160" style="animation-delay:-0.8s;"/>
-                <path class="sg-water-spray" d="M 200,110 Q 222,130 230,160" style="animation-delay:-1.6s;"/>
+              <title>West Bottoms — industrial basin from the 12th Street Viaduct</title>
+              <!-- Sky soot overlay -->
+              <rect x="0" y="0" width="400" height="90" fill="rgba(40,28,20,0.38)"/>
+              <!-- Distant KC skyline silhouette on far horizon -->
+              <g opacity="0.48">
+                <rect x="280" y="72" width="100" height="18" fill="#1A1410"/>
+                <!-- Power &amp; Light stepped -->
+                <path d="M 298,74 L 298,60 L 302,60 L 302,52 L 310,52 L 310,60 L 314,60 L 314,74 Z" fill="#1A1410"/>
+                <!-- One KC Place (tallest pitched roof) -->
+                <path d="M 322,74 L 322,54 L 328,48 L 334,54 L 334,74 Z" fill="#1A1410"/>
+                <!-- Liberty Memorial shaft -->
+                <rect x="348" y="60" width="2" height="12" fill="#1A1410"/>
+                <circle cx="349" cy="59" r="1.6" fill="#1A1410"/>
+                <!-- Town Pavilion -->
+                <rect x="360" y="62" width="8" height="12" fill="#1A1410"/>
               </g>
-              <!-- 4 bronze horsemen (simplified as dots at compass points) -->
-              <circle cx="140" cy="192" r="3" data-sgline="accent"/>
-              <circle cx="200" cy="182" r="3" data-sgline="accent"/>
-              <circle cx="260" cy="192" r="3" data-sgline="accent"/>
-              <circle cx="200" cy="204" r="3" data-sgline="accent"/>
-              <!-- Trail path -->
-              <path d="M 30,215 L 150,210" data-sgline="hair" stroke-dasharray="2,3"/>
-              <!-- Walker (strolling L→R on path) -->
-              <g class="sg-walker">
-                <circle cx="30" cy="205" r="2"/>
-                <line x1="30" y1="207" x2="30" y2="214" stroke="#E8C96A" stroke-width="0.6"/>
-                <line x1="30" y1="210" x2="28" y2="213" stroke="#E8C96A" stroke-width="0.6"/>
-                <line x1="30" y1="210" x2="32" y2="213" stroke="#E8C96A" stroke-width="0.6"/>
+              <!-- Kansas River band -->
+              <rect x="30" y="90" width="350" height="14" fill="#2E384A" opacity="0.85"/>
+              <!-- Near-bank rail line -->
+              <rect x="30" y="104" width="350" height="6" fill="#2F2A24"/>
+              <!-- Mosaic (Kemper) saddle roof (mid-left) -->
+              <g data-sgline="">
+                <rect x="26" y="120" width="66" height="34" fill="#B8A788" stroke="#C7B596" stroke-width="0.6"/>
+                <path d="M 26,120 Q 60,102 92,120 L 92,123 Q 60,106 26,123 Z" fill="#B8A788" stroke="#C7B596" stroke-width="0.6"/>
               </g>
-              <!-- Ground -->
-              <line x1="0" y1="215" x2="400" y2="215" class="sg-ground"/>
+              <!-- Warehouse row (right of Livestock Exchange) -->
+              <g>
+                <rect x="220" y="128" width="26" height="42" fill="#6B2A15" stroke="#7C3A22" stroke-width="0.5"/>
+                <rect x="246" y="120" width="28" height="50" fill="#8B3A1F" stroke="#A04A2A" stroke-width="0.5"/>
+                <rect x="274" y="130" width="22" height="40" fill="#6B2A15" stroke="#7C3A22" stroke-width="0.5"/>
+                <rect x="296" y="122" width="30" height="48" fill="#8B3A1F" stroke="#A04A2A" stroke-width="0.5"/>
+                <rect x="326" y="128" width="26" height="42" fill="#6B2A15" stroke="#7C3A22" stroke-width="0.5"/>
+              </g>
+              <!-- Livestock Exchange (anchor, center) -->
+              <g>
+                <rect x="148" y="92" width="66" height="78" fill="#8B3A1F" stroke="#A04A2A" stroke-width="0.6"/>
+                <!-- Limestone base -->
+                <rect x="148" y="158" width="66" height="12" fill="#B8A788" stroke="#C7B596" stroke-width="0.4"/>
+                <!-- Mansard cap -->
+                <path d="M 146,92 L 150,84 L 212,84 L 214,92 Z" fill="#2A2018" stroke="#5E5048" stroke-width="0.4"/>
+                <!-- Dormers -->
+                <rect x="158" y="86" width="4" height="5" fill="#3E2E20"/>
+                <rect x="178" y="85" width="4" height="6" fill="#3E2E20"/>
+                <rect x="198" y="86" width="4" height="5" fill="#3E2E20"/>
+                <!-- Window grid (simplified — 4 cols × 5 rows) -->
+                <g fill="#2A1810">
+                  <rect x="155" y="100" width="3" height="4"/><rect x="165" y="100" width="3" height="4"/><rect x="180" y="100" width="4" height="4"/><rect x="195" y="100" width="4" height="4"/><rect x="205" y="100" width="3" height="4"/>
+                  <rect x="155" y="112" width="3" height="4"/><rect x="165" y="112" width="3" height="4"/><rect x="180" y="112" width="4" height="4"/><rect x="195" y="112" width="4" height="4"/><rect x="205" y="112" width="3" height="4"/>
+                  <rect x="155" y="124" width="3" height="4"/><rect x="165" y="124" width="3" height="4"/><rect x="180" y="124" width="4" height="4"/><rect x="195" y="124" width="4" height="4"/><rect x="205" y="124" width="3" height="4"/>
+                  <rect x="155" y="136" width="3" height="4"/><rect x="165" y="136" width="3" height="4"/><rect x="180" y="136" width="4" height="4"/><rect x="195" y="136" width="4" height="4"/><rect x="205" y="136" width="3" height="4"/>
+                  <rect x="155" y="148" width="3" height="4"/><rect x="165" y="148" width="3" height="4"/><rect x="180" y="148" width="4" height="4"/><rect x="195" y="148" width="4" height="4"/><rect x="205" y="148" width="3" height="4"/>
+                </g>
+              </g>
+              <!-- Haunted district bulk (FG-left) -->
+              <rect x="0" y="158" width="36" height="20" fill="#4A1A10" stroke="#5E2A1A" stroke-width="0.4"/>
+              <!-- 12th Street Viaduct S-curve foreground -->
+              <path d="M 400,180 L 400,172 L 340,154 C 260,156 160,184 90,198 C 40,208 10,214 0,218 L 0,240 L 400,240 Z"
+                    fill="#6E665A" stroke="#3C362F" stroke-width="0.5"/>
+              <path d="M 340,154 C 260,156 160,184 90,198 C 40,208 10,214 0,218"
+                    fill="none" stroke="#9F9488" stroke-width="0.8"/>
+              <!-- Hereford bull silhouette on the viaduct (right of center) -->
+              <g transform="translate(300, 178)">
+                <rect x="-4" y="0" width="8" height="10" fill="#6F665A" stroke="#2A241C" stroke-width="0.3"/>
+                <path d="M -5,-3 L -6,-5 L -6,-7 L -4,-8 L 2,-8 L 4,-7 L 5,-5 L 4,-2 Z" fill="#2A241C"/>
+              </g>
+              <!-- Lamp posts -->
+              <g stroke="#2A241C" stroke-width="0.5">
+                <line x1="60"  y1="214" x2="60"  y2="196"/>
+                <line x1="180" y1="194" x2="180" y2="176"/>
+                <line x1="260" y1="184" x2="260" y2="166"/>
+                <line x1="360" y1="160" x2="360" y2="142"/>
+              </g>
+              <!-- Lamp bulbs -->
+              <circle cx="60"  cy="196" r="1.4" fill="#C9A84C"/>
+              <circle cx="180" cy="176" r="1.4" fill="#C9A84C"/>
+              <circle cx="260" cy="166" r="1.4" fill="#C9A84C"/>
+              <circle cx="360" cy="142" r="1.4" fill="#C9A84C"/>
             </svg>
             <div class="scene-gallery-tile-caption">
-              <span class="scene-gallery-tile-title">J.C. Nichols Memorial</span>
+              <span class="scene-gallery-tile-title">West Bottoms</span>
               <span class="scene-gallery-tile-enter">Enter →</span>
             </div>
           </div>
