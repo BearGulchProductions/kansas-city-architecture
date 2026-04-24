@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="West Bottoms — Look Up, Kansas City" />
   <meta name="twitter:description" content="The West Bottoms — Kansas City's industrial riverfront neighborhood, once the economic engine of the city, now a weekend antiques and events district." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/c/ca/Snowing_in_the_West_Bottoms%2C_Kansas_City.jpg" />
-  <link rel="stylesheet" href="../style.css?v=23a" />
+  <link rel="stylesheet" href="../style.css?v=24a" />
 </head>
 <body>
 
@@ -942,6 +942,129 @@
                  C 1100,362 960,442 700,450
                  C 450,457 200,518 0,530 Z"
               fill="#1C1208" opacity="0.42" filter="url(#wb-viaduct-shadow)"/>
+      </g>
+
+      <!-- ═══════ LAYER 14.6: Right-edge extension (v24 — fixes "viaduct
+           vanishes into nothing" on the right). One additional pier visible
+           past the current deck terminus at (1320,368), then a distant-bluff
+           silhouette behind it — implies the viaduct continues EAST toward
+           Quality Hill and terminates at the bluff. -->
+      <g class="westbottoms-viaduct-extension" aria-hidden="true">
+        <!-- Distant bluff silhouette (Quality Hill — warm-dark, low contrast) -->
+        <path d="M 1300,380
+                 L 1320,366 L 1360,348 L 1410,334 L 1460,326
+                 L 1520,322 L 1580,328 L 1600,332
+                 L 1600,448 L 1300,448 Z"
+              fill="#3E3020" opacity="0.62"/>
+        <!-- Bluff top ridge hairline (catches TOD-reflected light) -->
+        <path d="M 1300,380 L 1320,366 L 1360,348 L 1410,334 L 1460,326 L 1520,322 L 1580,328 L 1600,332"
+              fill="none" stroke="rgba(160,120,80,0.45)" stroke-width="0.6"/>
+        <!-- Trees/industrial silhouette atop the bluff -->
+        <g fill="#2E2418" opacity="0.7">
+          <path d="M 1376,340 L 1382,324 L 1388,340 Z"/>
+          <path d="M 1434,330 L 1438,316 L 1442,330 Z"/>
+          <rect x="1488" y="310" width="5" height="16"/>
+          <rect x="1546" y="316" width="4" height="14"/>
+        </g>
+        <!-- Additional half-pier visible past deck's current top-right corner —
+             continues the viaduct toward the bluff (RAL warm concrete + shadow) -->
+        <g class="westbottoms-viaduct-extpier">
+          <!-- Pier body: tapered rectangle from deck edge down into basin -->
+          <path d="M 1388,388 L 1388,448 L 1410,448 L 1410,388 L 1404,382 L 1394,382 Z"
+                fill="#4A4238" stroke="#2A241C" stroke-width="0.45"/>
+          <!-- Stepped base (Beaux-Arts wider plinth) -->
+          <rect x="1384" y="444" width="30" height="6" fill="#3C362F" stroke="#2A241C" stroke-width="0.4"/>
+          <!-- Cornice cap on pier top -->
+          <rect x="1386" y="380" width="26" height="3" fill="#7A6F5E" stroke="#2A241C" stroke-width="0.4"/>
+          <!-- Deck continuation stub (thin slab riding on the pier) -->
+          <path d="M 1320,368 L 1450,342 L 1458,347 L 1320,374 Z" fill="#5E564C" stroke="#2A241C" stroke-width="0.45" opacity="0.88"/>
+          <!-- Segmental arch to the west (under the existing deck-extension stub) -->
+          <path d="M 1388,388 Q 1350,398 1320,400" fill="none" stroke="#2A241C" stroke-width="0.55" opacity="0.75"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 14.7: Beaux-Arts viaduct identity (v24) ═══════
+           Real 12th Street Viaduct has recessed-panel spandrels, octagonal
+           piers with stepped bases, shallow segmental arches, and a warm
+           limestone-ish cornice just below the railing. Rendered here as
+           a thin band of architectural character right along the deck's
+           far-edge: cornice strip, pier ticks with stepped bases, and
+           recessed spandrel panels between piers. Keep subtle — this is
+           character, not ornament. -->
+      <g class="westbottoms-viaduct-beauxarts" aria-hidden="true">
+        <!-- Cornice strip — slightly warmer than the deck gradient, runs
+             along the top edge of the deck. Warm-limestone hint. -->
+        <path d="M 1320,371
+                 C 1100,383 960,463 700,471
+                 C 450,478 200,539 0,551"
+              fill="none" stroke="rgba(162,136,96,0.7)" stroke-width="1.6"/>
+        <!-- Cornice drip line (shadow below cornice) -->
+        <path d="M 1320,374
+                 C 1100,386 960,466 700,474
+                 C 450,481 200,542 0,554"
+              fill="none" stroke="rgba(34,26,18,0.55)" stroke-width="0.5"/>
+        <!-- Octagonal pier ticks at intervals along the deck — chamfered
+             corners implied by 2u inset top + bottom lines. 7 piers across
+             the span, spacing tightens with perspective. -->
+        <g class="westbottoms-viaduct-pier">
+          <!-- Pier 1 (far-left, near viewer) -->
+          <g transform="translate(96, 544)">
+            <rect x="-4" y="-3" width="8" height="10" fill="#3C342A" stroke="#1E1810" stroke-width="0.35"/>
+            <rect x="-5" y="7" width="10" height="3" fill="#2C2620" stroke="#1E1810" stroke-width="0.3"/>
+            <line x1="-4" y1="-3" x2="-3" y2="-3.5"/>
+            <line x1="4" y1="-3" x2="3" y2="-3.5"/>
+          </g>
+          <!-- Pier 2 -->
+          <g transform="translate(284, 522)">
+            <rect x="-3.5" y="-3" width="7" height="9" fill="#3C342A" stroke="#1E1810" stroke-width="0.3"/>
+            <rect x="-4.5" y="6" width="9" height="2.5" fill="#2C2620" stroke="#1E1810" stroke-width="0.28"/>
+          </g>
+          <!-- Pier 3 -->
+          <g transform="translate(478, 486)">
+            <rect x="-3" y="-2.5" width="6" height="8" fill="#3C342A" stroke="#1E1810" stroke-width="0.28"/>
+            <rect x="-4" y="5.5" width="8" height="2.2" fill="#2C2620" stroke="#1E1810" stroke-width="0.25"/>
+          </g>
+          <!-- Pier 4 -->
+          <g transform="translate(680, 458)">
+            <rect x="-2.5" y="-2" width="5" height="7" fill="#3C342A" stroke="#1E1810" stroke-width="0.25"/>
+            <rect x="-3.5" y="5" width="7" height="2" fill="#2C2620" stroke="#1E1810" stroke-width="0.22"/>
+          </g>
+          <!-- Pier 5 -->
+          <g transform="translate(880, 432)">
+            <rect x="-2.2" y="-2" width="4.4" height="6.2" fill="#3C342A" stroke="#1E1810" stroke-width="0.25"/>
+            <rect x="-3" y="4.2" width="6" height="1.8" fill="#2C2620" stroke="#1E1810" stroke-width="0.22"/>
+          </g>
+          <!-- Pier 6 -->
+          <g transform="translate(1080, 406)">
+            <rect x="-2" y="-1.8" width="4" height="5.6" fill="#3C342A" stroke="#1E1810" stroke-width="0.22"/>
+            <rect x="-2.6" y="3.8" width="5.2" height="1.6" fill="#2C2620" stroke="#1E1810" stroke-width="0.2"/>
+          </g>
+          <!-- Pier 7 (far-right, deepest perspective) -->
+          <g transform="translate(1270, 378)">
+            <rect x="-1.8" y="-1.6" width="3.6" height="5" fill="#3C342A" stroke="#1E1810" stroke-width="0.22"/>
+            <rect x="-2.4" y="3.4" width="4.8" height="1.4" fill="#2C2620" stroke="#1E1810" stroke-width="0.2"/>
+          </g>
+        </g>
+        <!-- Recessed spandrel panels — small rectangles between consecutive
+             piers, sitting just below the cornice. Implies carved stonework. -->
+        <g class="westbottoms-viaduct-spandrel" fill="none" stroke="rgba(26,20,14,0.55)" stroke-width="0.35">
+          <rect x="140" y="537" width="96" height="4" rx="0.5"/>
+          <rect x="312" y="516" width="136" height="4" rx="0.5"/>
+          <rect x="510" y="482" width="140" height="4" rx="0.5"/>
+          <rect x="708" y="456" width="140" height="4" rx="0.5"/>
+          <rect x="908" y="428" width="140" height="4" rx="0.5"/>
+          <rect x="1108" y="402" width="130" height="4" rx="0.5"/>
+        </g>
+        <!-- Segmental arches connecting adjacent piers — shallow curves
+             beneath the spandrels. Adds cadence. -->
+        <g class="westbottoms-viaduct-arch" fill="none" stroke="rgba(20,14,8,0.55)" stroke-width="0.5">
+          <path d="M 100,544 Q 192,550 284,528"/>
+          <path d="M 288,528 Q 380,536 478,494"/>
+          <path d="M 482,494 Q 580,500 680,466"/>
+          <path d="M 684,466 Q 780,472 880,440"/>
+          <path d="M 884,440 Q 980,446 1080,414"/>
+          <path d="M 1084,414 Q 1178,420 1270,386"/>
+        </g>
       </g>
 
       <!-- ═══════ LAYER 15: 12th Street Viaduct deck (foreground) ═══════

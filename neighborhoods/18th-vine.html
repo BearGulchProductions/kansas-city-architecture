@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="18th & Vine — Look Up, Kansas City" />
   <meta name="twitter:description" content="18th & Vine — the historic heart of Kansas City's African American community, the birthplace of Kansas City jazz and blues, and a neighborhood in ongoing restoration." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/2/2b/18th_and_Vine_District_sign_and_building.jpg" />
-  <link rel="stylesheet" href="../style.css?v=23a" />
+  <link rel="stylesheet" href="../style.css?v=24a" />
 </head>
 <body>
 
@@ -586,6 +586,208 @@
             <!-- Tiny baseball glove kid is holding -->
             <circle cx="5.8" cy="1.5" r="0.55" fill="rgba(140,82,42,0.88)" stroke="rgba(80,48,20,0.8)" stroke-width="0.2"/>
           </g>
+        </g>
+
+        <!-- v24: Urban Youth Academy — the real contemporary baseball anchor
+             at 1616 E 17th Terrace. Long horizontal building north of 18th,
+             paired with its own parking lot extending Vine Street's western
+             terminus. Mural wall faces the viewer with abstracted vignettes
+             (Royals blue + grass green + red + gold) — deliberately contrasts
+             with the desaturated period-ad Monarchs ghost-sign on Street
+             Hotel. Adds a 4th temporal register (present-day youth baseball)
+             to the scene's existing arc: Negro Leagues ghost ↔ atmospheric
+             Parade Park silhouette ↔ Monarchs ghost-sign ↔ Urban Youth
+             Academy contemporary. Three field-light poles behind imply the
+             ballfield continues. -->
+        <g class="vine-uya" aria-hidden="true" transform="translate(400, 0)">
+          <!-- Field-light poles (3 tall verticals with light cluster heads) -->
+          <line class="vine-uya-fieldlight-pole" x1="68"  y1="395" x2="68"  y2="358"/>
+          <ellipse class="vine-uya-fieldlight-head" cx="68"  cy="355" rx="4.2" ry="2.2"/>
+          <line class="vine-uya-fieldlight-pole" x1="135" y1="395" x2="135" y2="352"/>
+          <ellipse class="vine-uya-fieldlight-head" cx="135" cy="349" rx="4.6" ry="2.4"/>
+          <line class="vine-uya-fieldlight-pole" x1="202" y1="395" x2="202" y2="358"/>
+          <ellipse class="vine-uya-fieldlight-head" cx="202" cy="355" rx="4.2" ry="2.2"/>
+
+          <!-- Low-peak gable roof (hipped, warm dark-gray shingle) -->
+          <path class="vine-uya-roof" d="M 40,404 L 135,392 L 230,404 L 230,406 L 40,406 Z"/>
+
+          <!-- Stucco upper course (cream) -->
+          <rect class="vine-uya-stucco" x="40" y="406" width="190" height="22"/>
+
+          <!-- Brick base (warm red-brown) -->
+          <rect class="vine-uya-brick-base" x="40" y="426" width="190" height="18"/>
+
+          <!-- Cornice strip between stucco and brick -->
+          <line class="vine-uya-cornice" x1="40" y1="426" x2="230" y2="426"/>
+          <!-- Roof edge shadow line -->
+          <line class="vine-uya-roof-edge" x1="40" y1="406" x2="230" y2="406"/>
+
+          <!-- Entry door (dark panel centered below mural) -->
+          <rect class="vine-uya-door" x="128" y="432" width="8" height="12"/>
+          <line class="vine-uya-door-frame" x1="132" y1="432" x2="132" y2="444"/>
+
+          <!-- v24: ABSTRACTED MURAL on south-facing wall. 5 vignettes
+               separated by thin vertical bands. Saturated Royals-blue +
+               grass + red + gold palette — contemporary color pop
+               contrasting with the scene's period Monarchs ghost-sign. -->
+          <g class="vine-uya-mural">
+            <!-- Cream base backer (suggests primed wall under mural) -->
+            <rect x="48" y="408" width="174" height="22" fill="#F5E9D3" stroke="rgba(80,56,40,0.35)" stroke-width="0.3"/>
+
+            <!-- Panel 1 (x=48-82): Royals-blue field with batter + KC text -->
+            <rect x="48" y="408" width="34" height="22" fill="#004687"/>
+            <text x="65" y="417" text-anchor="middle" font-family="Josefin Sans, sans-serif" font-size="5" font-weight="900" letter-spacing="0.8" fill="#FFBF0F">KC</text>
+            <g transform="translate(65, 427)">
+              <circle cx="-0.4" cy="-3.5" r="0.85" fill="#F5E9D3"/>
+              <line x1="-0.4" y1="-3" x2="0.1" y2="-0.5" stroke="#F5E9D3" stroke-width="0.85" stroke-linecap="round"/>
+              <line x1="0.1" y1="-2.6" x2="3" y2="-3.4" stroke="#F5E9D3" stroke-width="1" stroke-linecap="round"/>
+            </g>
+
+            <!-- Panel 2 (x=82-112): grass-green with crown motif -->
+            <rect x="82" y="408" width="30" height="22" fill="#2B7A3A"/>
+            <!-- Crown: 3 points + band -->
+            <path d="M 89,420 L 91,413 L 94,417 L 97,412 L 100,417 L 103,413 L 105,420 Z" fill="#FFBF0F" stroke="rgba(80,56,24,0.7)" stroke-width="0.3"/>
+            <rect x="89" y="420" width="16" height="2.2" fill="#FFBF0F" stroke="rgba(80,56,24,0.6)" stroke-width="0.25"/>
+            <circle cx="92" cy="412" r="0.7" fill="#CC2936"/>
+            <circle cx="102" cy="412" r="0.7" fill="#CC2936"/>
+
+            <!-- Panel 3 (x=112-142): cream/tan with running figure -->
+            <rect x="112" y="408" width="30" height="22" fill="#E8D9B8"/>
+            <g transform="translate(127, 425)">
+              <circle cx="0" cy="-9" r="0.9" fill="#004687"/>
+              <line x1="0" y1="-8.5" x2="1.5" y2="-5" stroke="#004687" stroke-width="0.95" stroke-linecap="round"/>
+              <line x1="1.5" y1="-5" x2="3.2" y2="-2.5" stroke="#004687" stroke-width="0.95" stroke-linecap="round"/>
+              <line x1="0" y1="-7.5" x2="-2" y2="-4.5" stroke="#004687" stroke-width="0.9" stroke-linecap="round"/>
+              <line x1="0" y1="-7.5" x2="2.5" y2="-6.5" stroke="#004687" stroke-width="0.9" stroke-linecap="round"/>
+            </g>
+
+            <!-- Panel 4 (x=142-172): red with baseball diamond graphic -->
+            <rect x="142" y="408" width="30" height="22" fill="#CC2936"/>
+            <path d="M 157,411 L 166,420 L 157,429 L 148,420 Z" fill="none" stroke="#F5E9D3" stroke-width="0.8"/>
+            <circle cx="157" cy="420" r="0.9" fill="#FFBF0F"/>
+            <circle cx="157" cy="411" r="0.6" fill="#F5E9D3"/>
+            <circle cx="166" cy="420" r="0.6" fill="#F5E9D3"/>
+            <circle cx="157" cy="429" r="0.6" fill="#F5E9D3"/>
+            <circle cx="148" cy="420" r="0.6" fill="#F5E9D3"/>
+
+            <!-- Panel 5 (x=172-222): Royals-blue with fielder silhouette + ball -->
+            <rect x="172" y="408" width="50" height="22" fill="#004687"/>
+            <g transform="translate(188, 427)">
+              <circle cx="0" cy="-8" r="0.85" fill="#FFBF0F"/>
+              <line x1="0" y1="-7.5" x2="0" y2="-3.2" stroke="#FFBF0F" stroke-width="0.9" stroke-linecap="round"/>
+              <line x1="0" y1="-5.5" x2="-2" y2="-7.8" stroke="#FFBF0F" stroke-width="0.8" stroke-linecap="round"/>
+              <line x1="0" y1="-5.5" x2="2.2" y2="-7.8" stroke="#FFBF0F" stroke-width="0.8" stroke-linecap="round"/>
+              <line x1="0" y1="-3.2" x2="-1.2" y2="-0.5" stroke="#FFBF0F" stroke-width="0.8" stroke-linecap="round"/>
+              <line x1="0" y1="-3.2" x2="1.5" y2="-0.5" stroke="#FFBF0F" stroke-width="0.8" stroke-linecap="round"/>
+            </g>
+            <!-- Baseball accent -->
+            <circle cx="210" cy="414" r="1.4" fill="#F5E9D3" stroke="rgba(80,56,24,0.4)" stroke-width="0.2"/>
+            <path d="M 208.8,414.1 Q 210,413 211.2,414.1" fill="none" stroke="#CC2936" stroke-width="0.3"/>
+            <path d="M 208.8,414.1 Q 210,415.2 211.2,414.1" fill="none" stroke="#CC2936" stroke-width="0.3"/>
+
+            <!-- Thin vertical separator bands between vignettes -->
+            <g class="vine-uya-mural-divider" stroke="rgba(40,28,18,0.35)" stroke-width="0.25">
+              <line x1="82"  y1="408" x2="82"  y2="430"/>
+              <line x1="112" y1="408" x2="112" y2="430"/>
+              <line x1="142" y1="408" x2="142" y2="430"/>
+              <line x1="172" y1="408" x2="172" y2="430"/>
+            </g>
+          </g>
+
+          <!-- Night-gated wall-washer light pools on the mural face
+               (3 small downward-pointing fixtures on the roof line) -->
+          <g class="building-night-lights">
+            <!-- Washer fixtures -->
+            <rect class="vine-uya-washer" x="73"  y="406" width="3" height="1.4"/>
+            <rect class="vine-uya-washer" x="133" y="406" width="3" height="1.4"/>
+            <rect class="vine-uya-washer" x="193" y="406" width="3" height="1.4"/>
+            <!-- Warm pool on the mural beneath each fixture -->
+            <path class="vine-uya-washer-pool" d="M 70,408 L 79,408 L 82,424 L 67,424 Z"/>
+            <path class="vine-uya-washer-pool" d="M 130,408 L 139,408 L 142,424 L 127,424 Z"/>
+            <path class="vine-uya-washer-pool" d="M 190,408 L 199,408 L 202,424 L 187,424 Z"/>
+            <!-- Field-light glows on poles behind -->
+            <ellipse class="vine-uya-fieldlight-glow" cx="68"  cy="355" rx="14" ry="5.5"/>
+            <ellipse class="vine-uya-fieldlight-glow" cx="135" cy="349" rx="16" ry="6"/>
+            <ellipse class="vine-uya-fieldlight-glow" cx="202" cy="355" rx="14" ry="5.5"/>
+          </g>
+
+          <!-- Small "Urban Youth Academy" label plaque above door (abstract —
+               not full text per Brian's v24 Q1: "KC" carries identity in mural) -->
+          <!-- (omitted — mural carries identity) -->
+        </g>
+
+        <!-- v24: Parking lot extending Vine Street's west terminus into the
+             UYA's frontage. Asphalt apron with 6 stall stripes + 3 parked
+             cars. Serves as a real "terminus" for Vine Street on the west. -->
+        <g class="vine-uya-lot" aria-hidden="true" transform="translate(400, 0)">
+          <!-- Asphalt base -->
+          <rect class="vine-uya-lot-asphalt" x="30" y="444" width="200" height="46"/>
+          <!-- Asphalt shadow line at back (abutting UYA building) -->
+          <line x1="30" y1="445" x2="230" y2="445" stroke="rgba(40,28,18,0.55)" stroke-width="0.5"/>
+          <!-- Curb strip at the south (front toward viewer) edge -->
+          <line x1="30" y1="490" x2="230" y2="490" stroke="rgba(160,150,140,0.5)" stroke-width="0.6"/>
+          <!-- Top bumper line (wheel stops) -->
+          <line class="vine-uya-lot-stripe-faint" x1="40" y1="458" x2="220" y2="458"/>
+          <!-- 6 stall stripes (vertical) -->
+          <g class="vine-uya-lot-stripe">
+            <line x1="60"  y1="458" x2="60"  y2="488"/>
+            <line x1="90"  y1="458" x2="90"  y2="488"/>
+            <line x1="120" y1="458" x2="120" y2="488"/>
+            <line x1="150" y1="458" x2="150" y2="488"/>
+            <line x1="180" y1="458" x2="180" y2="488"/>
+            <line x1="210" y1="458" x2="210" y2="488"/>
+          </g>
+
+          <!-- Parked cars (3 silhouettes — rust-red pickup for character,
+               slate sedan, cream/tan SUV) -->
+          <!-- Car 1 — rust-red pickup, left -->
+          <g transform="translate(75, 474)">
+            <rect x="-11" y="-5" width="22" height="9" fill="#8E3B2A" stroke="rgba(40,28,18,0.7)" stroke-width="0.35"/>
+            <rect x="-5" y="-8" width="9" height="3" fill="#6A2A1E" stroke="rgba(40,28,18,0.55)" stroke-width="0.25"/>
+            <circle cx="-7" cy="4.3" r="1.4" fill="#1A1A1A" stroke="rgba(80,60,40,0.55)" stroke-width="0.2"/>
+            <circle cx="7"  cy="4.3" r="1.4" fill="#1A1A1A" stroke="rgba(80,60,40,0.55)" stroke-width="0.2"/>
+            <rect x="3" y="-1" width="8" height="5" fill="none" stroke="rgba(40,28,18,0.4)" stroke-width="0.25"/>
+          </g>
+          <!-- Car 2 — slate sedan, middle -->
+          <g transform="translate(135, 476)">
+            <path d="M -10,3 L -10,-2 L -6,-6 L 5,-6 L 9,-2 L 9,3 Z" fill="#374A5E" stroke="rgba(40,28,18,0.7)" stroke-width="0.35"/>
+            <rect x="-5" y="-5" width="9" height="3" fill="rgba(100,120,140,0.55)"/>
+            <circle cx="-6" cy="3.8" r="1.3" fill="#1A1A1A" stroke="rgba(80,60,40,0.55)" stroke-width="0.2"/>
+            <circle cx="6"  cy="3.8" r="1.3" fill="#1A1A1A" stroke="rgba(80,60,40,0.55)" stroke-width="0.2"/>
+          </g>
+          <!-- Car 3 — cream/tan SUV, right -->
+          <g transform="translate(195, 474)">
+            <rect x="-11" y="-5.5" width="22" height="9.5" fill="#BFA57B" stroke="rgba(40,28,18,0.7)" stroke-width="0.35"/>
+            <rect x="-8" y="-9.5" width="16" height="4" fill="#A58D68" stroke="rgba(40,28,18,0.55)" stroke-width="0.25"/>
+            <rect x="-6" y="-8.5" width="12" height="2.6" fill="rgba(180,164,128,0.85)"/>
+            <circle cx="-7" cy="4.3" r="1.4" fill="#1A1A1A" stroke="rgba(80,60,40,0.55)" stroke-width="0.2"/>
+            <circle cx="7"  cy="4.3" r="1.4" fill="#1A1A1A" stroke="rgba(80,60,40,0.55)" stroke-width="0.2"/>
+          </g>
+        </g>
+
+        <!-- v24: Park integration — trees, a connecting path from the lot
+             east toward Parade Park, a bench along the path, and a low
+             chain-link transition from the lot to the grass. Embeds the
+             UYA + lot within the Parade Park system. -->
+        <g class="vine-uya-park" aria-hidden="true" transform="translate(400, 0)">
+          <!-- Dashed pathway from parking-lot WEST edge back toward Parade
+               Park's infield (Parade Park sits WEST of UYA after v24 shift). -->
+          <path d="M 30,476 Q -30,466 -100,450" fill="none" stroke="rgba(201,168,76,0.38)" stroke-width="0.85" stroke-dasharray="3 2"/>
+          <!-- Low chain-link fence separating lot from grass (back line) -->
+          <line x1="30" y1="444" x2="230" y2="444" stroke="rgba(201,168,76,0.4)" stroke-width="0.35" stroke-dasharray="2 1.5"/>
+          <!-- Tree between UYA and Parade Park (west of lot) -->
+          <line x1="-20" y1="468" x2="-20" y2="440" stroke="rgba(80,52,32,0.78)" stroke-width="0.85"/>
+          <circle cx="-20" cy="436" r="4" fill="rgba(60,100,52,0.66)" stroke="rgba(40,72,36,0.55)" stroke-width="0.3"/>
+          <circle cx="-24" cy="437" r="2.8" fill="rgba(70,108,58,0.58)"/>
+          <circle cx="-16" cy="438" r="2.8" fill="rgba(70,108,58,0.58)"/>
+          <!-- Tree at east edge of lot -->
+          <line x1="238" y1="488" x2="238" y2="474" stroke="rgba(80,52,32,0.78)" stroke-width="0.7"/>
+          <circle cx="238" cy="471" r="2.6" fill="rgba(60,100,52,0.62)"/>
+          <!-- Bench along the west pathway -->
+          <rect x="-38" y="466" width="14" height="1.3" fill="rgba(100,78,56,0.8)" stroke="rgba(40,28,18,0.65)" stroke-width="0.22"/>
+          <rect x="-38" y="463.5" width="14" height="0.7" fill="rgba(100,78,56,0.7)"/>
+          <line x1="-37" y1="467.3" x2="-37" y2="469.4" stroke="rgba(40,28,18,0.7)" stroke-width="0.3"/>
+          <line x1="-25" y1="467.3" x2="-25" y2="469.4" stroke="rgba(40,28,18,0.7)" stroke-width="0.3"/>
         </g>
 
         <!-- Old disjointed neighborhood-rec block retained below but hidden -->

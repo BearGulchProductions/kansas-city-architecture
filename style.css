@@ -10694,11 +10694,15 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   opacity: 0;
   animation: westbottoms-night-glow-fade 40s linear infinite;
 }
+/* v24: added continuous-loop tail — fades night glow out through dawn so
+   the loop from 100% → 0% is smooth (no hard reset at the cycle boundary).
+   Matches the canonical .night-lights-visibility pattern used elsewhere. */
 @keyframes westbottoms-night-glow-fade {
   0%, 50%   { opacity: 0; }
   55%       { opacity: 0.25; }
   75%       { opacity: 0.92; }
-  100%      { opacity: 0.95; }
+  92%       { opacity: 0.95; }
+  100%      { opacity: 0; }
 }
 
 /* Haunted district subdued red glow: crossfades at night with a slow
@@ -10710,11 +10714,13 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   transform-box: fill-box;
   transform-origin: center;
 }
+/* v24: added continuous-loop tail (same fix as night-glow-fade). */
 @keyframes westbottoms-haunted-glow-fade {
   0%, 55%   { opacity: 0; }
   65%       { opacity: 0.3; }
   80%       { opacity: 0.65; }
-  100%      { opacity: 0.7; }
+  92%       { opacity: 0.7; }
+  100%      { opacity: 0; }
 }
 @keyframes westbottoms-haunted-pulse {
   0%, 100% { filter: brightness(0.88); }
@@ -10916,4 +10922,74 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .vine-distant-train-body { animation: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v24 — Urban Youth Academy + parking lot + park integration
+   Present-day youth baseball anchor on the north side of 18th &
+   Vine, tied to the scene's Negro Leagues → today temporal arc.
+   ═══════════════════════════════════════════════════════════════════════ */
+.vine-uya-brick-base {
+  fill: #8A3A24;
+  stroke: rgba(40, 18, 10, 0.7);
+  stroke-width: 0.5;
+}
+.vine-uya-stucco {
+  fill: #D9CEB0;
+  stroke: rgba(80, 56, 40, 0.55);
+  stroke-width: 0.4;
+}
+.vine-uya-roof {
+  fill: #5E564F;
+  stroke: rgba(40, 28, 18, 0.7);
+  stroke-width: 0.5;
+}
+.vine-uya-roof-edge {
+  stroke: rgba(40, 28, 18, 0.7);
+  stroke-width: 0.55;
+}
+.vine-uya-cornice {
+  stroke: rgba(60, 42, 28, 0.8);
+  stroke-width: 0.55;
+}
+.vine-uya-door {
+  fill: #2C2520;
+  stroke: rgba(201, 168, 76, 0.55);
+  stroke-width: 0.3;
+}
+.vine-uya-door-frame {
+  stroke: rgba(201, 168, 76, 0.5);
+  stroke-width: 0.3;
+}
+.vine-uya-fieldlight-pole {
+  stroke: rgba(100, 90, 78, 0.88);
+  stroke-width: 0.7;
+  stroke-linecap: round;
+}
+.vine-uya-fieldlight-head {
+  fill: rgba(70, 60, 50, 0.92);
+  stroke: rgba(201, 168, 76, 0.55);
+  stroke-width: 0.35;
+}
+.vine-uya-fieldlight-glow {
+  fill: rgba(255, 245, 210, 0.4);
+}
+.vine-uya-washer {
+  fill: rgba(60, 50, 40, 0.88);
+}
+.vine-uya-washer-pool {
+  fill: rgba(255, 235, 180, 0.22);
+}
+.vine-uya-lot-asphalt {
+  fill: #2A2620;
+  stroke: rgba(20, 16, 12, 0.7);
+  stroke-width: 0.4;
+}
+.vine-uya-lot-stripe line {
+  stroke: rgba(245, 235, 210, 0.58);
+  stroke-width: 0.55;
+}
+.vine-uya-lot-stripe-faint {
+  stroke: rgba(245, 235, 210, 0.32);
+  stroke-width: 0.4;
 }
