@@ -22,7 +22,8 @@
     '.fountain-day-svg',
     '.midtown-hero-svg',
     '.vine-hero-svg',
-    '.westbottoms-hero-svg'
+    '.westbottoms-hero-svg',
+    '.crossroads-hero-svg'
   ].join(',');
 
   function applyAspectMode() {

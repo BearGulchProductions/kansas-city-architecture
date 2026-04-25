@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css?v=24a" />
+  <link rel="stylesheet" href="../style.css?v=25a" />
   <meta property="og:title" content="The Crossroads Arts District — Look Up, Kansas City" />
   <meta property="og:description" content="KC's Crossroads Arts District turned warehouse vacancy into creative capital. The tension between authenticity and gentrification is still playing out." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/9/9a/Kansas_City_Crossroads_District_%2831507881750%29.jpg" />
@@ -110,15 +110,235 @@
     Crossroads
   </div>
 
-  <div class="detail-hero">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Kansas_City_Crossroads_District_%2831507881750%29.jpg"
-         alt="Kansas City Crossroads Arts District street view"
-         style="object-position: center 50%;" />
-    <div class="detail-hero-overlay">
-      <span class="eyebrow">Kansas City Neighborhoods</span>
-      <h1>The Crossroads<br /><span>Arts District</span></h1>
+  <section class="crossroads-hero-scene" aria-labelledby="crossroads-hero-h1">
+    <div class="crossroads-hero-backdrop" aria-hidden="true">
+      <div class="tod-layer tod-dawn"></div>
+      <div class="tod-layer tod-day"></div>
+      <div class="tod-layer tod-dusk"></div>
+      <div class="tod-layer tod-night"></div>
     </div>
-  </div>
+
+    <div class="crossroads-hero-overlay">
+      <span class="eyebrow">Kansas City Neighborhoods</span>
+      <h1 id="crossroads-hero-h1">The Crossroads<br /><span class="crossroads-gold">Arts District</span></h1>
+      <p class="crossroads-tagline">WHERE THE MURALS MEET THE MARQUEES</p>
+    </div>
+
+    <svg class="crossroads-hero-svg" viewBox="0 0 1600 640"
+         preserveAspectRatio="xMidYMax slice"
+         xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-labelledby="crossroads-title crossroads-desc">
+      <title id="crossroads-title">The Crossroads Arts District — looking south down Baltimore Avenue toward Western Auto</title>
+      <desc id="crossroads-desc">A perspective street view looking south down Baltimore Avenue. Large painted murals fill the foreground walls. Grinders, RecordBar, and the 21c Museum Hotel line the east side. The Crossroads Hotel anchors the west side. Western Auto's iconic sign marks the vanishing point. Sky cycles dawn through night on a 40-second loop.</desc>
+
+      <defs>
+        <radialGradient id="xr-wa-halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(220,70,50,0.3)"/>
+          <stop offset="100%" stop-color="rgba(220,70,50,0)"/>
+        </radialGradient>
+      </defs>
+
+      <!-- ── STARS (night only) ── -->
+      <g class="crossroads-stars building-night-lights" aria-hidden="true">
+        <circle cx="120" cy="48" r="0.8"/><circle cx="280" cy="92" r="0.7"/>
+        <circle cx="430" cy="38" r="0.9"/><circle cx="560" cy="72" r="0.7"/>
+        <circle cx="680" cy="44" r="0.8"/><circle cx="760" cy="110" r="0.6"/>
+        <circle cx="880" cy="56" r="0.9"/><circle cx="1020" cy="34" r="0.7"/>
+        <circle cx="1140" cy="78" r="0.8"/><circle cx="1260" cy="52" r="0.7"/>
+        <circle cx="1380" cy="90" r="0.9"/><circle cx="1480" cy="40" r="0.7"/>
+        <circle cx="200" cy="158" r="0.6"/><circle cx="500" cy="132" r="0.6"/>
+        <circle cx="720" cy="168" r="0.5"/><circle cx="1060" cy="148" r="0.6"/>
+        <circle cx="1320" cy="162" r="0.5"/><circle cx="1520" cy="128" r="0.6"/>
+      </g>
+
+      <!-- ── ONE DRIFTING CLOUD ── -->
+      <g class="crossroads-cloud" aria-hidden="true">
+        <ellipse cx="0" cy="88" rx="62" ry="18" class="crossroads-cloud-puff"/>
+        <ellipse cx="28" cy="78" rx="42" ry="22" class="crossroads-cloud-puff"/>
+        <ellipse cx="-20" cy="82" rx="32" ry="16" class="crossroads-cloud-puff"/>
+      </g>
+
+      <!-- ── DOWNTOWN TOWER SILHOUETTES at VP (≤30% opacity) ── -->
+      <g class="crossroads-vp-towers" aria-hidden="true">
+        <rect class="crossroads-tower-sil" x="836" y="240" width="22" height="80"/>
+        <rect class="crossroads-tower-sil" x="862" y="224" width="28" height="96"/>
+        <rect class="crossroads-tower-sil" x="894" y="248" width="18" height="72"/>
+      </g>
+
+      <!-- ── WESTERN AUTO BLOCK (VP terminator) ── -->
+      <g class="crossroads-wa-group" aria-hidden="true">
+        <ellipse class="crossroads-wa-halo" cx="940" cy="306" rx="96" ry="54" fill="url(#xr-wa-halo)"/>
+        <rect class="crossroads-wa-block" x="876" y="280" width="128" height="54" rx="2"/>
+        <text class="crossroads-wa-text" x="940" y="312" text-anchor="middle">WA</text>
+        <text class="crossroads-wa-sublabel" x="940" y="326" text-anchor="middle">WESTERN AUTO</text>
+      </g>
+
+      <!-- ── RAIL BRIDGE (horizon identity line) ── -->
+      <g class="crossroads-bridge" aria-hidden="true">
+        <line class="crossroads-bridge-chord" x1="548" y1="314" x2="1352" y2="314"/>
+        <line class="crossroads-bridge-chord" x1="548" y1="321" x2="1352" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="590" y1="314" x2="590" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="630" y1="314" x2="630" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="670" y1="314" x2="670" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="710" y1="314" x2="710" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="750" y1="314" x2="750" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="800" y1="314" x2="800" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="850" y1="314" x2="850" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="1030" y1="314" x2="1030" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="1080" y1="314" x2="1080" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="1130" y1="314" x2="1130" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="1180" y1="314" x2="1180" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="1230" y1="314" x2="1230" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="1280" y1="314" x2="1280" y2="321"/>
+        <line class="crossroads-bridge-strut" x1="1320" y1="314" x2="1320" y2="321"/>
+      </g>
+
+      <!-- ── DEEP BACKGROUND MURALS (M4, M5) ── -->
+      <rect class="crossroads-mural-m5" x="772" y="330" width="66" height="100" rx="1"/>
+      <rect class="crossroads-mural-m4" x="584" y="342" width="48" height="110" rx="1"/>
+
+      <!-- ── LEFT-SIDE BUILDINGS (east of Baltimore, receding) ── -->
+      <!-- 21c Museum Hotel (mid-back left) -->
+      <g class="crossroads-bldg-21c" aria-hidden="true">
+        <rect class="crossroads-building-block" x="486" y="276" width="152" height="214" rx="1"/>
+        <text class="crossroads-bldg-label" x="562" y="352" text-anchor="middle">21c</text>
+        <text class="crossroads-bldg-label" x="562" y="368" text-anchor="middle">MUSEUM</text>
+        <text class="crossroads-bldg-label" x="562" y="383" text-anchor="middle">HOTEL</text>
+      </g>
+      <!-- RecordBar (left mid) -->
+      <g class="crossroads-bldg-recordbar" aria-hidden="true">
+        <rect class="crossroads-building-block" x="326" y="316" width="164" height="174" rx="1"/>
+        <text class="crossroads-bldg-label" x="408" y="388" text-anchor="middle">RECORD</text>
+        <text class="crossroads-bldg-label" x="408" y="404" text-anchor="middle">BAR</text>
+      </g>
+
+      <!-- ── RIGHT-SIDE BUILDINGS (west of Baltimore, receding) ── -->
+      <!-- Crossroads Hotel (right mid, dominant) -->
+      <g class="crossroads-bldg-hotel" aria-hidden="true">
+        <rect class="crossroads-building-block" x="956" y="216" width="282" height="324" rx="1"/>
+        <text class="crossroads-bldg-label" x="1097" y="362" text-anchor="middle">CROSSROADS</text>
+        <text class="crossroads-bldg-label" x="1097" y="378" text-anchor="middle">HOTEL</text>
+      </g>
+      <!-- M3 mural — visible north wall of Hotel -->
+      <rect class="crossroads-mural-m3" x="914" y="254" width="46" height="288" rx="1"/>
+      <!-- Town Topic Hamburgers (far right FG) -->
+      <g class="crossroads-bldg-towntopic" aria-hidden="true">
+        <rect class="crossroads-building-block" x="1244" y="406" width="198" height="172" rx="1"/>
+        <text class="crossroads-bldg-label" x="1343" y="472" text-anchor="middle">TOWN TOPIC</text>
+        <text class="crossroads-bldg-label" x="1343" y="488" text-anchor="middle">HAMBURGERS</text>
+      </g>
+
+      <!-- ── GROUND PLANE: sidewalks + street ── -->
+      <!-- Left sidewalk -->
+      <polygon class="crossroads-sidewalk" points="0,640 160,640 940,320 0,490"/>
+      <!-- Street pavement -->
+      <polygon class="crossroads-pavement" points="160,640 940,320 1440,640"/>
+      <!-- Right sidewalk -->
+      <polygon class="crossroads-sidewalk" points="1440,640 1600,640 1600,490 940,320"/>
+      <!-- Dashed center line receding to VP -->
+      <line class="crossroads-centerline" x1="940" y1="640" x2="940" y2="326"
+            stroke-dasharray="18,12" stroke-dashoffset="0"/>
+      <!-- Curb hairlines -->
+      <line class="crossroads-curb" x1="160" y1="640" x2="940" y2="320"/>
+      <line class="crossroads-curb" x1="1440" y1="640" x2="940" y2="320"/>
+
+      <!-- ── LEFT FG MURAL WALL (M1 — the big one) ── -->
+      <rect class="crossroads-mural-m1" x="0" y="156" width="312" height="434" rx="0"/>
+      <!-- Grinders building body (overlays M1 base, sets the context) -->
+      <g class="crossroads-bldg-grinders" aria-hidden="true">
+        <rect class="crossroads-building-overlay" x="40" y="366" width="252" height="224" rx="1"/>
+        <text class="crossroads-bldg-label crossroads-label-dark" x="166" y="462" text-anchor="middle">GRINDERS</text>
+      </g>
+      <!-- M2 mural on Grinders south-facing side wall -->
+      <rect class="crossroads-mural-m2" x="188" y="380" width="126" height="140" rx="1"/>
+
+      <!-- ── STREETCAR ── -->
+      <g class="crossroads-streetcar" aria-hidden="true">
+        <!-- Track -->
+        <line class="crossroads-track" x1="160" y1="572" x2="940" y2="346"/>
+        <!-- Car body (animates L→R across mid-street) -->
+        <g class="crossroads-streetcar-car">
+          <rect class="crossroads-car-body" x="0" y="-14" width="88" height="26" rx="3"/>
+          <rect class="crossroads-car-roof" x="4" y="-18" width="80" height="5" rx="2"/>
+          <line class="crossroads-car-window" x1="10" y1="-10" x2="10" y2="-2"/>
+          <line class="crossroads-car-window" x1="24" y1="-10" x2="24" y2="-2"/>
+          <line class="crossroads-car-window" x1="38" y1="-10" x2="38" y2="-2"/>
+          <line class="crossroads-car-window" x1="52" y1="-10" x2="52" y2="-2"/>
+          <line class="crossroads-car-window" x1="66" y1="-10" x2="66" y2="-2"/>
+          <line class="crossroads-car-window" x1="80" y1="-10" x2="80" y2="-2"/>
+        </g>
+      </g>
+
+      <!-- ── STREETLAMPS (2) ── -->
+      <!-- Left lamp -->
+      <g class="crossroads-lamp" aria-hidden="true">
+        <line class="crossroads-lamp-post" x1="108" y1="590" x2="108" y2="356"/>
+        <path class="crossroads-lamp-arm" d="M 108,356 Q 120,348 132,354" fill="none"/>
+        <ellipse class="crossroads-lamp-head" cx="134" cy="354" rx="8" ry="4"/>
+      </g>
+      <!-- Right lamp -->
+      <g class="crossroads-lamp" aria-hidden="true">
+        <line class="crossroads-lamp-post" x1="1488" y1="578" x2="1488" y2="356"/>
+        <path class="crossroads-lamp-arm" d="M 1488,356 Q 1476,348 1464,354" fill="none"/>
+        <ellipse class="crossroads-lamp-head" cx="1462" cy="354" rx="8" ry="4"/>
+      </g>
+
+      <!-- ── WALKERS (5 static, block-out) ── -->
+      <!-- W1: left sidewalk FG, coat-A -->
+      <g class="hill-walker crossroads-static" transform="translate(74, 562) scale(1.3)">
+        <circle class="walker-head" cx="0" cy="-14" r="3.5"/>
+        <rect class="walker-hat walker-hat-A" x="-4.5" y="-19" width="9" height="3" rx="0.5"/>
+        <rect class="walker-coat walker-coat-A" x="-4" y="-10" width="8" height="10" rx="0.5"/>
+        <line class="walker-arm" x1="-4" y1="-8" x2="-7" y2="-4" stroke-linecap="round"/>
+        <line class="walker-arm" x1="4" y1="-8" x2="7" y2="-4" stroke-linecap="round"/>
+        <line class="walker-leg" x1="-2" y1="0" x2="-3" y2="7" stroke-linecap="round"/>
+        <line class="walker-leg" x1="2" y1="0" x2="3" y2="7" stroke-linecap="round"/>
+      </g>
+      <!-- W2: right sidewalk FG, coat-C -->
+      <g class="hill-walker crossroads-static" transform="translate(1466, 546) scale(1.2)">
+        <circle class="walker-head" cx="0" cy="-14" r="3.5"/>
+        <rect class="walker-hat walker-hat-C" x="-4.5" y="-19" width="9" height="3" rx="0.5"/>
+        <rect class="walker-coat walker-coat-C" x="-4" y="-10" width="8" height="10" rx="0.5"/>
+        <line class="walker-arm" x1="-4" y1="-8" x2="-7" y2="-4" stroke-linecap="round"/>
+        <line class="walker-arm" x1="4" y1="-8" x2="7" y2="-4" stroke-linecap="round"/>
+        <line class="walker-leg" x1="-2" y1="0" x2="-3" y2="7" stroke-linecap="round"/>
+        <line class="walker-leg" x1="2" y1="0" x2="3" y2="7" stroke-linecap="round"/>
+      </g>
+      <!-- W3: left sidewalk mid, coat-E -->
+      <g class="hill-walker crossroads-static" transform="translate(218, 496) scale(0.95)">
+        <circle class="walker-head" cx="0" cy="-14" r="3.5"/>
+        <rect class="walker-hat walker-hat-E" x="-4.5" y="-19" width="9" height="3" rx="0.5"/>
+        <rect class="walker-coat walker-coat-E" x="-4" y="-10" width="8" height="10" rx="0.5"/>
+        <line class="walker-arm" x1="-4" y1="-8" x2="-7" y2="-4" stroke-linecap="round"/>
+        <line class="walker-arm" x1="4" y1="-8" x2="7" y2="-4" stroke-linecap="round"/>
+        <line class="walker-leg" x1="-2" y1="0" x2="-3" y2="7" stroke-linecap="round"/>
+        <line class="walker-leg" x1="2" y1="0" x2="3" y2="7" stroke-linecap="round"/>
+      </g>
+      <!-- W4: right mid, coat-B -->
+      <g class="hill-walker crossroads-static" transform="translate(1118, 466) scale(0.85)">
+        <circle class="walker-head" cx="0" cy="-14" r="3.5"/>
+        <rect class="walker-hat walker-hat-B" x="-4.5" y="-19" width="9" height="3" rx="0.5"/>
+        <rect class="walker-coat walker-coat-B" x="-4" y="-10" width="8" height="10" rx="0.5"/>
+        <line class="walker-arm" x1="-4" y1="-8" x2="-7" y2="-4" stroke-linecap="round"/>
+        <line class="walker-arm" x1="4" y1="-8" x2="7" y2="-4" stroke-linecap="round"/>
+        <line class="walker-leg" x1="-2" y1="0" x2="-3" y2="7" stroke-linecap="round"/>
+        <line class="walker-leg" x1="2" y1="0" x2="3" y2="7" stroke-linecap="round"/>
+      </g>
+      <!-- W5: left mid-back, coat-D -->
+      <g class="hill-walker crossroads-static" transform="translate(368, 440) scale(0.68)">
+        <circle class="walker-head" cx="0" cy="-14" r="3.5"/>
+        <rect class="walker-hat walker-hat-D" x="-4.5" y="-19" width="9" height="3" rx="0.5"/>
+        <rect class="walker-coat walker-coat-D" x="-4" y="-10" width="8" height="10" rx="0.5"/>
+        <line class="walker-arm" x1="-4" y1="-8" x2="-7" y2="-4" stroke-linecap="round"/>
+        <line class="walker-arm" x1="4" y1="-8" x2="7" y2="-4" stroke-linecap="round"/>
+        <line class="walker-leg" x1="-2" y1="0" x2="-3" y2="7" stroke-linecap="round"/>
+        <line class="walker-leg" x1="2" y1="0" x2="3" y2="7" stroke-linecap="round"/>
+      </g>
+
+    </svg>
+
+    <p class="crossroads-hero-caption">Looking south down Baltimore. The mural wall at left, Grinders and RecordBar receding toward the 21c Museum Hotel, the Crossroads Hotel anchoring the right, and Western Auto's sign at the end of the block — the view every First Friday crowd walks toward.</p>
+  </section>
 
   <main>
     <div class="detail-body">
@@ -296,5 +516,6 @@
     </div>
   </footer>
 
+  <script defer src="../js/responsive-hero.js"></script>
 </body>
 </html>

@@ -10993,3 +10993,222 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   stroke: rgba(245, 235, 210, 0.32);
   stroke-width: 0.4;
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   CROSSROADS ARTS DISTRICT — hero scene (v25 Round 1 block-out)
+   ViewBox 0 0 1600 640 · street-level looking south down Baltimore
+   VP at (940, 320) · 640px container (mural walls need vertical room)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Wrappers */
+.crossroads-hero-scene {
+  position: relative;
+  width: 100%;
+  height: 640px;
+  overflow: hidden;
+  background: #1A1610;
+}
+.crossroads-hero-backdrop {
+  position: absolute;
+  inset: 0;
+}
+.crossroads-hero-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.crossroads-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1.4rem 2rem;
+  pointer-events: none;
+  z-index: 2;
+}
+.crossroads-hero-overlay .eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  color: var(--warm-grey);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.crossroads-hero-overlay h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--cream);
+  margin: 0 0 0.4rem 0;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.75);
+}
+.crossroads-gold { color: var(--warm-gold); }
+.crossroads-tagline {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.24em;
+  color: rgba(201,168,76,0.82);
+  margin: 0;
+}
+.crossroads-hero-caption {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--warm-grey);
+  text-align: center;
+  max-width: 640px;
+  margin: 1.2rem auto 0;
+  padding: 0 1rem;
+}
+@media (max-width: 900px) { .crossroads-hero-scene { height: 500px; } }
+@media (max-width: 640px) {
+  .crossroads-hero-scene { height: 380px; }
+  .crossroads-hero-overlay { padding: 0.9rem 1.1rem; }
+}
+
+/* Sky + clouds */
+.crossroads-stars circle { fill: rgba(245,235,210,0.7); }
+.crossroads-cloud { animation: cloud-drift-a 200s linear infinite; }
+.crossroads-cloud-puff { fill: rgba(80,68,56,0.35); }
+
+/* VP towers (very faint downtown silhouettes) */
+.crossroads-tower-sil {
+  fill: rgba(201,168,76,0.14);
+  stroke: rgba(201,168,76,0.18);
+  stroke-width: 0.5;
+}
+
+/* Western Auto block */
+.crossroads-wa-block {
+  fill: #1A1008;
+  stroke: rgba(220,70,50,0.9);
+  stroke-width: 1.2;
+}
+.crossroads-wa-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  fill: rgba(220,70,50,0.95);
+  letter-spacing: 0.12em;
+}
+.crossroads-wa-sublabel {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 5.5px;
+  fill: rgba(245,235,210,0.5);
+  letter-spacing: 0.18em;
+}
+
+/* Rail bridge */
+.crossroads-bridge-chord {
+  stroke: rgba(201,168,76,0.45);
+  stroke-width: 1.2;
+}
+.crossroads-bridge-strut {
+  stroke: rgba(201,168,76,0.3);
+  stroke-width: 0.7;
+}
+
+/* Mural colors (flat block-out) */
+.crossroads-mural-m1 { fill: #00A5B5; opacity: 0.88; }   /* teal */
+.crossroads-mural-m2 { fill: #2958B5; opacity: 0.85; }   /* cobalt */
+.crossroads-mural-m3 { fill: #E55934; opacity: 0.82; }   /* hot orange */
+.crossroads-mural-m4 { fill: #2E7D52; opacity: 0.80; }   /* green */
+.crossroads-mural-m5 { fill: #7B5EA7; opacity: 0.78; }   /* purple */
+
+/* Building blocks */
+.crossroads-building-block {
+  fill: #2C2018;
+  stroke: rgba(201,168,76,0.35);
+  stroke-width: 0.8;
+}
+.crossroads-building-overlay {
+  fill: rgba(30,20,10,0.55);
+  stroke: rgba(201,168,76,0.25);
+  stroke-width: 0.6;
+}
+.crossroads-bldg-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  fill: rgba(201,168,76,0.72);
+  letter-spacing: 0.16em;
+}
+.crossroads-label-dark { fill: rgba(245,235,210,0.65); }
+
+/* Ground plane */
+.crossroads-pavement {
+  fill: #1E1810;
+  stroke: none;
+}
+.crossroads-sidewalk {
+  fill: #252016;
+  stroke: none;
+}
+.crossroads-centerline {
+  stroke: rgba(245,235,210,0.28);
+  stroke-width: 1.2;
+}
+.crossroads-curb {
+  stroke: rgba(245,235,210,0.22);
+  stroke-width: 0.7;
+}
+
+/* Streetcar */
+.crossroads-car-body {
+  fill: #1E2A3A;
+  stroke: rgba(201,168,76,0.5);
+  stroke-width: 0.8;
+  animation: crossroads-car-travel 72s linear infinite;
+}
+.crossroads-car-roof {
+  fill: rgba(201,168,76,0.15);
+  animation: crossroads-car-travel 72s linear infinite;
+}
+.crossroads-car-window {
+  stroke: rgba(201,168,76,0.4);
+  stroke-width: 0.7;
+  animation: crossroads-car-travel 72s linear infinite;
+}
+.crossroads-track {
+  stroke: rgba(201,168,76,0.22);
+  stroke-width: 1;
+}
+@keyframes crossroads-car-travel {
+  0%   { transform: translate(-240px, 140px) scale(0.55); opacity: 0; }
+  5%   { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translate(480px, -20px) scale(1.1); opacity: 0; }
+}
+
+/* Streetlamps */
+.crossroads-lamp-post {
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 1.4;
+}
+.crossroads-lamp-arm {
+  stroke: rgba(201,168,76,0.45);
+  stroke-width: 1.1;
+}
+.crossroads-lamp-head {
+  fill: rgba(201,168,76,0.2);
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.8;
+}
+
+/* Static walkers override (base .hill-walker has opacity:0) */
+.crossroads-static {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .crossroads-cloud { animation: none; }
+  .crossroads-car-body,
+  .crossroads-car-roof,
+  .crossroads-car-window { animation: none; transform: translate(120px, 60px) scale(0.8); opacity: 1; }
+}
