@@ -8356,7 +8356,7 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   overflow: hidden;
   background: #0A0603;
   isolation: isolate;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0;
 }
 @media (max-width: 900px) { .vine-hero-scene { height: 440px; } }
 @media (max-width: 640px) { .vine-hero-scene { height: 360px; } }
@@ -8393,13 +8393,32 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   font-weight: 400;
 }
 .vine-hero-overlay h1 span { color: var(--gold); }
+
+/* Vine subtitle (below scene section, between SVG and caption) */
+.vine-hero-subtitle {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.13em;
+  color: rgba(201, 168, 76, 0.68);
+  margin: 0 auto 0.8rem;
+  padding: 0 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  opacity: 0.75 !important;
+  animation: none !important;
+  line-height: 1.4;
+  max-width: 100%;
+  background: transparent;
+}
+
 @media (max-width: 900px) {
   .vine-hero-overlay { top: 1.4rem; max-width: 70%; }
 }
 @media (max-width: 640px) {
-  .vine-hero-overlay { top: 0.9rem; max-width: 90%; }
+  .vine-hero-overlay { top: 1rem; max-width: 92%; }
   .vine-hero-overlay h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
-  .vine-hero-overlay .eyebrow { font-size: 0.58rem; letter-spacing: 0.3em; margin-bottom: 0.3rem; }
+  .vine-hero-overlay .eyebrow { font-size: 0.58rem; letter-spacing: 0.3em; margin-bottom: 0.25rem; }
+  .vine-hero-subtitle { font-size: 0.6rem; margin-top: 0.5rem; letter-spacing: 0.08em; line-height: 1.3; }
 }
 
 .vine-hero-caption {
@@ -10800,7 +10819,6 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 1rem;
   padding: 0.42rem 0.95rem;
   border: 1px solid rgba(201, 168, 76, 0.42);
   border-radius: 999px;
@@ -10816,6 +10834,35 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   transition: background 240ms ease, border-color 240ms ease, color 240ms ease;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
+}
+
+/* Ghost toggle label — positioned in bottom-right corner of hero section */
+.vine-ghost-toggle-label,
+.westbottoms-ghost-toggle-label {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.8rem;
+  z-index: 4;
+  margin: 0;
+  top: auto;
+  left: auto;
+  transform: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+/* Icon-only button (checkbox only, no text) */
+.vine-ghost-toggle-label::before,
+.westbottoms-ghost-toggle-label::before {
+  width: 0.9rem;
+  height: 0.9rem;
 }
 
 .scene-ghost-toggle-label::before {
@@ -11203,6 +11250,25 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 .crossroads-static {
   opacity: 1 !important;
   animation: none !important;
+}
+
+/* Kauffman Center flowing roof */
+.crossroads-kauffman-roof {
+  fill: #3A2C20;
+  stroke: rgba(201,168,76,0.4);
+  stroke-width: 0.8;
+}
+/* TWA Building rocket */
+.crossroads-twa-rocket {
+  fill: rgba(201,168,76,0.55);
+  stroke: rgba(201,168,76,0.3);
+  stroke-width: 0.4;
+}
+/* Bartle Hall spires */
+.crossroads-bartle-spires rect {
+  fill: rgba(90,70,50,0.75);
+  stroke: rgba(201,168,76,0.3);
+  stroke-width: 0.5;
 }
 
 /* Reduced motion */

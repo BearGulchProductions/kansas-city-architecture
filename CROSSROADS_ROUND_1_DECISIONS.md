@@ -9,7 +9,9 @@
 ## Answers to the 6 open questions from the v24 planning brief §9
 
 ### Q1 — POV: approve street-level looking south down Baltimore?
-**APPROVE.** The brief's rationale is sound: mural wall (left FG) + Crossroads Hotel (right mid) + skyline VP all in one frame, street-level matches the dense/performative axis, Western Auto pulls the eye down the line. Add one constraint: keep perspective GENTLE 1-point (per the appendix's "what NOT to do"). No fisheye, no aggressive low angle. Frame should feel like a person standing on the sidewalk.
+**AMENDED 2026-04-26 — POV is NORTH-facing, not south.** The v24 brief §2 text saying "looking SOUTH" was a drafting error. Design intent was always north-facing — confirmed by landmark choices (downtown skyline, Bartle Hall pylons, Kauffman Center, 21c Museum Hotel all sit north of 18th & Baltimore and only land at the VP or mid-ground from a north-facing POV) and by the Southwest Blvd / Baltimore intersection geometry. This is a text correction, not a design change. The Round 1 block-out was already built north-facing; no repositioning needed.
+
+**Locked POV:** Street-level looking NORTH up Baltimore from roughly 20th–21st Street. Gentle 1-point perspective. VP at x≈940, y≈320 (downtown skyline + Bartle Hall pylons). West = left side of frame (Kauffman), East = right side (TWA Building). Western Auto drops from this scene (sits south/behind viewer); see POLISH_LIST.md for its future scene. No fisheye, no aggressive low angle. Frame should feel like a person standing on the sidewalk.
 
 ### Q2 — TOD: First Friday evening (narrow peak) vs. golden hour (broader)?
 **First Friday evening (dusk-into-night), full 40s TOD cycle running.** The narrow-peak risk (R5 in the brief) is acknowledged and acceptable — every other peak scene on the site (Plaza Lights, 18th & Vine jazz hour, Meyer Sea Horse) commits to a moment. Crossroads' identity is its dusk-night moment; rendering golden hour would render an adjacent neighborhood. Golden hour stays as a fallback only if a technical block-out problem forces it.
@@ -33,7 +35,7 @@
 
 ## Locked Round 1 build list (block-out only — no detail)
 
-**Composition target:** 1600 × 640 viewBox · street-level looking south down Baltimore · gentle 1-point perspective · VP at x≈940, y≈320.
+**Composition target:** 1600 × 640 viewBox · street-level looking NORTH up Baltimore from 20th–21st St · gentle 1-point perspective · VP at x≈940, y≈320 (downtown skyline + Bartle Hall pylons at deep north).
 
 **Elements (block-out shapes only — flat fills, no motifs, no facade detail):**
 

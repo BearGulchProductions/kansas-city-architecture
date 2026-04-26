@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css?v=25a" />
+  <link rel="stylesheet" href="../style.css?v=25b" />
   <meta property="og:title" content="The Crossroads Arts District — Look Up, Kansas City" />
   <meta property="og:description" content="KC's Crossroads Arts District turned warehouse vacancy into creative capital. The tension between authenticity and gentrification is still playing out." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/9/9a/Kansas_City_Crossroads_District_%2831507881750%29.jpg" />
@@ -128,8 +128,8 @@
          preserveAspectRatio="xMidYMax slice"
          xmlns="http://www.w3.org/2000/svg" role="img"
          aria-labelledby="crossroads-title crossroads-desc">
-      <title id="crossroads-title">The Crossroads Arts District — looking south down Baltimore Avenue toward Western Auto</title>
-      <desc id="crossroads-desc">A perspective street view looking south down Baltimore Avenue. Large painted murals fill the foreground walls. Grinders, RecordBar, and the 21c Museum Hotel line the east side. The Crossroads Hotel anchors the west side. Western Auto's iconic sign marks the vanishing point. Sky cycles dawn through night on a 40-second loop.</desc>
+      <title id="crossroads-title">The Crossroads Arts District — where Southwest Boulevard meets Baltimore, looking toward downtown</title>
+      <desc id="crossroads-desc">A perspective street view looking north from the Crossroads Arts District where Southwest Boulevard meets Baltimore Avenue. Town Topic Hamburgers anchors the left foreground. Grinders and the 21c Museum Hotel recede along the east side. The Crossroads Hotel, Kauffman Center, and TWA Building anchor the west side, with Bartle Hall spires rising above. Western Auto's iconic sign marks the vanishing point toward downtown. Sky cycles dawn through night on a 40-second loop.</desc>
 
       <defs>
         <radialGradient id="xr-wa-halo" cx="50%" cy="50%" r="50%">
@@ -165,12 +165,12 @@
         <rect class="crossroads-tower-sil" x="894" y="248" width="18" height="72"/>
       </g>
 
-      <!-- ── WESTERN AUTO BLOCK (VP terminator) ── -->
+      <!-- ── WESTERN AUTO SIGN (far right, eastern anchor) ── -->
       <g class="crossroads-wa-group" aria-hidden="true">
-        <ellipse class="crossroads-wa-halo" cx="940" cy="306" rx="96" ry="54" fill="url(#xr-wa-halo)"/>
-        <rect class="crossroads-wa-block" x="876" y="280" width="128" height="54" rx="2"/>
-        <text class="crossroads-wa-text" x="940" y="312" text-anchor="middle">WA</text>
-        <text class="crossroads-wa-sublabel" x="940" y="326" text-anchor="middle">WESTERN AUTO</text>
+        <ellipse class="crossroads-wa-halo" cx="1360" cy="296" rx="96" ry="54" fill="url(#xr-wa-halo)"/>
+        <rect class="crossroads-wa-block" x="1296" y="270" width="128" height="54" rx="2"/>
+        <text class="crossroads-wa-text" x="1360" y="302" text-anchor="middle">WA</text>
+        <text class="crossroads-wa-sublabel" x="1360" y="316" text-anchor="middle">WESTERN AUTO</text>
       </g>
 
       <!-- ── RAIL BRIDGE (horizon identity line) ── -->
@@ -198,6 +198,21 @@
       <rect class="crossroads-mural-m4" x="584" y="342" width="48" height="110" rx="1"/>
 
       <!-- ── LEFT-SIDE BUILDINGS (east of Baltimore, receding) ── -->
+      <!-- Bartle Hall spires (left deep background, visible above Kauffman roofline) -->
+      <g class="crossroads-bartle-spires" aria-hidden="true">
+        <rect x="648" y="128" width="5" height="72" rx="1"/>
+        <rect x="670" y="114" width="5" height="86" rx="1"/>
+        <rect x="696" y="122" width="5" height="78" rx="1"/>
+        <rect x="722" y="130" width="5" height="70" rx="1"/>
+        <rect x="748" y="136" width="5" height="64" rx="1"/>
+      </g>
+      <!-- Kauffman Center for Performing Arts (left background, between 21c and VP) -->
+      <g class="crossroads-bldg-kauffman" aria-hidden="true">
+        <rect class="crossroads-building-block" x="638" y="218" width="186" height="132" rx="1"/>
+        <path class="crossroads-kauffman-roof" d="M 638,218 Q 672,188 706,204 Q 730,172 764,188 Q 792,176 814,196 Q 826,212 824,218 L 638,218 Z"/>
+        <text class="crossroads-bldg-label" x="731" y="268" text-anchor="middle">KAUFFMAN</text>
+        <text class="crossroads-bldg-label" x="731" y="284" text-anchor="middle">CENTER</text>
+      </g>
       <!-- 21c Museum Hotel (mid-back left) -->
       <g class="crossroads-bldg-21c" aria-hidden="true">
         <rect class="crossroads-building-block" x="486" y="276" width="152" height="214" rx="1"/>
@@ -205,14 +220,14 @@
         <text class="crossroads-bldg-label" x="562" y="368" text-anchor="middle">MUSEUM</text>
         <text class="crossroads-bldg-label" x="562" y="383" text-anchor="middle">HOTEL</text>
       </g>
-      <!-- RecordBar (left mid) -->
-      <g class="crossroads-bldg-recordbar" aria-hidden="true">
-        <rect class="crossroads-building-block" x="326" y="316" width="164" height="174" rx="1"/>
-        <text class="crossroads-bldg-label" x="408" y="388" text-anchor="middle">RECORD</text>
-        <text class="crossroads-bldg-label" x="408" y="404" text-anchor="middle">BAR</text>
-      </g>
 
       <!-- ── RIGHT-SIDE BUILDINGS (west of Baltimore, receding) ── -->
+      <!-- RecordBar (right side, behind TWA Building — label visible above TWA roofline) -->
+      <g class="crossroads-bldg-recordbar" aria-hidden="true">
+        <rect class="crossroads-building-block" x="1264" y="270" width="176" height="272" rx="1"/>
+        <text class="crossroads-bldg-label" x="1352" y="300" text-anchor="middle">RECORD</text>
+        <text class="crossroads-bldg-label" x="1352" y="316" text-anchor="middle">BAR</text>
+      </g>
       <!-- Crossroads Hotel (right mid, dominant) -->
       <g class="crossroads-bldg-hotel" aria-hidden="true">
         <rect class="crossroads-building-block" x="956" y="216" width="282" height="324" rx="1"/>
@@ -221,11 +236,15 @@
       </g>
       <!-- M3 mural — visible north wall of Hotel -->
       <rect class="crossroads-mural-m3" x="914" y="254" width="46" height="288" rx="1"/>
-      <!-- Town Topic Hamburgers (far right FG) -->
-      <g class="crossroads-bldg-towntopic" aria-hidden="true">
-        <rect class="crossroads-building-block" x="1244" y="406" width="198" height="172" rx="1"/>
-        <text class="crossroads-bldg-label" x="1343" y="472" text-anchor="middle">TOWN TOPIC</text>
-        <text class="crossroads-bldg-label" x="1343" y="488" text-anchor="middle">HAMBURGERS</text>
+      <!-- TWA Building with rocket on top (far right FG) -->
+      <g class="crossroads-bldg-twa" aria-hidden="true">
+        <polygon class="crossroads-twa-rocket" points="1320,292 1332,264 1344,292"/>
+        <rect class="crossroads-twa-rocket" x="1322" y="292" width="20" height="70"/>
+        <polygon class="crossroads-twa-rocket" points="1314,350 1308,366 1322,358"/>
+        <polygon class="crossroads-twa-rocket" points="1342,350 1354,366 1342,358"/>
+        <rect class="crossroads-building-block" x="1264" y="360" width="172" height="220" rx="1"/>
+        <text class="crossroads-bldg-label" x="1350" y="416" text-anchor="middle">TWA</text>
+        <text class="crossroads-bldg-label" x="1350" y="432" text-anchor="middle">BLDG</text>
       </g>
 
       <!-- ── GROUND PLANE: sidewalks + street ── -->
@@ -244,6 +263,12 @@
 
       <!-- ── LEFT FG MURAL WALL (M1 — the big one) ── -->
       <rect class="crossroads-mural-m1" x="0" y="156" width="312" height="434" rx="0"/>
+      <!-- Town Topic Hamburgers (left mid-FG, iconic KC diner with neon sign) -->
+      <g class="crossroads-bldg-towntopic" aria-hidden="true">
+        <rect class="crossroads-building-block" x="296" y="418" width="148" height="172" rx="1"/>
+        <text class="crossroads-bldg-label" x="370" y="484" text-anchor="middle">TOWN TOPIC</text>
+        <text class="crossroads-bldg-label" x="370" y="500" text-anchor="middle">HAMBURGERS</text>
+      </g>
       <!-- Grinders building body (overlays M1 base, sets the context) -->
       <g class="crossroads-bldg-grinders" aria-hidden="true">
         <rect class="crossroads-building-overlay" x="40" y="366" width="252" height="224" rx="1"/>
@@ -337,7 +362,7 @@
 
     </svg>
 
-    <p class="crossroads-hero-caption">Looking south down Baltimore. The mural wall at left, Grinders and RecordBar receding toward the 21c Museum Hotel, the Crossroads Hotel anchoring the right, and Western Auto's sign at the end of the block — the view every First Friday crowd walks toward.</p>
+    <p class="crossroads-hero-caption">The Crossroads where Southwest Boulevard meets Baltimore — looking toward downtown. Town Topic's diner anchors the left, Grinders behind it, the 21c Museum Hotel further back. Kauffman Center and Bartle Hall's spires rise above the Crossroads Hotel on the right, with the TWA Building's rocket marking the corner. Western Auto's sign glows at the vanishing point.</p>
   </section>
 
   <main>
@@ -516,6 +541,6 @@
     </div>
   </footer>
 
-  <script defer src="../js/responsive-hero.js"></script>
+  <script defer src="../js/responsive-hero.js?v=17e"></script>
 </body>
 </html>

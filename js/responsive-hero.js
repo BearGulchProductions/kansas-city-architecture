@@ -1,10 +1,9 @@
-// v17d: On narrow viewports, swap signature-scene SVGs from
-// preserveAspectRatio="xMidYMid slice" (fills container, clips sides) to
-// "xMidYMid meet" (fits entire viewBox inside container with small letterbox).
-// Ensures mobile users see the full left/right details of fountain & scene pages.
+// v17e: All viewports use slice (fill container, clip sides) so sky backdrop
+// never shows as a letterbox gap above/below scene content.
+// 18th & Vine left-anchors on mobile+medium to keep Parker Memorial in frame.
 //
-// Three-mode logic (added for 18th & Vine left-clip fix):
-//   mobile (<=640px):     xMidYMid meet       — full scene, letterbox
+//   mobile (<=640px):     xMinYMax slice       — vine: left-anchor keeps Parker
+//                         xMidYMax slice       — all others: centered
 //   medium (641-900px):   xMinYMax slice       — vine only: left-anchor keeps Parker
 //                         xMidYMax slice       — all others: centered
 //   desktop (>900px):     xMidYMax slice       — centered, bottom-anchored
@@ -32,12 +31,10 @@
     var isMedium = !isMobile && window.innerWidth <= MEDIUM_BREAKPOINT;
     svgs.forEach(function (svg) {
       var mode;
-      if (isMobile) {
-        mode = 'xMidYMid meet';
-      } else if (isMedium && svg.classList.contains('vine-hero-svg')) {
+      if ((isMobile || isMedium) && svg.classList.contains('vine-hero-svg')) {
         // 18th & Vine has key content on the far left (Parker, sign building).
-        // Left-anchor so medium-width clipping takes from the right (far YMCA
-        // edge) rather than the left.
+        // Left-anchor so clipping takes from the right (far YMCA edge) rather
+        // than the left — on both mobile and medium widths.
         mode = 'xMinYMax slice';
       } else {
         mode = 'xMidYMax slice';

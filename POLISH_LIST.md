@@ -19,7 +19,12 @@ Items in this file are real, identified, and worth doing — but NOT priority-bl
 ---
 
 ## Inactive / future ideas
-*(empty — add as they come up)*
+
+### Western Auto Sign — candidate for its own future signature scene
+- **Context:** During Crossroads Round 2 geography lock-in (2026-04-25), Western Auto Sign at 21st & Grand was found to be geographically incompatible with the Crossroads scene's north-facing POV (the sign is southeast of the viewer, behind their right shoulder).
+- **Why hold it:** Western Auto Sign + Western Auto Lofts is one of KC's most iconic visual landmarks. Too good to lose because it didn't fit one frame.
+- **Planning brief:** `WESTERN_AUTO_PLANNING.md` v0 complete (2026-04-26). POV: street-level looking north up Grand Blvd from ~22nd St. TOD: night. Anchor: red neon arrow + "WESTERN AUTO" sign at VP. 9 open questions for Brian + Cowork before Code starts.
+- **Estimate:** entire signature scene, multiple rounds — not a polish-session item, a scene-roadmap item.
 
 ---
 
