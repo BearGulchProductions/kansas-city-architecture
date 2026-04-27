@@ -112,4 +112,26 @@ Don't rewrite the plan above. Let it accumulate as a session log. Cowork reads t
 
 ---
 
+## Session 2026-04-26 (Code session 2 — Building detail + roads)
+- Done:
+  - Building detail pass on 8 landmarks: Town Topic (marquee sign structure + storefront), Grinders (brick coursework + loading doors + windows), TWA (window grid + floor banding + styled rocket), RecordBar (blank brick wall + bold signage), Crossroads Hotel (extensive 8-column window grid + floor banding), 21c Museum Hotel (ornamental cornice + arched windows + brick coursework), Kauffman (glass facade window grid + TWO iconic curved roof shells), Bartle Hall (spire count corrected from 5 to 4).
+  - Southwest Boulevard geometry initiated: diagonal triangle in 1-point perspective, south curb follows existing left-sidewalk edge (0,490→940,320), north curb ~70px higher. **Status: visible but geometry needs refinement — right edge should terminate at Baltimore's crosswalk intersection (~y=400-410), NOT at VP. Defer full fix to next session.**
+  - Midtown KCTV5 tower beacon clipping fixed: transform corrected to `translate(93, 93) scale(0.9, 0.77)` — beacon now visible at 1920px desktop, base planted correctly.
+- Skipped/blocked:
+  - Kauffman curved roof detail pass (wasted tokens attempting to match reference; deferred for dedicated session with full reference focus).
+  - Town Topic marquee sign (requires major quality pass with reference images — iconic element deserves focused work, not rushed cycles).
+  - Additional buildings (Bartle Hall base building, others) — deferred to allow Southwest Boulevard work.
+- Carry-forward to next session:
+  - **Southwest Boulevard right-edge fix:** termination point should be at the Baltimore/Southwest crosswalk (real intersection), NOT at VP. Geometry is in place; just needs endpoint adjustment. Reference the real map (user provided) showing 4-way crosswalk.
+  - **Town Topic marquee sign refinement:** needs dedicated quality pass with Art Deco reference images. Sign should feel iconic and read clearly. Currently covers geometry issue (street/building layering) that will be exposed when sign is moved.
+  - **Town Topic sign repositioning:** sign is covered by ground plane — needs vertical repositioning so it sits visibly above the building. Streets may need layer reordering.
+  - **Kauffman curved roof (if time):** verify TWO-shell representation is visually clear; consider enhancing panel articulation lines if they're too subtle.
+  - Major quality passes flagged for future:
+    - Town Topic sign (iconic, needs reference accuracy)
+    - TWA building rocket (needs Art Deco retro-futuristic refinement per reference)
+    - Overall scene layering/z-order (ground plane may be covering building bases)
+- Pre-flight items raised for next session: None — all technical. Proceed directly to Southwest Boulevard fix.
+
+---
+
 **End of next-session plan.**
